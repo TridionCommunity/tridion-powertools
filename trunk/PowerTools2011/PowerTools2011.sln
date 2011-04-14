@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools2011", "PowerTool
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PowerToolsEditor", "..\PowerToolsEditor\", "{168DEF95-17B0-4F78-8672-325136E8FABD}"
 	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/PowerToolsEditor"
 		Debug.AspNetCompiler.PhysicalPath = "..\PowerToolsEditor\"
