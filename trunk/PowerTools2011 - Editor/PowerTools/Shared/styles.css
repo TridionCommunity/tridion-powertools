@@ -1,0 +1,18 @@
+
+body
+{
+    font-family: Arial;
+    font-size:12px;
+}
+
+div#PowerToolIcon
+{
+    width:64px;
+    height:64px;
+    float:right;
+}
+
+
+.PT_Example .image {background-image:url({ThemePath}/PowerTools/Example/Icons/example_16.png);}
+.ribbontoolbar .button.PT_Example .image {background-image: url({ThemePath}/PowerTools/Example/Icons/example_32.png);} 
+.ribbontoolbar.minimized .button.PT_Example .image {background-image: url({ThemePath}/PowerTools/Example/Icons/example_16.png);} 
