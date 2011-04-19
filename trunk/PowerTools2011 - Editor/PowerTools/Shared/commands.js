@@ -11,13 +11,10 @@ UrbanCherry.SDLTridion.GUIExtensions.PowerTools2011.Default.prototype.isAvailabl
 
 UrbanCherry.SDLTridion.GUIExtensions.PowerTools2011.Default.prototype.isEnabled = function Default$isEnabled(selection) {
 
-    return false;
+    return true;
 };
 
 UrbanCherry.SDLTridion.GUIExtensions.PowerTools2011.Default.prototype._execute = function Default$_execute(selection) {
-        var uriSelection = selection.getItem(0);
-        var PopUpUrl = "/WebUI/Editors/PowerTools2011/PowerTools/Example/Main_PopUp.aspx" + "?id=" + uriSelection;
-        var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=300,resizable=no,scrollbars=yes", null);
-        popup.open();
+    alert("This is the EXECUTE() method in the 'commands.js' file stored in '/powertools/shared' directory");
 };
 
