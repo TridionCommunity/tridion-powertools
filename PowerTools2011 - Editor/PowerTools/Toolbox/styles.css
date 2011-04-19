@@ -1,0 +1,4 @@
+
+.PT_Toolbox .image {background-image:url({ThemePath}/PowerTools/Shared/Icons/toolbox_16.png);}
+.ribbontoolbar .button.PT_Toolbox .image {background-image: url({ThemePath}/PowerTools/Toolbox/Icons/toolbox_32.png);} 
+.ribbontoolbar.minimized .button.PT_Toolbox .image {background-image: url({ThemePath}/PowerTools/Toolbox/Icons/toolbox_16.png);} 

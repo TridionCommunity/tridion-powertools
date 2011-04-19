@@ -1,0 +1,8 @@
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\bin\PowerTools2011Editor.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\bin\PowerTools2011Editor.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\PowerTools2011Editor.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\PowerTools2011Editor.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\Interop.MSXML2.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\Interop.VBA.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\PowerTools2011 - Editor.csproj.ResolveComReference.cache
