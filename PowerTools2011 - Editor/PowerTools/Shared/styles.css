@@ -12,7 +12,6 @@ div#PowerToolIcon
     float:right;
 }
 
-
 .PT_Default .image {background-image:url({ThemePath}/PowerTools/Shared/Icons/terminal_16.png);}
 .ribbontoolbar .button.PT_Default .image {background-image: url({ThemePath}/PowerTools/Shared/Icons/terminal_32.png);} 
 .ribbontoolbar.minimized .button.PT_Default .image {background-image: url({ThemePath}/PowerTools/Shared/Icons/terminal_16.png);} 
