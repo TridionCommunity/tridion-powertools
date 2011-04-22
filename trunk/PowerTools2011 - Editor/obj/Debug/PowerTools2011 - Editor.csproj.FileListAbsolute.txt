@@ -6,3 +6,12 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\Powe
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\Interop.MSXML2.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\Interop.VBA.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Editor\obj\Debug\PowerTools2011 - Editor.csproj.ResolveComReference.cache
+C:\SVN\PowerTools2011 - Editor\bin\PowerTools2011Editor.dll
+C:\SVN\PowerTools2011 - Editor\bin\PowerTools2011Editor.pdb
+C:\SVN\PowerTools2011 - Editor\obj\Debug\ResolveAssemblyReference.cache
+C:\SVN\PowerTools2011 - Editor\obj\Debug\Interop.MSXML2.dll
+C:\SVN\PowerTools2011 - Editor\obj\Debug\Interop.VBA.dll
+C:\SVN\PowerTools2011 - Editor\obj\Debug\PowerTools2011 - Editor.csproj.ResolveComReference.cache
+C:\SVN\PowerTools2011 - Editor\obj\Debug\PowerTools2011Editor.dll
+C:\SVN\PowerTools2011 - Editor\obj\Debug\PowerTools2011Editor.pdb
+C:\SVN\PowerTools2011 - Editor\bin\AjaxControlToolkit.dll

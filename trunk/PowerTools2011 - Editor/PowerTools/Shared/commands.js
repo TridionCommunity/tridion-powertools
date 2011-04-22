@@ -15,6 +15,7 @@ UrbanCherry.SDLTridion.GUIExtensions.PowerTools2011.Default.prototype.isEnabled 
 };
 
 UrbanCherry.SDLTridion.GUIExtensions.PowerTools2011.Default.prototype._execute = function Default$_execute(selection) {
+    debugger
     alert("This is the EXECUTE() method in the 'commands.js' file stored in '/powertools/shared' directory");
 };
 
