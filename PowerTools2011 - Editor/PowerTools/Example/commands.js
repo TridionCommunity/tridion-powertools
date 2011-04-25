@@ -16,8 +16,8 @@ UrbanCherry.SDLTridion.GUIExtensions.PowerTools2011.Example.prototype.isEnabled 
 
 UrbanCherry.SDLTridion.GUIExtensions.PowerTools2011.Example.prototype._execute = function Example$_execute(selection) {
         var uriSelection = selection.getItem(0);
-        var PopUpUrl = "/WebUI/Editors/PowerTools2011/PowerTools/Example/Main_PopUp.aspx" + "?id=" + uriSelection;
-        var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=300,resizable=no,scrollbars=yes", null);
+        var PopUpUrl = "/WebUI/Editors/PowerTools2011/PowerTools/Example/Example.aspx" + "?id=" + uriSelection;
+        var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=300,resizable=false,scrollbars=false", null);
         popup.open();
 };
 
