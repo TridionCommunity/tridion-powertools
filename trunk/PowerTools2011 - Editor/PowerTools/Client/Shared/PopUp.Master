@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PopUp.master.cs" Inherits="PowerTools2011Editor.PowerTools.Shared.PopUp" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools2011.Common.MasterPages.PopupMaster" %>
 <%@ Import Namespace="Tridion.Web.UI.Core"%>
 <%@ Import Namespace="Tridion.Web.UI"%>
 <%@ Import Namespace="System.Web" %>
@@ -7,10 +7,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://www.sdltridion.com/web/ui/controls">
 <head runat="server">
     <title>PowerTools 2011: <%=Page.Title%></title>
-    <link rel="shortcut icon" href="/WebUI/Editors/PowerTools2011/PowerTools/Shared/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/WebUI/Editors/PowerTools2011/PowerTools/Shared/styles.css" type="text/css"/>
-    <link rel="stylesheet" href="/WebUI/Editors/PowerTools2011/PowerTools/BatchImageUploader/styles.css" type="text/css"/>
-    <script src="/WebUI/Editors/PowerTools2011/PowerTools/Shared/Main.js" type="text/javascript"></script>
+    <%--<link rel="shortcut icon" href="/WebUI/Editors/PowerTools2011/PowerTools/Shared/favicon.ico" type="image/x-icon" />--%>
+    <link rel="stylesheet" href="Themes/styles.css" type="text/css"/>
+    <%--<link rel="stylesheet" href="/WebUI/Editors/PowerTools2011/PowerTools/BatchImageUploader/styles.css" type="text/css"/>
+    <script src="/WebUI/Editors/PowerTools2011/PowerTools/Shared/Main.js" type="text/javascript"></script>--%>
 </head>
 <body id="StackElement" class="stack popupview">
     <form id="form1" runat="server">

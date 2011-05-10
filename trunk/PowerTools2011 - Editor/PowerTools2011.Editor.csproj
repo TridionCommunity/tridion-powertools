@@ -10,9 +10,10 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PowerTools2011Editor</RootNamespace>
-    <AssemblyName>PowerTools2011Editor</AssemblyName>
+    <RootNamespace>PowerTools2011.Editor</RootNamespace>
+    <AssemblyName>PowerTools2011.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,88 +81,68 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PowerTools\BatchImageUploader\test.svc" />
-    <Content Include="PowerTools\Example\ExampleService.js" />
-    <Content Include="PowerTools\Example\ExampleService.svc" />
-    <Content Include="PowerTools\BatchImageUploader\BatchImageUploader.aspx" />
-    <Content Include="PowerTools\BatchImageUploader\commands.js" />
-    <Content Include="PowerTools\BatchImageUploader\Icons\imageupload_16.png" />
-    <Content Include="PowerTools\BatchImageUploader\Icons\imageupload_32.png" />
-    <Content Include="PowerTools\BatchImageUploader\Icons\imageupload_64.png" />
-    <Content Include="PowerTools\BatchImageUploader\styles.css" />
-    <Content Include="PowerTools\CompSync\commands.js" />
-    <Content Include="PowerTools\CompSync\styles.css" />
-    <Content Include="PowerTools\Example\commands.js" />
-    <Content Include="PowerTools\Example\Icons\example_16.png" />
-    <Content Include="PowerTools\Example\Icons\example_32.png" />
-    <Content Include="PowerTools\Example\styles.css" />
-    <Content Include="PowerTools\Example\Example.aspx" />
-    <Content Include="PowerTools\PublishQPublish\commands.js" />
-    <Content Include="PowerTools\Shared\commands.js" />
-    <Content Include="PowerTools\Shared\Icons\terminal_16.png" />
-    <Content Include="PowerTools\Shared\Icons\terminal_32.png" />
-    <Content Include="PowerTools\Shared\Icons\terminal_64.png" />
-    <Content Include="PowerTools\Shared\jquery.js" />
-    <Content Include="PowerTools\Shared\Main.js" />
-    <Content Include="PowerTools\Shared\styles.css" />
-    <Content Include="PowerTools\Toolbox\commands.js" />
-    <Content Include="PowerTools\Toolbox\Icons\toolbox_16.png" />
-    <Content Include="PowerTools\Toolbox\Icons\toolbox_32.png" />
-    <Content Include="PowerTools\Toolbox\Icons\toolbox_64.png" />
-    <Content Include="PowerTools\Toolbox\index.aspx" />
-    <Content Include="PowerTools\Toolbox\styles.css" />
-    <Content Include="Web.config">
+    <Content Include="PowerTools\Client\BatchImageUploader\test.svc" />
+    <Content Include="PowerTools\Client\Example\Example.aspx.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\Types.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
+    <Content Include="PowerTools\Client\Example\ExampleServiceProxy.js" />
+    <Content Include="PowerTools\Server\Example\ExampleService.svc" />
+    <Content Include="PowerTools\Client\BatchImageUploader\BatchImageUploader.aspx" />
+    <Content Include="PowerTools\Client\BatchImageUploader\commands.js" />
+    <Content Include="PowerTools\Client\BatchImageUploader\Icons\imageupload_16.png" />
+    <Content Include="PowerTools\Client\BatchImageUploader\Icons\imageupload_32.png" />
+    <Content Include="PowerTools\Client\BatchImageUploader\Icons\imageupload_64.png" />
+    <Content Include="PowerTools\Client\BatchImageUploader\styles.css" />
+    <Content Include="PowerTools\Client\CompSync\commands.js" />
+    <Content Include="PowerTools\Client\CompSync\styles.css" />
+    <Content Include="PowerTools\Client\Example\ExampleCommand.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\example_32.png" />
+    <Content Include="PowerTools\Client\Example\Theme\styles.css" />
+    <Content Include="PowerTools\Client\Example\Example.aspx" />
+    <Content Include="PowerTools\Client\PublishQPublish\commands.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\commands.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_64.png" />
+    <Content Include="PowerTools\Client\Shared\Scripts\Main.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
+    <Content Include="PowerTools\Client\Toolbox\commands.js" />
+    <Content Include="PowerTools\Client\Toolbox\Icons\toolbox_16.png" />
+    <Content Include="PowerTools\Client\Toolbox\Icons\toolbox_32.png" />
+    <Content Include="PowerTools\Client\Toolbox\Icons\toolbox_64.png" />
+    <Content Include="PowerTools\Client\Toolbox\index.aspx" />
+    <Content Include="PowerTools\Client\Toolbox\styles.css" />
+    <Content Include="PowerTools\Server\Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\BaseService.cs" />
-    <Compile Include="App_Code\ProgressBar.cs" />
-    <Compile Include="PowerTools\BatchImageUploader\test.svc.cs">
+    <Compile Include="PowerTools\Client\BatchImageUploader\test.svc.cs">
       <DependentUpon>test.svc</DependentUpon>
     </Compile>
-    <Compile Include="PowerTools\Example\ExampleService.svc.cs">
-      <DependentUpon>ExampleService.svc</DependentUpon>
-    </Compile>
-    <Compile Include="PowerTools\BatchImageUploader\BatchImageUploader.aspx.cs">
+    <Compile Include="PowerTools\Client\BatchImageUploader\BatchImageUploader.aspx.cs">
       <DependentUpon>BatchImageUploader.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PowerTools\BatchImageUploader\BatchImageUploader.aspx.designer.cs">
+    <Compile Include="PowerTools\Client\BatchImageUploader\BatchImageUploader.aspx.designer.cs">
       <DependentUpon>BatchImageUploader.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PowerTools\Example\Example.aspx.cs">
-      <DependentUpon>Example.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PowerTools\Example\Example.aspx.designer.cs">
-      <DependentUpon>Example.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PowerTools\Shared\FullPage.Master.cs">
-      <DependentUpon>FullPage.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PowerTools\Shared\FullPage.Master.designer.cs">
-      <DependentUpon>FullPage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="PowerTools\Shared\PopUp.Master.cs">
-      <DependentUpon>PopUp.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PowerTools\Shared\PopUp.Master.designer.cs">
-      <DependentUpon>PopUp.Master</DependentUpon>
-    </Compile>
-    <Compile Include="PowerTools\Toolbox\index.aspx.cs">
+    <Compile Include="PowerTools\Client\Toolbox\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PowerTools\Toolbox\index.aspx.designer.cs">
+    <Compile Include="PowerTools\Client\Toolbox\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="editor.config">
+    <Content Include="Configuration\editor.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -186,12 +167,18 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PowerTools\Shared\PopUp.Master" />
+    <Content Include="PowerTools\Client\Shared\PopUp.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PowerTools\Shared\FullPage.Master" />
+    <Content Include="PowerTools\Client\Shared\FullPage.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PowerTools\Client\Example\Theme\Icons\" />
+    <Folder Include="PowerTools\Server\Bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\Editor.Fragment.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
@@ -214,7 +201,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
