@@ -1,0 +1,45 @@
+
+.PT_Example .image {background-image:url({ThemePath}/icons/example_16.png);}
+.ribbontoolbar .button.PT_Example .image {background-image: url({ThemePath}/Icons/example_32.png);} 
+.ribbontoolbar.minimized .button.PT_Example .image {background-image: url({ThemePath}/Icons/example_16.png);} 
+
+.customButton {
+    cursor: pointer;
+    float: right;
+    font-size: 11px;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+  body{
+                font-family: Arial;
+    font-size:12px;
+        }
+        /* Z-index of #mask must lower than #boxes .window */
+        #mask
+        {
+            position: absolute;
+            top: 0;
+            left:0;
+            z-index: 9000;
+            background-color: #000;
+            display: none;
+        }
+        
+        #ModalDialog .window
+        {
+            position: absolute;
+            width: 440px;
+            height: 200px;
+            display: none;
+            z-index: 9999;
+            padding: 20px;
+        }
+        
+        
+        /* Customize your modal window here, you can add background image too */
+        #boxes #dialog
+        {
+            width: 375px;
+            height: 203px;
+        }
