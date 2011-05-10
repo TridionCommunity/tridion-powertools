@@ -66,6 +66,9 @@
     <Compile Include="MasterPages\PopupMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Pages\BatchImageUploader.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\ExamplePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

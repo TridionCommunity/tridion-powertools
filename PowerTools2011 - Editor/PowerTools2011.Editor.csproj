@@ -93,11 +93,11 @@
     <Content Include="PowerTools\Client\Example\ExampleServiceProxy.js" />
     <Content Include="PowerTools\Server\Example\ExampleService.svc" />
     <Content Include="PowerTools\Client\BatchImageUploader\BatchImageUploader.aspx" />
-    <Content Include="PowerTools\Client\BatchImageUploader\commands.js" />
-    <Content Include="PowerTools\Client\BatchImageUploader\Icons\imageupload_16.png" />
-    <Content Include="PowerTools\Client\BatchImageUploader\Icons\imageupload_32.png" />
-    <Content Include="PowerTools\Client\BatchImageUploader\Icons\imageupload_64.png" />
-    <Content Include="PowerTools\Client\BatchImageUploader\styles.css" />
+    <Content Include="PowerTools\Client\BatchImageUploader\BatchImageUploaderCommand.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_64.png" />
+    <Content Include="PowerTools\Client\BatchImageUploader\Theme\styles.css" />
     <Content Include="PowerTools\Client\CompSync\commands.js" />
     <Content Include="PowerTools\Client\CompSync\styles.css" />
     <Content Include="PowerTools\Client\Example\ExampleCommand.js" />
@@ -124,13 +124,6 @@
   <ItemGroup>
     <Compile Include="PowerTools\Client\BatchImageUploader\test.svc.cs">
       <DependentUpon>test.svc</DependentUpon>
-    </Compile>
-    <Compile Include="PowerTools\Client\BatchImageUploader\BatchImageUploader.aspx.cs">
-      <DependentUpon>BatchImageUploader.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PowerTools\Client\BatchImageUploader\BatchImageUploader.aspx.designer.cs">
-      <DependentUpon>BatchImageUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\Toolbox\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -173,7 +166,7 @@
     <Content Include="PowerTools\Client\Shared\FullPage.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PowerTools\Client\Example\Theme\Icons\" />
+    <Folder Include="PowerTools\Client\BatchImageUploader\Icons\" />
     <Folder Include="PowerTools\Server\Bin\" />
   </ItemGroup>
   <ItemGroup>
