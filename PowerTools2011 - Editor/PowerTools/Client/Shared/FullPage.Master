@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PopUp.master.cs" Inherits="PowerTools2011Editor.PowerTools.Shared.FullPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools2011.Common.MasterPages.FullPageMaster" %>
 <%@ Import Namespace="Tridion.Web.UI.Core"%>
 <%@ Import Namespace="Tridion.Web.UI"%>
 <%@ Import Namespace="System.Web" %>
@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://www.sdltridion.com/web/ui/controls">
 <head id="Head1" runat="server">
     <title>PowerTools 2011: <%=Page.Title%></title>
-    <link rel="stylesheet" href="/WebUI/Editors/PowerTools2011/PowerTools/Shared/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="Theme/styles.css" type="text/css"/>
 </head>
 <body id="StackElement" class="stack popupview">
     <form id="form1" runat="server">
