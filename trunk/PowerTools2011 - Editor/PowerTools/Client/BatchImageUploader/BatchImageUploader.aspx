@@ -1,4 +1,7 @@
-﻿<%@ Page Title="Batch Image Uploader" Language="C#" MasterPageFile="/WebUI/Editors/PowerTools2011/PowerTools/Shared/PopUp.Master" AutoEventWireup="true" CodeBehind="BatchImageUploader.aspx.cs" Inherits="PowerTools2011Editor.PowerTools.BatchImageUploader.BatchImageUploader" %>
+﻿<%@ Page Title="Batch Image Uploader" Language="C#"  AutoEventWireup="true" 
+MasterPageFile="/WebUI/Editors/PowerTools2011/PowerTools/Client/Shared/PopUp.Master"
+Inherits="PowerTools2011.Common.Pages.BatchImageUploader" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
     <p>
     This tool creates multimedia components for each binary file the folder that you specify. <br />

@@ -2,9 +2,11 @@
 <%@ Import Namespace="Tridion.Web.UI.Core"%>
 <%@ Import Namespace="Tridion.Web.UI"%>
 <%@ Import Namespace="System.Web" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%--@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" --%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://www.sdltridion.com/web/ui/controls">
+
 <head runat="server">
     <title>PowerTools 2011: <%=Page.Title%></title>
     <%--<link rel="shortcut icon" href="/WebUI/Editors/PowerTools2011/PowerTools/Shared/favicon.ico" type="image/x-icon" />--%>
