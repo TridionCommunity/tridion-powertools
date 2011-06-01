@@ -1,9 +1,11 @@
 ﻿Type.registerNamespace("PowerTools2011.Commands");
 
-PowerTools2011.Commands.Example = function () 
+PowerTools2011.Commands.Example = function ()
 {
 	Type.enableInterface(this, "PowerTools2011.Commands.Example");
-    this.addInterface("Tridion.Cme.Command", ["Example"]);
+	this.addInterface("Tridion.Cme.Command", ["Example"]);
+	
+	this.addInterface("PowerTools2011.ToolBase", ["ExampleTool"]);
 };
 
 PowerTools2011.Commands.Example.prototype.isAvailable = function (selection)

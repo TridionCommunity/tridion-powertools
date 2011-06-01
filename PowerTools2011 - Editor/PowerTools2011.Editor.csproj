@@ -83,12 +83,19 @@
   <ItemGroup>
     <Content Include="PowerTools\Client\BatchImageUploader\test.svc" />
     <Content Include="PowerTools\Client\Example\Example.aspx.js" />
+    <Content Include="PowerTools\Client\Index\IndexCommand.js" />
+    <Content Include="PowerTools\Client\Overview\OverviewCommand.js" />
+    <Content Include="PowerTools\Client\Overview\Theme\styles.css" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\PowerToolsRegisty.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\ToolBase.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\Types.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
     <Content Include="PowerTools\Client\Example\ExampleServiceProxy.js" />
     <Content Include="PowerTools\Server\Example\ExampleService.svc" />
@@ -160,10 +167,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PowerTools\Client\Shared\PopUp.Master" />
+    <Content Include="PowerTools\Client\Shared\Views\PopUp.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PowerTools\Client\Shared\FullPage.Master" />
+    <Content Include="PowerTools\Client\Shared\Views\FullPage.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PowerTools\Client\BatchImageUploader\Icons\" />

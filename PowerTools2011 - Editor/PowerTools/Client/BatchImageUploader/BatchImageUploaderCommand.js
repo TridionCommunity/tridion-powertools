@@ -4,6 +4,8 @@ PowerTools2011.Commands.BatchImageUploader = function ()
 {
 	Type.enableInterface(this, "PowerTools2011.Commands.BatchImageUploader");
 	this.addInterface("Tridion.Cme.Command", ["BatchImageUploader"]);
+
+	this.addInterface("PowerTools2011.ToolBase", ["BatchImageUploader"]);
 };
 
 PowerTools2011.Commands.BatchImageUploader.prototype.isAvailable = function (selection)
