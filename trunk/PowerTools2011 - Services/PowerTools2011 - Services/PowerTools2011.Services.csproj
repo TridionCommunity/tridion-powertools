@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
@@ -65,9 +66,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Overview\CalculationResult.cs" />
+    <Compile Include="Overview\OverviewProcess.cs" />
+    <Compile Include="Overview\OverviewServiceResponse.cs" />
+    <Compile Include="Progress\ServiceProcess.cs" />
+    <Compile Include="Progress\ServiceProcessHelper.cs" />
+    <Compile Include="ServiceResponseBase.cs" />
+    <Compile Include="StatusServiceResponse.cs" />
     <Content Include="BaseService.cs" />
     <Compile Include="Example\ExampleService.cs" />
-    <Compile Include="Example\ProgressBar.cs" />
+    <Compile Include="Overview\IOverviewService.cs" />
+    <Compile Include="Overview\OverviewService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
