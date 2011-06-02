@@ -6,6 +6,8 @@ PowerTools2011.Commands.Overview = function ()
 	this.addInterface("Tridion.Cme.Command", ["Overview"]);
 
 	this.addInterface("PowerTools2011.ToolBase", ["Overview"]);
+
+	this.properties.popup = null;
 };
 
 PowerTools2011.Commands.Overview.prototype.isAvailable = function (selection)
@@ -20,9 +22,28 @@ PowerTools2011.Commands.Overview.prototype.isEnabled = function (selection)
 
 PowerTools2011.Commands.Overview.prototype._execute = function (selection)
 {
-//	var uriSelection = selection.getItem(0);
-//	var PopUpUrl = $ptUtils.expandPath("/powertools/client/example/example.aspx") + "?id=" + uriSelection;
-//	var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=300,resizable=false,scrollbars=false", null);
-//	popup.open();
+	var p = this.properties;
+
+	if (p.popup)
+	{
+		p.popup.focus();
+		return;
+	}
+
+	var PopUpUrl = $ptUtils.expandPath("/powertools/client/overview/popup/overview.aspx");
+	p.popup = $popup.create(PopUpUrl, "toolbar=no,width=900,height=470,resizable=1", null);
+
+	$evt.addEventHandler(p.popup, "unload", function ()
+	{
+		if (p.popup)
+		{
+			p.popup.dispose();
+			p.popup = null;
+		}
+	});
+
+	p.popup.open();
 };
+
+
 
