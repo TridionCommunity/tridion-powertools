@@ -58,6 +58,9 @@
     <Reference Include="Tridion.Web.UI.Core">
       <HintPath>..\..\..\..\..\..\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Tridion.Web.UI.Editors.CME">
+      <HintPath>..\..\..\..\..\..\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Editors.CME.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterPages\FullPageMaster.cs">
@@ -66,13 +69,22 @@
     <Compile Include="MasterPages\PopupMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="MasterPages\TreeViewMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\BatchImageUploader.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\ExamplePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Pages\OverviewPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\PowerToolsPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TreeViewPopupPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

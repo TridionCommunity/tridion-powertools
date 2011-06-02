@@ -11,6 +11,7 @@ using Tridion.ContentManager;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using PowerTools2011.Services.Progress;
 
 namespace PowerTools2011.Services.Example
 {
@@ -23,13 +24,13 @@ namespace PowerTools2011.Services.Example
 		internal static WindowsIdentity identity;
 
 		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-		public Process Execute()
+		public ServiceProcess Execute()
 		{
-			Process newProcess = new Process();
+			ServiceProcess newProcess = new ServiceProcess();
 			identity = ServiceSecurityContext.Current.WindowsIdentity;
 			Session tdse = new Session(identity.Name);
 
-			StoredProcess storedProcess = new StoredProcess(newProcess);
+			ServiceProcessHelper storedProcess = new ServiceProcessHelper(newProcess);
 			OperationContext.Current.InstanceContext.Extensions.Add(storedProcess);
 			ThreadPool.QueueUserWorkItem(new WaitCallback(WorkerThread), new object[] { storedProcess });
 
@@ -37,14 +38,15 @@ namespace PowerTools2011.Services.Example
 		}
 
 		[OperationContract, WebGet]
-		public Process GetProcessStatus(String Id)
+		public ServiceProcess GetProcessStatus(String Id)
 		{
 			ServiceSecurityContext securitycontext = ServiceSecurityContext.Current;
 			string status = "";
 			int complete = 0;
-			System.Collections.ObjectModel.Collection<StoredProcess> processes = OperationContext.Current.InstanceContext.Extensions.FindAll<StoredProcess>();
-			foreach (StoredProcess storedprocess in processes)
+			System.Collections.ObjectModel.Collection<ServiceProcessHelper> processes = OperationContext.Current.InstanceContext.Extensions.FindAll<ServiceProcessHelper>();
+			foreach (ServiceProcessHelper storedprocess in processes)
 			{
+				
 				if (storedprocess.Process.Id == Id)
 				{
 					status = storedprocess.Process.Status;
@@ -70,7 +72,7 @@ namespace PowerTools2011.Services.Example
 
 
 			//System.Security.Principal.WindowsImpersonationContext impContext = identity.Impersonate();
-			StoredProcess storedprocess = (StoredProcess)((object[])data)[0];
+			ServiceProcessHelper storedprocess = (ServiceProcessHelper)((object[])data)[0];
 			//Session session = new Session(identity.Name);
 
 			while (storedprocess.Process.PercentComplete < 100)
