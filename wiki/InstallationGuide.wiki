@@ -8,7 +8,7 @@ http://code.google.com/p/tridion-2011-power-tools/source/checkout
 
 These instructions will assume that you have checked out the power tools to the following directory: 
 
-C:\powertools
+*C:\powertools*
 
 It is also assumed that Tridion is installed in the default location for 64 bit Windows. 
 
@@ -16,12 +16,12 @@ It is also assumed that Tridion is installed in the default location for 64 bit 
 Open the IIS management snap-in. 
 Open the Tridion web site, and within it find the following location: 
 
-WebUI/Editors
+*WebUI/Editors*
 
 Create a new virtual directory within Editors, called PowerTools2011
 Configure its physical path to be:
 
-C:\powertools\PowerTools2011 - Editor\
+*C:\powertools\!PowerTools2011 - Editor\*
 
 (The name and location of the virtual directory are referenced in the configuration. See below.)
 
@@ -35,8 +35,8 @@ Locate the `<editors/>` element and add the power tools editor.
 
 {{{
     <editor name="PowerTools2011" xmlns="http://www.sdltridion.com/2009/GUI/Configuration">
-      <installpath xmlns="http://www.sdltridion.com/2009/GUI/Configuration">C:\powertools\PowerTools2011 - Editor\</installpath>
-      <configuration xmlns="http://www.sdltridion.com/2009/GUI/Configuration">Configuration\editor.config</configuration>
-      <vdir xmlns="http://www.sdltridion.com/2009/GUI/Configuration">PowerTools2011</vdir>
+      <installpath>C:\powertools\PowerTools2011 - Editor\</installpath>
+      <configuration>Configuration\editor.config</configuration>
+      <vdir >PowerTools2011</vdir>
     </editor>
 }}}
