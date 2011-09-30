@@ -1,0 +1,11 @@
+#How to install the power tools on your server
+
+= Installation guide =
+
+First get the code from the repository following the guidance at 
+http://code.google.com/p/tridion-2011-power-tools/source/checkout
+
+These instructions will assume that you have checked out the power tools to the following directory: 
+
+C:\powertools
+
