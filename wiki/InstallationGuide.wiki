@@ -40,3 +40,6 @@ Locate the `<editors/>` element and add the power tools editor.
       <vdir >PowerTools2011</vdir>
     </editor>
 }}}
+
+== Final step == 
+Clear your browser cache.
