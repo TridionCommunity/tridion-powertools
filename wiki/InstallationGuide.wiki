@@ -31,10 +31,12 @@ Open the configuration file:
 
 C:\Program Files (x86)\Tridion\web\WebUI\WebRoot\Configuration\System.config
 
-Locate the <editors/> element and add the power tools editor.
+Locate the `<editors/>` element and add the power tools editor.
 
+{{{
     <editor name="PowerTools2011" xmlns="http://www.sdltridion.com/2009/GUI/Configuration">
       <installpath xmlns="http://www.sdltridion.com/2009/GUI/Configuration">C:\powertools\PowerTools2011 - Editor\</installpath>
       <configuration xmlns="http://www.sdltridion.com/2009/GUI/Configuration">Configuration\editor.config</configuration>
       <vdir xmlns="http://www.sdltridion.com/2009/GUI/Configuration">PowerTools2011</vdir>
     </editor>
+}}}
