@@ -19,7 +19,7 @@ Open the Tridion web site, and within it find the following location:
 
 *WebUI/Editors*
 
-Create a new virtual directory within Editors, called PowerTools2011
+Create a new virtual directory within Editors, called !PowerTools2011
 Configure its physical path to be:
 
 *C:\powertools\!PowerTools2011 - Editor\*
