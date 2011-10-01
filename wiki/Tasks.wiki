@@ -1,4 +1,5 @@
 #summary Since this includes functional and technical work, I'm not sure "stories" or "requirements" would be a well-fitted term.
+#labels Featured
 
 ==Objectives and Deliverables==
 || Status || Task || Description || Date Created || Date Completed || Completed by ||
