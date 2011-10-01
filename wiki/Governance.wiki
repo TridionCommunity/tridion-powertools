@@ -1,0 +1,25 @@
+#summary With such a evocative title as "governance" I know you have to read this "road map" page.
+#labels Phase-Requirements,Featured
+
+_Do you like the Wiki format or original Word doc?_
+
+= Process and Roadmap =
+
+Though a community-driven, the Power Tools project needs leads to guide project to completion. Leads should encourage participation but should work towards delivering functionality and not be held up by slow adoption.
+  * 2 MVP technical leads (volunteer)
+  * 1 MVP functional lead
+  * 5-10 community contributors overall
+  * 2-3 community contributors per tool
+  * As many testers as are available
+  * Encourage participation, increase visibility (blog, tweet, forums) and keep an eye out for replacements for positions
+= Product Management =
+Requirements will come from old tool(s), lacking functionality in current product, and solicited feedback.
+
+  * Functional lead for requirements, tool prioritization, and soliciting community feedback
+  * Communicates bugs and issues and usefulness to SDL (informal via email, Ideas submissions)
+  * Managing acceptance criteria, categorizing tools
+== Design and change management ==
+  * Simple and informal
+  * Technical leads
+
+*_Project team should review individual tools at least twice a year. Consider scheduling a 6-month review at project onset._*
