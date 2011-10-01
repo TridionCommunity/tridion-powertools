@@ -3,7 +3,7 @@
 
 Objectives and Deliverables
 || Status || Task || Description || Date Created || Date Completed || Completed by ||
-||[x]||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011
-[x] Copyright License Options (TBD: pick an appropriate open source license)
-[x] Documentation Template
-[x] Update and Prioritize Spreadsheet
+||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011||
+||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011
+||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011||
+||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011||
