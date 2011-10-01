@@ -1,9 +1,10 @@
 #summary Since this includes functional and technical work, I'm not sure "stories" or "requirements" would be a well-fitted term.
 
+MVP 2011 Team A = MVP11_A and includes Julian, Jeff, and Alvin
 
 Objectives and Deliverables
-|| Status || Task || Description || Date Created || Date Completed || Completed by ||
-||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011||
-||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011
-||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011||
-||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011||
+|| Status || Task || Description || Date Created || Date Completed || Completed by || MVP11_A
+||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011|| MVP11_A
+||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVP11_A
+||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A
+||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A
