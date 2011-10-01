@@ -1,0 +1,9 @@
+#summary Since this includes functional and technical work, I'm not sure "stories" or "requirements" would be a well-fitted term.
+
+
+Objectives and Deliverables
+|| Status || Task || Description || Date Created || Date Completed || Completed by ||
+||[x]||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011
+[x] Copyright License Options (TBD: pick an appropriate open source license)
+[x] Documentation Template
+[x] Update and Prioritize Spreadsheet
