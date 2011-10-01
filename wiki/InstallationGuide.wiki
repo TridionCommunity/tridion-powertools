@@ -4,8 +4,8 @@
 = Installation guide =
 
 == Prerequisites ==
-See [Prerequisites] for instructions and links to set up:
-  # [http://www.sdltridionworld.com/articles/sdltridion2011/tutorials/creating-development-vm-1.aspx Tridion Developer Virtual Machine] or other working SDL Tridion 2011 or higher environment
+Be sure you have:
+  # A [http://www.sdltridionworld.com/articles/sdltridion2011/tutorials/creating-development-vm-1.aspx Tridion Developer Virtual Machine] or other working SDL Tridion 2011 or higher environment
 
 
 == Get the code == 
