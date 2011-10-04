@@ -70,9 +70,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PowerTools\Client\Archive\BatchImageUploader\test.svc" />
+    <Content Include="PowerTools\Client\PT_ImageUploader\ImageUploader.aspx" />
     <Content Include="PowerTools\Client\PT_ImageUploader\Command.js" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\Page.aspx" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\Page.js" />
+    <Content Include="PowerTools\Client\PT_ImageUploader\Page - OLD.aspx" />
+    <Content Include="PowerTools\Client\PT_ImageUploader\ImageUploader.js" />
     <Content Include="PowerTools\Client\PT_ImageUploader\ServiceProxy.js" />
     <Content Include="PowerTools\Client\PT_ImageUploader\Styles.css" />
     <Content Include="PowerTools\Client\PT_2009Tools\Command.js" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="PowerTools\Client\Archive\Toolbox\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\PT_ImageUploader\ImageUploader.aspx.cs">
+      <DependentUpon>ImageUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\PT_ImageUploader\ImageUploader.aspx.designer.cs">
+      <DependentUpon>ImageUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

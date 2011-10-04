@@ -23,5 +23,14 @@ div#PowerToolIcon
     float:right;
 }
 
+ #ModalDialog .window
+        {
+            position: absolute;
+            width: 440px;
+            height: 200px;
+            display: none;
+            z-index: 9999;
+            padding: 20px;
+        }
 
 
