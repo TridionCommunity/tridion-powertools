@@ -6,7 +6,7 @@ using System.ServiceModel.Activation;
 using PowerTools2011.Services.Example;
 using System.ServiceModel;
 using System.Threading;
-using Tridion.ContentManager;
+using Tridion.ContentManager.CoreService.Client;
 using PowerTools2011.Services.Progress;
 
 namespace PowerTools2011.Services.Overview

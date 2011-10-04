@@ -1,5 +1,0 @@
-C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Services\PowerTools2011 - Services\bin\PowerTools2011 - Services.dll
-C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Services\PowerTools2011 - Services\bin\PowerTools2011 - Services.pdb
-C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Services\PowerTools2011 - Services\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Services\PowerTools2011 - Services\obj\Debug\PowerTools2011 - Services.dll
-C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Services\PowerTools2011 - Services\obj\Debug\PowerTools2011 - Services.pdb

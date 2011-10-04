@@ -1,7 +1,7 @@
 
-.PT_BatchImageUploader .image {background-image:url({ThemePath}/Icons/imageupload_16.png);}
-.ribbontoolbar .button.PT_BatchImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_32.png);} 
-.ribbontoolbar.minimized .button.PT_BatchImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_16.png);} 
+.PT_ImageUploader .image {background-image:url({ThemePath}/Icons/imageupload_16.png);}
+.ribbontoolbar .button.PT_ImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_32.png);} 
+.ribbontoolbar.minimized .button.PT_ImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_16.png);} 
 
 .PT_Example .image {background-image:url({ThemePath}/icons/example_16.png);}
 .ribbontoolbar .button.PT_Example .image {background-image: url({ThemePath}/Icons/example_32.png);} 
@@ -16,16 +16,21 @@
 .ribbontoolbar.minimized .button.PT_Default .image {background-image: url({ThemePath}/Icons/terminal_16.png);} 
 
 
-body
-{
-    font-family: Arial;
-    font-size:12px;
-}
-
 div#PowerToolIcon
 {
     width:64px;
     height:64px;
     float:right;
 }
+
+ #ModalDialog .window
+        {
+            position: absolute;
+            width: 440px;
+            height: 200px;
+            display: none;
+            z-index: 9999;
+            padding: 20px;
+        }
+
 

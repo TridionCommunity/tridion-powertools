@@ -349,31 +349,29 @@ PowerTools2011.Utilities.prototype.getUserSettings = function ()
 	return this._userSettings;
 };
 
-PowerTools2011.Utilities.prototype.isCurrentUserInGroup = function (groupId)
-{
-	var settings = this.getUserSettings();
+PowerTools2011.Utilities.prototype.isCurrentUserInGroup = function (groupId) {
+    var settings = this.getUserSettings();
 
-	if (settings)
-	{
-		var groups = settings.User.Data.GroupMemberships;
-		
-		for (var i in groups)
-		{
-			var group = groups[i];
+    if (settings) {
+        var groups = settings.User.Data.GroupMemberships;
 
-			if (group["@href"] == groupId) //stupid IE cant handle properties starting with '@'
-			{
-				$log.message("[Utilities.isCurrentUserInGroup]: current user is member of group: '{0}'".format(groupId));
-				return true;
-			}
-		}
+        for (var i in groups) {
+            var group = groups[i];
 
-		$log.message("[Utilities.isCurrentUserInGroup]: current user is NOT member of group: '{0}'".format(groupId));
-	}
-	else
-		$log.warn("[Utilities.isCurrentUserInGroup]: Couldnt load user settings!");
+            if (group["@title"] == groupId) //stupid IE cant handle properties starting with '@'
+            {
+                $log.message("[Utilities.isCurrentUserInGroup]: current user is member of group: '{0}'".format(groupId));
+                return true;
+            }
+        }
 
-	return false;
+        $log.message("[Utilities.isCurrentUserInGroup]: current user is NOT member of group: '{0}'".format(groupId));
+    }
+    else {
+        $log.warn("[Utilities.isCurrentUserInGroup]: Couldnt load user settings!");
+
+        return false;
+    }
 };
 
 PowerTools2011.Utilities.prototype.isCurrentUserAdmin = function ()
