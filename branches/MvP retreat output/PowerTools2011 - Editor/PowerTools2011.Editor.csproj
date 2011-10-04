@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>..\..\Users\Administrator\Desktop\Progress\Displaying_Progress_Bar_For_Long_Running_Processes\Bin\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -59,13 +56,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\PowerTools2011.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
-    <Reference Include="Tridion.Web.UI.Core, Version=6.0.0.39607, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Tridion.Web.UI.Editors.CME, Version=6.0.0.39607, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Editors.CME.dll</HintPath>
+    <Reference Include="Tridion.Web.UI.Core">
+      <HintPath>..\Libraries\Tridion.Web.UI\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -159,15 +151,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="MSXML2">
-      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
-      <VersionMajor>4</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="VBA">
       <Guid>{000204EF-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>6</VersionMajor>
