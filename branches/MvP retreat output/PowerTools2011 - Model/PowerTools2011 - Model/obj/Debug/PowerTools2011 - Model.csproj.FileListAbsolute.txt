@@ -1,0 +1,5 @@
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Model\PowerTools2011 - Model\bin\PowerTools2011 - Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Model\PowerTools2011 - Model\bin\PowerTools2011 - Model.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Model\PowerTools2011 - Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Model\PowerTools2011 - Model\obj\Debug\PowerTools2011 - Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\PowerTools2011\PowerTools2011 - Model\PowerTools2011 - Model\obj\Debug\PowerTools2011 - Model.pdb

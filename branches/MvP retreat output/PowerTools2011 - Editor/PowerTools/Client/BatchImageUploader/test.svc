@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools2011Editor.PowerTools.BatchImageUploader.test" CodeBehind="test.svc.cs" %>

@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools2011.Common.MasterPages.PopupMaster" %>
+<%@ Import Namespace="Tridion.Web.UI.Core"%>
+<%@ Import Namespace="Tridion.Web.UI"%>
+<%@ Import Namespace="System.Web" %>
+<%--@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" --%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://www.sdltridion.com/web/ui/controls">
+
+<head runat="server">
+    <title>PowerTools 2011: <%=Page.Title%></title>
+    <%--<link rel="shortcut icon" href="/WebUI/Editors/PowerTools2011/PowerTools/Shared/favicon.ico" type="image/x-icon" />--%>
+    <link rel="stylesheet" href="Themes/styles.css" type="text/css"/>
+    <%--<link rel="stylesheet" href="/WebUI/Editors/PowerTools2011/PowerTools/BatchImageUploader/styles.css" type="text/css"/>
+    <script src="/WebUI/Editors/PowerTools2011/PowerTools/Shared/Main.js" type="text/javascript"></script>--%>
+</head>
+<body id="StackElement" class="stack popupview">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+    </asp:ScriptManager>
+    <script type="text/javascript">
+        
+
+        Sys.Application.add_load(applicationLoadHandler);
+
+
+        var mHandlers = {};
+        mHandlers.GetStatuses = function () {
+
+            mainScreen.ExecuteCommand('GetProcessStatuses', 'mHandlers.ProcessStatuses', null);
+            setTimeout("mHandlers.GetStatuses();", 500);
+        };
+        mHandlers.ProcessStatuses = function (obj) {
+            var resultDiv = $get("ProgressBar");
+
+            if (obj) {
+
+                resultDiv.innerHTML = mHandlers.BuildProgressBar(obj);
+                if (resultDiv.innerHTML != "") {
+                    resultDiv.style.display = "block";
+                }
+            } else {
+                resultDiv.style.display = "none";
+            }
+        };
+        mHandlers.BuildProgressBar = function (obj) {
+            var i = 0;
+            if (obj.length == 0) {
+                resultDiv.style.display = "none";
+                return "";
+            } else {
+                var message = "";
+
+                if (obj[0].Status == 100) {
+                    message = "Process Complete";
+                } else {
+                    message = obj[0].Name;
+                }
+
+                var result = "<div style=\"background-color:silver; width:" + obj[0].Status + "%\">&nbsp;" + message + "</div>";
+                return result;
+            }
+        };
+    </script>
+
+
+
+    <div id="PowerToolIcon">
+
+    </div>
+    <h1><%=Page.Title %></h1>
+    <div>
+        <asp:ContentPlaceHolder ID="Main" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+    
+
+    <div>
+        <input type="button" value="Do Something" onclick="mainScreen.DoSomething('ProcessName');"/>
+    </div>
+    
+        <div style="border: dashed 1px black; display:none" id="ProgressBar">
+            ProgressBar will appear here
+        </div>
+    
+
+
+    </form>
+</body>
+</html>
