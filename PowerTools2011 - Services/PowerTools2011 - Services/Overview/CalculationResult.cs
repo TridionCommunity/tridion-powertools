@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
-using Tridion.ContentManager;
+using Tridion.ContentManager.CoreService.Client;
 
 namespace PowerTools2011.Services.Overview
 {

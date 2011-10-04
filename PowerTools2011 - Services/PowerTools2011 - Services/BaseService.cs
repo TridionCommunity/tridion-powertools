@@ -1,68 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
-using System.ServiceModel.Web;
-using System.Text;
-using UrbanCherry.Net.SDLTridion.PowerTools;
-using System.Reflection;
-using System.Collections;
+using System.Web;
+using PowerTools2011.Services.Progress;
 using System.Threading;
-using System.Collections.ObjectModel;
-using System.Security.Principal;
-using Tridion.ContentManager;
+using Tridion.ContentManager.CoreService.Client;
 
 
-
-namespace PowerTools2011Editor
+namespace PowerTools2011.Services
 {
-    [ServiceContract(Namespace = "")]
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    public class BasePowerToolService
+    public abstract class BaseService
     {
-
-        internal static WindowsIdentity identity;
-
-        [OperationContract, WebGet]
-        public String Execute(String message)
+        class ExecuteData
         {
-            Process newProcess = new Process();
-            identity = ServiceSecurityContext.Current.WindowsIdentity;
-            Session tdse = new Session(identity.Name);
-            StoredProcess storedProcess = new StoredProcess(newProcess);
-            OperationContext.Current.InstanceContext.Extensions.Add(storedProcess);
-            ThreadPool.QueueUserWorkItem(new WaitCallback(WorkerThread), new object[] { storedProcess });
-            return newProcess.Id;
+            public ServiceProcess Process { get; set; }
+            public object Arguments { get; set; }
         }
 
-        [OperationContract, WebGet]
-        public Process GetProcessStatus(String Id)
+        public ServiceProcess ExecuteAsync(object arguments)
         {
-            ServiceSecurityContext securitycontext = ServiceSecurityContext.Current;
-            string status = "";
-            int complete = 0;
-            System.Collections.ObjectModel.Collection<StoredProcess> processes = OperationContext.Current.InstanceContext.Extensions.FindAll<StoredProcess>();
-            foreach (StoredProcess storedprocess in processes)
+            ServiceProcess newProcess = new ServiceProcess();
+            ServiceProcessHelper storedProcess = new ServiceProcessHelper(newProcess);
+            OperationContext.Current.InstanceContext.Extensions.Add(storedProcess);
+            ExecuteData executeData = new ExecuteData { Process = storedProcess.Process, Arguments = arguments };
+            ThreadPool.QueueUserWorkItem(WorkerThread, executeData);
+            return newProcess;
+        }
+
+        public virtual ServiceProcess GetProcessStatus(String Id)
+        {
+            System.Collections.ObjectModel.Collection<ServiceProcessHelper> processes = OperationContext.Current.InstanceContext.Extensions.FindAll<ServiceProcessHelper>();
+            foreach (ServiceProcessHelper storedprocess in processes)
             {
                 if (storedprocess.Process.Id == Id)
                 {
-                    status = storedprocess.Process.Status;
-                    complete = storedprocess.Process.PercentComplete;
                     return storedprocess.Process;
                 }
             }
-            return null; // The process was not found
+
+            return null; 
         }
 
-
-        public static void WorkerThread(object data)
+        public void WorkerThread(object state)
         {
-
-            
+            ExecuteData executeData = (ExecuteData)state;
+            Process(executeData.Process, executeData.Arguments);
         }
+
+        public abstract void Process(ServiceProcess process, object arguments);
+
     }
 }
 
