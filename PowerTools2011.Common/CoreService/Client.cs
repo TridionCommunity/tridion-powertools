@@ -13,7 +13,7 @@ namespace PowerTools2011.Common.CoreService
     {
         public static SessionAwareCoreService2010Client GetCoreService()
         {
-            string userName = HttpContext.Current.User.Identity.Name;
+            string userName = Tridion.Web.UI.Core.Utils.GetUserName();
 
             var quotas = new System.Xml.XmlDictionaryReaderQuotas
             {
@@ -28,7 +28,7 @@ namespace PowerTools2011.Common.CoreService
                 Security = { Mode = SecurityMode.Message, Transport = { ClientCredentialType = HttpClientCredentialType.Windows } }
             };
 
-            var endpoint = new EndpointAddress("http://localhost/WebServices/CoreService.svc/wsHttp");
+            var endpoint = new EndpointAddress("http://localhost/WebServices/CoreService.svc/wsHttp_2010");
             var result = new SessionAwareCoreService2010Client(httpBinding, endpoint);
             result.Impersonate(userName);
             return result;

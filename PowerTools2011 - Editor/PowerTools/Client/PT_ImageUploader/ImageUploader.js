@@ -9,26 +9,29 @@ PowerTools2011.Popups.ImageUploader = function ()
 
 	p.proxy = new PowerTools2011.Services.ImageUploaderServiceProxy();
 	p.processId = null;
+    p.folderId = null;
 	p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-PowerTools2011.Popups.ImageUploader.prototype.initialize = function () {
+PowerTools2011.Popups.ImageUploader.prototype.initialize = function ()
+{
 
-	$log.message("initializing example popup...");
+    $log.message("initializing example popup...");
 
-	this.callBase("Tridion.Cme.View", "initialize");
+    this.callBase("Tridion.Cme.View", "initialize");
 
-	var p = this.properties;
-	var c = p.controls;
+    var p = this.properties;
+    var c = p.controls;
 
-	c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
+    p.folderId = $url.getHashParam("folderId");
 
-	c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
+    c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
+    c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
+    c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
 
-    
-
-	$evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
-	$evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+    $evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
+    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
+    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
 PowerTools2011.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {
@@ -39,14 +42,13 @@ PowerTools2011.Popups.ImageUploader.prototype._onExecuteButtonClicked = function
     var context = this;
 
     //Read parameters
-    //-FolderUri
-    var folderUri = $j("#Main_lblFolderUri").html();
-    //-Schema Uri (ItemSelector)
-    var schemaUri = "";
-    //-Local directory on the server
-    var localDirectory = $j("#Main_txtSourceFolder").val();
 
-    var params = { FolderUri: folderUri, SchemaUri: schemaUri, Directory: localDirectory };
+    //-Schema Uri (ItemSelector)
+    var schemaUri = p.controls.SchemaControl.getValue();
+    //-Local directory on the server
+    var localDirectory = $j("#Main_SourceFolder").val();
+
+    var params = { FolderUri: p.folderId, SchemaUri: schemaUri, Directory: localDirectory };
 
     p.proxy.Execute(function (response) {
         p.processId = response.d.Id;
@@ -83,6 +85,42 @@ PowerTools2011.Popups.ImageUploader.prototype._onCloseButtonClicked = function (
 	$j('#ProgressStatus').html("");
 	$j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
+
+PowerTools2011.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e) 
+{
+    var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.MULTIMEDIA);
+
+    if (schemaList) 
+    {
+        var dropdown = this.properties.controls.SchemaControl;
+        function Component$onSchemaLoadContent$listLoaded() 
+        {
+            $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+            dropdown.setContent(schemaList.getXml());
+        }
+
+        if (schemaList.isLoaded(true)) 
+        {
+            Component$onSchemaLoadContent$listLoaded();
+        }
+        else 
+        {
+            $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+            schemaList.load();
+        }
+    }
+};
+
+PowerTools2011.Popups.ImageUploader.prototype.getListFieldsSchemas = function (purpose) 
+{
+    var p = this.properties;
+
+    var folder = $models.getItem(p.folderId);
+    var publication = folder.getPublication();
+    var list = publication.getListSchemas(purpose);
+    return list;
+}
+
 
 PowerTools2011.Popups.ImageUploader.prototype._updateProgressBar = function (process)
 {

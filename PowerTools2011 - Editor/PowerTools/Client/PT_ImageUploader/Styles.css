@@ -11,7 +11,6 @@
 body{
     font-family: Arial;
     font-size:12px;
-    background-color: Orange;
 }
 
 /* Z-index of #mask must lower than #boxes .window */
@@ -46,4 +45,14 @@ body{
 .Sample
 {
     background-color: Red;
+}
+
+div
+{
+    margin-bottom: 10px;
+}
+
+.tool-explanation
+{
+    margin-bottom: 20px;
 }

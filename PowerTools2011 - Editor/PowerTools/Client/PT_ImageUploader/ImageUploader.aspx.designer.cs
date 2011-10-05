@@ -13,21 +13,12 @@ namespace PowerTools2011.Editor.PowerTools.Client.PT_ImageUploader {
     public partial class ImageUploader {
         
         /// <summary>
-        /// txtSourceFolder control.
+        /// SourceFolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSourceFolder;
-        
-        /// <summary>
-        /// lblFolderUri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFolderUri;
+        protected global::System.Web.UI.WebControls.TextBox SourceFolder;
     }
 }
