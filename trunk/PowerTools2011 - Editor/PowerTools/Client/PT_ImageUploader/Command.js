@@ -39,7 +39,7 @@ PowerTools2011.Commands.ImageUploader.prototype._execute = function (selection)
     var iFrame = $("#CustomPagesFrame");
     var self = this;
 
-    var PopUpUrl = $ptUtils.expandPath("/powertools/client/PT_ImageUploader/ImageUploader.aspx") + "?id=" + uriSelection;
+    var PopUpUrl = $ptUtils.expandPath("/powertools/client/PT_ImageUploader/ImageUploader.aspx") + "#folderId=" + uriSelection;
     var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
     popup.open();
 };

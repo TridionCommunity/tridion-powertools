@@ -65,7 +65,6 @@
     <Content Include="PowerTools\Client\Archive\BatchImageUploader\test.svc" />
     <Content Include="PowerTools\Client\PT_ImageUploader\ImageUploader.aspx" />
     <Content Include="PowerTools\Client\PT_ImageUploader\Command.js" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\Page - OLD.aspx" />
     <Content Include="PowerTools\Client\PT_ImageUploader\ImageUploader.js" />
     <Content Include="PowerTools\Client\PT_ImageUploader\ServiceProxy.js" />
     <Content Include="PowerTools\Client\PT_ImageUploader\Styles.css" />

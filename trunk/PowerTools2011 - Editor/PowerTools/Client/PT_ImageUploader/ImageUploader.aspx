@@ -3,7 +3,7 @@ Inherits="PowerTools2011.Editor.PowerTools.Client.PT_ImageUploader.ImageUploader
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
-<div id="container" style="padding:10px">
+    <div id="container" style="padding:10px">
        <cc:TridionManager runat="server" editor="PowerTools2011">
 	        <dependencies runat="server">		
 		        <dependency runat="server">Tridion.Web.UI.Editors.CME</dependency>					
@@ -13,13 +13,26 @@ Inherits="PowerTools2011.Editor.PowerTools.Client.PT_ImageUploader.ImageUploader
 
         <h1>Batch Image Uploader</h1>
 
-          
-        This will upload files from <asp:TextBox ID="txtSourceFolder" runat="server">c:\temp</asp:TextBox> to the folder :
-        <asp:Label ID="lblFolderUri" runat="server" Text="Label"><%=Request.Params["id"] %></asp:Label>
-           
+        <div class="tool-explanation">
+            This will upload all files in a given directory (as Multimedia Components) to the Folder you have selected.
+        </div>
+
         <hr />
+
         <div>
-		    <c:Button ID="ExecuteButton"  runat="server" Label="Upload Images" Class="customButton" />
+            <div>Enter the directory on the server to scan for files to upload:</div>
+            <div><asp:TextBox ID="SourceFolder" Text="C:\Temp" runat="server" /></div>
+        </div>
+
+        <div>
+            <div>Select the Schema to use for the Components:</div>
+            <div><c:Dropdown ID="Schema" runat="server" Nullable="false" /></div>
+        </div>
+
+        <hr />
+
+        <div>
+		    <c:Button ID="ExecuteButton"  runat="server" Label="Upload images" Class="customButton" />
         </div>
 
         

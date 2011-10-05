@@ -4,12 +4,15 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using PowerTools2011.Services.Progress;
+using System.Globalization;
+using System;
 
 
 namespace PowerTools2011.Services
 {
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
+    [ServiceContract(Namespace="")]
 	public class ImageUploader : BaseService
 	{
         class ImageUploadParameters
@@ -22,7 +25,22 @@ namespace PowerTools2011.Services
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
         public ServiceProcess Execute(string directory, string folderUri, string schemaUri)
         {
-            ImageUploadParameters arguments = new ImageUploadParameters {Directory = directory, FolderUri = folderUri, SchemaUri = schemaUri};
+            if (string.IsNullOrEmpty(directory))
+            {
+                throw new ArgumentNullException("directory");
+            }
+
+            if (string.IsNullOrEmpty(directory))
+            {
+                throw new ArgumentNullException("folderUri");
+            }
+
+            if (string.IsNullOrEmpty(directory))
+            {
+                throw new ArgumentNullException("schemaUri");
+            }
+
+            ImageUploadParameters arguments = new ImageUploadParameters { Directory = directory, FolderUri = folderUri, SchemaUri = schemaUri };
             return ExecuteAsync(arguments);
         }
 
@@ -37,7 +55,7 @@ namespace PowerTools2011.Services
 		    ImageUploadParameters parameters = (ImageUploadParameters) arguments;
             if (!Directory.Exists(parameters.Directory))
             {
-                throw new BaseServiceException("Directory '{0}' does not exist.");
+                throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Directory '{0}' does not exist.", parameters.Directory));
             }
 
 		    var client = PowerTools2011.Common.CoreService.Client.GetCoreService();
@@ -51,7 +69,7 @@ namespace PowerTools2011.Services
                 foreach(string file in files)
                 {
                     process.SetStatus("Importing image: " + Path.GetFileName(file));
-                    process.SetCompletePercentage(files.Length / i++);
+                    process.SetCompletePercentage(++i * 100 / files.Length);
                 }
 
                 process.Complete();
