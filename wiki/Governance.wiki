@@ -5,8 +5,8 @@ _Do you like the Wiki format or original Word doc?_
 
 = Process and Roadmap =
 
-Though a community-driven, the Power Tools project needs leads to guide project to completion. Leads should encourage participation but should work towards delivering functionality and not be held up by slow adoption.
-  * 2 MVP technical leads
+Though community-driven, the Power Tools project needs leads to guide the project forward. Leads should encourage participation but should work towards delivering functionality and not be held up by slow adoption.
+  * 3 MVP technical leads
   * 1 MVP functional lead
   * 5-10 community contributors overall
   * 2-3 community contributors per tool
