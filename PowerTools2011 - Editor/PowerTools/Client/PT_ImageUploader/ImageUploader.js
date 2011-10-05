@@ -1,21 +1,20 @@
 ﻿Type.registerNamespace("PowerTools2011.Popups");
 
-PowerTools2011.Popups.ImageUploader = function ()
-{
+PowerTools2011.Popups.ImageUploader = function () {
+  
     Type.enableInterface(this, "PowerTools2011.Popups.ImageUploader");
-	this.addInterface("Tridion.Cme.View");
+    this.addInterface("Tridion.Cme.View");
 
-	var p = this.properties;
+    var p = this.properties;
 
-	p.proxy = new PowerTools2011.Services.ImageUploaderServiceProxy();
-	p.processId = null;
+    p.proxy = new PowerTools2011.Services.ImageUploaderServiceProxy();
+    p.processId = null;
     p.folderId = null;
-	p.pollInterval = 500; //Milliseconds between each call to check the status of a process
+    p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-PowerTools2011.Popups.ImageUploader.prototype.initialize = function ()
-{
-
+PowerTools2011.Popups.ImageUploader.prototype.initialize = function () {
+    
     $log.message("initializing example popup...");
 
     this.callBase("Tridion.Cme.View", "initialize");
@@ -86,25 +85,21 @@ PowerTools2011.Popups.ImageUploader.prototype._onCloseButtonClicked = function (
 	$j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
 
-PowerTools2011.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e) 
-{
+PowerTools2011.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e) {
+    
     var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.MULTIMEDIA);
 
-    if (schemaList) 
-    {
+    if (schemaList) {
         var dropdown = this.properties.controls.SchemaControl;
-        function Component$onSchemaLoadContent$listLoaded() 
-        {
+        function Component$onSchemaLoadContent$listLoaded() {
             $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
             dropdown.setContent(schemaList.getXml());
         }
 
-        if (schemaList.isLoaded(true)) 
-        {
+        if (schemaList.isLoaded(true)) {
             Component$onSchemaLoadContent$listLoaded();
         }
-        else 
-        {
+        else {
             $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
             schemaList.load();
         }
@@ -122,10 +117,10 @@ PowerTools2011.Popups.ImageUploader.prototype.getListFieldsSchemas = function (p
 }
 
 
-PowerTools2011.Popups.ImageUploader.prototype._updateProgressBar = function (process)
-{
-	$j('#ProgressStatus').html(process.d.Status);
-	$j('#ProgressBar').css({ 'width': process.d.PercentComplete + '%', 'display': 'block' });
+PowerTools2011.Popups.ImageUploader.prototype._updateProgressBar = function (process) {
+    
+    $j('#ProgressStatus').html(process.d.Status);
+    $j('#ProgressBar').css({ 'width': process.d.PercentComplete + '%', 'display': 'block' });
 }
 
 PowerTools2011.Popups.ImageUploader.prototype._handleStatusResponse = function (response, context)
