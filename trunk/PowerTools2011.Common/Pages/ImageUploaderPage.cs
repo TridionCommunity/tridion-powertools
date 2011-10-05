@@ -7,8 +7,8 @@ using Tridion.Web.UI.Controls;
 
 namespace PowerTools2011.Common.Pages
 {
-	[ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Button), typeof(Stack), typeof(Dropdown), typeof(List) })]
-	[ControlResources("Powertools2011.ImageUploader")]
+	//[ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Button), typeof(Stack), typeof(Dropdown), typeof(List) })]
+	//[ControlResources("Powertools2011.ImageUploader")]
     public class ImageUploader : PowerToolsPageBase
 	{
         
