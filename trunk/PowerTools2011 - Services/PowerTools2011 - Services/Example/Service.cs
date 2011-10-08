@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ServiceModel.Web;
 using System.Threading;
-using System.Security.Principal;
-using Tridion.ContentManager;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using PowerTools2011.Services.Progress;
