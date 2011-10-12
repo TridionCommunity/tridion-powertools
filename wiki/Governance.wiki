@@ -1,7 +1,8 @@
 #summary With such a evocative title as "governance" I know you have to read this "road map" page.
 #labels Phase-Requirements,Featured
 
-_Do you like the Wiki format or original Word doc?_
+= Ownership =
+The Tridion Power Tools are a community-driven project (guided by a little help from the Tridion MVP and Community Builders). This work is voluntary and reflects the dedication participants have towards the Tridion solution, community, and this project. We appreciate your help on this open source project!
 
 = Process and Roadmap =
 
