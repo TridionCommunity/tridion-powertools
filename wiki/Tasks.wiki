@@ -8,5 +8,18 @@
 ||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 
+New contributors (since retreat):
+Kunal Shetye
+Vikas Kumar 
+Raúl Escudero
+Mihai Cadariu
+Ángel Puntero
+
+Next steps:
+Release install guide
+Re-organize priority (Page Publisher back on list)
+Identify new tasks
+Confirm assignments (most have volunteered for certain tools)
+
 ===Legend===
 _MVP 2011 Team A = MVP11_A and includes Julian, Jeff, and Alvin_
