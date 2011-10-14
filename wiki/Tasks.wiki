@@ -8,12 +8,24 @@
 ||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 
-New contributors (since retreat):
-  * Kunal Shetye
-  * Vikas Kumar 
+New contributors and interests (since retreat):
+  * Kunal Shetye, Count Items and GUI framework
+  * Vikas Kumar, 2009 PowerTools, waiting on 2011 (maybe we can add info here)
   * Raúl Escudero
-  * Mihai Cadariu
-  * Ángel Puntero
+  * Kunle Daramola, Page Publisher
+  * Mihai Cadariu, Page Publisher
+  * Ángel Puntero, Show Lists and Component Synchronizer
+  * Robert Curlette, Component Publisher and Unlocalize Children (new)
+
+Popular tools:
+  * Page Publisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
+  * Component Synchronizer 
+  * (new suggestion) Component Publisher, (search helps replace functionality, but useful for Tridion folder publish)
+  * (new suggestion) Field Content Copier
+  * (new suggestion) Unlocalize Children based on URI
+
+Organization idea:
+
 
 Next steps:
   * Release install guide
