@@ -24,8 +24,11 @@ Popular tools:
   * (new suggestion) Field Content Copier
   * (new suggestion) Unlocalize Children based on URI
 
-Organization idea:
-
+Next steps you can take and organization:
+  * Check out ImageUploader PowerTool and its Schema dropdown
+  * Review Anguilla controls
+  * Document and design PowerTool requirements (function, design, fields, permissions, drop-downs, etc)
+  * Identify what development side you're interested/comfortable with: Webservice back-end (Webservices, Core API, etc), Client-side UI (JavaScript and HTML?), Client-side Logic (JavaScript)
 
 Next steps:
   * Release install guide
