@@ -10,24 +10,24 @@
 
 New contributors and interests (since retreat):
   * Kunal Shetye, Count Items and GUI framework
-  * Vikas Kumar, 2009 PowerTools, waiting on 2011 (maybe we can add info here)
+  * Vikas Kumar, 2009 !PowerTools, waiting on 2011 (maybe we can add info here)
   * Raúl Escudero
   * Kunle Daramola, Page Publisher
   * Mihai Cadariu, Page Publisher
   * Ángel Puntero, Show Lists and Component Synchronizer
   * Robert Curlette, Component Publisher and Unlocalize Children (new)
 
-Popular tools:
+Popular/requested tools:
   * Page Publisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
   * Component Synchronizer 
-  * (new suggestion) Component Publisher, (search helps replace functionality, but useful for Tridion folder publish)
+  * (new suggestion) Component Publisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
   * (new suggestion) Field Content Copier
   * (new suggestion) Unlocalize Children based on URI
 
-Next steps you can take and organization:
-  * Check out ImageUploader PowerTool and its Schema dropdown
+Next steps you can take:
+  * Check out !ImageUploader !PowerTool and its Schema dropdown
   * Review Anguilla controls
-  * Document and design PowerTool requirements (function, design, fields, permissions, drop-downs, etc)
+  * Document requirements (function, design, fields, permissions, drop-downs, etc)
   * Identify what development side you're interested/comfortable with: Webservice back-end (Webservices, Core API, etc), Client-side UI (JavaScript and HTML?), Client-side Logic (JavaScript)
 
 Next steps:
