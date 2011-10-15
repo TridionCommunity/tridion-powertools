@@ -1,4 +1,4 @@
-#Step-by-step instructions for people who know what they're doing
+#summary Step-by-step instructions for people who know what they're doing
 
 =No-nonsense guide to creating a power tool=
 
@@ -137,4 +137,3 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
 Rebuild the PowerTools2011.Editor project.
 
 Save & Reload the CME, you should now see your new button in the PowerTools 2012 Ribbon toolbar, and clicking it will bring up the popup.
-
