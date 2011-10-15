@@ -13,7 +13,7 @@ New contributors and interests (since retreat):
   * Vikas Kumar, 2009 !PowerTools, waiting on 2011 (maybe we can add info here)
   * Raúl Escudero
   * Kunle Daramola, Page Publisher
-  * Mihai Cadariu, Page Publisher
+  * Mihai Cadariu, Page Publisher, WhereUsed Publisher, Template Publisher
   * Ángel Puntero, Show Lists and Component Synchronizer
   * Robert Curlette, Component Publisher and Unlocalize Children (new)
 
@@ -25,6 +25,7 @@ Popular/requested tools:
   * (new suggestion) Unlocalize Children based on URI
 
 Next steps you can take:
+  * Developed against Core Service API to prep for Web service versions later
   * Check out !ImageUploader !PowerTool and its Schema dropdown
   * Review Anguilla controls
   * Document requirements (function, design, fields, permissions, drop-downs, etc)
