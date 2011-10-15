@@ -25,7 +25,7 @@ Popular/requested tools:
   * (new suggestion) Unlocalize Children based on URI
 
 Next steps you can take:
-  * Developed against Core Service API to prep for Web service versions later
+  * Develop code against Core Service API to prep for Web service versions later (see discussion group for details)
   * Check out !ImageUploader !PowerTool and its Schema dropdown
   * Review Anguilla controls
   * Document requirements (function, design, fields, permissions, drop-downs, etc)
