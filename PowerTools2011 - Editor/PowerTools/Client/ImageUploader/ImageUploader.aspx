@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master"  AutoEventWireup="true" CodeBehind="ImageUploader.aspx.cs" 
-Inherits="PowerTools2011.Editor.PowerTools.Client.PT_ImageUploader.ImageUploader" %>
+Inherits="PowerTools2011.Editor.PowerTools.Client.ImageUploader.ImageUploader" %>
 
 
 <asp:Content ID="ImageUploader" ContentPlaceHolderID="Main" runat="server">
