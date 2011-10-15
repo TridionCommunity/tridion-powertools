@@ -137,3 +137,252 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
 Rebuild the PowerTools2011.Editor project.
 
 Save & Reload the CME, you should now see your new button in the PowerTools 2012 Ribbon toolbar, and clicking it will bring up the popup.
+
+==Build the webservice==
+Copy PowerTools\Server\Services\PT_Example.svc into a PT_PublicationInfo.svc file in the same folder
+
+Set the code to:
+{{{
+<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools2011.Services.PublicationInfo.PublicationInfoService"%>
+}}}
+
+Edit Server\Web.Config
+Add a Service binding:
+{{{
+<service behaviorConfiguration="ExampleServiceBehaviors" name="PowerTools2011.Services.PublicationInfo.PublicationInfoService">
+  <endpoint address="" behaviorConfiguration="PowerTools2011Editor.ExampleServiceAspNetAjaxBehavior"
+            bindingConfiguration="webHttpBindingConfig" binding="webHttpBinding" 
+            contract="PowerTools2011.Services.PublicationInfo.PublicationInfoService" />
+</service>
+}}}
+
+Go to project PowerTools2011.Services
+
+Create a new folder "PublicationInfo"
+
+Create a new "Class File" in this folder, name it PublicationInfo.cs with the following code:
+{{{
+using System.Runtime.Serialization;
+namespace PowerTools2011.Services.PublicationInfo
+{
+    [DataContract]
+    public class PublicationInfo
+    {
+        [DataMember]
+        public string Title;
+        [DataMember]
+        public string Id;
+    }
+}
+}}}
+
+Create another class file, PublicationInfoService.cs with the following code:
+{{{
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel;
+using System.ServiceModel.Activation;
+using System.ServiceModel.Web;
+using PowerTools2011.Services.Progress;
+using Tridion.ContentManager.CoreService.Client;
+
+namespace PowerTools2011.Services.PublicationInfo
+{
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
+    [ServiceContract(Namespace = "")]
+    public class PublicationInfoService : BaseService
+    {
+        private List<PublicationInfo> _publicationInfos;
+
+        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public ServiceProcess Execute()
+        {
+            return ExecuteAsync(null);
+        }
+
+        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public override ServiceProcess GetProcessStatus(string Id)
+        {
+            return base.GetProcessStatus(Id);
+        }
+
+        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public List<PublicationInfo> GetPublicationInfo()
+        {
+            return _publicationInfos;
+        }
+
+        public override void Process(ServiceProcess process, object arguments)
+        {
+            _publicationInfos = new List<PublicationInfo>();
+            var client = Common.CoreService.Client.GetCoreService();
+            try
+            {
+                RepositoriesFilterData filter = new RepositoriesFilterData();
+                IdentifiableObjectData[] datas = client.GetSystemWideList(filter);
+                int totalPublications = datas.Length;
+                int count = 0;
+                foreach (RepositoryData repository in datas.Cast<RepositoryData>())
+                {
+                    process.SetStatus("Reading publication" + repository.Title);
+                    process.SetCompletePercentage(++count * 100 / totalPublications);
+                    _publicationInfos.Add(new PublicationInfo() { Id = repository.Id, Title = repository.Title });
+                }
+                process.Complete();
+            }
+            finally
+            {
+                if (client != null)
+                    client.Close();
+            }
+        }
+    }
+}
+}}}
+
+Now, in the LAST step, let's modify the PublicationInfoServiceProxy.js file to handle our WebService correctly
+
+Add a function to "GetPublicationList" to the PublicationInfoServiceProxy prototype (after GetProcessStatus, for instance):
+{{{
+GetPublicationList : function (id, success, state) {
+    var data = { id: id };
+    this._doAjax("GetPublicationInfo", data, success, null, state);
+},
+}}}
+
+Modify PublicationInfo.js to use the following code (which includes the handling of GetPublicationList):
+{{{
+Type.registerNamespace("PowerTools2011.Popups");
+
+PowerTools2011.Popups.PublicationInfo = function () {
+
+    Type.enableInterface(this, "PowerTools2011.Popups.PublicationInfo");
+    this.addInterface("Tridion.Cme.View");
+
+    var p = this.properties;
+
+    p.proxy = new PowerTools2011.Services.PublicationInfoServiceProxy();
+    p.processId = null;
+    p.folderId = null;
+    p.pollInterval = 500; //Milliseconds between each call to check the status of a process
+};
+
+PowerTools2011.Popups.PublicationInfo.prototype.initialize = function () {
+
+    $log.message("initializing example popup...");
+    this.callBase("Tridion.Cme.View", "initialize");
+    var p = this.properties;
+    var c = p.controls;
+
+
+    c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
+    c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
+
+    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
+    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+};
+
+PowerTools2011.Popups.PublicationInfo.prototype._onExecuteButtonClicked = function () {
+
+    $j('#CloseDialog').hide();
+
+    var p = this.properties;
+    var context = this;
+
+    p.proxy.Execute(function (response) {
+        p.processId = response.d.Id;
+
+        setTimeout(function () {
+            context._getStatus(p.processId, context);
+        }, p.pollInterval);
+    }, null, null);
+
+    var dialog = $j("#dialog");
+    var win = $j(window);
+
+    //Get the screen height and width
+    var maskHeight = $j(document).height();
+    var maskWidth = win.width();
+
+    //Set height and width to mask to fill up the whole screen
+    $j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
+
+    //Get the window height and width
+
+    var winH = win.height();
+    var winW = win.width();
+
+    //Set the popup window to center
+    dialog.css({ "top": (winH / 2 - dialog.height() / 2),
+        "left": (winW / 2 - dialog.width() / 2)
+    }).fadeIn(2000);
+};
+
+PowerTools2011.Popups.PublicationInfo.prototype._onCloseButtonClicked = function () {
+    $j('#mask, .window').hide();
+    $j('#ProgressStatus').html("");
+    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
+};
+
+
+
+PowerTools2011.Popups.PublicationInfo.prototype._updateProgressBar = function (process) {
+
+    $j('#ProgressStatus').html(process.d.Status);
+    $j('#ProgressBar').css({ 'width': process.d.PercentComplete + '%', 'display': 'block' });
+};
+
+PowerTools2011.Popups.PublicationInfo.prototype._handleStatusResponse = function (response, context) {
+    var p = context.properties;
+
+    p.processId = response.d.Id;
+
+    context._updateProgressBar(response);
+
+    if (response.d.PercentComplete < 100) {
+        setTimeout(function () {
+            context._getStatus(p.processId, context);
+        }, p.pollInterval);
+    }
+    else {
+        context._getPublicationInfo(p.processId, context);
+        $j('#ProgressStatus').html(response.d.Status);
+        $j('#CloseDialog').show();
+        p.processId = "";
+    }
+
+};
+
+PowerTools2011.Popups.PublicationInfo.prototype._handlePublicationList = function (response, context) {
+    var content = '';
+
+    // alert(response.d.length);
+
+    for (var i = 0; i < response.d.length; i++) {
+        if (i > 0)
+            content += ', ';
+        content += response.d[i].Title + ' (' + response.d[i].Id + ')';
+        //alert('processing ' + response.d[i].Id);
+    };
+    $j('#PublicationList').html(content);
+
+};
+
+PowerTools2011.Popups.PublicationInfo.prototype._getPublicationInfo = function (id, context) {
+    if (id != "") {
+
+        context.properties.proxy.GetPublicationList(id, this._handlePublicationList, context);
+    }
+};
+
+PowerTools2011.Popups.PublicationInfo.prototype._getStatus = function (id, context) {
+    if (id != "") {
+        context.properties.proxy.GetProcessStatus(id, this._handleStatusResponse, context);
+    }
+};
+
+$display.registerView(PowerTools2011.Popups.PublicationInfo);
+}}}
+}}}
+
