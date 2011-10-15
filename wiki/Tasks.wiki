@@ -7,6 +7,10 @@
 ||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
+|| || Recruit initial 2011 Q4 team || || || || ||
+|| || || || || || ||
+|| || || || || || ||
+|| || || || || || ||
 
 New contributors and interests (since retreat):
   * Kunal Shetye, Count Items and GUI framework
