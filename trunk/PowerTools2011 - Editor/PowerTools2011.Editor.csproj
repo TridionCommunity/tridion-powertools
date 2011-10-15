@@ -62,24 +62,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PowerTools\Client\Archive\BatchImageUploader\test.svc" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\ImageUploader.aspx" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\Command.js" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\ImageUploader.js" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\ServiceProxy.js" />
-    <Content Include="PowerTools\Client\PT_ImageUploader\Styles.css" />
-    <Content Include="PowerTools\Client\PT_2009Tools\Command.js" />
-    <Content Include="PowerTools\Client\PT_Example_Admin\Command.js" />
-    <Content Include="PowerTools\Client\PT_Example_Admin\Page.aspx" />
-    <Content Include="PowerTools\Client\PT_Example\PopUp.js" />
+    <Content Include="PowerTools\Client\Example\Example.aspx" />
+    <Content Include="PowerTools\Client\Example\Example.css" />
+    <Content Include="PowerTools\Client\Example\Example.js" />
+    <Content Include="PowerTools\Client\Example\ExampleCommand.js" />
+    <Content Include="PowerTools\Client\Example\ExampleServiceProxy.js" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploader.aspx" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploader.css" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploader.js" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploaderCommand.js" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploaderServiceProxy.js" />
     <Content Include="PowerTools\Client\IndexPageCommand.js" />
-    <Content Include="PowerTools\Client\Archive\Overview\OverviewCommand.js" />
-    <Content Include="PowerTools\Client\Archive\Overview\OverviewServiceProxy.js" />
-    <Content Include="PowerTools\Client\Archive\Overview\Popup\Overview.aspx" />
-    <Content Include="PowerTools\Client\Archive\Overview\Popup\Overview.css" />
-    <Content Include="PowerTools\Client\Archive\Overview\Popup\Overview.js" />
-    <Content Include="PowerTools\Client\Archive\Overview\test.html" />
-    <Content Include="PowerTools\Client\Archive\Overview\Theme\styles.css" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
@@ -93,54 +86,33 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.16x16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.24x24.png" />
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
-    <Content Include="PowerTools\Client\PT_Example\ServiceProxy.js" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.css" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.js" />
     <Content Include="PowerTools\Server\Services\PT_ImageUploader.svc" />
     <Content Include="PowerTools\Server\Services\PT_Example.svc" />
-    <Content Include="PowerTools\Client\Archive\BatchImageUploader\BatchImageUploader.aspx" />
-    <Content Include="PowerTools\Client\Archive\BatchImageUploader\BatchImageUploaderCommand.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_64.png" />
-    <Content Include="PowerTools\Client\Archive\BatchImageUploader\Theme\styles.css" />
-    <Content Include="PowerTools\Client\Archive\CompSync\commands.js" />
-    <Content Include="PowerTools\Client\Archive\CompSync\styles.css" />
-    <Content Include="PowerTools\Client\PT_Example\Command.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_32.png" />
-    <Content Include="PowerTools\Client\PT_Example\Styles.css" />
-    <Content Include="PowerTools\Client\PT_Example\PopUp.aspx" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_64.png" />
     <Content Include="PowerTools\Client\Shared\Scripts\Main.js" />
     <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
-    <Content Include="PowerTools\Client\Archive\Toolbox\commands.js" />
-    <Content Include="PowerTools\Client\Archive\Toolbox\Icons\toolbox_16.png" />
-    <Content Include="PowerTools\Client\Archive\Toolbox\Icons\toolbox_32.png" />
-    <Content Include="PowerTools\Client\Archive\Toolbox\Icons\toolbox_64.png" />
-    <Content Include="PowerTools\Client\Archive\Toolbox\index.aspx" />
-    <Content Include="PowerTools\Client\Archive\Toolbox\styles.css" />
     <Content Include="PowerTools\Server\Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PowerTools\Client\Archive\BatchImageUploader\test.svc.cs">
-      <DependentUpon>test.svc</DependentUpon>
-    </Compile>
-    <Compile Include="PowerTools\Client\Archive\Toolbox\index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
+      <DependentUpon>Example.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PowerTools\Client\Archive\Toolbox\index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PowerTools\Client\PT_ImageUploader\ImageUploader.aspx.cs">
+    <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PowerTools\Client\PT_ImageUploader\ImageUploader.aspx.designer.cs">
+    <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.designer.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,10 +139,7 @@
   <ItemGroup>
     <Content Include="PowerTools\Client\Shared\Views\FullPage.Master" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PowerTools\Client\Archive\BatchImageUploader\Icons\" />
-    <Folder Include="PowerTools\Server\Bin\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Configuration\Editor.Fragment.config">
       <SubType>Designer</SubType>

@@ -59,18 +59,6 @@
     <Compile Include="MasterPages\TreeViewMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\BatchImageUploader.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\ImageUploaderPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\ExamplePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\OverviewPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Pages\PowerToolsPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

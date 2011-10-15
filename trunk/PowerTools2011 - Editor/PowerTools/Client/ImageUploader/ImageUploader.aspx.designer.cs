@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PowerTools2011.Editor.PowerTools.Client.PT_ImageUploader {
+namespace PowerTools2011.Editor.PowerTools.Client.ImageUploader {
     
     
     public partial class ImageUploader {

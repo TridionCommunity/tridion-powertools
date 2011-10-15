@@ -20,7 +20,7 @@ PowerTools2011.Commands.Example.prototype.isEnabled = function (selection)
 PowerTools2011.Commands.Example.prototype._execute = function (selection)
 {
 	var uriSelection = selection.getItem(0);
-	var PopUpUrl = $ptUtils.expandPath("/powertools/client/PT_Example/PopUp.aspx") + "?id=" + uriSelection; 
+	var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/Example/Example.aspx") + "?id=" + uriSelection; 
 	var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
 	popup.open();
 };
