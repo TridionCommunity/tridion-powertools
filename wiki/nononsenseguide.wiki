@@ -5,7 +5,7 @@
 1.	Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
 
 2.	Fix the references for PowerTools2011.Editor and PowerTools2011.Common:
-*	[TRIDION]\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll
+*	*TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll
 *	PowerTools2011.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll
 
 3.	Add the following post-build event to PowerTools2011.Editor:
@@ -82,7 +82,7 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
   * Find/Replace “ImageUploader” ==> PublicationInfo
 
 14.	Create the icons for the PowerTool
-  * Go to http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/db_status.png 
+  * Go to [http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/db_status.png this page] to find the icon
   * Save the 16x16 and 32x32 files under PowerTools2011.Editor\PowerTools\Client\Shared\Theme\Icons, rename them to publicationinfo_16.png and publicationinfo_32.png
 
 15.	Edit PowerTools2011.Editor\PowerTools\Client\Shared\Theme\styles.css
@@ -385,4 +385,3 @@ PowerTools2011.Popups.PublicationInfo.prototype._getStatus = function (id, conte
 $display.registerView(PowerTools2011.Popups.PublicationInfo);
 }}}
 }}}
-
