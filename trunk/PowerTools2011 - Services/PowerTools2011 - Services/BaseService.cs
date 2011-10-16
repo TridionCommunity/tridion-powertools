@@ -6,7 +6,6 @@ using PowerTools2011.Services.Progress;
 using System.Threading;
 using Tridion.ContentManager.CoreService.Client;
 
-
 namespace PowerTools2011.Services
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
