@@ -20,7 +20,7 @@ New contributors and interests (since retreat):
   * Mihai Cadariu, Page Publisher, WhereUsed Publisher, Template Publisher
   * Ángel Puntero, Show Lists and Component Synchronizer
   * Robert Curlette, Component Publisher and Unlocalize Children (new)
-
+  * Graeme Wigglesworth, available to help (don't hesitate to ask!)
 Popular/requested tools:
   * Page Publisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
   * Component Synchronizer 
