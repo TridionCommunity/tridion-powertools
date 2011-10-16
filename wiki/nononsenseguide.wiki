@@ -39,7 +39,7 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
     <div>
         <c:button id="ExecuteButton" runat="server" label="Get List of Publications" class="customButton" />
     </div>
-    <div id="PublicationList">
+    <div id="PublicationList" style="float: left;>
     </div>
 </asp:Content>
 }}}
@@ -172,6 +172,8 @@ namespace PowerTools2011.Services.PublicationInfo
         public string Title;
         [DataMember]
         public string Id;
+        [DataMember]
+        public int ItemCount;
     }
 }
 }}}
@@ -226,8 +228,11 @@ namespace PowerTools2011.Services.PublicationInfo
                 foreach (RepositoryData repository in datas.Cast<RepositoryData>())
                 {
                     process.SetStatus("Reading publication" + repository.Title);
+                    PublicationInfo pubInfo = new PublicationInfo {Id = repository.Id, Title = repository.Title};
+                    RepositoryItemsFilterData filterData = new RepositoryItemsFilterData {Recursive = true};
+                    pubInfo.ItemCount = client.GetListXml(repository.Id, filterData).ChildNodes.Count;
+                    _publicationInfos.Add(pubInfo);
                     process.SetCompletePercentage(++count * 100 / totalPublications);
-                    _publicationInfos.Add(new PublicationInfo() { Id = repository.Id, Title = repository.Title });
                 }
                 process.Complete();
             }
@@ -360,14 +365,13 @@ PowerTools2011.Popups.PublicationInfo.prototype._handlePublicationList = functio
     // alert(response.d.length);
 
     for (var i = 0; i < response.d.length; i++) {
-        if (i > 0)
-            content += ', ';
-        content += response.d[i].Title + ' (' + response.d[i].Id + ')';
+        content += response.d[i].Title + ' (' + response.d[i].Id + '): ' + response.d[i].ItemCount + ' items.<br/>';
         //alert('processing ' + response.d[i].Id);
     };
     $j('#PublicationList').html(content);
 
 };
+
 
 PowerTools2011.Popups.PublicationInfo.prototype._getPublicationInfo = function (id, context) {
     if (id != "") {
