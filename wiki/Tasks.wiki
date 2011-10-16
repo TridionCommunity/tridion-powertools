@@ -15,8 +15,7 @@
 New contributors and interests (since retreat):
   * Kunal Shetye, Count Items and GUI framework
   * Vikas Kumar, 2009 !PowerTools, waiting on 2011 (maybe we can add info here)
-  * Raúl Escudero, Access
-permissions manager, Access Explorer, or (possibly easier) Xml Viewer/Xpath searcher
+  * Raúl Escudero, Access permissions manager, Access Explorer, or (possibly easier) Xml Viewer/Xpath searcher
   * Kunle Daramola, Page Publisher
   * Mihai Cadariu, Page Publisher, WhereUsed Publisher, Template Publisher
   * Ángel Puntero, Show Lists and Component Synchronizer
