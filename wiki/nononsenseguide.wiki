@@ -16,7 +16,7 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 
 4.	Build PowerTools2011.Editor
 
-5.	Edit Tridion.ContentManager.Config and add the PowerTools Editor configuration (copy from Editor.Fragment.Config, correct the path)
+5.	Edit System.Config and add the PowerTools Editor configuration (copy from Editor.Fragment.Config, correct the path)
 
 6.	Create a Virtual Directory in IIS pointing to PowerTools2001 – Editor folder
 
