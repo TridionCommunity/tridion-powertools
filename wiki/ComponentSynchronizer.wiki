@@ -4,14 +4,11 @@
 
 Hard. Important. Ready?
 
-
 = Details =
 
-An SDL Tridion Power Tool
-Name
 
 Description
-Count items in a publication, folder or structure group
+Synchronize item fields based on a specific schema.
 
 == Audience ==
 (admin, developer, power user, or all)
@@ -30,10 +27,10 @@ TBD
 SDL Tridion 2009 (deprecated)
 SDL Tridion 2011 SP1
 
-Contributor(s)
+*Contributor(s)*
 {list contributors}
 
-Document Author(s)
+*Document Author(s)*
 {list authors}
 
 == Purpose ==
