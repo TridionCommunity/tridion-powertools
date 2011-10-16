@@ -1,11 +1,11 @@
-﻿using System.IO;
-using PowerTools2011.Services.Exceptions;
+﻿using System;
+using System.Globalization;
+using System.IO;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using PowerTools2011.Services.Exceptions;
 using PowerTools2011.Services.Progress;
-using System.Globalization;
-using System;
 
 
 namespace PowerTools2011.Services
@@ -85,6 +85,3 @@ namespace PowerTools2011.Services
 		}
 	}
 }
-
-
-
