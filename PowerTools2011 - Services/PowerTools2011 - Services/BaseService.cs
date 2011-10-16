@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
-using System.Web;
-using PowerTools2011.Services.Progress;
 using System.Threading;
-using Tridion.ContentManager.CoreService.Client;
+using PowerTools2011.Services.Progress;
+
 
 namespace PowerTools2011.Services
 {
