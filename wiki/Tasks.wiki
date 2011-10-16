@@ -23,7 +23,7 @@ New contributors and interests (since retreat):
   * Graeme Wigglesworth, available to help (don't hesitate to ask!)
 Popular/requested tools:
   * Page Publisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
-  * Component Synchronizer (in high-demand!)
+  * ComponentSynchronizer (in high-demand!)
   * (new suggestion) Component Publisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
   * (new suggestion) Field Content Copier
   * (new suggestion) Unlocalize Children based on URI
@@ -34,12 +34,6 @@ Next steps you can take:
   * Review Anguilla controls
   * Document requirements (function, design, fields, permissions, drop-downs, etc)
   * Identify what development side you're interested/comfortable with: Webservice back-end (Webservices, Core API, etc), Client-side UI (JavaScript and HTML?), Client-side Logic (JavaScript)
-
-Next steps:
-  * Release install guide
-  * Re-organize priority (Page Publisher back on list)
-  * Identify new tasks
-  * Confirm assignments (most have volunteered for certain tools)
-
+)
 ===Legend===
 _MVP 2011 Team A = MVP11_A and includes Julian, Jeff, and Alvin_
