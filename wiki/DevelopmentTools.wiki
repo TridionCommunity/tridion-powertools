@@ -12,6 +12,6 @@ Add info for fellow developers that need info on related SVN clients, VMs, IDEs,
 Examples...
   * Tortoise SVN (explorer-based) or ankhsvn (Visual Studio) for source
     * Can also edit wiki pages "offline" (Suggestion by Dominic)
-  * Reshaper for refactoring
+  * Resharper for refactoring (application for free license TBD)
   * Visio for diagrams
   * http://www.websequencediagrams.com/ for swim lane or sequence diagrams
