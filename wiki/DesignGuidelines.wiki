@@ -1,0 +1,8 @@
+#summary Good practices and considerations for creating look-and-feel, flow, and design for the PowerTools.
+
+= Introduction =
+
+
+= Details =
+
+When in doubt, follow an existing behavior for a similar item or functionality in the CME.
