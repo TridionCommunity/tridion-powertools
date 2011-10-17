@@ -1,0 +1,12 @@
+#summary Care to start the page?
+
+= Introduction =
+
+Braver souls have discussed coding standards.
+
+
+= Details =
+
+We have some good ideas from the team including existing guidelines, Clean Code by "Uncle Bob" Martin, and following the chosen frameworks/languages (Anguilla, MSDN's suggestions for C#, etc).
+
+Add ideas here and perhaps we can work out the details on the IRC #tridion channel (http://webchat.freenode.net/) or through the wiki's comments.
