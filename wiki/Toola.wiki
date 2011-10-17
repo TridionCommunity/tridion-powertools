@@ -1,4 +1,4 @@
-#summary Add information about the tools you use to setup a Tridion environment, program, and maintain the PowerTools.
+#summary Add information about the tools you use to set up a Tridion environment, program for, and maintain the PowerTools.
 #labels Featured
 
 = Introduction =
@@ -13,4 +13,5 @@ Examples...
   * Tortoise SVN (explorer-based) or ankhsvn (Visual Studio) for source
     * Can also edit wiki pages "offline" (Suggestion by Dominic)
   * Reshaper for refactoring
-  * 
+  * Visio for diagrams
+  * http://www.websequencediagrams.com/ for swim lane or sequence diagrams
