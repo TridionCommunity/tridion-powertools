@@ -1,4 +1,4 @@
-#summary Since this includes functional and technical work, I'm not sure "stories" or "requirements" would be a well-fitted term.
+#summary Project volunteers, progress, and next steps.
 #labels Featured
 
 ==Objectives and Deliverables==
@@ -7,7 +7,7 @@
 ||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-|| || Recruit initial 2011 Q4 team || || || || ||
+|| || Recruit initial 2011 Q4 team || || ||  Oct 15, 2011 || ||
 || || || || || || ||
 || || || || || || ||
 || || || || || || ||
