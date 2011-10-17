@@ -1,4 +1,5 @@
 #summary Step-by-step instructions for people who know what they're doing
+#labels Featured,Phase-Implementation
 
 =No-nonsense guide to creating a power tool=
 
