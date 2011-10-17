@@ -1,0 +1,7 @@
+#summary Not to be construed as strict unbreakable rules, but the following describes design guidelines and coding standards.
+
+= DesignGuidelines =
+Pitch in some ideas!
+
+= CodingStandards =
+Let's open this can of worms.
