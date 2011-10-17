@@ -1,5 +1,5 @@
 #labels Phase-Requirements
-#Componen Synchronizer Requirement Gathering
+#Component Synchronizer Requirement Gathering
 
 = Introduction =
 
