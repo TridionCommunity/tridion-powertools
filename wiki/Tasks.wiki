@@ -33,7 +33,10 @@ Next steps you can take:
   * Check out !ImageUploader !PowerTool and its Schema dropdown
   * Review Anguilla controls
   * Document requirements (function, design, fields, permissions, drop-downs, etc)
-  * Identify what development side you're interested/comfortable with: Webservice back-end (Webservices, Core API, etc), Client-side UI (JavaScript and HTML?), Client-side Logic (JavaScript)
-)
+  * Identify what development side you're interested/comfortable with:
+    * *Webservice* back-end (Webservices, Core API, etc)
+    * *Client-side UI* (JavaScript, CSS, and XHTML)
+    * *Client-side Logic* (JQuery/JavaScript by implication)
+
 ===Legend===
 _MVP 2011 Team A = MVP11_A and includes Julian, Jeff, and Alvin_
