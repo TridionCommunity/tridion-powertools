@@ -1,6 +1,5 @@
+#summary Synchronizer Requirement Gathering
 #labels Phase-Requirements
-#Component Synchronizer Requirement Gathering
-
 = Introduction =
 
 This tool was originally created to solve the problems derived from a schema design change, when there is already content created using it.
