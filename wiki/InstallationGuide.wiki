@@ -1,7 +1,9 @@
 #summary How to install the power tools on your server.
 #labels Featured,Phase-Implementation
 
+---
 *_To help develop a !PowerTool see [nononsenseguide] instead._*
+---
 
 = Installation guide =
 
