@@ -15,3 +15,4 @@ Examples...
   * Resharper for refactoring (application for free license TBD)
   * Visio for diagrams
   * http://www.websequencediagrams.com/ for swim lane or sequence diagrams
+  * IRC http://webchat.freenode.net/ channel #tridion
