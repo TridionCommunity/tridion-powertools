@@ -27,6 +27,7 @@ Popular/requested tools:
   * (new suggestion) Component Publisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
   * (new suggestion) Field Content Copier
   * (new suggestion) Unlocalize Children based on URI
+  * See PrioritizedPowerTools
 
 Next steps you can take:
   * Develop code against Core Service API to prep for Web service versions later (see discussion group for details)
