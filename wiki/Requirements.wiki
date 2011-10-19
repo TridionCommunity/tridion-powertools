@@ -1,6 +1,6 @@
 #summary Index for Requirements
 
-Add requirements links here:
+Links to requirements (add more as we go along):
 
   * ComponentSynchronizer
   * PagePublisher
