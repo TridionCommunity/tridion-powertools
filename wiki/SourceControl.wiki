@@ -20,3 +20,6 @@ Steps:
 
 = Other Windows-Based SVN clients =
 http://subversion.apache.org/packages.html#windows
+
+= SVN Primer =
+Or refresher if it's been awhile...
