@@ -1,13 +1,12 @@
 ﻿Type.registerNamespace("PowerTools2011.Popups");
 
 PowerTools2011.Popups.ImageUploader = function () {
-  
+
     Type.enableInterface(this, "PowerTools2011.Popups.ImageUploader");
     this.addInterface("Tridion.Cme.View");
 
     var p = this.properties;
-
-    p.proxy = new PowerTools2011.Services.ImageUploaderServiceProxy();
+    
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
