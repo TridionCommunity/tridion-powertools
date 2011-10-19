@@ -1,0 +1,16 @@
+#summary The beauty of source control is that we can collaborate and build on each other's work, but at the same time protect the project's history.
+#labels Phase-Implementation
+
+= Introduction =
+
+Using an open source control standard like Subversion (SVN) means you have a few options on how to manage versioning. See some suggestions below and feel free to comment on or build out these tutorials as needed.
+
+= Tortoise SVN =
+  * Explorer, file-based integratoin with SVN
+
+= ankhsvn =
+  * Visual Studio integrated tool to connect to an SVN repository (like the PowerTools)
+Steps:
+  # Go to [http://ankhsvn.open.collab.net/downloads the ankhsvn download page]
+  # Download the latest version and optionally create and account
+  # After install you should be able to connect to the source through Visual Studio under File > Open > Subversion Project
