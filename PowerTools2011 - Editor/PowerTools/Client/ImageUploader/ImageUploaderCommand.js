@@ -7,29 +7,20 @@ PowerTools2011.Commands.ImageUploader = function ()
     this.addInterface("PowerTools2011.ToolBase", ["ImageUploader"]);
 };
 
-PowerTools2011.Commands.ImageUploader.prototype.isAvailable = function (selection)
-{
-    //Only show the button if a single FOLDER is selected
-    if (selection.getCount() == 1) {
-        var itemType = $models.getItemType(selection.getItem(0));
-        var item = $models.getItem(selection.getItem(0))
-        if (itemType == $const.ItemType.FOLDER) {
-            return true;
-        }
-    }
-    return false;
+PowerTools2011.Commands.ImageUploader.prototype.isAvailable = function (selection) {
+    //    //Only show the button if a single FOLDER is selected
+    //    if (selection.getCount() == 1) {
+    //        var itemType = $models.getItemType(selection.getItem(0));
+    //        var item = $models.getItem(selection.getItem(0))
+    //        if (itemType == $const.ItemType.FOLDER) {
+    //            return true;
+    //        }
+    //    }
+    return this._defineEnabled();
 };
 
 PowerTools2011.Commands.ImageUploader.prototype.isEnabled = function (selection) {
-   
-    if (selection.getCount() == 1) {
-        var itemType = $models.getItemType(selection.getItem(0));
-        //var item = $models.getItem(selection.getItem(0))
-        if (itemType == $const.ItemType.FOLDER) {
-            return true;
-        }
-    }
-    return false;
+    return this._defineEnabled();
 };
 
 PowerTools2011.Commands.ImageUploader.prototype._execute = function (selection)
@@ -44,3 +35,12 @@ PowerTools2011.Commands.ImageUploader.prototype._execute = function (selection)
     popup.open();
 };
 
+PowerTools2011.Commands.ImageUploader.prototype._defineEnabled = function () {
+    var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
+    var selection = treeView.getSelection().getItem(0);
+    var itemType = $models.getItemType(selection);
+    if (itemType == $const.ItemType.FOLDER) {
+        return true;
+    }
+    return false;
+}
