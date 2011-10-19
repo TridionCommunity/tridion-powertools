@@ -33,29 +33,23 @@ PowerTools2011.Popups.ImageUploader.prototype.initialize = function () {
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
-PowerTools2011.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {
-
+PowerTools2011.Popups.ImageUploader.prototype._onExecuteButtonClicked = function ()
+{
     $j('#CloseDialog').hide();
 
     var p = this.properties;
-    var context = this;
-
-    //Read parameters
 
     //-Schema Uri (ItemSelector)
     var schemaUri = p.controls.SchemaControl.getValue();
     //-Local directory on the server
     var localDirectory = $j("#Main_SourceFolder").val();
 
-    var params = { FolderUri: p.folderId, SchemaUri: schemaUri, Directory: localDirectory };
+    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
+    var onFailure = null;
+    var context = null;
 
-    p.proxy.Execute(function (response) {
-        p.processId = response.d.Id;
+    PowerTools2011.Model.Services.ImageUploader.Execute(localDirectory, p.folderId, schemaUri, onSuccess, onFailure, context, false);
 
-        setTimeout(function () {
-            context._getStatus(p.processId, context);
-        }, p.pollInterval);
-    }, null, params);
 
     var dialog = $j("#dialog");
     var win = $j(window);
@@ -119,38 +113,53 @@ PowerTools2011.Popups.ImageUploader.prototype.getListFieldsSchemas = function (p
 
 PowerTools2011.Popups.ImageUploader.prototype._updateProgressBar = function (process) {
     
-    $j('#ProgressStatus').html(process.d.Status);
-    $j('#ProgressBar').css({ 'width': process.d.PercentComplete + '%', 'display': 'block' });
+    $j('#ProgressStatus').html(process.Status);
+    $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 }
 
-PowerTools2011.Popups.ImageUploader.prototype._handleStatusResponse = function (response, context)
+PowerTools2011.Popups.ImageUploader.prototype._handleStatusResponse = function (result)
 {
-	var p = context.properties;
+    var p = this.properties;
 
-	p.processId = response.d.Id;
+    p.processId = result.Id;
 
-	context._updateProgressBar(response);
+    this._updateProgressBar(result);
 
-	if (response.d.PercentComplete < 100)
-	{		
-		setTimeout(function ()
-		{
-			context._getStatus(p.processId, context);
-		}, p.pollInterval);
-	}
-	else {
-	    $j('#ProgressStatus').html(response.d.Status);
-	    $j('#CloseDialog').show();
-		p.processId = ""
-	}
+    if (result.PercentComplete < 100)
+    {
+        this._pollStatus(p.processId);
+    }
+    else
+    {
+        $j('#ProgressStatus').html(result.Status);
+        $j('#CloseDialog').show();
+        p.processId = ""
+    }
 }
 
-PowerTools2011.Popups.ImageUploader.prototype._getStatus = function (id, context)
+PowerTools2011.Popups.ImageUploader.prototype._pollStatus = function (id)
 {
-	if (id != "")
-	{
-		context.properties.proxy.GetProcessStatus(id, this._handleStatusResponse, context);
-	}
+    var onFailure = null;
+    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
+    var context = null;
+
+    var callback = function ()
+    {
+        $log.debug("Checking the status of process #" + id);
+        PowerTools2011.Model.Services.ImageUploader.GetProcessStatus(id, onSuccess, onFailure, context, false);
+    };
+
+    setTimeout(callback, this.properties.pollInterval);
+}
+
+PowerTools2011.Popups.ImageUploader.prototype._onExecuteStarted = function (result)
+{
+    if (result)
+    {
+        this._pollStatus(result.Id);
+    }
 };
+
+
 
 $display.registerView(PowerTools2011.Popups.ImageUploader);
