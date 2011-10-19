@@ -6,7 +6,7 @@
     * [News]
     * [ReleaseHistory Release Date]
 ----
-  * [ToolList Tool List]
+  * Tool List
     * [ComponentSynchronizer Component Synchronizer]
     * [PagePublisher Page Publisher]
 ----
