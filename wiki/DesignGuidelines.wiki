@@ -22,13 +22,13 @@ A PowerTool that targets one or more selected items could benefit from being pla
 == Tree versus List Behavior ==
 Tree means left-side navigation whereas list refers to the main area (what's a better term?)
 
-1. Most Ribbon Toolbar buttons affect items selected in the list
-2. However, content creation buttons work on the organization item (folder or structure group) selected in the tree
+  # Most Ribbon Toolbar buttons affect items selected in the list
+  # However, content creation buttons work on the organization item (folder or structure group) selected in the tree
 
 This follows a familiar pattern in Windows Explorer.
 
-1. Open Explorer and select an item in the list. Creating a new folder with add an additional (sibling) item regardless of what item is selected. 
-2. However, select an item in the "tree" (such as My Documents), creating a new folder will create an item _inside_ of that organization item.
+  # Open Explorer and select an item in the list. Creating a new folder with add an additional (sibling) item regardless of what item is selected. 
+  # However, select an item in the "tree" (such as My Documents), creating a new folder will create an item _inside_ of that organization item.
 
 The distinction is subtle, but worth following. When in doubt refer to the CME and keep in mind the same items may have different behaviors based on context.
 
