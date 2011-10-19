@@ -7,7 +7,7 @@
 ----
   * [Standards]
     * [CodingStandards Code]
-    * [DesignGuidelines Design]
+    * DesignGuidelines
   * [Testing]
 ----
   * [Requirements]
