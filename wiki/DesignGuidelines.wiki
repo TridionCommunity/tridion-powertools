@@ -16,8 +16,10 @@ For example, we may have separate sets of tools for general end users, Power Use
 
 == Context-Menu (right-click) ==
 
-Appropriate
+Tridion makes several single-item actions available through the context-menu. This include versioning, history, localization, publishing, and copying/pasting.
+
+A PowerTool that targets one or more selected items could benefit from being placed in the context-menu.
 
 == No GUI ==
 
-Are there situations where a !PowerTool wouldn't be in the [Definitions#Content-Management-Editor CME]?
+Are there situations where a !PowerTool wouldn't be in the [Definitions#Content_Management_Editor CME]?
