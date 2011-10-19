@@ -2,6 +2,7 @@
 #labels Phase-Requirements,Featured
 
 #sidebar TableOfContents
+
 <wiki:toc max_depth="1" />
 <g:plusone size="medium"></g:plusone>
 
