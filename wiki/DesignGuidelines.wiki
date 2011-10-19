@@ -1,10 +1,9 @@
 #summary Good practices and considerations for creating look-and-feel, flow, and design for the PowerTools.
 
 = Introduction =
+Let's confirm our design guidelines to help create a well-integrated end-user experience, especially considering our variety of development and system backgrounds.
 
-
-= General Guiding Principle =
-
+=== General Guiding Principle ===
 
  When in doubt, follow an existing behavior for a similar item or functionality in the CME.
 
@@ -19,6 +18,19 @@ For example, we may have separate sets of tools for general end users, Power Use
 Tridion makes several single-item actions available through the context-menu. This include versioning, history, localization, publishing, and copying/pasting.
 
 A PowerTool that targets one or more selected items could benefit from being placed in the context-menu.
+
+== Tree versus List Behavior ==
+Tree means left-side navigation whereas list refers to the main area (what's a better term?)
+
+1. Most Ribbon Toolbar buttons affect items selected in the list
+2. However, content creation buttons work on the organization item (folder or structure group) selected in the tree
+
+This follows a familiar pattern in Windows Explorer.
+
+1. Open Explorer and select an item in the list. Creating a new folder with add an additional (sibling) item regardless of what item is selected. 
+2. However, select an item in the "tree" (such as My Documents), creating a new folder will create an item _inside_ of that organization item.
+
+The distinction is subtle, but worth following. When in doubt refer to the CME and keep in mind the same items may have different behaviors based on context.
 
 == No GUI ==
 
