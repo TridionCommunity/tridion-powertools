@@ -9,7 +9,8 @@
     * [CodingStandards Code]
     * [DesignGuidelines Design]
   * [Testing]
+----
   * [Development]
-    * [nononsenseguide *Get Started!*]
+    * *[nononsenseguide Get Started!]*
     * [DevelopmentTools Dev Tools]
     * InstallationGuide 
