@@ -1,1 +1,7 @@
 #summary Updates and milestones.
+
+== Updates ==
+(18-Oct-2011) We're refactoring the wiki with a new navigation (great suggestion from [http://code.google.com/u/107356881402740145015/ Angel Puntero]).
+
+== Care to help? ==
+(16-Oct-2011) Join: [http://groups.google.com/group/tridion-powertools the discussion group], introduce yourself, and follow the next steps in the [http://code.google.com/p/tridion-2011-power-tools/wiki/Tasks Tasks Wiki Page].
