@@ -8,12 +8,10 @@
   * [Requirements]
     * [ComponentSynchronizer]
     * [PagePublisher]
-----
   * [Standards]
     * [CodingStandards Code]
     * DesignGuidelines
   * [Testing]
-----
   * Development
     * *[nononsenseguide Getting Started "No Nonsense" Guide]*
     * [DevelopmentTools Developer Tools]
