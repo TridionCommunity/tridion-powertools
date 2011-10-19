@@ -7,8 +7,8 @@
     * [ReleaseHistory Release Date]
 ----
   * Tool List
-    * [ComponentSynchronizer Component Synchronizer]
-    * [PagePublisher Page Publisher]
+    * [ComponentSynchronizer]
+    * [PagePublisher]
 ----
   * [Standards]
     * [CodingStandards Code]
