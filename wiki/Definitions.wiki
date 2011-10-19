@@ -1,0 +1,6 @@
+#summary One-sentence summary of this page.
+
+<wiki:toc max_depth="1" />
+
+= Content Management Editor =
+The content management editor (CME) is the Tridion web-based graphical user interface (GUI). Though terms like GUI, UI, or website would typically denote a software application, it's important to distinguish the CME from other environments because of Tridion's publishing model. "Website" could refer to the CME or the target content delivery sites, for example.
