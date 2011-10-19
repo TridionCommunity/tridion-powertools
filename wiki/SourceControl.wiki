@@ -11,6 +11,7 @@ Using an open source control standard like Subversion (SVN) means you have a few
 
 = ankhsvn =
   * Visual Studio integrated tool to connect to an SVN repository (like the PowerTools)
+  * Can use with Tortoise SVN (ask Mihai or Angel) to pull updates directly into Visual Studio, but then do check-ins via the shell with Tortoise
 Steps:
   # Go to [http://ankhsvn.open.collab.net/downloads the ankhsvn download page]
   # Download the latest version and optionally create and account
