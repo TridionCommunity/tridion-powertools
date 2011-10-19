@@ -11,7 +11,7 @@ The implementation of the tool will be complex, and faces multiple challenges, l
 = Details =
 
 
-Description
+==Description==
 Synchronize item fields based on a specific schema.
 
 == Audience ==
