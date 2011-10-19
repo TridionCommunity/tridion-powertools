@@ -42,4 +42,4 @@ Also:
   * *Remove unused imports*
   * *Add comments!* Especially public methods and members.
   * Consider ReSharper or CodeRush Xpress (free)
-  * See Uncle Bob Martin's [http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882 Clean Code].
+  * See Uncle Bob Martin's [http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882 Clean Code]. Summary can be found [http://dl.dropbox.com/u/7845538/Clean%20Code%20Summary.pdf here]
