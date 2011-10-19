@@ -3,9 +3,7 @@
 = Introduction =
 Publish pages in batches in a more friendly way.
 
-
-
-Hard. Important. Ready?
+Should this tool allow publish, based on a template?
 
 = Details =
 
