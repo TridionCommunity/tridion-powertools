@@ -3,6 +3,21 @@
 = Introduction =
 
 
-= Details =
+= General Guiding Principle =
 
-When in doubt, follow an existing behavior for a similar item or functionality in the CME.
+
+ When in doubt, follow an existing behavior for a similar item or functionality in the CME.
+
+== Ribbon Buttons ==
+
+Not all extensions and PowerTools need to have a top-navigation Ribbon Button and physical aspx page. If a button in the Ribbon is appropriate, consider grouping the PowerTool with similar tools based on permissions.
+
+For example, we may have separate sets of tools for general end users, Power Users, Developers, and System Administrators.
+
+== Context-Menu (right-click) ==
+
+Appropriate
+
+== No GUI ==
+
+Are there situations where a !PowerTool wouldn't be in the [Definitions#Content-Management-Editor CME]?
