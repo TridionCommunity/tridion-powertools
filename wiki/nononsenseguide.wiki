@@ -2,6 +2,9 @@
 #labels Featured,Phase-Implementation
 
 =No-nonsense guide to creating a power tool=
+<wiki:comment>See http://code.google.com/p/support/wiki/WikiSyntax#+1_Button for details on the PlusOne button.</wiki:comment>
+
+<g:plusone size="standard"></g:plusone>
 
 1.	Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
 
