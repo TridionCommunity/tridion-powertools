@@ -15,7 +15,7 @@
     * DesignGuidelines
   * [Testing]
 ----
-  * [Requirements]
+  * Requirements
     * [ComponentSynchronizer]
     * [PagePublisher]
 ----
