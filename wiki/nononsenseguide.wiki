@@ -6,29 +6,33 @@
 
 <g:plusone size="standard"></g:plusone>
 
-1.	Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
+  # Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
 
-2.	Fix the references for PowerTools2011.Editor and PowerTools2011.Common:
-*	*TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll
-*	PowerTools2011.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll
+  # Fix the references for PowerTools2011.Editor and PowerTools2011.Common:
+  * *TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll
+  * PowerTools2011.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll
 
-3.	Add the following post-build event to PowerTools2011.Editor:
+  # Add the following post-build event to PowerTools2011.Editor and PowerTools2011.Model:
 {{{
 xcopy "$(TargetDir)*.dll" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 }}}
 
-4.	Build PowerTools2011.Editor
+  # Build the solution
 
-5.	Edit System.Config and add the PowerTools Editor configuration (copy from Editor.Fragment.Config, correct the path)
+  # Edit System.Config
+  * Add the Editor configuration (copy from Editor.Fragment.Config and correct the path)
+  * Add the Model configuration (copy from Model.Fragment.config and correct the path)
 
-6.	Create a Virtual Directory in IIS pointing to PowerTools2001 – Editor folder
+  # Add virtual directories in IIS:
+  * Add a new virtual directory (not an application) under WebUI\Editors, pointing to the PowerTools2011 – Editor folder.
+  * Also add a new one under WebUI\Models, pointing to the PowerTools2011 - Model folder.
 
-7.	Create a copy of the “ImageUploader” Power Tool (copy the PowerTools\Client\ImageUploader folder to a folder named "PublicationInfo")
+  # Create a copy of the “ImageUploader” Power Tool (copy the PowerTools\Client\ImageUploader folder to a folder named "PublicationInfo")
 
-8.	Rename all files inside this folder to PublicationInfo* (replacing ImageUploader)
+  # Rename all files inside this folder to PublicationInfo* (replacing ImageUploader)
 
-9.	Edit the PublicationInfo.aspx file:
+  # Edit the PublicationInfo.aspx file:
 {{{
 <%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
     CodeBehind="PublicationInfo.aspx.cs" Inherits="PowerTools2011.Editor.PowerTools.Client.PublicationInfo.PublicationInfo" %>
@@ -47,7 +51,7 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
     </div>
 </asp:Content>
 }}}
-10.	Edit the PublicationInfo.aspx.cs file
+  # Edit the PublicationInfo.aspx.cs file
 {{{
 using System;
 using Tridion.Web.UI.Core.Controls;
@@ -64,7 +68,7 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
 }
 }}}
 
-11.	Edit the PublicationInfo.js file
+  # Edit the PublicationInfo.js file
 
   * Find/Replace “ImageUploader” ==> “PublicationInfo”
   * comment line 29 (c.SchemaControl …)
@@ -74,22 +78,18 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
   * comment lines 88 to 108 (onSchemaLoadContent function)
   * comment lines 109 to 116 (getListFieldsSchemas function)
 
-12.	Edit the PublicationInfoCommand.js file
+  # Edit the PublicationInfoCommand.js file
 
   * Find/Replace “ImageUploader” ==> “PublicationInfo”
   * Change isAvailable and isEnabled to always return true
   * Comment lines 20 to 23
   * Remove “+"#folderId=" + uriSelection” from line 25
 
-13.	Edit PublicationInfoServiceProxy.js file
-
-  * Find/Replace “ImageUploader” ==> PublicationInfo
-
-14.	Create the icons for the PowerTool
+  # Create the icons for the PowerTool
   * Go to [http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/db_status.png this page] to find the icon
   * Save the 16x16 and 32x32 files under PowerTools2011.Editor\PowerTools\Client\Shared\Theme\Icons, rename them to publicationinfo_16.png and publicationinfo_32.png
 
-15.	Edit PowerTools2011.Editor\PowerTools\Client\Shared\Theme\styles.css
+  # Edit PowerTools2011.Editor\PowerTools\Client\Shared\Theme\styles.css
   * Copy the following 3 lines to this CSS
 
 {{{
@@ -98,7 +98,7 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
 .ribbontoolbar.minimized .button.PT_PublicationInfo .image {background-image: url({ThemePath}/Icons/publicationinfo_16.png);} 
 }}}
 
-16.	Edit PowerTools2011.Editor\Configuration\Editor.config
+  # Edit PowerTools2011.Editor\Configuration\Editor.config
   * Create a cfg:group for this PowerTool
 {{{
       <cfg:group name="PowerTools2011.PublicationInfo" merge="always">
@@ -143,34 +143,28 @@ Rebuild the PowerTools2011.Editor project.
 Save & Reload the CME, you should now see your new button in the PowerTools 2012 Ribbon toolbar, and clicking it will bring up the popup.
 
 ==Build the webservice==
-Copy PowerTools\Server\Services\PT_Example.svc into a PT_PublicationInfo.svc file in the same folder
+Copy PowerTools2011 - Model\Services\Example.svc into a PublicationInfo.svc file in the same folder
 
 Set the code to:
 {{{
-<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools2011.Services.PublicationInfo.PublicationInfoService"%>
+<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools2011.Model.Services.PublicationInfo"%>
 }}}
 
-Edit Server\Web.Config
+Edit the Web.config in the Model project.
 Add a Service binding:
 {{{
-<service behaviorConfiguration="ExampleServiceBehaviors" name="PowerTools2011.Services.PublicationInfo.PublicationInfoService">
-  <endpoint address="" behaviorConfiguration="PowerTools2011Editor.ExampleServiceAspNetAjaxBehavior"
-            bindingConfiguration="webHttpBindingConfig" binding="webHttpBinding" 
-            contract="PowerTools2011.Services.PublicationInfo.PublicationInfoService" />
-</service>
+      <service name="PowerTools2011.Model.Services.PublicationInfo" behaviorConfiguration="Tridion.Web.UI.ContentManager.WebServices.DeveloperBehavior">
+        <endpoint name="PublicationInfo" address="" behaviorConfiguration="Tridion.Web.UI.ContentManager.WebServices.AspNetAjaxBehavior" binding="webHttpBinding" bindingConfiguration="Tridion.Web.UI.ContentManager.WebServices.WebHttpBindingConfig" contract="PowerTools2011.Model.Services.PublicationInfo"/>
+      </service>
 }}}
 
-Go to project PowerTools2011.Services
-
-Create a new folder "PublicationInfo"
-
-Create a new "Class File" in this folder, name it PublicationInfo.cs with the following code:
+Create a new "Class File" in this folder, name it PublicationData.cs with the following code:
 {{{
 using System.Runtime.Serialization;
-namespace PowerTools2011.Services.PublicationInfo
+namespace PowerTools2011.Model.Services
 {
     [DataContract]
-    public class PublicationInfo
+    public class PublicationData
     {
         [DataMember]
         public string Title;
@@ -182,7 +176,7 @@ namespace PowerTools2011.Services.PublicationInfo
 }
 }}}
 
-Create another class file, PublicationInfoService.cs with the following code:
+Create another class file, PublicationInfo.svc.cs with the following code:
 {{{
 using System.Collections.Generic;
 using System.Linq;
@@ -192,14 +186,14 @@ using System.ServiceModel.Web;
 using PowerTools2011.Services.Progress;
 using Tridion.ContentManager.CoreService.Client;
 
-namespace PowerTools2011.Services.PublicationInfo
+namespace PowerTools2011.Model.Services
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    [ServiceContract(Namespace = "")]
-    public class PublicationInfoService : BaseService
+    [ServiceContract(Namespace = "PowerTools2011.Model.Services")]
+    public class PublicationInfo : BaseService
     {
-        private List<PublicationInfo> _publicationInfos;
+        private List<PublicationData> _publicationInfos;
 
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
         public ServiceProcess Execute()
@@ -214,14 +208,14 @@ namespace PowerTools2011.Services.PublicationInfo
         }
 
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public List<PublicationInfo> GetPublicationInfo()
+        public List<PublicationData> GetPublicationInfo()
         {
             return _publicationInfos;
         }
 
         public override void Process(ServiceProcess process, object arguments)
         {
-            _publicationInfos = new List<PublicationInfo>();
+            _publicationInfos = new List<PublicationData>();
             var client = Common.CoreService.Client.GetCoreService();
             try
             {
@@ -232,7 +226,7 @@ namespace PowerTools2011.Services.PublicationInfo
                 foreach (RepositoryData repository in datas.Cast<RepositoryData>())
                 {
                     process.SetStatus("Reading publication" + repository.Title);
-                    PublicationInfo pubInfo = new PublicationInfo {Id = repository.Id, Title = repository.Title};
+                    PublicationData pubInfo = new PublicationData {Id = repository.Id, Title = repository.Title};
                     RepositoryItemsFilterData filterData = new RepositoryItemsFilterData {Recursive = true};
                     pubInfo.ItemCount = client.GetListXml(repository.Id, filterData).ChildNodes.Count;
                     _publicationInfos.Add(pubInfo);
@@ -250,16 +244,6 @@ namespace PowerTools2011.Services.PublicationInfo
 }
 }}}
 
-Now, in the LAST step, let's modify the PublicationInfoServiceProxy.js file to handle our WebService correctly
-
-Add a function to "GetPublicationList" to the PublicationInfoServiceProxy prototype (after GetProcessStatus, for instance):
-{{{
-GetPublicationList : function (id, success, state) {
-    var data = { id: id };
-    this._doAjax("GetPublicationInfo", data, success, null, state);
-},
-}}}
-
 Modify PublicationInfo.js to use the following code (which includes the handling of GetPublicationList):
 {{{
 Type.registerNamespace("PowerTools2011.Popups");
@@ -271,7 +255,6 @@ PowerTools2011.Popups.PublicationInfo = function () {
 
     var p = this.properties;
 
-    p.proxy = new PowerTools2011.Services.PublicationInfoServiceProxy();
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
@@ -298,6 +281,9 @@ PowerTools2011.Popups.PublicationInfo.prototype._onExecuteButtonClicked = functi
 
     var p = this.properties;
     var context = this;
+
+
+    PowerTools2011.Model.Services.Execute
 
     p.proxy.Execute(function (response) {
         p.processId = response.d.Id;
@@ -338,25 +324,25 @@ PowerTools2011.Popups.PublicationInfo.prototype._onCloseButtonClicked = function
 
 PowerTools2011.Popups.PublicationInfo.prototype._updateProgressBar = function (process) {
 
-    $j('#ProgressStatus').html(process.d.Status);
-    $j('#ProgressBar').css({ 'width': process.d.PercentComplete + '%', 'display': 'block' });
+    $j('#ProgressStatus').html(process.Status);
+    $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 };
 
 PowerTools2011.Popups.PublicationInfo.prototype._handleStatusResponse = function (response, context) {
     var p = context.properties;
 
-    p.processId = response.d.Id;
+    p.processId = response.Id;
 
     context._updateProgressBar(response);
 
-    if (response.d.PercentComplete < 100) {
+    if (response.PercentComplete < 100) {
         setTimeout(function () {
             context._getStatus(p.processId, context);
         }, p.pollInterval);
     }
     else {
         context._getPublicationInfo(p.processId, context);
-        $j('#ProgressStatus').html(response.d.Status);
+        $j('#ProgressStatus').html(response.Status);
         $j('#CloseDialog').show();
         p.processId = "";
     }
@@ -366,7 +352,7 @@ PowerTools2011.Popups.PublicationInfo.prototype._handleStatusResponse = function
 PowerTools2011.Popups.PublicationInfo.prototype._handlePublicationList = function (response, context) {
     var content = '';
 
-    // alert(response.d.length);
+    // alert(response.length);
 
     for (var i = 0; i < response.d.length; i++) {
         content += response.d[i].Title + ' (' + response.d[i].Id + '): ' + response.d[i].ItemCount + ' items.<br/>';
