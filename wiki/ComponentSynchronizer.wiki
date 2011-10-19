@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Component Synchronizer Tool Info Page
 
 = Introduction =
 This tool was originally created to solve the problems derived from a schema design change, when there is already content created using it.
