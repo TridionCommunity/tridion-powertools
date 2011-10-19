@@ -1,0 +1,8 @@
+#summary One-sentence summary of this page.
+
+Vesa mentioned:
+ * Unit Test Suite (Beside their obvious function tests are also the 
+best documentation for developers) 
+ * NAnt/Maven script (Could work as a sort of an installer) 
+
+Please update, change, and add ideas...
