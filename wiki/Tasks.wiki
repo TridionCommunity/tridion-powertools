@@ -1,5 +1,5 @@
 #summary Project volunteers, progress, and next steps.
-#labels Featured
+#labels Featured,Phase-Requirements
 
 ==Objectives and Deliverables==
 || Status || Task || Description || Date Created || Date Completed || Completed by ||
