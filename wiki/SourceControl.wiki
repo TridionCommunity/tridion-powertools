@@ -7,6 +7,7 @@ Using an open source control standard like Subversion (SVN) means you have a few
 
 = Tortoise SVN =
   * Explorer, file-based integratoin with SVN
+  * Get it at the [http://tortoisesvn.net/downloads.html !TortoiseSVN download page].
 
 = ankhsvn =
   * Visual Studio integrated tool to connect to an SVN repository (like the PowerTools)
