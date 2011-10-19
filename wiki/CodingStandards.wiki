@@ -10,3 +10,38 @@ Braver souls have discussed coding standards.
 We have some good ideas from the team including existing guidelines, Clean Code by "Uncle Bob" Martin, and following the chosen frameworks/languages (Anguilla, MSDN's suggestions for C#, etc).
 
 Add ideas here and perhaps we can work out the details on the IRC #tridion channel (http://webchat.freenode.net/) or through the wiki's comments.
+
+= Discussion Points =
+These are from the Google Group and are not yet finalized.
+
+
+  * http://msdn.microsoft.com/en-us/library/ms229042.aspx 
+  * http://blogs.msdn.com/b/brada/archive/2005/01/26/361363.aspx 
+
+Avoid copyright / author statement at the top of each file. Maintain this information here, in a readme, or other obvious place.
+
+Add "using" statements at the top of files, removing un-used statements.
+
+Order members from unchanging, more private aspects of a class to the more public behaviors and attributes.
+
+Suggestion:
+  # fields
+  # constructors
+  # events
+  # properties
+  # methods
+
+Further sort members by visibility:
+  # private
+  # protected, 
+  # internal
+  # public, etc. 
+
+This has the effect that the most "interesting," worked-on, and more visible (public) code will tend to be at the bottom of the file. Things you don't need to worry about (but should still check) will be up top, closer to the imports. (I'm reading in-between the lines, feel free to clarify!)
+
+Also:
+  * *Remove unused imports*
+  * *Add comments!* Especially public methods and members.
+  * Consider ReSharper or CodeRush Xpress (free)
+  * See "Clean Code" (http://www.amazon.com/Clean-Code-Handbook-Software- 
+Craftsmanship/dp/0132350882).
