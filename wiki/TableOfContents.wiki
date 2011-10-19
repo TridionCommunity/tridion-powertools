@@ -4,6 +4,7 @@
   * Project
     * [Tasks] 
     * [News]
+    * [ReleaseHistory Release Date]
 ----
   * [Standards]
     * [CodingStandards Code]
