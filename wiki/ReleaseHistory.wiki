@@ -2,4 +2,4 @@
 
 Latest version: 0.8. Release date: October 15, 2011.
 
-We continuing work on the 0.9 release, the working draft can be downloaded from the trunk. See 
+We continuing work on the 0.9 release, the working draft can be downloaded from the trunk. Follow the discussion on http://groups.google.com/group/tridion-powertools.
