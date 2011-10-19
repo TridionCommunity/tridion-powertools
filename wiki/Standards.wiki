@@ -1,10 +1,8 @@
 #summary Not to be construed as strict unbreakable rules, but the following summarizes design guidelines and coding standards.
 
-= Instructions =
-Click on one of the following links to add details for standards for the design (look-and-feel, colors, and maybe PowerTool context) and coding standards (comments, casing, naming conventions, etc).
+Follow these links to add details for standards for the design (look-and-feel, colors, and maybe PowerTool context) and coding standards (comments, casing, naming conventions, etc).
 
-= DesignGuidelines =
-Pitch in some ideas by following the link above!
+<wiki:comment>Let's keep this index page fairly lightweight.</wiki:comment>
 
-= CodingStandards =
-Let's open this can of worms. Click above when you're ready.
+  * DesignGuidelines
+  * CodingStandards
