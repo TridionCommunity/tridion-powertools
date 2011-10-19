@@ -6,6 +6,10 @@
     * [News]
     * [ReleaseHistory Release Date]
 ----
+  * [ToolList Tool List]
+    * [ComponentSynchronizer Component Synchronizer]
+    * [PagePublisher Page Publisher]
+----
   * [Standards]
     * [CodingStandards Code]
     * DesignGuidelines
