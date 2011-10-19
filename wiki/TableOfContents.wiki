@@ -1,16 +1,19 @@
-#summary Table of Contents
+#summary Table of Contents (used for the sidebar nav)
 #labels Featured
 
-  * [Tasks] 
-  * [Requirements]
-    * [ComponentSynchronizer]
-    * [PagePublisher]
+  * Project
+    * [Tasks] 
+    * [News]
+----
   * [Standards]
     * [CodingStandards Code]
     * [DesignGuidelines Design]
   * [Testing]
 ----
+  * [Requirements]
+    * [ComponentSynchronizer]
+    * [PagePublisher]
+----
   * [Development]
-    * *[nononsenseguide Get Started!]*
-    * [DevelopmentTools Dev Tools]
-    * InstallationGuide 
+    * *[nononsenseguide Getting Started "No Nonsense" Guide]*
+    * [DevelopmentTools Developer Tools]
