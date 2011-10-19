@@ -20,5 +20,5 @@
     * [PagePublisher]
 ----
   * [Development]
-    * [nononsenseguide Getting Started "No Nonsense" Guide]*
+    * *[nononsenseguide Getting Started "No Nonsense" Guide]*
     * [DevelopmentTools Developer Tools]
