@@ -14,15 +14,14 @@ Add ideas here and perhaps we can work out the details on the IRC #tridion chann
 = Discussion Points =
 These are from the Google Group and are not yet finalized.
 
-
+Example coding standards for C#:
   * http://msdn.microsoft.com/en-us/library/ms229042.aspx 
   * http://blogs.msdn.com/b/brada/archive/2005/01/26/361363.aspx 
 
-Avoid copyright / author statement at the top of each file. Maintain this information here, in a readme, or other obvious place.
-
-Add "using" statements at the top of files, removing un-used statements.
-
-Order members from unchanging, more private aspects of a class to the more public behaviors and attributes.
+General code layout:
+  * Avoid copyright / author statement at the top of each file. Maintain this information here, in a readme, or other obvious place.
+  * Add "using" statements at the top of files, removing un-used statements.
+  * Order members from unchanging, more private aspects of a class to the more public behaviors and attributes.
 
 Suggestion:
   # fields
@@ -43,5 +42,4 @@ Also:
   * *Remove unused imports*
   * *Add comments!* Especially public methods and members.
   * Consider ReSharper or CodeRush Xpress (free)
-  * See "Clean Code" (http://www.amazon.com/Clean-Code-Handbook-Software- 
-Craftsmanship/dp/0132350882).
+  * See Uncle Bob Martin's [http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882 Clean Code].
