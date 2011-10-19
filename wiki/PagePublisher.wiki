@@ -5,10 +5,14 @@ Publish pages in batches in a more friendly way.
 
 Should this tool allow publish, based on a template?
 
+This tools was not identified as a priority in a first round, but after multiple requests and proper, the priority was raised.
+
+The initial difficulty was not very high, but the real difficulty will depend on the number of extra functionalities implemented.
+
 = Details =
 
 
-Description
+==Description==
 
 This tool allows the user to launch all the pages contained in a publication or structure group. The main difference with the normal publication is that items are sent to the publishing queue as individual transactions, therefore allowing to identify those that are failing and not blocking the whole publication job, in case that an item fails.
 
