@@ -16,4 +16,4 @@ Steps:
   # Download the latest version and optionally create and account
   # After install you should be able to connect to the source through Visual Studio under File > Open > Subversion Project
   # Follow the [nononsenseguide nunosenseguide] for what repository to open.
- Note for those used to TFS or doing single-checkouts, multiple checkouts are allowed (think "updates"), you're not locking files or preventing work by checking a file out. An explicit lock is required to do so.
+ Note for those used to TFS or doing single-user checkouts that lock files, multiple checkouts are allowed (think "updates"). You're not locking files or preventing work by checking out files. An explicit lock is required to do so.
