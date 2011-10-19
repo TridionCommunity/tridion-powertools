@@ -7,7 +7,6 @@ PowerTools2011.Popups.Example = function ()
 
 	var p = this.properties;
 
-	p.proxy = new PowerTools2011.Services.ExampleServiceProxy();
 	p.processId = null;
 	p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
