@@ -66,12 +66,10 @@
     <Content Include="PowerTools\Client\Example\Example.css" />
     <Content Include="PowerTools\Client\Example\Example.js" />
     <Content Include="PowerTools\Client\Example\ExampleCommand.js" />
-    <Content Include="PowerTools\Client\Example\ExampleServiceProxy.js" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.aspx" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.css" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.js" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploaderCommand.js" />
-    <Content Include="PowerTools\Client\ImageUploader\ImageUploaderServiceProxy.js" />
     <Content Include="PowerTools\Client\IndexPageCommand.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
@@ -88,8 +86,6 @@
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.css" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.js" />
-    <Content Include="PowerTools\Server\Services\PT_ImageUploader.svc" />
-    <Content Include="PowerTools\Server\Services\PT_Example.svc" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_64.png" />
@@ -99,9 +95,6 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_64.png" />
     <Content Include="PowerTools\Client\Shared\Scripts\Main.js" />
     <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
-    <Content Include="PowerTools\Server\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
@@ -118,7 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Configuration\editor.config">
+    <Content Include="Configuration\Editor.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -152,10 +145,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PowerTools2011 - Services\PowerTools2011 - Services\PowerTools2011.Services.csproj">
-      <Project>{42F79DD0-5A68-42E0-AF63-F1F8B1C98DAF}</Project>
-      <Name>PowerTools2011.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PowerTools2011.Common\PowerTools2011.Common.csproj">
       <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
       <Name>PowerTools2011.Common</Name>
