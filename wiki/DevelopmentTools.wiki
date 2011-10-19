@@ -10,7 +10,7 @@ We want more time to focus on requirements and code by making the tools part eas
 Add info for fellow developers that need info on related SVN clients, VMs, IDEs, refactoring tools, and even UI shortcuts. 
 
 == Tools ==
-  * Tortoise SVN (explorer-based) or ankhsvn (Visual Studio) for source
+  * Tortoise (Explorer-based) or [SourceControl#ankhsvn ankhsvn] (Visual Studio) for ways to connect to the SVN-based source
     * Can also edit wiki pages "offline" (Suggestion by Dominic)
   * Resharper for refactoring (application for free license TBD)
   * Visio for diagrams
