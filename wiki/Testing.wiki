@@ -3,6 +3,7 @@
 Vesa mentioned:
  * Unit Test Suite (Beside their obvious function tests are also the 
 best documentation for developers) 
+   NUnit is the most popular choice between collaborators and one of the most widely known.
  * NAnt/Maven script (Could work as a sort of an installer) 
 
 Please update, change, and add ideas...
