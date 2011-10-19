@@ -12,8 +12,6 @@
                 <li><em>/PowerTools/Client/Example/Example.js:</em> JavaScript functions for the popup</li>
                 <li><em>/PowerTools/Client/Example/ExampleCommand.js:</em> JavaScript command set to
                     add buttons to the GUI (isAvailable/isEnabled/_execute)</li>
-                <li><em>/PowerTools/Client/Example/ExampleServiceProxy.js:</em> JavaScript functions
-                    to create calls to the WCF service that does the work</li>
                 <li><em>/PowerTools/Client/Example/Example.css:</em> CSS to control look and feel of
                     this popup</li>
                 <li><em>/PowerTools/Client/Shared/Theme/styles.css:</em> CSS to control look and feel
@@ -21,8 +19,7 @@
             </ul>
             <strong>Server</strong>
             <ul>
-                <li><em>/PowerTools/Server/Example/ExampleService.svc:</em> the back-end web service
-                    (which uses the library PowerTools2011.Services)</li>
+                <li><em>PowerTools2011 - Model/Services/Example.svc:</em> the back-end web service</li>
             </ul>
             <hr />
             <div>
