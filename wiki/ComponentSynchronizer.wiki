@@ -4,7 +4,9 @@
 This tool was originally created to solve the problems derived from a schema design change, when there is already content created using it.
 
 
-Hard. Important. Ready?
+This tools has been requested by multiple contributors and is one of the most important for implementors to have so it as been marked as *Hight priority*.
+
+The implementation of the tool will be complex, and faces multiple challenges, like the performance. 
 
 = Details =
 
@@ -13,7 +15,7 @@ Description
 Synchronize item fields based on a specific schema.
 
 == Audience ==
-(admin, developer, power user, or all)
+Admins and Power Users
 
 
 *Version #*
@@ -37,6 +39,7 @@ SDL Tridion 2011 SP1
 
 == Purpose ==
 Describe purpose, objectives, and requirements
+Probably this section overlaps with previous sections.
 
 == Installation ==
 {describe installation steps}
