@@ -54,14 +54,18 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Tridion.ContentManager.CoreService.Client.2010, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PowerTools2011 - Services\PowerTools2011 - Services\bin\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
+      <HintPath>..\PowerTools2011.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
     <Reference Include="Tridion.Web.UI.Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
+      <HintPath>..\..\References\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.css" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerCommand.js" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.aspx" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
@@ -90,6 +94,8 @@
     <Content Include="PowerTools\Client\Shared\Scripts\ToolBase.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\Types.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_32.png" />
@@ -109,6 +115,13 @@
     <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.cs">
+      <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
+      <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
