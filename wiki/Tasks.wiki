@@ -23,12 +23,12 @@ New contributors and interests (since retreat):
   * Robert Curlette, Component Publisher and Unlocalize Children (new)
   * Graeme Wigglesworth, available to help (don't hesitate to ask!)
 Popular/requested tools:
-  * Page Publisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
+  * PagePublisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
   * ComponentSynchronizer (in high-demand!)
   * (new suggestion) Component Publisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
-  * (new suggestion) Field Content Copier
-  * (new suggestion) Unlocalize Children based on URI
-  * See PrioritizedPowerTools
+  * (new suggestion) FieldContentCopier
+  * (new suggestion) UnlocalizeChildren based on URI
+  * See [Requirements] for more info
 
 Next steps you can take:
   * Develop code against Core Service API to prep for Web service versions later (see discussion group for details)
