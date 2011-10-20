@@ -19,6 +19,10 @@
 .ribbontoolbar .button.PT_Default .image {background-image: url({ThemePath}/Icons/terminal_32.png);} 
 .ribbontoolbar.minimized .button.PT_Default .image {background-image: url({ThemePath}/Icons/terminal_16.png);} 
 
+.PT_FieldRemover .image {background-image:url({ThemePath}/Icons/fieldremover_16.png);}
+.ribbontoolbar .button.PT_FieldRemover .image {background-image: url({ThemePath}/Icons/fieldremover_32.png);} 
+.ribbontoolbar.minimized .button.PT_FieldRemover .image {background-image: url({ThemePath}/Icons/fieldremover_16.png);}
+
 
 div#PowerToolIcon
 {

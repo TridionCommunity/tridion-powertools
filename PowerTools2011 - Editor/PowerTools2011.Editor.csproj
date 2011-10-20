@@ -62,6 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemover.aspx" />
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemoverCommand.js" />
     <Content Include="PowerTools\Client\Example\Example.aspx" />
     <Content Include="PowerTools\Client\Example\Example.css" />
     <Content Include="PowerTools\Client\Example\Example.js" />
@@ -101,6 +105,13 @@
     <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
+      <DependentUpon>FieldRemover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
+      <DependentUpon>FieldRemover.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

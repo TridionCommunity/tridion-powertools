@@ -1,7 +1,6 @@
 ﻿Type.registerNamespace("PowerTools2011.Popups");
 
 PowerTools2011.Popups.ImageUploader = function () {
-
     Type.enableInterface(this, "PowerTools2011.Popups.ImageUploader");
     this.addInterface("Tridion.Cme.View");
 
