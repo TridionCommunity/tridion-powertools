@@ -43,7 +43,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Component Synchronizer</td>
+         <td>ComponentSynchronizer</td>
 
          <td>For all components based on the chosen schema, default a field to a certain
          value. If you leave the overrule checkbox unchecked, then current values are not
