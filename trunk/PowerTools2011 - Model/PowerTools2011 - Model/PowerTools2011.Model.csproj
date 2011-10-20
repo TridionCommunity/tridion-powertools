@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\ComponentSynchronizer.svc" />
     <Content Include="Services\PagePublisher.svc" />
     <Content Include="Services\FieldRemover.svc" />
     <Content Include="Services\MarkUnpublished.svc" />
@@ -72,6 +73,9 @@
     <Compile Include="Progress\ServiceProcess.cs" />
     <Compile Include="Progress\ServiceProcessHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ComponentSynchronizer.svc.cs">
+      <DependentUpon>ComponentSynchronizer.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\PagePublisher.svc.cs">
       <DependentUpon>PagePublisher.svc</DependentUpon>
     </Compile>
