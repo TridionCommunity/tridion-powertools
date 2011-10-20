@@ -11,7 +11,7 @@ using PowerTools2011.Common.Pages;
 namespace PowerTools2011.Editor.PowerTools.Client.ImageUploader {
 
 	[ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Tridion.Web.UI.Controls.Button), typeof(Stack), typeof(Dropdown), typeof(List) })]
-	[ControlResources("PowerTools2011.ImageUploader")]
+    [ControlResources("PowerTools2011.ImageUploader")]
     public partial class ImageUploader : PowerToolsPageBase
     {
 	}

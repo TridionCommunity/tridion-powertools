@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="Services\PagePublisher.svc" />
     <Content Include="Services\FieldRemover.svc" />
+    <Content Include="Services\MarkUnpublished.svc" />
     <Content Include="Services\Example.svc" />
     <Content Include="Services\ImageUploader.svc" />
     <Content Include="Web.config">
@@ -76,6 +77,9 @@
     </Compile>
     <Compile Include="Services\FieldRemover.svc.cs">
       <DependentUpon>FieldRemover.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MarkUnpublished.svc.cs">
+      <DependentUpon>MarkUnpublished.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\Example.svc.cs">
       <DependentUpon>Example.svc</DependentUpon>
