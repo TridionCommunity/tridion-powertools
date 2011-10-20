@@ -30,12 +30,12 @@ namespace PowerTools2011.Model.Services
                 throw new ArgumentNullException("directory");
             }
 
-            if (string.IsNullOrEmpty(directory))
+            if (string.IsNullOrEmpty(folderUri))
             {
                 throw new ArgumentNullException("folderUri");
             }
 
-            if (string.IsNullOrEmpty(directory))
+            if (string.IsNullOrEmpty(schemaUri))
             {
                 throw new ArgumentNullException("schemaUri");
             }
