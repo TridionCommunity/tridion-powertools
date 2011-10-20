@@ -27,6 +27,10 @@
 .ribbontoolbar .button.PT_FieldRemover .image {background-image: url({ThemePath}/Icons/fieldremover_32.png);} 
 .ribbontoolbar.minimized .button.PT_FieldRemover .image {background-image: url({ThemePath}/Icons/fieldremover_16.png);}
 
+.PT_componentsynchronizer .image {background-image:url({ThemePath}/Icons/componentsynchronizer_16.png);}
+.ribbontoolbar .button.PT_componentsynchronizer .image {background-image: url({ThemePath}/Icons/componentsynchronizer_32.png);} 
+.ribbontoolbar.minimized .button.PT_componentsynchronizer .image {background-image: url({ThemePath}/Icons/componentsynchronizer_16.png);} 
+
 
 div#PowerToolIcon
 {
