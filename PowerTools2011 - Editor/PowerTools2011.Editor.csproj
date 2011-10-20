@@ -71,6 +71,10 @@
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.js" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploaderCommand.js" />
     <Content Include="PowerTools\Client\IndexPageCommand.js" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisher.css" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisher.js" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisherCommand.js" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisher.aspx" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
@@ -107,6 +111,13 @@
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.designer.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.cs">
+      <DependentUpon>PagePublisher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
+      <DependentUpon>PagePublisher.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,8 +186,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y
+xcopy "$(TargetDir)*.pdb" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
