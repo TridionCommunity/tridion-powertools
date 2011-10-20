@@ -13,6 +13,8 @@
 || || || || || || ||
 
 New contributors and interests (since retreat):
+  * Mark Saunders (dylan.home) | Page Unpublisher
+  * Mark Williams | Schema field remover
   * John Winter | Page Publisher
   * Kunal Shetye, Count Items and GUI framework
   * Vikas Kumar, 2009 !PowerTools, waiting on 2011 (maybe we can add info here)
