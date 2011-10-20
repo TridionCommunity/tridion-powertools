@@ -1,4 +1,8 @@
 
+.PT_PagePublisher .image {background-image:url({ThemePath}/Icons/pagepublisher16.png);}
+.ribbontoolbar .button.PT_PagePublisher .image {background-image: url({ThemePath}/Icons/pagepublisher_32.png);} 
+.ribbontoolbar.minimized .button.PT_PagePublisher .image {background-image: url({ThemePath}/Icons/pagepublisher_16.png);} 
+
 .PT_ImageUploader .image {background-image:url({ThemePath}/Icons/imageupload_16.png);}
 .ribbontoolbar .button.PT_ImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_32.png);} 
 .ribbontoolbar.minimized .button.PT_ImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_16.png);} 
