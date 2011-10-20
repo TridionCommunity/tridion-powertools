@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\PagePublisher.svc" />
     <Content Include="Services\Example.svc" />
     <Content Include="Services\ImageUploader.svc" />
     <Content Include="Web.config">
@@ -69,6 +70,9 @@
     <Compile Include="Progress\ServiceProcess.cs" />
     <Compile Include="Progress\ServiceProcessHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PagePublisher.svc.cs">
+      <DependentUpon>PagePublisher.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\Example.svc.cs">
       <DependentUpon>Example.svc</DependentUpon>
     </Compile>
@@ -111,6 +115,10 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y
+xcopy "$(TargetDir)*.pdb" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
