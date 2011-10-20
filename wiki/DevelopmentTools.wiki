@@ -17,11 +17,15 @@ Add info for fellow developers that need info on related SVN clients, VMs, IDEs,
   * http://www.websequencediagrams.com/ for swim lane or sequence diagrams
   * IRC http://webchat.freenode.net/ channel #tridion<br/>IRC may be quiet now, but will likely pick up as we get into more development -- use the forum and wiki for now. Email a lead if you're interested in joining the Skype chat.
 
+== Browsers ==
+  * The CME is very dependent on browser cache. Tip to clear cache in Chrome: CTRL-Shift-DEL (this domain only?).
+
 == Frameworks and Languages ==
 Some topics you might want to learn about or share your expertise in.
 
   * JavaScript, JQuery, Anguilla...
   * ASP.NET
   * Model View Controller (MVC)...
+    * On virtual directories: In IIS under WebUI\Models and WebUI\Editors, both should have a virutal directory called CME under them.
   * About GUI extensions for Tridion 2011
   * Tridion 2011 SP1 delta info
