@@ -31,6 +31,59 @@ PowerTools2011.Popups.Example.prototype.initialize = function ()
 	$evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
+PowerTools2011.Popups.Example.prototype._onSelectButtonClicked = function () {
+
+
+
+
+    //Callback method for ItemSelector 'insert' event.
+    var onSelectDialogItemInsert = function onSelectDialogItemInsert(event) {
+        var selectedItems = event.data.items;
+        $j("#SelectedItem").html(" You selected: {0}".format(selectedItems[0]));
+
+    };
+    
+    //Callback method for ItemSelector 'unload' event.
+    var onSelectDialogClosed = function onSelectDialogClosed(event) {
+        var p = this.properties;
+        if (p.popup) {
+            p.popup.dispose();
+            p.popup = null;
+        }
+    };
+
+    //Construct url to itemselector. 
+    //1e param -> RootID. Where to start in the Treeview of the ItemSelector. (Organizational item. E.g.: tcm:1-1-2)
+    //2e param -> Which item to pre-select in the dashboard view of the ItemSelector. (E.g. "tcm:1-1-16")
+    var dialogUrl = $cme.Popups.ITEM_SELECT.URL.format("", "");
+    var dialogFeatures = $cme.Popups.ITEM_SELECT.FEATURES; //Constant. 
+
+    //Initialize filter. (Which itemtypes to show, basedOnSchema, etc). 
+    //For a complete list see: ItemSelectControl.js in %tridion install%\web\webui\Editors\CME\Controls\ItemSelect\. Function: Tridion.Controls.ItemSelectControl.prototype.setOptions = function ItemSelectControl$setOptions(options) 
+    var filterDefinition = new Tridion.ContentManager.ListFilter();
+    filterDefinition.conditions.ItemTypes = [$const.ItemType.COMPONENT, $const.ItemType.COMPONENT_TEMPLATE];
+
+    //Some more examples for the filter:
+    //var filter = new Tridion.ContentManager.ListFilter();
+    //filter.conditions.ItemTypes = [$const.ItemType.CATEGORY, $const.ItemType.KEYWORD];
+    //filter.conditions.BasedOnItem = selection.getItems();
+    //filter.columns = $const.ColumnFilter.DEFAULT | $const.ColumnFilter.ALLOWED_ACTIONS | $const.ColumnFilter.EXTENDED;
+
+    var popUp = Tridion.Controls.Popup.create(
+			dialogUrl,
+			dialogFeatures,
+			{
+			    filter: filterDefinition,
+			    isListThumbnails: false, //List thumbnails for binaries?
+			    singleSelection: true    //Allow multiple selections? 
+			});
+
+    $evt.addEventHandler(popUp, "insert", onSelectDialogItemInsert); //Bind callback function to 'insert' event. In this event you define what to do with the selected items.
+    $evt.addEventHandler(popUp, "unload", onSelectDialogClosed); //Bind callback function to 'unload'. Properly dispose the popup.
+    popUp.open();
+
+}
+
 PowerTools2011.Popups.Example.prototype._onExecuteButtonClicked = function ()
 {
     $j('#CloseDialog').hide();

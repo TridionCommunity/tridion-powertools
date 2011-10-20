@@ -25,6 +25,7 @@
             <div>
                 <c:button id="ExecuteButton" runat="server" label="Execute" class="customButton" />
                 <c:button id="SelectItem" runat="server" label="Open Item Selector" class="customButton" />
+                <label id="SelectedItem" />                                                
             </div>
             <!--Progress bar stuff-->
             <div id="ModalDialog">
