@@ -4,7 +4,9 @@ Links to requirements (add more as we go along):
 
   * ComponentSynchronizer
   * PagePublisher
-
+  * (new suggestion) ComponentPublisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
+  * (new suggestion) FieldContentCopier
+  * (new suggestion) UnlocalizeChildren (based on URI)
 <wiki:comment>
 hint: each row has 9 fields, use a tr to wrap 9 td's
 <tr>
