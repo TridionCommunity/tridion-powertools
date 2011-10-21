@@ -23,16 +23,27 @@ PowerTools2011.Commands.ComponentSynchronizer.prototype.isEnabled = function (se
     return this._defineEnabled();
 };
 
-PowerTools2011.Commands.ComponentSynchronizer.prototype._execute = function (selection)
-{
+PowerTools2011.Commands.ComponentSynchronizer.prototype._execute = function (selection) {
     var uriSelection = selection.getItem(0);
     var baseElement = $("#contentsplitter_container");
     var iFrame = $("#CustomPagesFrame");
     var self = this;
 
+    //We are passing the uri selection. Needed? Maysbe Component Synchronizer can be activated for schemas.
     var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/ComponentSynchronizer/ComponentSynchronizer.aspx") + "#folderId=" + uriSelection;
-    var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
-    popup.open();
+    this._popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
+
+    $evt.addEventHandler(this._popup, "close", this.getDelegate(this._onPopupClose));
+
+    this._popup.open();
+};
+
+
+PowerTools2011.Commands.ComponentSynchronizer.prototype._onPopupClose = function () {
+    $evt.removeAllEventHandlers(this._popup);
+    this._popup.dispose();
+    this._popup = null;
+
 };
 
 PowerTools2011.Commands.ComponentSynchronizer.prototype._defineEnabled = function () {

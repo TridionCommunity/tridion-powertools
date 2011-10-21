@@ -13,7 +13,7 @@ PowerTools2011.Popups.ComponentSynchronizer = function () {
 
 PowerTools2011.Popups.ComponentSynchronizer.prototype.initialize = function () {
     
-    $log.message("initializing example popup...");
+    $log.message("initializing component Synchronizer popup...");
 
     this.callBase("Tridion.Cme.View", "initialize");
 
@@ -23,7 +23,7 @@ PowerTools2011.Popups.ComponentSynchronizer.prototype.initialize = function () {
     p.folderId = $url.getHashParam("folderId");
 
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
+    c.CloseButton = $controls.getControl($("#CloseButton"), "Tridion.Controls.Button");
     c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
 
     $evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
@@ -35,11 +35,13 @@ PowerTools2011.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = 
     alert("Execute code");
 };
 
-PowerTools2011.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function ()
-{
-	$j('#mask, .window').hide();
-	$j('#ProgressStatus').html("");
-	$j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
+PowerTools2011.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function () {
+
+    $j('#mask, .window').hide();
+    $j('#ProgressStatus').html("");
+    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
+    $log.message("Close event Fired");
+    this.fireEvent("close");
 };
 
 PowerTools2011.Popups.ComponentSynchronizer.prototype.onSchemaLoadContent = function (e) {
