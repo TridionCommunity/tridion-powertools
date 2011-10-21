@@ -50,7 +50,7 @@ Removal Instructions
 
 = Requirements =
 || ID || Description || Scope || Comments ||
-|| 1 ||Provided an Schema, Component Synchronizer should be able to set default values for it´s fields in all components using the schema.|| || ||
+|| 1 ||Provided an Schema, Component Synchronizer should be able to set default values for it´s fields in all components using the schema. Previously existing values, will not be overwritten unless the overwrite checkbox is checked|| || ||
 || 2 ||Provided an Schema, Component Synchronizer should remove(hide) those fields no longer existing from all components using it. || || ||
 || 3 ||There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.|| || ||
 || 4 ||Component synchronizer should retrieve all the schema fields, and display them to the user, so the user can enter the default values to be set|| || ||
