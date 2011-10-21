@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools2011.Editor", "PowerTools2011 - Editor\PowerTools2011.Editor.csproj", "{D5174043-975A-4AE9-855C-4A8DB6313DB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools2011.Editor", "PowerTools2011.Editor\PowerTools2011.Editor.csproj", "{D5174043-975A-4AE9-855C-4A8DB6313DB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools2011.Model", "PowerTools2011 - Model\PowerTools2011 - Model\PowerTools2011.Model.csproj", "{4E10D003-9313-449E-9E21-61265236F43A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools2011.Model", "PowerTools2011.Model\PowerTools2011.Model.csproj", "{4E10D003-9313-449E-9E21-61265236F43A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools2011.Common", "PowerTools2011.Common\PowerTools2011.Common.csproj", "{B0EF0918-58E9-4439-BF26-76895E3BE66B}"
 EndProject
