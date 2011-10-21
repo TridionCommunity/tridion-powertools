@@ -188,9 +188,6 @@
     <Content Include="PowerTools\Client\Shared\Views\TreeView.Master" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PowerTools2011.Common\PowerTools2011.Common.csproj">
       <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
       <Name>PowerTools2011.Common</Name>
