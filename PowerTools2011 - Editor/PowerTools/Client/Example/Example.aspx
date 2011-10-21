@@ -23,9 +23,18 @@
             </ul>
             <hr />
             <div>
-                <c:button id="ExecuteButton" runat="server" label="Execute" class="customButton" />
-                <c:button id="SelectItem" runat="server" label="Open Item Selector" class="customButton" />
-                <label id="SelectedItem" />                                                
+                <p>
+                    <c:button id="ExecuteButton" runat="server" label="Execute" class="customButton" />
+                    <c:button id="SelectItem" runat="server" label="Open Item Selector" class="customButton" />
+                    <label id="SelectedItem"></label>  
+                </p>
+                <br />
+                <p>                
+                    <label>Dropdown with publications:</label>
+                    <c:Dropdown ID="Publications" runat="server" Nullable="false" />           
+                    <label id="selectedPublication"></label>                                   
+                </p>
+
             </div>
             <!--Progress bar stuff-->
             <div id="ModalDialog">
