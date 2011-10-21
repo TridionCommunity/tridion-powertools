@@ -8,7 +8,7 @@
     <ProjectGuid>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PowerTools2011.Common</RootNamespace>
+    <RootNamespace>PowerTools.Common</RootNamespace>
     <AssemblyName>PowerTools2011.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

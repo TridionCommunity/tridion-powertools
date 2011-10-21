@@ -1,7 +1,7 @@
 ﻿using Tridion.Web.UI.Controls;
 
 
-namespace PowerTools2011.Common.Pages
+namespace PowerTools.Common.Pages
 {
 	public abstract class PowerToolsPageBase : TridionPage
 	{

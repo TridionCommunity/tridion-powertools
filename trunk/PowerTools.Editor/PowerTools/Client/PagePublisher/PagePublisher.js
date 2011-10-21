@@ -1,19 +1,21 @@
-﻿Type.registerNamespace("PowerTools2011.Popups");
+﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools2011.Popups.PagePublisher = function () {
+PowerTools.Popups.PagePublisher = function ()
+{
 
-    Type.enableInterface(this, "PowerTools2011.Popups.PagePublisher");
+    Type.enableInterface(this, "PowerTools.Popups.PagePublisher");
     this.addInterface("Tridion.Cme.View");
 
     var p = this.properties;
-    
+
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-PowerTools2011.Popups.PagePublisher.prototype.initialize = function () {
-    
+PowerTools.Popups.PagePublisher.prototype.initialize = function ()
+{
+
     $log.message("Initializing page publisher...");
 
     this.callBase("Tridion.Cme.View", "initialize");
@@ -32,7 +34,7 @@ PowerTools2011.Popups.PagePublisher.prototype.initialize = function () {
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
-PowerTools2011.Popups.PagePublisher.prototype._onExecuteButtonClicked = function ()
+PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function ()
 {
     $j('#CloseDialog').hide();
 
@@ -48,7 +50,7 @@ PowerTools2011.Popups.PagePublisher.prototype._onExecuteButtonClicked = function
     var context = null;
 
     // pass in structure uri, publishing target uri
-    PowerTools2011.Model.Services.PagePublisher.Execute("tcm:xx-yy-zz", "tcm:xx-yy-zz");
+    PowerTools.Model.Services.PagePublisher.Execute("tcm:xx-yy-zz", "tcm:xx-yy-zz");
 
     var dialog = $j("#dialog");
     var win = $j(window);
@@ -71,35 +73,40 @@ PowerTools2011.Popups.PagePublisher.prototype._onExecuteButtonClicked = function
     }).fadeIn(2000);
 };
 
-PowerTools2011.Popups.PagePublisher.prototype._onCloseButtonClicked = function ()
+PowerTools.Popups.PagePublisher.prototype._onCloseButtonClicked = function ()
 {
-	$j('#mask, .window').hide();
-	$j('#ProgressStatus').html("");
-	$j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
+    $j('#mask, .window').hide();
+    $j('#ProgressStatus').html("");
+    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
 
-PowerTools2011.Popups.PagePublisher.prototype.onSchemaLoadContent = function (e) {
-    
+PowerTools.Popups.PagePublisher.prototype.onSchemaLoadContent = function (e)
+{
+
     var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.MULTIMEDIA);
 
-    if (schemaList) {
+    if (schemaList)
+    {
         var dropdown = this.properties.controls.SchemaControl;
-        function Component$onSchemaLoadContent$listLoaded() {
+        function Component$onSchemaLoadContent$listLoaded()
+        {
             $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
             dropdown.setContent(schemaList.getXml());
         }
 
-        if (schemaList.isLoaded(true)) {
+        if (schemaList.isLoaded(true))
+        {
             Component$onSchemaLoadContent$listLoaded();
         }
-        else {
+        else
+        {
             $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
             schemaList.load();
         }
     }
 };
 
-PowerTools2011.Popups.PagePublisher.prototype.getListFieldsSchemas = function (purpose) 
+PowerTools.Popups.PagePublisher.prototype.getListFieldsSchemas = function (purpose)
 {
     var p = this.properties;
 
@@ -110,13 +117,14 @@ PowerTools2011.Popups.PagePublisher.prototype.getListFieldsSchemas = function (p
 }
 
 
-PowerTools2011.Popups.PagePublisher.prototype._updateProgressBar = function (process) {
-    
+PowerTools.Popups.PagePublisher.prototype._updateProgressBar = function (process)
+{
+
     $j('#ProgressStatus').html(process.Status);
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 }
 
-PowerTools2011.Popups.PagePublisher.prototype._handleStatusResponse = function (result)
+PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (result)
 {
     var p = this.properties;
 
@@ -136,7 +144,7 @@ PowerTools2011.Popups.PagePublisher.prototype._handleStatusResponse = function (
     }
 }
 
-PowerTools2011.Popups.PagePublisher.prototype._pollStatus = function (id)
+PowerTools.Popups.PagePublisher.prototype._pollStatus = function (id)
 {
     var onFailure = null;
     var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
@@ -145,13 +153,13 @@ PowerTools2011.Popups.PagePublisher.prototype._pollStatus = function (id)
     var callback = function ()
     {
         $log.debug("Checking the status of process #" + id);
-        PowerTools2011.Model.Services.PagePublisher.GetProcessStatus(id, onSuccess, onFailure, context, false);
+        PowerTools.Model.Services.PagePublisher.GetProcessStatus(id, onSuccess, onFailure, context, false);
     };
 
     setTimeout(callback, this.properties.pollInterval);
 }
 
-PowerTools2011.Popups.PagePublisher.prototype._onExecuteStarted = function (result)
+PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result)
 {
     if (result)
     {
@@ -160,4 +168,4 @@ PowerTools2011.Popups.PagePublisher.prototype._onExecuteStarted = function (resu
 };
 
 
-$display.registerView(PowerTools2011.Popups.PagePublisher);
+$display.registerView(PowerTools.Popups.PagePublisher);

@@ -10,7 +10,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PowerTools2011.Editor</RootNamespace>
+    <RootNamespace>PowerTools.Editor</RootNamespace>
     <AssemblyName>PowerTools2011.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
@@ -178,7 +178,12 @@
   <ItemGroup>
     <Content Include="PowerTools\Client\Shared\Views\FullPage.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PowerTools.Common\PowerTools.Common.csproj">
+      <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
+      <Name>PowerTools.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Editor.Fragment.config">
       <SubType>Designer</SubType>
@@ -186,12 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PowerTools\Client\Shared\Views\TreeView.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PowerTools2011.Common\PowerTools2011.Common.csproj">
-      <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
-      <Name>PowerTools2011.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />

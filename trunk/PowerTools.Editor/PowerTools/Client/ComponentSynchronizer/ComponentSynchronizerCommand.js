@@ -1,13 +1,14 @@
-﻿Type.registerNamespace("PowerTools2011.Commands");
+﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools2011.Commands.ComponentSynchronizer = function ()
+PowerTools.Commands.ComponentSynchronizer = function ()
 {
-    Type.enableInterface(this, "PowerTools2011.Commands.ComponentSynchronizer");
+    Type.enableInterface(this, "PowerTools.Commands.ComponentSynchronizer");
     this.addInterface("Tridion.Cme.Command", ["ComponentSynchronizer"]);
-    this.addInterface("PowerTools2011.ToolBase", ["ComponentSynchronizer"]);
+    this.addInterface("PowerTools.ToolBase", ["ComponentSynchronizer"]);
 };
 
-PowerTools2011.Commands.ComponentSynchronizer.prototype.isAvailable = function (selection) {
+PowerTools.Commands.ComponentSynchronizer.prototype.isAvailable = function (selection)
+{
     //    //Only show the button if a single FOLDER is selected
     //    if (selection.getCount() == 1) {
     //        var itemType = $models.getItemType(selection.getItem(0));
@@ -19,11 +20,13 @@ PowerTools2011.Commands.ComponentSynchronizer.prototype.isAvailable = function (
     return this._defineEnabled();
 };
 
-PowerTools2011.Commands.ComponentSynchronizer.prototype.isEnabled = function (selection) {
+PowerTools.Commands.ComponentSynchronizer.prototype.isEnabled = function (selection)
+{
     return this._defineEnabled();
 };
 
-PowerTools2011.Commands.ComponentSynchronizer.prototype._execute = function (selection) {
+PowerTools.Commands.ComponentSynchronizer.prototype._execute = function (selection)
+{
     var uriSelection = selection.getItem(0);
     var baseElement = $("#contentsplitter_container");
     var iFrame = $("#CustomPagesFrame");
@@ -39,7 +42,8 @@ PowerTools2011.Commands.ComponentSynchronizer.prototype._execute = function (sel
 };
 
 
-PowerTools2011.Commands.ComponentSynchronizer.prototype._onPopupClose = function () {
+PowerTools.Commands.ComponentSynchronizer.prototype._onPopupClose = function ()
+{
     $evt.removeAllEventHandlers(this._popup);
     this._popup.dispose();
     this._popup = null;
@@ -47,12 +51,13 @@ PowerTools2011.Commands.ComponentSynchronizer.prototype._onPopupClose = function
 };
 
 
-
-PowerTools2011.Commands.ComponentSynchronizer.prototype._defineEnabled = function () {
+PowerTools.Commands.ComponentSynchronizer.prototype._defineEnabled = function ()
+{
     var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
     var selection = treeView.getSelection().getItem(0);
     var itemType = $models.getItemType(selection);
-    if (itemType == $const.ItemType.FOLDER) {
+    if (itemType == $const.ItemType.FOLDER)
+    {
         return true;
     }
     return false;

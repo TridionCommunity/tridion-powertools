@@ -1,7 +1,7 @@
 ﻿using System.Web.UI;
 
 
-namespace PowerTools2011.Common.MasterPages
+namespace PowerTools.Common.MasterPages
 {
 	public class FullPageMaster : MasterPage
 	{

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PowerTools2011.Editor.PowerTools.Client.PagePublisher {
+namespace PowerTools.Editor.PowerTools.Client.PagePublisher {
     
     
     public partial class PagePublisher {

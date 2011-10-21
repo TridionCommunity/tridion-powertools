@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PowerTools2011.Model.Services.Exceptions
+namespace PowerTools.Model.Services.Exceptions
 {
     public class BaseServiceException : Exception
     {
