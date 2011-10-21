@@ -7,6 +7,7 @@ Links to requirements (add more as we go along):
   * (new suggestion) ComponentPublisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
   * (new suggestion) FieldContentCopier
   * (new suggestion) UnlocalizeChildren (based on URI)
+  * (new suggestion) XMLFieldChanger (see [http://groups.google.com/group/tridion-powertools/browse_thread/thread/b641aa78f181da63 discussion])
 <wiki:comment>
 hint: each row has 9 fields, use a tr to wrap 9 td's
 <tr>
