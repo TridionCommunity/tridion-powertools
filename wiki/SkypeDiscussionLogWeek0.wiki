@@ -960,4 +960,5 @@ Error: REPORT of '/svn/!svn/vcc/default': Could not read response body: An exist
 [3:16:27 PM] Vesa Paakkanen: it's never too late or early for a beer
 [3:16:48 PM] Frank van Puffelen: @vesa: hear hear...
 [3:16:49 PM] Nuno Linhares: spoken like a real nordic
-[3:16:50 PM] Mihai Cadariu: @nuno: ROFL}}}
+[3:16:50 PM] Mihai Cadariu: @nuno: ROFL
+}}}
