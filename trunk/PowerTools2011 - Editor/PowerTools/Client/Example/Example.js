@@ -23,23 +23,56 @@ PowerTools2011.Popups.Example.prototype.initialize = function ()
 	c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
 	c.SelectButton = $controls.getControl($("#SelectItem"), "Tridion.Controls.Button");
 	c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
+	c.PublicationsDropDown = $controls.getControl($("#Publications"), "Tridion.Controls.Dropdown");
 
     
 
 	$evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
 	$evt.addEventHandler(c.SelectButton, "click", this.getDelegate(this._onSelectButtonClicked));
 	$evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+	$evt.addEventHandler(c.PublicationsDropDown, "loadcontent", this.getDelegate(this._onPublicationsDropdownLoad));
+	$evt.addEventHandler(c.PublicationsDropDown, "change", this.getDelegate(this._onPublicationsDropdownChange));
+
 };
 
+
+PowerTools2011.Popups.Example.prototype._onPublicationsDropdownChange = function () {
+    var p = this.properties;
+
+    $j("#selectedPublication").text(" You selected: {0}".format(p.controls.PublicationsDropDown.getValue()));
+}
+
+PowerTools2011.Popups.Example.prototype._onPublicationsDropdownLoad = function () {
+    var publicationsList = this.getPublications();
+    if (publicationsList) {
+        var dropdown = this.properties.controls.PublicationsDropDown;
+
+        function Component$onPublicationsDropdownLoad$listLoaded() {
+            $evt.removeEventHandler(publicationsList, "load", Component$onPublicationsDropdownLoad$listLoaded);
+            dropdown.setContent(publicationsList.getXml());
+        }
+
+        if (publicationsList.isLoaded(true)) {
+            Component$onPublicationsDropdownLoad$listLoaded();
+        }
+        else {
+            $evt.addEventHandler(publicationsList, "load", Component$onPublicationsDropdownLoad$listLoaded);
+            publicationsList.load();
+        }
+    }
+};
+
+//Returns a list with publications
+PowerTools2011.Popups.Example.prototype.getPublications = function () {
+    return $models.getItem($const.TCMROOT).getListPublications();
+};
+
+
 PowerTools2011.Popups.Example.prototype._onSelectButtonClicked = function () {
-
-
-
-
     //Callback method for ItemSelector 'insert' event.
     var onSelectDialogItemInsert = function onSelectDialogItemInsert(event) {
         var selectedItems = event.data.items;
-        $j("#SelectedItem").html(" You selected: {0}".format(selectedItems[0]));
+        $j("#SelectedItem").text(" You selected: {0}".format(selectedItems[0]));
 
     };
     
