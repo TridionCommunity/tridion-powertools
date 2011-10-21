@@ -19,6 +19,8 @@ Add info for fellow developers that need info on related SVN clients, VMs, IDEs,
 
 == Browsers ==
   * The CME is very dependent on browser cache. Tip to clear cache in Chrome: CTRL-Shift-DEL (this domain only?).
+  * You can also disable Firefox cache by writing "about:config" in the address bar and setting network.http.use-cache to false.
+
 
 == Frameworks and Languages ==
 Some topics you might want to learn about or share your expertise in.
