@@ -388,4 +388,4 @@ Not all extensions are PowerTools, but with other extension work needing similar
 If there's interest, move up useful ideas up to the above list. At some point we can create a separate extensions group, discussion, or wiki.
 
   * Chris Summers brainstormed an idea with the Skype group for a micro-site publisher functionality that would take a zip file possibly from a third-party and publish it out to a site. This could be done via variants, treating the zip as a multimedia component but alternatives exist.
-  * Note from Julian. I demo'ed this to HP using Dreamweaver as the entry point. Works quite OK but is a technical person's way of getting a microsite imported and published. If the DW import API could be utilized :)
+   * Note from Julian. I demo'ed this to HP using Dreamweaver as the entry point. Works quite OK but is a technical person's way of getting a microsite imported and published. If the DW import API could be utilized :)
