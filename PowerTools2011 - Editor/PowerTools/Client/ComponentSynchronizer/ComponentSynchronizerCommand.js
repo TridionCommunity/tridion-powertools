@@ -46,6 +46,8 @@ PowerTools2011.Commands.ComponentSynchronizer.prototype._onPopupClose = function
 
 };
 
+
+
 PowerTools2011.Commands.ComponentSynchronizer.prototype._defineEnabled = function () {
     var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
     var selection = treeView.getSelection().getItem(0);

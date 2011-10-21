@@ -45,28 +45,37 @@ PowerTools2011.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = fu
 };
 
 PowerTools2011.Popups.ComponentSynchronizer.prototype.onSchemaLoadContent = function (e) {
-    
-    var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.MULTIMEDIA);
+
+    var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.COMPONENT);
 
     if (schemaList) {
+        
         var dropdown = this.properties.controls.SchemaControl;
         function Component$onSchemaLoadContent$listLoaded() {
-            $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            dropdown.setContent(schemaList.getXml());
+        $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+        dropdown.setContent(schemaList.getXml());
         }
 
         if (schemaList.isLoaded(true)) {
-            Component$onSchemaLoadContent$listLoaded();
+        Component$onSchemaLoadContent$listLoaded();
         }
         else {
-            $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            schemaList.load();
+        $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+        schemaList.load();
         }
     }
 };
 
 
 
+PowerTools2011.Popups.ComponentSynchronizer.prototype.getListFieldsSchemas = function (purpose) {
+    var p = this.properties;
 
+    var folder = $models.getItem(p.folderId);
+    var publication = folder.getPublication();
+
+    var list = publication.getListSchemas(purpose);    
+    return list;
+}
 
 $display.registerView(PowerTools2011.Popups.ComponentSynchronizer);
