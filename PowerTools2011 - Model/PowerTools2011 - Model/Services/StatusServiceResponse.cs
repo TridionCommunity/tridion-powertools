@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace PowerTools2011.Model.Services
 {
 	[DataContract]
-	public class StatusServiceResponse :ServiceResponseBase
+	public class StatusServiceResponse : ServiceResponseBase
 	{
 		[DataMember]
 		public int PercentComplete { get; set; }
