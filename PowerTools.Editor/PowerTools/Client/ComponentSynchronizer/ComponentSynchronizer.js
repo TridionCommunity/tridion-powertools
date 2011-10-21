@@ -1,18 +1,20 @@
-﻿Type.registerNamespace("PowerTools2011.Popups");
+﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools2011.Popups.ComponentSynchronizer = function () {
-    Type.enableInterface(this, "PowerTools2011.Popups.ComponentSynchronizer");
+PowerTools.Popups.ComponentSynchronizer = function ()
+{
+    Type.enableInterface(this, "PowerTools.Popups.ComponentSynchronizer");
     this.addInterface("Tridion.Cme.View");
 
     var p = this.properties;
-    
+
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-PowerTools2011.Popups.ComponentSynchronizer.prototype.initialize = function () {
-    
+PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function ()
+{
+
     $log.message("initializing component Synchronizer popup...");
 
     this.callBase("Tridion.Cme.View", "initialize");
@@ -31,11 +33,13 @@ PowerTools2011.Popups.ComponentSynchronizer.prototype.initialize = function () {
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
-PowerTools2011.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function () {
+PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function ()
+{
     alert("Execute code");
 };
 
-PowerTools2011.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function () {
+PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function ()
+{
 
     $j('#mask, .window').hide();
     $j('#ProgressStatus').html("");
@@ -44,38 +48,44 @@ PowerTools2011.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = fu
     this.fireEvent("close");
 };
 
-PowerTools2011.Popups.ComponentSynchronizer.prototype.onSchemaLoadContent = function (e) {
+PowerTools.Popups.ComponentSynchronizer.prototype.onSchemaLoadContent = function (e)
+{
 
     var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.COMPONENT);
 
-    if (schemaList) {
-        
+    if (schemaList)
+    {
+
         var dropdown = this.properties.controls.SchemaControl;
-        function Component$onSchemaLoadContent$listLoaded() {
-        $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-        dropdown.setContent(schemaList.getXml());
+        function Component$onSchemaLoadContent$listLoaded()
+        {
+            $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+            dropdown.setContent(schemaList.getXml());
         }
 
-        if (schemaList.isLoaded(true)) {
-        Component$onSchemaLoadContent$listLoaded();
+        if (schemaList.isLoaded(true))
+        {
+            Component$onSchemaLoadContent$listLoaded();
         }
-        else {
-        $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-        schemaList.load();
+        else
+        {
+            $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+            schemaList.load();
         }
     }
 };
 
 
 
-PowerTools2011.Popups.ComponentSynchronizer.prototype.getListFieldsSchemas = function (purpose) {
+PowerTools.Popups.ComponentSynchronizer.prototype.getListFieldsSchemas = function (purpose)
+{
     var p = this.properties;
 
     var folder = $models.getItem(p.folderId);
     var publication = folder.getPublication();
 
-    var list = publication.getListSchemas(purpose);    
+    var list = publication.getListSchemas(purpose);
     return list;
 }
 
-$display.registerView(PowerTools2011.Popups.ComponentSynchronizer);
+$display.registerView(PowerTools.Popups.ComponentSynchronizer);

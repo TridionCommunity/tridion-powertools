@@ -1,21 +1,25 @@
-﻿Type.registerNamespace("PowerTools2011.Commands");
+﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools2011.Commands.FieldRemover = function ()
+PowerTools.Commands.FieldRemover = function ()
 {
-    Type.enableInterface(this, "PowerTools2011.Commands.FieldRemover");
+    Type.enableInterface(this, "PowerTools.Commands.FieldRemover");
     this.addInterface("Tridion.Cme.Command", ["FieldRemover"]);
-    this.addInterface("PowerTools2011.ToolBase", ["FieldRemover"]);
+    this.addInterface("PowerTools.ToolBase", ["FieldRemover"]);
 };
 
-PowerTools2011.Commands.FieldRemover.prototype.isAvailable = function (selection) {
-    if (itemType != undefined) {
+PowerTools.Commands.FieldRemover.prototype.isAvailable = function (selection)
+{
+    if (itemType != undefined)
+    {
         console.log('available ' + itemType.toString());
     }
     //Only show the button if a single schema is selected
-    if (selection.getCount() == 1) {
+    if (selection.getCount() == 1)
+    {
         var itemType = $models.getItemType(selection.getItem(0));
         var item = $models.getItem(selection.getItem(0))
-        if (itemType == $const.ItemType.SCHEMA) {
+        if (itemType == $const.ItemType.SCHEMA)
+        {
             return true;
         }
     }
@@ -23,11 +27,12 @@ PowerTools2011.Commands.FieldRemover.prototype.isAvailable = function (selection
     return true;
 };
 
-PowerTools2011.Commands.FieldRemover.prototype.isEnabled = function (selection) {
+PowerTools.Commands.FieldRemover.prototype.isEnabled = function (selection)
+{
     return this._defineEnabled();
 };
 
-PowerTools2011.Commands.FieldRemover.prototype._execute = function (selection)
+PowerTools.Commands.FieldRemover.prototype._execute = function (selection)
 {
     //var uriSelection = selection.getItem(0);
     //var baseElement = $("#contentsplitter_container");
@@ -39,14 +44,17 @@ PowerTools2011.Commands.FieldRemover.prototype._execute = function (selection)
     popup.open();
 };
 
-PowerTools2011.Commands.FieldRemover.prototype._defineEnabled = function () {
-    if (itemType != undefined) {
+PowerTools.Commands.FieldRemover.prototype._defineEnabled = function ()
+{
+    if (itemType != undefined)
+    {
         console.log('enabled ' + itemType.toString());
     }
     var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
     var selection = treeView.getSelection().getItem(0);
     var itemType = $models.getItemType(selection);
-    if (itemType == $const.ItemType.SCHEMA) {
+    if (itemType == $const.ItemType.SCHEMA)
+    {
         return true;
     }
     return false;

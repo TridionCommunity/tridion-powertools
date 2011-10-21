@@ -6,12 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Tridion.Web.UI.Core.Controls;
 using Tridion.Web.UI.Controls;
-using PowerTools2011.Common.Pages;
+using PowerTools.Common.Pages;
 
-namespace PowerTools2011.Editor.PowerTools.Client.FieldRemover {
+namespace PowerTools.Editor.PowerTools.Client.FieldRemover {
 
 	[ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Tridion.Web.UI.Controls.Button), typeof(Stack), typeof(Dropdown), typeof(List) })]
-    [ControlResources("PowerTools2011.FieldRemover")]
+    [ControlResources("PowerTools.FieldRemover")]
     public partial class FieldRemover : PowerToolsPageBase
     {
 	}

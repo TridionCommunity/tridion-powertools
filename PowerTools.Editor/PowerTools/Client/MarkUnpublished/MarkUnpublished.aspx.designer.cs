@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PowerTools2011.Editor.PowerTools.Client.MarkUnpublished {
+namespace PowerTools.Editor.PowerTools.Client.MarkUnpublished {
     
     
     public partial class MarkUnpublished {

@@ -1,18 +1,18 @@
 ﻿using System.IO;
-using PowerTools2011.Model.Services.Exceptions;
+using PowerTools.Model.Services.Exceptions;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
-using PowerTools2011.Model.Services.Progress;
+using PowerTools.Model.Services.Progress;
 using System.Globalization;
 using System;
 
 
-namespace PowerTools2011.Model.Services
+namespace PowerTools.Model.Services
 {
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    [ServiceContract(Namespace = "PowerTools2011.Model.Services")]
+    [ServiceContract(Namespace = "PowerTools.Model.Services")]
 	public class MarkUnpublished : BaseService
 	{
         class MarkUnpublishedParameters
@@ -52,7 +52,7 @@ namespace PowerTools2011.Model.Services
                 throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "parameters.OrgItemURI is null or empty"));
             }
 
-		    var client = PowerTools2011.Common.CoreService.Client.GetCoreService();
+		    var client = PowerTools.Common.CoreService.Client.GetCoreService();
 
 		    try
 		    {

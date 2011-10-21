@@ -2,7 +2,7 @@
 using Tridion.ContentManager.CoreService.Client;
 
 
-namespace PowerTools2011.Common.CoreService
+namespace PowerTools.Common.CoreService
 {
 	public class Client
 	{

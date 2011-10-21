@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PowerTools2011.Editor.PowerTools.Client.FieldRemover {
+namespace PowerTools.Editor.PowerTools.Client.FieldRemover {
     
     
     public partial class FieldRemover {

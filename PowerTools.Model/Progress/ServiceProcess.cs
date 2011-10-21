@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PowerTools2011.Model.Services.Progress
+namespace PowerTools.Model.Services.Progress
 {
 	public class ServiceProcess
 	{

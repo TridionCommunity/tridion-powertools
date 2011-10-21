@@ -1,13 +1,14 @@
-﻿Type.registerNamespace("PowerTools2011.Commands");
+﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools2011.Commands.MarkUnpublished = function ()
+PowerTools.Commands.MarkUnpublished = function ()
 {
-    Type.enableInterface(this, "PowerTools2011.Commands.MarkUnpublished");
+    Type.enableInterface(this, "PowerTools.Commands.MarkUnpublished");
     this.addInterface("Tridion.Cme.Command", ["MarkUnpublished"]);
-    this.addInterface("PowerTools2011.ToolBase", ["MarkUnpublished"]);
+    this.addInterface("PowerTools.ToolBase", ["MarkUnpublished"]);
 };
 
-PowerTools2011.Commands.MarkUnpublished.prototype.isAvailable = function (selection) {
+PowerTools.Commands.MarkUnpublished.prototype.isAvailable = function (selection)
+{
     //    //Only show the button if a single FOLDER is selected
     //    if (selection.getCount() == 1) {
     //        var itemType = $models.getItemType(selection.getItem(0));
@@ -19,11 +20,12 @@ PowerTools2011.Commands.MarkUnpublished.prototype.isAvailable = function (select
     return this._defineEnabled();
 };
 
-PowerTools2011.Commands.MarkUnpublished.prototype.isEnabled = function (selection) {
+PowerTools.Commands.MarkUnpublished.prototype.isEnabled = function (selection)
+{
     return this._defineEnabled();
 };
 
-PowerTools2011.Commands.MarkUnpublished.prototype._execute = function (selection)
+PowerTools.Commands.MarkUnpublished.prototype._execute = function (selection)
 {
     var uriSelection = selection.getItem(0);
     var baseElement = $("#contentsplitter_container");
@@ -35,12 +37,14 @@ PowerTools2011.Commands.MarkUnpublished.prototype._execute = function (selection
     popup.open();
 };
 
-PowerTools2011.Commands.MarkUnpublished.prototype._defineEnabled = function () {
+PowerTools.Commands.MarkUnpublished.prototype._defineEnabled = function ()
+{
     var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
     var selection = treeView.getSelection().getItem(0);
     //raise error if >1 item selected
     var itemType = $models.getItemType(selection);
-    if (itemType == $const.ItemType.FOLDER || itemType == $const.ItemType.STRUCTURE_GROUP ) {
+    if (itemType == $const.ItemType.FOLDER || itemType == $const.ItemType.STRUCTURE_GROUP)
+    {
         return true;
     }
     return false;

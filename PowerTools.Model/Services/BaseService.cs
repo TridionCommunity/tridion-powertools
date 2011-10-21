@@ -2,10 +2,10 @@
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Threading;
-using PowerTools2011.Model.Services.Progress;
+using PowerTools.Model.Services.Progress;
 
 
-namespace PowerTools2011.Model.Services
+namespace PowerTools.Model.Services
 {
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]

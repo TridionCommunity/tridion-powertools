@@ -3,7 +3,7 @@ using System.Web.UI;
 using Tridion.Web.UI.Core.Controls;
 
 
-namespace PowerTools2011.Common.MasterPages
+namespace PowerTools.Common.MasterPages
 {
 	public class PopupMaster : MasterPage
 	{
@@ -13,7 +13,7 @@ namespace PowerTools2011.Common.MasterPages
 
 			TridionManager tm = new TridionManager();
 
-			tm.Editor = "PowerTools2011";
+			tm.Editor = "PowerTools";
 			System.Web.UI.HtmlControls.HtmlGenericControl dep = new System.Web.UI.HtmlControls.HtmlGenericControl("dependency");
 			dep.InnerText = "Tridion.Web.UI.Editors.CME";
 			tm.dependencies.Add(dep);
