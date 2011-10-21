@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -98,7 +98,7 @@
     <Content Include="Configuration\Model.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PowerTools2011.Common\PowerTools2011.Common.csproj">
+    <ProjectReference Include="..\PowerTools2011.Common\PowerTools2011.Common.csproj">
       <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
       <Name>PowerTools2011.Common</Name>
     </ProjectReference>
@@ -131,7 +131,7 @@
     <PostBuildEvent>xcopy "$(TargetDir)*.dll" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y
 xcopy "$(TargetDir)*.pdb" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y</PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
