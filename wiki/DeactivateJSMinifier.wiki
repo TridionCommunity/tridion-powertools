@@ -4,7 +4,7 @@
 
 When testing a PowerTool (or any GUI Extension), if you get an Javascript error, it is difficult to point where it comes from because all the code comes minified.
 
-Below you will find how to disable this behaviour. Thanks to Frank van Puffelen for this great tip.
+Below you will find how to disable this behaviour. Thanks to [http://code.google.com/u/frank.vanpuffelen/ Frank van Puffelen] for this great tip.
 
 
 = Details =
