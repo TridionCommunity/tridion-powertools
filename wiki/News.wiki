@@ -12,6 +12,6 @@
 == !TridionWorld Updates ==
 (We're "hot news!")
 
-<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml" up_feeds="http://www.sdltridionworld.com/rss.aspx"  width="600" height="600" border="0"/>
+<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml" up_feeds="http://www.sdltridionworld.com/rss.aspx" width="500" height="340" border="1"/>
 
 == Archive ==
