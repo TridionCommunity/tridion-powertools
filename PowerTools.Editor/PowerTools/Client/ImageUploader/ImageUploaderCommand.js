@@ -25,9 +25,8 @@ PowerTools.Commands.ImageUploader.prototype.isEnabled = function (selection)
     return this._defineEnabled();
 };
 
-PowerTools.Commands.ImageUploader.prototype._execute = function (selection)
-{
-    var uriSelection = selection.getItem(0);
+PowerTools.Commands.ImageUploader.prototype._execute = function (selection) {
+    var uriSelection = $url.getHashParam("locationId");  //selection.getItem(0);
     var baseElement = $("#contentsplitter_container");
     var iFrame = $("#CustomPagesFrame");
     var self = this;
