@@ -48,7 +48,7 @@ PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () 
     var onFailure = null;
     var context = null;
     //var folderId = this.getFolderId();
-    PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.controls.folderId, schemaUri, onSuccess, onFailure, context, false);
+    PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.folderId, schemaUri, onSuccess, onFailure, context, false);
 
 
     var dialog = $j("#dialog");
