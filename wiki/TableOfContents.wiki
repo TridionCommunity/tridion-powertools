@@ -12,7 +12,7 @@
     * [CodingStandards Code]
     * DesignGuidelines
   * [Testing]
-  * Development
+  * [Development]
     * *[nononsenseguide Getting Started "No Nonsense" Guide]*
     * [DevelopmentTools Developer Tools]
       * [DeactivateJSMinifier Deactivate JS Minifier]
