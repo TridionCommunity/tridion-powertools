@@ -18,3 +18,4 @@
       * [DeactivateJSMinifier Deactivate JS Minifier]
     * [SkypeLog Skype Discussions]
       * [SkypeDiscussionLogWeek0 Week 0 Discussion on Skype]
+  * [Help]
