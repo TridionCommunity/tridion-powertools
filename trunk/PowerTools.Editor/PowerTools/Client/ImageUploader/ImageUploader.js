@@ -12,8 +12,8 @@ PowerTools.Popups.ImageUploader = function ()
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-PowerTools.Popups.ImageUploader.prototype.initialize = function ()
-{
+
+PowerTools.Popups.ImageUploader.prototype.initialize = function () {
 
     $log.message("initializing example popup...");
 
@@ -22,6 +22,7 @@ PowerTools.Popups.ImageUploader.prototype.initialize = function ()
     var p = this.properties;
     var c = p.controls;
 
+    
     p.folderId = $url.getHashParam("folderId");
 
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
@@ -33,8 +34,7 @@ PowerTools.Popups.ImageUploader.prototype.initialize = function ()
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
-PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function ()
-{
+PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {
     $j('#CloseDialog').hide();
 
     var p = this.properties;
@@ -47,8 +47,8 @@ PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function ()
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
-
-    PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.folderId, schemaUri, onSuccess, onFailure, context, false);
+    //var folderId = this.getFolderId();
+    PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.controls.folderId, schemaUri, onSuccess, onFailure, context, false);
 
 
     var dialog = $j("#dialog");
@@ -105,10 +105,8 @@ PowerTools.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e)
     }
 };
 
-PowerTools.Popups.ImageUploader.prototype.getListFieldsSchemas = function (purpose)
-{
-    var p = this.properties;
-
+PowerTools.Popups.ImageUploader.prototype.getListFieldsSchemas = function (purpose) {
+    var p = this.properties;   
     var folder = $models.getItem(p.folderId);
     var publication = folder.getPublication();
     var list = publication.getListSchemas(purpose);
