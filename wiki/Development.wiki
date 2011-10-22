@@ -1,0 +1,21 @@
+#summary One-sentence summary of this page.
+
+== Links ==
+  * *[nononsenseguide Getting Started "No Nonsense" Guide]*
+  * [DevelopmentTools Developer Tools]
+    * [DeactivateJSMinifier Deactivate JS Minifier]
+  * [SkypeLog Skype Discussions]
+    * [SkypeDiscussionLogWeek0 Week 0 Discussion on Skype]
+
+== Archive ==
+<wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/changes/gcChanges.xml" up_projectName="tridion-2011-power-tools" border="1"/>
+
+== Code Search ==
+<wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/codesearch/gcSearch.xml" up_projectName="tridion-2011-power-tools" border="0"/>
+
+
+== Issues ==
+<wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/issuetracker/gcIssueTracker.xml" up_projectName="tridion-2011-power-tools" border="0" width="600"/>
+
+=== Updates ===
+<wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/issueupdates/gcIssueUpdates.xml" up_projectName="tridion-2011-power-tools" border="0" width="600"/>
