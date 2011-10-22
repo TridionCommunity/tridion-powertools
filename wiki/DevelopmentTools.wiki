@@ -33,5 +33,6 @@ Some topics you might want to learn about or share your expertise in.
   * About GUI extensions for Tridion 2011
   * Tridion 2011 SP1 delta info
 
-== Testing ==
-See [Testing] page.
+== Testing and Troubleshooting ==
+  * How to [DeactivateJSMinifier Deactivate JS Minifier] to troubleshoot JavaScript  
+  * Also see [Testing] page.
