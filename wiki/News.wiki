@@ -6,3 +6,10 @@
 == Care to help? ==
 (16-Oct-2011) Join: [http://groups.google.com/group/tridion-powertools the discussion group], introduce yourself, and follow the next steps in the [http://code.google.com/p/tridion-2011-power-tools/wiki/Tasks Tasks Wiki Page].
 (03-Oct-2011) With a nudge from Chris Summers and code from Yoav Niran, the Tridion MVP and Community Builders group started work on "rebooting" the Tridion PowerTools for Tridion 2011 (SP1).
+
+
+
+== !TridionWorld Updates ==
+(We're "hot news!")
+
+<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml" up_feeds="http://www.sdltridionworld.com/rss.aspx"  width="600" height="600" border="0"/>
