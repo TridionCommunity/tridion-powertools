@@ -2,20 +2,20 @@
 
 <wiki:toc max_depth="1" />
 
-= Content Management Editor (CME) =
+== Content Management Editor (CME) ==
 The content management editor (CME) is the Tridion web-based graphical user interface (GUI). Though terms like GUI, UI, or website would typically denote a software application, it's important to distinguish the CME from other environments because of Tridion's publishing model. "Website" could refer to the CME or the target content delivery sites, for example.
 
-= PowerTools =
+== PowerTools ==
 The original PowerTools provided functionality that extended Tridion R5.3 and, to an extent, Tridion 2009 through classic .asp pages. "Easy" to create and targeted at the previous COM+ libraries (someone clarify?), the PowerTools offered additional functionality not in the Tridion CME.
 
 Mid-2011 Chris Summers and Yoav Niran worked on a "reboot" of the PowerTools targeted at Tridion 2011's more extensible framework, which includes a Anguilla (JavaScript) framework and new .NET core services for CME back-end data. In addition to working on the initial code base, Chris suggested the project as the main focus for the 2011 MVP retreat.
 
 Though initiated by Summers and the MVP group, the PowerTools is not supported or owned by any organization. It is an open source, community-driven project created by, and for Tridion users, developers, and consultants.
 
-= "No Nonsense" =
+== "No Nonsense" ==
 Also referred to as "Nunosense" this is a disclaimer that the material (guide) you're referring to assumes you know what you're doing. For the majority of us that may not know _everything_, we have this wiki to augment the instructions.
 
-= People and Organizations =
+== People and Organizations ==
   * Nooch = ??? (who's the Nooch?)
   * Urban Cherry = Chris Summers consultancy and blog
   * Content Bloom = John Winter and {{{Mark[]}}}
