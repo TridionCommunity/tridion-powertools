@@ -66,6 +66,10 @@
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.css" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerCommand.js" />
+    <Content Include="PowerTools\Client\CountItems\CountItems.aspx" />
+    <Content Include="PowerTools\Client\CountItems\CountItems.css" />
+    <Content Include="PowerTools\Client\CountItems\CountItems.js" />
+    <Content Include="PowerTools\Client\CountItems\CountItemsCommand.js" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.aspx" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
@@ -96,6 +100,8 @@
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_32.png" />
@@ -121,6 +127,13 @@
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
+      <DependentUpon>CountItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.designer.cs">
+      <DependentUpon>CountItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
