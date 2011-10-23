@@ -18,8 +18,8 @@ Also referred to as "Nunosense" this is a disclaimer that the material (guide) y
 = People and Organizations =
   * Nooch = ??? (who's the Nooch?)
   * Urban Cherry = Chris Summers consultancy and blog
-  * Content Bloom = John Winter and Mark[[]]
-  * Mark[[]] = How John Winter references his fellow team members (there's a joke about an array in there somewhere)
+  * Content Bloom = John Winter and {{{Mark[]}}}
+  * {{{Mark[]}}} = How John Winter references his fellow team members (there's a joke about an array in there somewhere)
   * Two Seasons = Summers and Winter (not really, just thought it'd be amusing to try to recruit an Autumn/Fall and Spring(s))
   * Tridion MVPs see http://www.sdltridionworld.com/community/mvp_award/index.aspx
   * Tridion Community Builders = sames as MVPs, but work for SDL
