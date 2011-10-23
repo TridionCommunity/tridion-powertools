@@ -12,6 +12,7 @@ PowerTools.Popups.CountItems = function ()
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
+// Read parameters and assign callbacks for buttons in the GUI
 PowerTools.Popups.CountItems.prototype.initialize = function ()
 {
     $log.message("Initializing CountItems popup...");
@@ -30,6 +31,7 @@ PowerTools.Popups.CountItems.prototype.initialize = function ()
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
+// Set the enabled status of the Checkboxes depending on the type of the given parent OrgItem
 PowerTools.Popups.CountItems.prototype.enableCheckboxes = function ()
 {
     $log.message("Setting checkboxes enabled status");
@@ -60,6 +62,7 @@ PowerTools.Popups.CountItems.prototype.enableCheckboxes = function ()
     }
 }
 
+// Reads the checkboxes values and initiates a service call to get the item counts
 PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
 {
     $j('#CloseDialog').hide();
@@ -109,6 +112,7 @@ PowerTools.Popups.CountItems.prototype._updateProgressBar = function (process)
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 }
 
+// Update status until process is not complete. Once complete, get the CountItemsData object.
 PowerTools.Popups.CountItems.prototype._handleStatusResponse = function (result)
 {
     var p = this.properties;
@@ -129,6 +133,7 @@ PowerTools.Popups.CountItems.prototype._handleStatusResponse = function (result)
     }
 }
 
+// We have a response with data. Fill in the values and visibility for each item type counts.
 PowerTools.Popups.CountItems.prototype._handleCountItems = function (response)
 {
     var p = this.properties;
@@ -158,10 +163,12 @@ PowerTools.Popups.CountItems.prototype._handleCountItems = function (response)
     } else { $j('#PageSet').hide(); }
 };
 
+// Initiate service async call for retrieving the counts data (after the process completed)
 PowerTools.Popups.CountItems.prototype._getCountItemsData = function (id)
 {
     if (id != "")
     {
+        $log.debug("Retrieving CountItemsData for process #" + id);
         var onSuccess = Function.getDelegate(this, this._handleCountItems);
         var onFailure = null;
         var context = null;

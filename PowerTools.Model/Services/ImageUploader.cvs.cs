@@ -28,7 +28,7 @@ namespace PowerTools.Model.Services
 		//    {
 		//        if (multiMediaTypes == null)
 		//        {
-		//            multiMediaTypes = client.GetSystemWideListXml(new MultimediaTypesFilterData());
+		//            multiMediaTypes = coreService.GetSystemWideListXml(new MultimediaTypesFilterData());
 		//        }
 
 		//        return multiMediaTypes;
