@@ -71,3 +71,8 @@ body
 {
 	margin-bottom: 10px;
 }
+
+#FolderSet, #ComponentSet, #StructureGroupSet, #PageSet
+{
+	display: none;
+}

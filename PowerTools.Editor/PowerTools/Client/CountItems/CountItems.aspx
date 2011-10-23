@@ -22,7 +22,8 @@
 		</span><span class="fl">
 			<ul>
 				<li>
-					<input type="checkbox" id="SGChk" value="4" /><label for="SGChk">Structure Groups</label></li>
+					<input type="checkbox" id="StructureGroupChk" value="4" /><label for="StructureGroupChk">Structure
+						Groups</label></li>
 				<li>
 					<input type="checkbox" id="PageChk" value="64" /><label for="PageChk">Pages</label>
 				</li>
@@ -34,5 +35,21 @@
 	</div>
 	<hr class="br" />
 	<div id="Response">
+		<div class="fl">
+			<fieldset id="FolderSet">
+				<legend>Folders</legend><span></span>
+			</fieldset>
+			<fieldset id="ComponentSet">
+				<legend>Components</legend><span></span>
+			</fieldset>
+		</div>
+		<div class="fl">
+			<fieldset id="StructureGroupSet">
+				<legend>Structure Groups</legend><span></span>
+			</fieldset>
+			<fieldset id="PageSet">
+				<legend>Pages</legend><span></span>
+			</fieldset>
+		</div>
 	</div>
 </asp:Content>
