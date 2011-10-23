@@ -38,9 +38,9 @@ PowerTools.Commands.ImageUploader.prototype._execute = function (selection) {
 
 PowerTools.Commands.ImageUploader.prototype._defineEnabled = function ()
 {
-    var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
-    var selection = treeView.getSelection().getItem(0);
-    var itemType = $models.getItemType(selection);
+    //var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
+    //var selection = treeView.getSelection().getItem(0);
+    var itemType = $models.getItemType($url.getHashParam("locationId"));
     if (itemType == $const.ItemType.FOLDER)
     {
         return true;
