@@ -1,85 +1,85 @@
-﻿using System.IO;
-using PowerTools.Model.Services.Exceptions;
+﻿using System;
+using System.Globalization;
+using System.IO;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using PowerTools.Model.Services.Exceptions;
 using PowerTools.Model.Services.Progress;
-using System.Globalization;
-using System;
 
 
 namespace PowerTools.Model.Services
 {
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    [ServiceContract(Namespace = "PowerTools.Model.Services")]
+	[ServiceContract(Namespace = "PowerTools.Model.Services")]
 	public class PagePublisher : BaseService
 	{
-        class PagePublisherParameters
-        {
-            public string StructureUri { get; set; }
-            public string TargetUri { get; set; }
-        }
+		class PagePublisherParameters
+		{
+			public string StructureUri { get; set; }
+			public string TargetUri { get; set; }
+		}
 
-        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public ServiceProcess Execute(string structureUri, string targetUri)
-        {
-            if (string.IsNullOrEmpty(structureUri))
-            {
-                throw new ArgumentNullException("directory");
-            }
+		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+		public ServiceProcess Execute(string structureUri, string targetUri)
+		{
+			if (string.IsNullOrEmpty(structureUri))
+			{
+				throw new ArgumentNullException("directory");
+			}
 
-            if (string.IsNullOrEmpty(targetUri))
-            {
-                throw new ArgumentNullException("targetUri");
-            }
+			if (string.IsNullOrEmpty(targetUri))
+			{
+				throw new ArgumentNullException("targetUri");
+			}
 
-            PagePublisherParameters arguments = new PagePublisherParameters { StructureUri = structureUri, TargetUri = targetUri };
-            return ExecuteAsync(arguments);
-        }
+			PagePublisherParameters arguments = new PagePublisherParameters { StructureUri = structureUri, TargetUri = targetUri };
+			return ExecuteAsync(arguments);
+		}
 
-        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public override ServiceProcess GetProcessStatus(string Id)
-        {
-            return base.GetProcessStatus(Id);
-        }
+		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+		public override ServiceProcess GetProcessStatus(string Id)
+		{
+			return base.GetProcessStatus(Id);
+		}
 
 		public override void Process(ServiceProcess process, object arguments)
 		{
-            PagePublisherParameters parameters = (PagePublisherParameters)arguments;
-            
-            if (!Directory.Exists(parameters.StructureUri))
-            {
-                throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Structure URI '{0}' does not exist.", parameters.StructureUri));
-            }
+			PagePublisherParameters parameters = (PagePublisherParameters)arguments;
 
-            if (!Directory.Exists(parameters.TargetUri))
-            {
-                throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Publishing Target URI '{0}' does not exist.", parameters.TargetUri));
-            }
+			if (!Directory.Exists(parameters.StructureUri))
+			{
+				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Structure URI '{0}' does not exist.", parameters.StructureUri));
+			}
 
-		    var client = PowerTools.Common.CoreService.Client.GetCoreService();
+			if (!Directory.Exists(parameters.TargetUri))
+			{
+				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Publishing Target URI '{0}' does not exist.", parameters.TargetUri));
+			}
 
-		    try
-		    {
-		        int i = 0;
-                for(i=0; i==100; i++)
-                {
-                    process.SetStatus(string.Format("Publishing Page: {0} of 100", i.ToString()));
-                    process.SetCompletePercentage(i);
-                    System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
-                }
+			var client = PowerTools.Common.CoreService.Client.GetCoreService();
 
-                process.Complete();
+			try
+			{
+				int i = 0;
+				for (i = 0; i == 100; i++)
+				{
+					process.SetStatus(string.Format("Publishing Page: {0} of 100", i.ToString()));
+					process.SetCompletePercentage(i);
+					System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
+				}
 
-		    }
-		    finally
-		    {
-                if (client != null)
-                {
-                    client.Close();
-                }
-		    }
+				process.Complete();
+
+			}
+			finally
+			{
+				if (client != null)
+				{
+					client.Close();
+				}
+			}
 		}
 	}
 }
