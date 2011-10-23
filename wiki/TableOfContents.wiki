@@ -4,7 +4,8 @@
   * Project
     * [Tasks] 
     * [News]
-    * [ReleaseHistory Release Date]
+      * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
+      * [ReleaseHistory Releases]
   * [Requirements]
     * [ComponentSynchronizer]
     * [PagePublisher]
