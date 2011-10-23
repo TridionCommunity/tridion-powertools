@@ -40,21 +40,21 @@ PowerTools.Popups.CountItems.prototype.enableCheckboxes = function ()
         case $const.ItemType.PUBLICATION:
             $j('#FolderChk').attr('checked', true);
             $j('#ComponentChk').attr('checked', true);
-            $j('#SGChk').attr('checked', true);
+            $j('#StructureGroupChk').attr('checked', true);
             $j('#PageChk').attr('checked', true);
             break;
 
         case $const.ItemType.FOLDER:
             $j('#FolderChk').attr('checked', true);
             $j('#ComponentChk').attr('checked', true);
-            $j('#SGChk').attr('disabled', true);
+            $j('#StructureGroupChk').attr('disabled', true);
             $j('#PageChk').attr('disabled', true);
             break;
 
         case $const.ItemType.STRUCTURE_GROUP:
             $j('#FolderChk').attr('disabled', true);
             $j('#ComponentChk').attr('disabled', true);
-            $j('#SGChk').attr('checked', true);
+            $j('#StructureGroupChk').attr('checked', true);
             $j('#PageChk').attr('checked', true);
             break;
     }
@@ -65,11 +65,16 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
     $j('#CloseDialog').hide();
 
     var p = this.properties;
+    p.countFolders = $j('#FolderChk').attr('checked');
+    p.countComponents = $j('#ComponentChk').attr('checked');
+    p.countStructureGroups = $j('#StructureGroupChk').attr('checked');
+    p.countPages = $j('#PageChk').attr('checked');
 
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
-    PowerTools.Model.Services.CountItems.Execute(p.orgItemId, onSuccess, onFailure, context, false);
+    PowerTools.Model.Services.CountItems.Execute(p.orgItemId, p.countFolders, p.countComponents, p.countStructureGroups, p.countPages,
+            onSuccess, onFailure, context, false);
 
     var dialog = $j("#dialog");
     var win = $j(window);
@@ -124,12 +129,33 @@ PowerTools.Popups.CountItems.prototype._handleStatusResponse = function (result)
     }
 }
 
-PowerTools.Popups.CountItems.prototype._handleCountItems = function (response, context)
+PowerTools.Popups.CountItems.prototype._handleCountItems = function (response)
 {
-    var content = '';
-    content += "Folders: " + response.Folders + "<br/>";
-    content += "Components: " + response.Components + "<br/>";
-    $j('#Response').html(content);
+    var p = this.properties;
+
+    if (p.countFolders)
+    {
+        $j('#FolderSet span').html(response.Folders);
+        $j('#FolderSet').show();
+    } else { $j('#FolderSet').hide(); }
+
+    if (p.countComponents)
+    {
+        $j('#ComponentSet span').html(response.Components);
+        $j('#ComponentSet').show();
+    } else { $j('#ComponentSet').hide(); }
+
+    if (p.countStructureGroups)
+    {
+        $j('#StructureGroupSet span').html(response.StructureGroups);
+        $j('#StructureGroupSet').show();
+    } else { $j('#StructureGroupSet').hide(); }
+
+    if (p.countPages)
+    {
+        $j('#PageSet span').html(response.Pages);
+        $j('#PageSet').show();
+    } else { $j('#PageSet').hide(); }
 };
 
 PowerTools.Popups.CountItems.prototype._getCountItemsData = function (id)
