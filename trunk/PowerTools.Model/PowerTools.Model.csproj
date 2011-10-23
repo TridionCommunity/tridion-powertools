@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\ComponentSynchronizer.svc" />
+    <Content Include="Services\CountItems.svc" />
     <Content Include="Services\PagePublisher.svc" />
     <Content Include="Services\FieldRemover.svc" />
     <Content Include="Services\MarkUnpublished.svc" />
@@ -76,6 +77,10 @@
     <Compile Include="Services\ComponentSynchronizer.svc.cs">
       <DependentUpon>ComponentSynchronizer.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\CountItems.svc.cs">
+      <DependentUpon>CountItems.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CountItemsData.cs" />
     <Compile Include="Services\PagePublisher.svc.cs">
       <DependentUpon>PagePublisher.svc</DependentUpon>
     </Compile>

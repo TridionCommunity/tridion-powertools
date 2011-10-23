@@ -1,72 +1,71 @@
-﻿using System.IO;
-using PowerTools.Model.Services.Exceptions;
+﻿using System;
+using System.Globalization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using PowerTools.Model.Services.Exceptions;
 using PowerTools.Model.Services.Progress;
-using System.Globalization;
-using System;
 
 
 namespace PowerTools.Model.Services
 {
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    [ServiceContract(Namespace = "PowerTools.Model.Services")]
+	[ServiceContract(Namespace = "PowerTools.Model.Services")]
 	public class MarkUnpublished : BaseService
 	{
-        class MarkUnpublishedParameters
-        {
-            public string OrgItemURI { get; set; }
-            public string Recursive { get; set; }
-        }
+		class MarkUnpublishedParameters
+		{
+			public string OrgItemURI { get; set; }
+			public string Recursive { get; set; }
+		}
 
-        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public ServiceProcess Execute(string orgItemUri, string recursive)
-        {
-            if (string.IsNullOrEmpty(orgItemUri))
-            {
-                throw new ArgumentNullException("orgItemUri");
-            }
+		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+		public ServiceProcess Execute(string orgItemUri, string recursive)
+		{
+			if (string.IsNullOrEmpty(orgItemUri))
+			{
+				throw new ArgumentNullException("orgItemUri");
+			}
 
-            if (string.IsNullOrEmpty(recursive))
-            {
-                throw new ArgumentNullException("recursive");
-            }
+			if (string.IsNullOrEmpty(recursive))
+			{
+				throw new ArgumentNullException("recursive");
+			}
 
-            MarkUnpublishedParameters arguments = new MarkUnpublishedParameters { OrgItemURI = orgItemUri, Recursive = recursive };
-            return ExecuteAsync(arguments);
-        }
+			MarkUnpublishedParameters arguments = new MarkUnpublishedParameters { OrgItemURI = orgItemUri, Recursive = recursive };
+			return ExecuteAsync(arguments);
+		}
 
-        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public override ServiceProcess GetProcessStatus(string Id)
-        {
-            return base.GetProcessStatus(Id);
-        }
+		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+		public override ServiceProcess GetProcessStatus(string Id)
+		{
+			return base.GetProcessStatus(Id);
+		}
 
 		public override void Process(ServiceProcess process, object arguments)
 		{
-		    MarkUnpublishedParameters parameters = (MarkUnpublishedParameters) arguments;
-            if (string.IsNullOrEmpty(parameters.OrgItemURI))
-            {
-                throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "parameters.OrgItemURI is null or empty"));
-            }
+			MarkUnpublishedParameters parameters = (MarkUnpublishedParameters)arguments;
+			if (string.IsNullOrEmpty(parameters.OrgItemURI))
+			{
+				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "parameters.OrgItemURI is null or empty"));
+			}
 
-		    var client = PowerTools.Common.CoreService.Client.GetCoreService();
+			var client = PowerTools.Common.CoreService.Client.GetCoreService();
 
-		    try
-		    {
+			try
+			{
 
-                process.Complete();
+				process.Complete();
 
-		    }
-		    finally
-		    {
-                if (client != null)
-                {
-                    client.Close();
-                }
-		    }
+			}
+			finally
+			{
+				if (client != null)
+				{
+					client.Close();
+				}
+			}
 		}
 	}
 }

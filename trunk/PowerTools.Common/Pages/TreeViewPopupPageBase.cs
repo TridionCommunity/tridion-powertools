@@ -8,6 +8,5 @@ namespace PowerTools.Common.Pages
 	[ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Splitter), typeof(Date) })]
 	public class TreeViewPopupPageBase : PowerToolsPageBase
 	{
-
 	}
 }

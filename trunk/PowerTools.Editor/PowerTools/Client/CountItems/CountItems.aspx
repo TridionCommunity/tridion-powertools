@@ -6,28 +6,33 @@
 		Count Items
 	</h1>
 	<div class="tool-explanation">
-		Counts items in a Publication, Structure Group or Folder. User can select the type(s)
+		Counts items in a Publication, Structure Group or Folder. User can select the types
 		of items to count.
 	</div>
 	<hr />
 	<div>
-		<div>
-			Organizational item to count items in:
-		</div>
-		<div>
-			<asp:TextBox ID="SourceOrgItem" runat="server" />
-		</div>
+		<span class="fl">Item Types:</span><span class="fl">
+			<ul>
+				<li>
+					<input type="checkbox" id="FolderChk" value="2" /><label for="FolderChk">Folders</label></li>
+				<li>
+					<input type="checkbox" id="ComponentChk" value="16" /><label for="ComponentChk">Components</label>
+				</li>
+			</ul>
+		</span><span class="fl">
+			<ul>
+				<li>
+					<input type="checkbox" id="SGChk" value="4" /><label for="SGChk">Structure Groups</label></li>
+				<li>
+					<input type="checkbox" id="PageChk" value="64" /><label for="PageChk">Pages</label>
+				</li>
+			</ul>
+		</span>
 	</div>
-	<div>
-		<div>
-			Select the Schema to use for the Components:
-		</div>
-		<div>
-			<c:dropdown id="Schema" runat="server" nullable="false" />
-		</div>
+	<div class="br">
+		<c:button id="ExecuteButton" runat="server" label="Count" class="customButton" />
 	</div>
-	<hr />
-	<div>
-		<c:button id="ExecuteButton" runat="server" label="Upload images" class="customButton" />
+	<hr class="br" />
+	<div id="Response">
 	</div>
 </asp:Content>

@@ -12,27 +12,53 @@ PowerTools.Popups.CountItems = function ()
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-
 PowerTools.Popups.CountItems.prototype.initialize = function ()
 {
-    $log.message("initializing example popup...");
-
+    $log.message("Initializing CountItems popup...");
+    this.enableCheckboxes();
     this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
     var c = p.controls;
 
-
-    p.folderId = $url.getHashParam("folderId");
+    p.orgItemId = $url.getHashParam("orgItemId");
 
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
     c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
-    c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
 
-    $evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
+
+PowerTools.Popups.CountItems.prototype.enableCheckboxes = function ()
+{
+    $log.message("Setting checkboxes enabled status");
+
+    var orgItemId = $url.getHashParam("orgItemId");
+    switch ($models.getItemType(orgItemId))
+    {
+        case $const.ItemType.PUBLICATION:
+            $j('#FolderChk').attr('checked', true);
+            $j('#ComponentChk').attr('checked', true);
+            $j('#SGChk').attr('checked', true);
+            $j('#PageChk').attr('checked', true);
+            break;
+
+        case $const.ItemType.FOLDER:
+            $j('#FolderChk').attr('checked', true);
+            $j('#ComponentChk').attr('checked', true);
+            $j('#SGChk').attr('disabled', true);
+            $j('#PageChk').attr('disabled', true);
+            break;
+
+        case $const.ItemType.STRUCTURE_GROUP:
+            $j('#FolderChk').attr('disabled', true);
+            $j('#ComponentChk').attr('disabled', true);
+            $j('#SGChk').attr('checked', true);
+            $j('#PageChk').attr('checked', true);
+            break;
+    }
+}
 
 PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
 {
@@ -40,17 +66,10 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
 
     var p = this.properties;
 
-    //-Schema Uri (ItemSelector)
-    var schemaUri = p.controls.SchemaControl.getValue();
-    //-Local directory on the server
-    var localDirectory = $j("#Main_SourceFolder").val();
-
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
-    //var folderId = this.getFolderId();
-    PowerTools.Model.Services.CountItems.Execute(localDirectory, p.folderId, schemaUri, onSuccess, onFailure, context, false);
-
+    PowerTools.Model.Services.CountItems.Execute(p.orgItemId, onSuccess, onFailure, context, false);
 
     var dialog = $j("#dialog");
     var win = $j(window);
@@ -60,17 +79,16 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
     var maskWidth = win.width();
 
     //Set height and width to mask to fill up the whole screen
-    $j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
+    //$j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
 
     //Get the window height and width
-
     var winH = win.height();
     var winW = win.width();
 
     //Set the popup window to center
     dialog.css({ "top": (winH / 2 - dialog.height() / 2),
         "left": (winW / 2 - dialog.width() / 2)
-    }).fadeIn(2000);
+    }).fadeIn(400);
 };
 
 PowerTools.Popups.CountItems.prototype._onCloseButtonClicked = function ()
@@ -79,42 +97,6 @@ PowerTools.Popups.CountItems.prototype._onCloseButtonClicked = function ()
     $j('#ProgressStatus').html("");
     $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
-
-PowerTools.Popups.CountItems.prototype.onSchemaLoadContent = function (e)
-{
-
-    var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.MULTIMEDIA);
-
-    if (schemaList)
-    {
-        var dropdown = this.properties.controls.SchemaControl;
-        function Component$onSchemaLoadContent$listLoaded()
-        {
-            $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            dropdown.setContent(schemaList.getXml());
-        }
-
-        if (schemaList.isLoaded(true))
-        {
-            Component$onSchemaLoadContent$listLoaded();
-        }
-        else
-        {
-            $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            schemaList.load();
-        }
-    }
-};
-
-PowerTools.Popups.CountItems.prototype.getListFieldsSchemas = function (purpose)
-{
-    var p = this.properties;
-    var folder = $models.getItem(p.folderId);
-    var publication = folder.getPublication();
-    var list = publication.getListSchemas(purpose);
-    return list;
-}
-
 
 PowerTools.Popups.CountItems.prototype._updateProgressBar = function (process)
 {
@@ -125,9 +107,7 @@ PowerTools.Popups.CountItems.prototype._updateProgressBar = function (process)
 PowerTools.Popups.CountItems.prototype._handleStatusResponse = function (result)
 {
     var p = this.properties;
-
     p.processId = result.Id;
-
     this._updateProgressBar(result);
 
     if (result.PercentComplete < 100)
@@ -136,16 +116,37 @@ PowerTools.Popups.CountItems.prototype._handleStatusResponse = function (result)
     }
     else
     {
+        this._getCountItemsData(p.processId);
         $j('#ProgressStatus').html(result.Status);
-        $j('#CloseDialog').show();
-        p.processId = ""
+        //$j('#CloseDialog').show();
+        this._onCloseButtonClicked();
+        p.processId = "";
     }
 }
 
+PowerTools.Popups.CountItems.prototype._handleCountItems = function (response, context)
+{
+    var content = '';
+    content += "Folders: " + response.Folders + "<br/>";
+    content += "Components: " + response.Components + "<br/>";
+    $j('#Response').html(content);
+};
+
+PowerTools.Popups.CountItems.prototype._getCountItemsData = function (id)
+{
+    if (id != "")
+    {
+        var onSuccess = Function.getDelegate(this, this._handleCountItems);
+        var onFailure = null;
+        var context = null;
+        PowerTools.Model.Services.CountItems.GetCountItemsData(onSuccess, onFailure, context, false);
+    }
+};
+
 PowerTools.Popups.CountItems.prototype._pollStatus = function (id)
 {
-    var onFailure = null;
     var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
+    var onFailure = null;
     var context = null;
 
     var callback = function ()
@@ -164,6 +165,5 @@ PowerTools.Popups.CountItems.prototype._onExecuteStarted = function (result)
         this._pollStatus(result.Id);
     }
 };
-
 
 $display.registerView(PowerTools.Popups.CountItems);
