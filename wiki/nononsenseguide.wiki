@@ -8,11 +8,11 @@
 
   # Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
 
-  # Fix the references for PowerTools2011.Editor and PowerTools2011.Common:
+  # Fix the references for PowerTools.Editor and PowerTools.Common:
   * *TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll
-  * PowerTools2011.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll
+  * PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll
 
-  # Add the following post-build event to PowerTools2011.Editor and PowerTools2011.Model:
+  # Add the following post-build event to PowerTools.Editor and PowerTools.Model:
 {{{
 xcopy "$(TargetDir)*.dll" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
@@ -25,8 +25,8 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
   * Add the Model configuration (copy from Model.Fragment.config and correct the path)
 
   # Add virtual directories in IIS:
-  * Add a new virtual directory (not an application) under WebUI\Editors, pointing to the PowerTools2011 – Editor folder.
-  * Also add a new one under WebUI\Models, pointing to the PowerTools2011 - Model folder.
+  * Add a new virtual directory (not an application) under WebUI\Editors, pointing to the PowerTools.Editor folder.
+  * Also add a new one under WebUI\Models, pointing to the PowerTools.Model folder.
 
   # Create a copy of the “ImageUploader” Power Tool (copy the PowerTools\Client\ImageUploader folder to a folder named "PublicationInfo")
 
@@ -35,7 +35,7 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
   # Edit the PublicationInfo.aspx file:
 {{{
 <%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
-    CodeBehind="PublicationInfo.aspx.cs" Inherits="PowerTools2011.Editor.PowerTools.Client.PublicationInfo.PublicationInfo" %>
+    CodeBehind="PublicationInfo.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.PublicationInfo.PublicationInfo" %>
 
 <asp:Content ID="PublicationInfo" ContentPlaceHolderID="Main" runat="server">
     <h1>
@@ -56,12 +56,12 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 using System;
 using Tridion.Web.UI.Core.Controls;
 using Tridion.Web.UI.Controls;
-using PowerTools2011.Common.Pages;
+using PowerTools.Common.Pages;
 
-namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
+namespace PowerTools.Editor.PowerTools.Client.PublicationInfo
 {
     [ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Button), typeof(Stack) })]
-    [ControlResources("PowerTools2011.PublicationInfo")]
+    [ControlResources("PowerTools.PublicationInfo")]
     public class PublicationInfo : PowerToolsPageBase
     {
     }
@@ -87,9 +87,9 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
 
   # Create the icons for the PowerTool
   * Go to [http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/db_status.png this page] to find the icon
-  * Save the 16x16 and 32x32 files under PowerTools2011.Editor\PowerTools\Client\Shared\Theme\Icons, rename them to publicationinfo_16.png and publicationinfo_32.png
+  * Save the 16x16 and 32x32 files under PowerTools.Editor\PowerTools\Client\Shared\Theme\Icons, rename them to publicationinfo_16.png and publicationinfo_32.png
 
-  # Edit PowerTools2011.Editor\PowerTools\Client\Shared\Theme\styles.css
+  # Edit PowerTools.Editor\PowerTools\Client\Shared\Theme\styles.css
   * Copy the following 3 lines to this CSS
 
 {{{
@@ -98,10 +98,10 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
 .ribbontoolbar.minimized .button.PT_PublicationInfo .image {background-image: url({ThemePath}/Icons/publicationinfo_16.png);} 
 }}}
 
-  # Edit PowerTools2011.Editor\Configuration\Editor.config
+  # Edit PowerTools.Editor\Configuration\Editor.config
   * Create a cfg:group for this PowerTool
 {{{
-      <cfg:group name="PowerTools2011.PublicationInfo" merge="always">
+      <cfg:group name="PowerTools.PublicationInfo" merge="always">
         <cfg:fileset>
           <cfg:file type="style">/PowerTools/Client/PublicationInfo/PublicationInfo.css</cfg:file>
           <cfg:file type="script">/PowerTools/Client/PublicationInfo/PublicationInfoServiceProxy.js</cfg:file>
@@ -110,7 +110,7 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
         <cfg:dependencies>
           <cfg:dependency>Tridion.Web.UI.Editors.CME</cfg:dependency>
           <cfg:dependency>Tridion.Web.UI.Editors.CME.commands</cfg:dependency>
-          <cfg:dependency>PowerTools2011.Resources.Base</cfg:dependency>
+          <cfg:dependency>PowerTools.Resources.Base</cfg:dependency>
         </cfg:dependencies>
       </cfg:group>
 }}}
@@ -126,7 +126,7 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
               <ext:title>Publication Info</ext:title>
               <ext:issmallbutton>false</ext:issmallbutton>
               <ext:dependencies>
-                <cfg:dependency>PowerTools2011.Commands</cfg:dependency>
+                <cfg:dependency>PowerTools.Commands</cfg:dependency>
               </ext:dependencies>
               <ext:apply>
                 <ext:view name="DashboardView" />
@@ -135,33 +135,33 @@ namespace PowerTools2011.Editor.PowerTools.Client.PublicationInfo
 }}}
   * Configure the Command set
 {{{
-<cfg:command name="PT_PublicationInfo" implementation="PowerTools2011.Commands.PublicationInfo"/>
+<cfg:command name="PT_PublicationInfo" implementation="PowerTools.Commands.PublicationInfo"/>
 }}}
 
-Rebuild the PowerTools2011.Editor project.
+Rebuild the PowerTools.Editor project.
 
 Save & Reload the CME, you should now see your new button in the PowerTools 2012 Ribbon toolbar, and clicking it will bring up the popup.
 
 ==Build the webservice==
-Copy PowerTools2011 - Model\Services\Example.svc into a PublicationInfo.svc file in the same folder
+Copy PowerTools.Model\Services\Example.svc into a PublicationInfo.svc file in the same folder
 
 Set the code to:
 {{{
-<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools2011.Model.Services.PublicationInfo"%>
+<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools.Model.Services.PublicationInfo"%>
 }}}
 
 Edit the Web.config in the Model project.
 Add a Service binding:
 {{{
-      <service name="PowerTools2011.Model.Services.PublicationInfo" behaviorConfiguration="Tridion.Web.UI.ContentManager.WebServices.DeveloperBehavior">
-        <endpoint name="PublicationInfo" address="" behaviorConfiguration="Tridion.Web.UI.ContentManager.WebServices.AspNetAjaxBehavior" binding="webHttpBinding" bindingConfiguration="Tridion.Web.UI.ContentManager.WebServices.WebHttpBindingConfig" contract="PowerTools2011.Model.Services.PublicationInfo"/>
+      <service name="PowerTools.Model.Services.PublicationInfo" behaviorConfiguration="Tridion.Web.UI.ContentManager.WebServices.DeveloperBehavior">
+        <endpoint name="PublicationInfo" address="" behaviorConfiguration="Tridion.Web.UI.ContentManager.WebServices.AspNetAjaxBehavior" binding="webHttpBinding" bindingConfiguration="Tridion.Web.UI.ContentManager.WebServices.WebHttpBindingConfig" contract="PowerTools.Model.Services.PublicationInfo"/>
       </service>
 }}}
 
 Create a new "Class File" in this folder, name it PublicationData.cs with the following code:
 {{{
 using System.Runtime.Serialization;
-namespace PowerTools2011.Model.Services
+namespace PowerTools.Model.Services
 {
     [DataContract]
     public class PublicationData
@@ -183,14 +183,14 @@ using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
-using PowerTools2011.Services.Progress;
+using PowerTools.Services.Progress;
 using Tridion.ContentManager.CoreService.Client;
 
-namespace PowerTools2011.Model.Services
+namespace PowerTools.Model.Services
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    [ServiceContract(Namespace = "PowerTools2011.Model.Services")]
+    [ServiceContract(Namespace = "PowerTools.Model.Services")]
     public class PublicationInfo : BaseService
     {
         private List<PublicationData> _publicationInfos;
@@ -246,11 +246,11 @@ namespace PowerTools2011.Model.Services
 
 Modify PublicationInfo.js to use the following code (which includes the handling of GetPublicationList):
 {{{
-Type.registerNamespace("PowerTools2011.Popups");
+Type.registerNamespace("PowerTools.Popups");
 
-PowerTools2011.Popups.PublicationInfo = function () {
+PowerTools.Popups.PublicationInfo = function () {
 
-    Type.enableInterface(this, "PowerTools2011.Popups.PublicationInfo");
+    Type.enableInterface(this, "PowerTools.Popups.PublicationInfo");
     this.addInterface("Tridion.Cme.View");
 
     var p = this.properties;
@@ -260,7 +260,7 @@ PowerTools2011.Popups.PublicationInfo = function () {
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-PowerTools2011.Popups.PublicationInfo.prototype.initialize = function () {
+PowerTools.Popups.PublicationInfo.prototype.initialize = function () {
 
     $log.message("initializing example popup...");
     this.callBase("Tridion.Cme.View", "initialize");
@@ -275,7 +275,7 @@ PowerTools2011.Popups.PublicationInfo.prototype.initialize = function () {
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
-PowerTools2011.Popups.PublicationInfo.prototype._onExecuteButtonClicked = function () {
+PowerTools.Popups.PublicationInfo.prototype._onExecuteButtonClicked = function () {
 
     $j('#CloseDialog').hide();
 
@@ -283,7 +283,7 @@ PowerTools2011.Popups.PublicationInfo.prototype._onExecuteButtonClicked = functi
     var context = this;
 
 
-    PowerTools2011.Model.Services.Execute
+    PowerTools.Model.Services.Execute
 
     p.proxy.Execute(function (response) {
         p.processId = response.d.Id;
@@ -314,7 +314,7 @@ PowerTools2011.Popups.PublicationInfo.prototype._onExecuteButtonClicked = functi
     }).fadeIn(2000);
 };
 
-PowerTools2011.Popups.PublicationInfo.prototype._onCloseButtonClicked = function () {
+PowerTools.Popups.PublicationInfo.prototype._onCloseButtonClicked = function () {
     $j('#mask, .window').hide();
     $j('#ProgressStatus').html("");
     $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
@@ -322,13 +322,13 @@ PowerTools2011.Popups.PublicationInfo.prototype._onCloseButtonClicked = function
 
 
 
-PowerTools2011.Popups.PublicationInfo.prototype._updateProgressBar = function (process) {
+PowerTools.Popups.PublicationInfo.prototype._updateProgressBar = function (process) {
 
     $j('#ProgressStatus').html(process.Status);
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 };
 
-PowerTools2011.Popups.PublicationInfo.prototype._handleStatusResponse = function (response, context) {
+PowerTools.Popups.PublicationInfo.prototype._handleStatusResponse = function (response, context) {
     var p = context.properties;
 
     p.processId = response.Id;
@@ -349,7 +349,7 @@ PowerTools2011.Popups.PublicationInfo.prototype._handleStatusResponse = function
 
 };
 
-PowerTools2011.Popups.PublicationInfo.prototype._handlePublicationList = function (response, context) {
+PowerTools.Popups.PublicationInfo.prototype._handlePublicationList = function (response, context) {
     var content = '';
 
     // alert(response.length);
@@ -363,19 +363,19 @@ PowerTools2011.Popups.PublicationInfo.prototype._handlePublicationList = functio
 };
 
 
-PowerTools2011.Popups.PublicationInfo.prototype._getPublicationInfo = function (id, context) {
+PowerTools.Popups.PublicationInfo.prototype._getPublicationInfo = function (id, context) {
     if (id != "") {
 
         context.properties.proxy.GetPublicationList(id, this._handlePublicationList, context);
     }
 };
 
-PowerTools2011.Popups.PublicationInfo.prototype._getStatus = function (id, context) {
+PowerTools.Popups.PublicationInfo.prototype._getStatus = function (id, context) {
     if (id != "") {
         context.properties.proxy.GetProcessStatus(id, this._handleStatusResponse, context);
     }
 };
 
-$display.registerView(PowerTools2011.Popups.PublicationInfo);
+$display.registerView(PowerTools.Popups.PublicationInfo);
 }}}
 }}}
