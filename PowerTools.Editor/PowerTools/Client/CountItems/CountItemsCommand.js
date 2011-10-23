@@ -9,42 +9,55 @@ PowerTools.Commands.CountItems = function ()
 
 PowerTools.Commands.CountItems.prototype.isAvailable = function (selection)
 {
-    //    //Only show the button if a single FOLDER is selected
-    //    if (selection.getCount() == 1) {
-    //        var itemType = $models.getItemType(selection.getItem(0));
-    //        var item = $models.getItem(selection.getItem(0))
-    //        if (itemType == $const.ItemType.FOLDER) {
-    //            return true;
-    //        }
-    //    }
-    return this._defineEnabled();
+    return this._defineEnabled(selection);
 };
 
 PowerTools.Commands.CountItems.prototype.isEnabled = function (selection)
 {
-    return this._defineEnabled();
+    return this._defineEnabled(selection);
 };
 
 PowerTools.Commands.CountItems.prototype._execute = function (selection)
 {
-    var uriSelection = $url.getHashParam("locationId");  //selection.getItem(0);
-    var baseElement = $("#contentsplitter_container");
-    var iFrame = $("#CustomPagesFrame");
-    var self = this;
-
-    var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/CountItems/CountItems.aspx") + "#folderId=" + uriSelection;
-    var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
+    var itemId = this._selectedItem(selection);
+    var popUpUrl = $ptUtils.expandPath("/PowerTools/Client/CountItems/CountItems.aspx") + "#orgItemId=" + itemId;
+    var popup = $popup.create(popUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
     popup.open();
 };
 
-PowerTools.Commands.CountItems.prototype._defineEnabled = function ()
+PowerTools.Commands.CountItems.prototype._selectedItem = function (selection)
 {
-    var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
-    var selection = treeView.getSelection().getItem(0);
-    var itemType = $models.getItemType(selection);
-    if (itemType == $const.ItemType.FOLDER)
+    switch (selection.getCount())
     {
-        return true;
+        case 0: // check the Tree selection
+            var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
+            return treeView.getSelection().getItem(0);
+            break;
+
+        case 1: // multiple items selected in the main list
+            return selection.getItem(0);
+            break;
+
+        default:
+            return null;
+            break;
     }
+}
+
+PowerTools.Commands.CountItems.prototype._defineEnabled = function (selection)
+{
+    var item = this._selectedItem(selection);
+    if (item != null)
+    {
+        switch ($models.getItemType(item))
+        {
+            case $const.ItemType.FOLDER:
+            case $const.ItemType.PUBLICATION:
+            case $const.ItemType.STRUCTURE_GROUP:
+                return true;
+                break;
+        }
+    }
+
     return false;
 }
