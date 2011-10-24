@@ -432,6 +432,50 @@ PowerTools.Utilities.prototype.isTridionType = function (id)
     return isType;
 };
 
+PowerTools.Utilities.prototype.getItemSelector = function (startUri, preSelectedUri, filterDefinition, singleSelectMode, listThumbNails, onSuccess) {
+    
+    //Callback method for ItemSelector 'unload' event.
+    var onSelectDialogClosed = function onSelectDialogClosed(event) {
+        var p = this.properties;
+        if (p.popup) {
+            p.popup.dispose();
+            p.popup = null;
+        }
+    };
+
+    //Construct url to itemselector. 
+    //1e param -> RootID. Where to start in the Treeview of the ItemSelector. (Organizational item. E.g.: tcm:1-1-2)
+    //2e param -> Which item to pre-select in the dashboard view of the ItemSelector. (E.g. "tcm:1-1-16")
+    var dialogUrl = $cme.Popups.ITEM_SELECT.URL.format(startUri, preSelectedUri);
+    var dialogFeatures = $cme.Popups.ITEM_SELECT.FEATURES; //Constant. 
+
+    //Initialize filter. (Which itemtypes to show, basedOnSchema, etc). 
+    //For a complete list see: ItemSelectControl.js in %tridion install%\web\webui\Editors\CME\Controls\ItemSelect\. Function: Tridion.Controls.ItemSelectControl.prototype.setOptions = function ItemSelectControl$setOptions(options) 
+    //var filterDefinition = new Tridion.ContentManager.ListFilter();
+    //filterDefinition.conditions.ItemTypes = [$const.ItemType.COMPONENT, $const.ItemType.COMPONENT_TEMPLATE];
+
+    //Some more examples for the filter:
+    //var filter = new Tridion.ContentManager.ListFilter();
+    //filter.conditions.ItemTypes = [$const.ItemType.CATEGORY, $const.ItemType.KEYWORD];
+    //filter.conditions.BasedOnItem = selection.getItems();
+    //filter.columns = $const.ColumnFilter.DEFAULT | $const.ColumnFilter.ALLOWED_ACTIONS | $const.ColumnFilter.EXTENDED;
+
+    var popUp = Tridion.Controls.Popup.create(
+			dialogUrl,
+			dialogFeatures,
+			{
+			    filter: filterDefinition,
+			    isListThumbnails: listThumbNails, //List thumbnails for binaries?
+			    singleSelection: singleSelectMode    //Allow multiple selections? 
+			});
+
+    $evt.addEventHandler(popUp, "insert", onSuccess); //Bind callback function to 'insert' event. In this event you define what to do with the selected items.
+    $evt.addEventHandler(popUp, "unload", onSelectDialogClosed); //Bind callback function to 'unload'. Properly dispose the popup.
+    popUp.open();
+
+
+};
+
 var $ptUtils = new PowerTools.Utilities();
 
 /// Useful GUI JS files
