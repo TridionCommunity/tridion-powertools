@@ -8,7 +8,7 @@
 =Next Steps=
 Next steps you can take:
   * ~~Develop code against Core Service API to prep for Web service versions later (see discussion group for details)~~ We're back on track with an MVC model again.
-  * Check out !ImageUploader !PowerTool and its Schema dropdown
+  * Check out !ImageUploader !PowerTool (or any of the other new ones) and its Schema dropdown
   * Review Anguilla controls
   * Document [Requirements requirements] (function, design, fields, permissions, drop-downs, etc)
   * Identify what development side you're interested/comfortable with:
