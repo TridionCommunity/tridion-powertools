@@ -98,6 +98,8 @@
     </Compile>
     <Compile Include="Services\ServiceResponseBase.cs" />
     <Compile Include="Services\StatusServiceResponse.cs" />
+    <Compile Include="Utils\StringExtensions.cs" />
+    <Compile Include="Utils\TcmUri.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Model.config" />
