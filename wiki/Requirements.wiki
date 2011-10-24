@@ -89,7 +89,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Count Items</td>
+         <td>CountItems</td>
 
          <td>Count items in a publication, folder or structure group</td>
 
@@ -130,7 +130,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
 
 
       <tr>
-         <td>Add User</td>
+         <td>AddUser</td>
 
          <td>Add a user directly (from a domain or directory service)</td>
 
@@ -150,7 +150,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Show Lists</td>
+         <td>ShowLists</td>
 
          <td>Shows the output of different Tridion XML Lists, with column and row
          filters</td>
@@ -171,7 +171,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Overview</td>
+         <td>[Overview]</td>
 
          <td>Gives an overview of several items in a publication</td>
 
@@ -212,7 +212,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Set all Pages in publication as unpublished</td>
+         <td>SetPagesUnpublished</td>
 
          <td>Resets the Published status of every Page in a publication to Not
          Published.</td>
@@ -233,7 +233,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Schema-Template Relationships</td>
+         <td>SchemaTemplateRelationships</td>
 
          <td>Shows the relationships between schemas and component templates, and allows
          you to change these relationships.</td>
@@ -254,7 +254,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>XML Viewer / XPath Searcher</td>
+         <td>XMLViewerXPathSearcher</td>
 
          <td>Shows the xml of a Tridion item, and allows you to search it using
          xpath</td>
@@ -275,7 +275,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Access Explorer</td>
+         <td>AccessExplorer</td>
 
          <td>Show permissions on folders and structure groups</td>
 
@@ -295,7 +295,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Field Remover</td>
+         <td>FieldRemover</td>
 
          <td>Safely remove a field from a schema. The tool warns you if any components
          have a value for the field</td>
@@ -316,7 +316,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Access Permissions Manager</td>
+         <td>AccessPermissionsManager</td>
 
          <td>Show/Set permissions on folders and structure groups for multiple
          groups</td>
@@ -339,7 +339,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
 
 
       <tr>
-         <td>Quick Search and Replace Tool</td>
+         <td>QuickSearchReplace</td>
 
          <td>Search and replace XML of components. Warning: this tool can damage your
          content if you don't know what you're doing!</td>
@@ -360,7 +360,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>Access Rights Manager</td>
+         <td>AccessRightsManager</td>
 
          <td>Show access rights on groups for all publications, and change them</td>
 
