@@ -6,4 +6,6 @@ best documentation for developers)
    NUnit is the most popular choice between collaborators and one of the most widely known.
  * NAnt/Maven script (Could work as a sort of an installer) 
 
+Dominic mentioned [http://seleniumhq.org/ Selenium] for front-end testing. These create JavaScript-powered client side testing scripts that we could  re-use and possibly share to walk through a browser such as the CME. 
+
 Please update, change, and add ideas...
