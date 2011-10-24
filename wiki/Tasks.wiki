@@ -1,6 +1,11 @@
 #summary Project volunteers, progress, and next steps.
 #labels Featured,Phase-Requirements
 
+<wiki:toc max_depth="2" />
+
+*Also see [Requirements]*
+
+=Next Steps=
 Next steps you can take:
   * ~~Develop code against Core Service API to prep for Web service versions later (see discussion group for details)~~ We're back on track with an MVC model again.
   * Check out !ImageUploader !PowerTool and its Schema dropdown
@@ -11,8 +16,8 @@ Next steps you can take:
     * *Client-side UI* (JavaScript, CSS, and XHTML)
     * *Client-side Logic* (JQuery/JavaScript by implication)
 
+=Organization=
 Contributors grouped into interests:
-
   * Publish / Unpublishing Tools
     * Page Publishing / Unpublishing
       * Mark Saunders (dylan.home), Page Unpublisher
@@ -41,7 +46,7 @@ Popular/requested tools:
   * (new suggestion) UnlocalizeChildren based on URI
   * See [Requirements] for more info
 
-==Project Milestones==
+=Project Milestones=
 || Status || Task || Description || Date Created || Date Completed || Completed by ||
 ||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
