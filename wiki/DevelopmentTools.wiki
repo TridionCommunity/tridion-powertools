@@ -14,16 +14,28 @@ We want more time to focus on requirements and code by making the tools part eas
 Add info for fellow developers that need info on related SVN clients, VMs, IDEs, refactoring tools, and even UI shortcuts. 
 
 == Tools ==
-  * *SourceControl* [SourceControl#Tortoise Tortoise] (Explorer-based) or [SourceControl#ankhsvn ankhsvn] (Visual Studio) for ways to connect to the SVN-based source
+===Source ===
+*SourceControl* [SourceControl#Tortoise Tortoise] (Explorer-based) or [SourceControl#ankhsvn ankhsvn] (Visual Studio) for ways to connect to the SVN-based source
     * Can also edit wiki pages "offline" (Suggestion by Dominic)
-  * *Refactoring* is a method of cleaning up code for readability without changing code functionality. It helps to have regression tests to confirm nothing's really changed. It's associated with fixing code when it "smells."
+
+===Refactoring Tools===
+Refactoring is a method of cleaning up code for readability without changing code functionality. It helps to have regression tests to confirm nothing's really changed. It's associated with fixing code when it "smells."
     * Resharper for refactoring (application for free license in the works, results TBD)
     * Refactor free plug-in for Visual Studio http://msdn.microsoft.com/en-us/visualc/bb737896
     * CodeRush free tool (suggestion by Mihai)
+
+===Diagraming and Requirements===
   * Visio for diagrams
   * http://www.websequencediagrams.com/ for swim lane or sequence diagrams
+
+===Communication===
   * IRC http://webchat.freenode.net/ channel #tridion<br/>IRC may be quiet now, but will likely pick up as we get into more development -- use the forum and wiki for now. Email a lead if you're interested in joining the Skype chat.
+
+===Builds===
   * Build scripts such as Maven and NANT
+
+===Microsoft Stack of Development Tools===
+  * *Visual Studio*
   * *Internet Information Services (IIS)* may be unfamiliar for developers used to working on the code-side of Web development. Access it by running {{{inetmgr}}} on the CME server. Use IIS to create the virtual directories for the PowerTools editor and model folders in the [nononsenseguide].
 
 == Browsers ==
