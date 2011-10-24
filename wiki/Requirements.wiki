@@ -103,7 +103,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
 
          <td>Easy</td>
 
-         <td></td>
+         <td>Complete</td>
 
          <td>Needed more than ever as this is missing from the GUI</td>
       </tr>
