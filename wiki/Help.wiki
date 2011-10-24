@@ -5,3 +5,5 @@ http://code.google.com/p/support/wiki/WikiSyntax
 
 Need help with Development Tools and Technology?
 Visit the [DevelopmentTools Tools Wiki Page].
+
+Need help with the people, organizations, and seemingly random terminology? Visit and update the [Definitions] section!
