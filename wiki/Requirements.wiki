@@ -191,7 +191,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>SetComponentsUnpublished</td>
+         <td>ComponentUnpublisher</td>
 
          <td>Resets the Published status of every Component in a publication to Not
          Published.</td>
