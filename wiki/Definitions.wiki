@@ -26,3 +26,4 @@ Also referred to as "Nunosense" this is a disclaimer that the material (guide) y
   * SDL Tridion = trick question, the company is SDL, Tridion is the product. There is no organization "SDL Tridion"
   * Professional Services = typically the implementation or engagement group of any third-party vendor; in this context it refers to SDL's Web Content Management Services' Professional Services (SDL WCMS PS... umm yeah)
   * Nivlong = Alvin's "handle" that comes from Alvin backwards (Nivlong) plus "live LONG and prosper" (yes, he's a nerd)
+  * Mitza13 = The Mihai (comes from a shortname of his diminutive baby name plus lucky 13) :)
