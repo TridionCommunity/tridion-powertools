@@ -16,6 +16,8 @@
   * [Testing]
   * [Development]
     * *[nononsenseguide Getting Started "No Nonsense" Guide]*
+    * [Utils]
+      *[ItemPicker Item picker]
     * [DevelopmentTools Developer Tools]
       * [DeactivateJSMinifier Deactivate JS Minifier]
     * [SkypeLog Skype Discussions]
