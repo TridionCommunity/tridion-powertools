@@ -1,4 +1,5 @@
-#summary Component Synchronizer Tool Info Page
+#summary Power Tool Requirements
+#labels Phase-Requirements
 
 = Introduction =
 This tool was originally created...
