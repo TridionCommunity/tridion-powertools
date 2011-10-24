@@ -54,6 +54,8 @@ PowerTools.Commands.CountItems.prototype._defineEnabled = function (selection)
             case $const.ItemType.FOLDER:
             case $const.ItemType.PUBLICATION:
             case $const.ItemType.STRUCTURE_GROUP:
+            case $const.ItemType.CATEGORY:
+            case $const.ItemType.CATMAN:
                 return true;
                 break;
         }

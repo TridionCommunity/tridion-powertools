@@ -11,7 +11,6 @@ using Tridion.ContentManager.CoreService.Client;
 
 namespace PowerTools.Model.Services
 {
-
 	/// <summary>
 	/// Service counting items inside a Publication, Folder or Structure Group.
 	/// It gets item counts for individual item types: Folders, Components, Structure Groups, and/or Pages.
@@ -26,8 +25,14 @@ namespace PowerTools.Model.Services
 			public string OrgItemUri { get; set; }
 			public bool CountFolders { get; set; }
 			public bool CountComponents { get; set; }
+			public bool CountSchemas { get; set; }
+			public bool CountComponentTemplates { get; set; }
+			public bool CountPageTemplates { get; set; }
+			public bool CountTemplateBuildingBlocks { get; set; }
 			public bool CountStructureGroups { get; set; }
 			public bool CountPages { get; set; }
+			public bool CountCategories { get; set; }
+			public bool CountKeywords { get; set; }
 		}
 
 		private CountItemsData _countItemsData = null;
@@ -44,7 +49,9 @@ namespace PowerTools.Model.Services
 		/// <param name="countPages">bool flag to count Page items</param>
 		/// <returns>the newly created async ServiceProcess</returns>
 		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-		public ServiceProcess Execute(string orgItemUri, bool countFolders, bool countComponents, bool countStructureGroups, bool countPages)
+		public ServiceProcess Execute(string orgItemUri, bool countFolders, bool countComponents, bool countSchemas,
+				bool countComponentTemplates, bool countPageTemplates, bool countTemplateBuildingBlocks,
+				bool countStructureGroups, bool countPages, bool countCategories, bool countKeywords)
 		{
 			if (string.IsNullOrEmpty(orgItemUri))
 			{
@@ -55,11 +62,31 @@ namespace PowerTools.Model.Services
 			{
 				countStructureGroups = false;
 				countPages = false;
+				countCategories = false;
+				countKeywords = false;
 			}
 			else if (orgItemUri.EndsWith("-4")) // is Structure Group
 			{
 				countFolders = false;
 				countComponents = false;
+				countSchemas = false;
+				countComponentTemplates = false;
+				countPageTemplates = false;
+				countTemplateBuildingBlocks = false;
+				countCategories = false;
+				countKeywords = false;
+			}
+			else if (orgItemUri.EndsWith("-512") || orgItemUri.StartsWith("catman-")) // is Category
+			{
+				orgItemUri = orgItemUri.StartsWith("catman-") ? orgItemUri.Substring(7) : orgItemUri;
+				countFolders = false;
+				countComponents = false;
+				countSchemas = false;
+				countComponentTemplates = false;
+				countPageTemplates = false;
+				countTemplateBuildingBlocks = false;
+				countStructureGroups = false;
+				countPages = false;
 			}
 			else if (!orgItemUri.EndsWith("-1")) // is not Publicaation
 			{
@@ -71,8 +98,14 @@ namespace PowerTools.Model.Services
 				OrgItemUri = orgItemUri,
 				CountFolders = countFolders,
 				CountComponents = countComponents,
+				CountSchemas = countSchemas,
+				CountComponentTemplates = countComponentTemplates,
+				CountPageTemplates = countPageTemplates,
+				CountTemplateBuildingBlocks = countTemplateBuildingBlocks,
 				CountStructureGroups = countStructureGroups,
-				CountPages = countPages
+				CountPages = countPages,
+				CountCategories = countCategories,
+				CountKeywords = countKeywords
 			};
 
 			return ExecuteAsync(arguments);
@@ -136,15 +169,27 @@ namespace PowerTools.Model.Services
 
 			int folderCount = parameters.CountFolders ? listXml.SelectNodes("/tcm:Item[@Type='2']", nsMgr).Count : 0;
 			int componentCount = parameters.CountComponents ? listXml.SelectNodes("/tcm:Item[@Type='16']", nsMgr).Count : 0;
+			int schemaCount = parameters.CountSchemas ? listXml.SelectNodes("/tcm:Item[@Type='8']", nsMgr).Count : 0;
+			int componentTemplateCount = parameters.CountComponentTemplates ? listXml.SelectNodes("/tcm:Item[@Type='32']", nsMgr).Count : 0;
+			int pageTemplateCount = parameters.CountPageTemplates ? listXml.SelectNodes("/tcm:Item[@Type='128']", nsMgr).Count : 0;
+			int templateBuildingBlockCount = parameters.CountTemplateBuildingBlocks ? listXml.SelectNodes("/tcm:Item[@Type='2048']", nsMgr).Count : 0;
 			int structureGroupCount = parameters.CountStructureGroups ? listXml.SelectNodes("/tcm:Item[@Type='4']", nsMgr).Count : 0;
 			int pageCount = parameters.CountPages ? listXml.SelectNodes("/tcm:Item[@Type='64']", nsMgr).Count : 0;
+			int categoryCount = parameters.CountCategories ? listXml.SelectNodes("/tcm:Item[@Type='512']", nsMgr).Count : 0;
+			int keywordCount = parameters.CountKeywords ? listXml.SelectNodes("/tcm:Item[@Type='1024']", nsMgr).Count : 0;
 
 			_countItemsData = new CountItemsData()
 			{
 				Folders = folderCount,
 				Components = componentCount,
+				Schemas = schemaCount,
+				ComponentTemplates = componentTemplateCount,
+				PageTemplates = pageTemplateCount,
+				TemplateBuildingBlocks = templateBuildingBlockCount,
 				StructureGroups = structureGroupCount,
-				Pages = pageCount
+				Pages = pageCount,
+				Categories = categoryCount,
+				Keywords = keywordCount
 			};
 		}
 
@@ -170,8 +215,14 @@ namespace PowerTools.Model.Services
 			List<ItemType> itemTypesList = new List<ItemType>();
 			if (parameters.CountFolders) { itemTypesList.Add(ItemType.Folder); }
 			if (parameters.CountComponents) { itemTypesList.Add(ItemType.Component); }
+			if (parameters.CountSchemas) { itemTypesList.Add(ItemType.Schema); }
+			if (parameters.CountComponentTemplates) { itemTypesList.Add(ItemType.ComponentTemplate); }
+			if (parameters.CountPageTemplates) { itemTypesList.Add(ItemType.PageTemplate); }
+			if (parameters.CountTemplateBuildingBlocks) { itemTypesList.Add(ItemType.TemplateBuildingBlock); }
 			if (parameters.CountStructureGroups) { itemTypesList.Add(ItemType.StructureGroup); }
 			if (parameters.CountPages) { itemTypesList.Add(ItemType.Page); }
+			if (parameters.CountCategories) { itemTypesList.Add(ItemType.Category); }
+			if (parameters.CountKeywords) { itemTypesList.Add(ItemType.Keyword); }
 
 			filter.ItemTypes = itemTypesList.ToArray();
 

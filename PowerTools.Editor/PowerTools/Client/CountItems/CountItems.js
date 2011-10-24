@@ -16,7 +16,7 @@ PowerTools.Popups.CountItems = function ()
 PowerTools.Popups.CountItems.prototype.initialize = function ()
 {
     $log.message("Initializing CountItems popup...");
-    this.enableCheckboxes();
+    this.enableDefaultCheckboxes();
     this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
@@ -32,9 +32,9 @@ PowerTools.Popups.CountItems.prototype.initialize = function ()
 };
 
 // Set the enabled status of the Checkboxes depending on the type of the given parent OrgItem
-PowerTools.Popups.CountItems.prototype.enableCheckboxes = function ()
+PowerTools.Popups.CountItems.prototype.enableDefaultCheckboxes = function ()
 {
-    $log.message("Setting checkboxes enabled status");
+    $log.message("Setting checkboxes default enabled status");
 
     var orgItemId = $url.getHashParam("orgItemId");
     switch ($models.getItemType(orgItemId))
@@ -51,13 +51,35 @@ PowerTools.Popups.CountItems.prototype.enableCheckboxes = function ()
             $j('#ComponentChk').attr('checked', true);
             $j('#StructureGroupChk').attr('disabled', true);
             $j('#PageChk').attr('disabled', true);
+            $j('#CategoryChk').attr('disabled', true);
+            $j('#KeywordChk').attr('disabled', true);
             break;
 
         case $const.ItemType.STRUCTURE_GROUP:
             $j('#FolderChk').attr('disabled', true);
             $j('#ComponentChk').attr('disabled', true);
+            $j('#SchemaChk').attr('disabled', true);
+            $j('#ComponentTemplateChk').attr('disabled', true);
+            $j('#PageTemplateChk').attr('disabled', true);
+            $j('#TemplateBuildingBlockChk').attr('disabled', true);
             $j('#StructureGroupChk').attr('checked', true);
             $j('#PageChk').attr('checked', true);
+            $j('#CategoryChk').attr('disabled', true);
+            $j('#KeywordChk').attr('disabled', true);
+            break;
+
+        case $const.ItemType.CATMAN:
+        case $const.ItemType.CATEGORY:
+            $j('#FolderChk').attr('disabled', true);
+            $j('#ComponentChk').attr('disabled', true);
+            $j('#SchemaChk').attr('disabled', true);
+            $j('#ComponentTemplateChk').attr('disabled', true);
+            $j('#PageTemplateChk').attr('disabled', true);
+            $j('#TemplateBuildingBlockChk').attr('disabled', true);
+            $j('#StructureGroupChk').attr('disabled', true);
+            $j('#PageChk').attr('disabled', true);
+            $j('#CategoryChk').attr('checked', true);
+            $j('#KeywordChk').attr('checked', true);
             break;
     }
 }
@@ -70,14 +92,21 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
     var p = this.properties;
     p.countFolders = $j('#FolderChk').attr('checked');
     p.countComponents = $j('#ComponentChk').attr('checked');
+    p.countSchemas = $j('#SchemaChk').attr('checked');
+    p.countComponentTemplates = $j('#ComponentTemplateChk').attr('checked');
+    p.countPageTemplates = $j('#PageTemplateChk').attr('checked');
+    p.countTemplateBuildingBlocks = $j('#TemplateBuildingBlockChk').attr('checked');
     p.countStructureGroups = $j('#StructureGroupChk').attr('checked');
     p.countPages = $j('#PageChk').attr('checked');
+    p.countCategories = $j('#CategoryChk').attr('checked');
+    p.countKeywords = $j('#KeywordChk').attr('checked');
 
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
-    PowerTools.Model.Services.CountItems.Execute(p.orgItemId, p.countFolders, p.countComponents, p.countStructureGroups, p.countPages,
-            onSuccess, onFailure, context, false);
+    PowerTools.Model.Services.CountItems.Execute(p.orgItemId, p.countFolders, p.countComponents, p.countSchemas,
+            p.countComponentTemplates, p.countPageTemplates, p.countTemplateBuildingBlocks, p.countStructureGroups,
+            p.countPages, p.countCategories, p.countKeywords, onSuccess, onFailure, context, false);
 
     var dialog = $j("#dialog");
     var win = $j(window);
@@ -139,28 +168,54 @@ PowerTools.Popups.CountItems.prototype._handleCountItems = function (response)
     var p = this.properties;
 
     if (p.countFolders)
-    {
-        $j('#FolderSet span').html(response.Folders);
-        $j('#FolderSet').show();
-    } else { $j('#FolderSet').hide(); }
+        $j('#FolderChk ~ span').html(response.Folders);
+    else
+        $j('#FolderChk ~ span').html('');
 
     if (p.countComponents)
-    {
-        $j('#ComponentSet span').html(response.Components);
-        $j('#ComponentSet').show();
-    } else { $j('#ComponentSet').hide(); }
+        $j('#ComponentChk ~ span').html(response.Components);
+    else
+        $j('#ComponentChk ~ span').html('');
+
+    if (p.countSchemas)
+        $j('#SchemaChk ~ span').html(response.Schemas);
+    else
+        $j('#SchemaChk ~ span').html('');
+
+    if (p.countComponentTemplates)
+        $j('#ComponentTemplateChk ~ span').html(response.ComponentTemplates);
+    else
+        $j('#ComponentTemplateChk ~ span').html('');
+
+    if (p.countPageTemplates)
+        $j('#PageTemplateChk ~ span').html(response.PageTemplates);
+    else
+        $j('#PageTemplateChk ~ span').html('');
+
+    if (p.countTemplateBuildingBlocks)
+        $j('#TemplateBuildingBlockChk ~ span').html(response.TemplateBuildingBlocks);
+    else
+        $j('#TemplateBuildingBlockChk ~ span').html('');
 
     if (p.countStructureGroups)
-    {
-        $j('#StructureGroupSet span').html(response.StructureGroups);
-        $j('#StructureGroupSet').show();
-    } else { $j('#StructureGroupSet').hide(); }
+        $j('#StructureGroupChk ~ span').html(response.StructureGroups);
+    else
+        $j('#StructureGroupChk ~ span').html('');
 
     if (p.countPages)
-    {
-        $j('#PageSet span').html(response.Pages);
-        $j('#PageSet').show();
-    } else { $j('#PageSet').hide(); }
+        $j('#PageChk ~ span').html(response.Pages);
+    else
+        $j('#PageChk ~ span').html('');
+
+    if (p.countCategories)
+        $j('#CategoryChk ~ span').html(response.Categories);
+    else
+        $j('#CategoryChk ~ span').html('');
+
+    if (p.countKeywords)
+        $j('#KeywordChk ~ span').html(response.Keywords);
+    else
+        $j('#KeywordChk ~ span').html('');
 };
 
 // Initiate service async call for retrieving the counts data (after the process completed)

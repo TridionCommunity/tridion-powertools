@@ -54,12 +54,24 @@ body
 .fl
 {
 	float: left;
+	width: 33%;
 }
 
-.fl ul
+ul
 {
 	list-style-type: none;
 	margin-top: 0;
+	padding-left: 5px;
+}
+
+td
+{
+	vertical-align: top;
+}
+
+td span
+{
+	font-weight: bold;
 }
 
 .br
@@ -72,7 +84,3 @@ body
 	margin-bottom: 10px;
 }
 
-#FolderSet, #ComponentSet, #StructureGroupSet, #PageSet
-{
-	display: none;
-}
