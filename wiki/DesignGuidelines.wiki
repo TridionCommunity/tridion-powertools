@@ -7,6 +7,12 @@ Let's confirm our design guidelines to help create a well-integrated end-user ex
 
  When in doubt, follow an existing behavior for a similar item or functionality in the CME.
 
+== Branding (Disclaimers, Credit, and Banner) ==
+
+We'll want the PowerTools to blend-in with the CME, but still be distinguishable and manageable as an extension. Nuno suggested the idea of a standard banner in PowerTool dialogue boxes, but we can consider other ways to "brand" the set of tools.
+
+We should also identify standard ways to add disclaimers and credit to those that worked on each tool and the overall framework. But as a "thank you" reward for your efforts and to help clarify what's _extended_ functionality.
+
 == Ribbon Buttons ==
 
 Not all extensions and PowerTools need to have a top-navigation Ribbon Button and physical aspx page. If a button in the Ribbon is appropriate, consider grouping the PowerTool with similar tools based on permissions.
