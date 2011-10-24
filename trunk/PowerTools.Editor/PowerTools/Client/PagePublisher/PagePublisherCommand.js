@@ -32,7 +32,7 @@ PowerTools.Commands.PagePublisher.prototype._execute = function (selection)
     var self = this;
 
     var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#structureId=" + uriSelection;
-    var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
+    var popup = $popup.create(PopUpUrl, "toolbar=no,width=600px,height=400px,resizable=false,scrollbars=false", null);
     popup.open();
 };
 

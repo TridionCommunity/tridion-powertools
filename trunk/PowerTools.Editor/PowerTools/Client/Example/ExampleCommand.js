@@ -21,7 +21,7 @@ PowerTools.Commands.Example.prototype._execute = function (selection)
 {
     var uriSelection = selection.getItem(0);
     var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/Example/Example.aspx") + "?id=" + uriSelection;
-    var popup = $popup.create(PopUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
+    var popup = $popup.create(PopUpUrl, "toolbar=no,width=600px,height=400px,resizable=false,scrollbars=false", null);
     popup.open();
 };
 

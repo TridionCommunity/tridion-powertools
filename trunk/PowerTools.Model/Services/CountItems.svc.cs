@@ -143,17 +143,20 @@ namespace PowerTools.Model.Services
 		{
 			CountItemsParameters parameters = (CountItemsParameters)arguments;
 			process.SetCompletePercentage(25);
+			process.SetStatus("Initializing");
 
 			using (var coreService = Client.GetCoreService())
 			{
 				ItemsFilterData filter = GetFilter(parameters);
 				process.SetCompletePercentage(50);
+				process.SetStatus("Retrieving count data");
 
 				XmlElement listXml = coreService.GetListXml(parameters.OrgItemUri, filter);
 				process.SetCompletePercentage(75);
+				process.SetStatus("Extracting item counts");
 
 				ProcessCounts(parameters, listXml);
-				process.Complete();
+				process.Complete("Done");
 			}
 		}
 

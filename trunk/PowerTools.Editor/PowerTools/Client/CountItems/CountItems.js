@@ -88,6 +88,26 @@ PowerTools.Popups.CountItems.prototype.enableDefaultCheckboxes = function ()
 PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
 {
     $j('#CloseDialog').hide();
+    $j('#ProgressBar').css({ 'width': '1%', 'display': 'block' });
+    $j('#ProgressStatus').html("Progress");
+    var dialog = $j("#dialog");
+    var win = $j(window);
+
+    //Get the screen height and width
+    var maskHeight = $j(document).height();
+    var maskWidth = win.width();
+
+    //Set height and width to mask to fill up the whole screen
+    //$j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
+
+    //Get the window height and width
+    var winH = win.height();
+    var winW = win.width();
+
+    //Set the popup window to center
+    dialog.css({ "top": (winH / 2 - dialog.height() / 2),
+        "left": (winW / 2 - dialog.width() / 2)
+    }).fadeIn(400);
 
     var p = this.properties;
     p.countFolders = $j('#FolderChk').attr('checked');
@@ -107,25 +127,6 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
     PowerTools.Model.Services.CountItems.Execute(p.orgItemId, p.countFolders, p.countComponents, p.countSchemas,
             p.countComponentTemplates, p.countPageTemplates, p.countTemplateBuildingBlocks, p.countStructureGroups,
             p.countPages, p.countCategories, p.countKeywords, onSuccess, onFailure, context, false);
-
-    var dialog = $j("#dialog");
-    var win = $j(window);
-
-    //Get the screen height and width
-    var maskHeight = $j(document).height();
-    var maskWidth = win.width();
-
-    //Set height and width to mask to fill up the whole screen
-    //$j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
-
-    //Get the window height and width
-    var winH = win.height();
-    var winW = win.width();
-
-    //Set the popup window to center
-    dialog.css({ "top": (winH / 2 - dialog.height() / 2),
-        "left": (winW / 2 - dialog.width() / 2)
-    }).fadeIn(400);
 };
 
 PowerTools.Popups.CountItems.prototype._onCloseButtonClicked = function ()
@@ -141,7 +142,7 @@ PowerTools.Popups.CountItems.prototype._updateProgressBar = function (process)
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 }
 
-// Update status until process is not complete. Once complete, get the CountItemsData object.
+// Update status until process is not complete. Once complete, initial call for the CountItemsData object.
 PowerTools.Popups.CountItems.prototype._handleStatusResponse = function (result)
 {
     var p = this.properties;
