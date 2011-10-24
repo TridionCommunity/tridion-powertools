@@ -1,0 +1,37 @@
+#How to use the Itempicker in your javascript
+
+= Introduction =
+
+A lot of (power)tools need an itempicker functionality. 
+Luckily SDL Tridion already build one for us, so we can re-use it. 
+Here you find information on how to use it in your code
+
+= Details =
+
+The itempicker needs some info before opening, like which itemtypes are
+allowed to be selected, can there be multiple items selectd, etc.
+Also, after selecting an item (or multiple items at once) it need to know
+where to throw the results.
+
+1. Define a filter to determine which items a user may select:
+
+{{{
+    //Define filter
+    var filterDefinition = new Tridion.ContentManager.ListFilter();
+    filterDefinition.conditions.ItemTypes = [$const.ItemType.FOLDER, $const.ItemType.COMPONENT];
+}}}
+
+This filter allows only folders and components to be selected. For more filter options see this file:
+
+%tridion install%\web\webui\Editors\CME\Controls\ItemSelect\. 
+Function: Tridion.Controls.ItemSelectControl.prototype.setOptions = function ItemSelectControl$setOptions(options) 
+
+2. Define a callback for the itemselector:
+
+{{{
+//Callback for itemselector. After the item is selected, this method is called.
+PowerTools.Popups.Example.prototype._onSelected = function (event) {
+    var selectedItems = event.data.items;
+    $j("#SelectedItem").text(" You selected: {0}".format(selectedItems[0]));
+};
+}}}
