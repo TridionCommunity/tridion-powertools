@@ -12,9 +12,27 @@ namespace PowerTools.Model.Services
 		public int Components;
 
 		[DataMember]
+		public int Schemas;
+
+		[DataMember]
+		public int ComponentTemplates;
+
+		[DataMember]
+		public int PageTemplates;
+
+		[DataMember]
+		public int TemplateBuildingBlocks;
+
+		[DataMember]
 		public int StructureGroups;
 
 		[DataMember]
 		public int Pages;
+
+		[DataMember]
+		public int Categories;
+
+		[DataMember]
+		public int Keywords;
 	}
 }
