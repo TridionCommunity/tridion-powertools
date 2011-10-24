@@ -1,16 +1,15 @@
 #summary Project volunteers, progress, and next steps.
 #labels Featured,Phase-Requirements
 
-==Objectives and Deliverables==
-|| Status || Task || Description || Date Created || Date Completed || Completed by ||
-||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-|| || Recruit initial 2011 Q4 team || || ||  Oct 15, 2011 || ||
-|| || || || || || ||
-|| || || || || || ||
-|| || || || || || ||
+Next steps you can take:
+  * ~~Develop code against Core Service API to prep for Web service versions later (see discussion group for details)~~ We're back on track with an MVC model again.
+  * Check out !ImageUploader !PowerTool and its Schema dropdown
+  * Review Anguilla controls
+  * Document [Requirements requirements] (function, design, fields, permissions, drop-downs, etc)
+  * Identify what development side you're interested/comfortable with:
+    * *Webservice* back-end (Webservices, Core API, etc)
+    * *Client-side UI* (JavaScript, CSS, and XHTML)
+    * *Client-side Logic* (JQuery/JavaScript by implication)
 
 New contributors and interests (since retreat):
   * Mark Saunders (dylan.home) | Page Unpublisher
@@ -32,12 +31,13 @@ Popular/requested tools:
   * (new suggestion) UnlocalizeChildren based on URI
   * See [Requirements] for more info
 
-Next steps you can take:
-  * ~~Develop code against Core Service API to prep for Web service versions later (see discussion group for details)~~ We're back on track with an MVC model again.
-  * Check out !ImageUploader !PowerTool and its Schema dropdown
-  * Review Anguilla controls
-  * Document [Requirements requirements] (function, design, fields, permissions, drop-downs, etc)
-  * Identify what development side you're interested/comfortable with:
-    * *Webservice* back-end (Webservices, Core API, etc)
-    * *Client-side UI* (JavaScript, CSS, and XHTML)
-    * *Client-side Logic* (JQuery/JavaScript by implication)
+==Project Milestones==
+|| Status || Task || Description || Date Created || Date Completed || Completed by ||
+||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
+||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
+||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
+||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
+|| || Recruit initial 2011 Q4 team || || ||  Oct 15, 2011 || ||
+|| || Create working Tool(s) || || || Oct 15, 2011|| ||
+|| || Refactor / Optimize first tools || || || || ||
+|| || Create customer build script/batch/msi || || || || ||
