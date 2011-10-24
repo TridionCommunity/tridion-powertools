@@ -16,7 +16,7 @@ Add info for fellow developers that need info on related SVN clients, VMs, IDEs,
 == Tools ==
   * *SourceControl* [SourceControl#Tortoise Tortoise] (Explorer-based) or [SourceControl#ankhsvn ankhsvn] (Visual Studio) for ways to connect to the SVN-based source
     * Can also edit wiki pages "offline" (Suggestion by Dominic)
-  * Refactoring is a method of cleaning up code for readability without changing function. It helps to have regression tests to confirm nothing's really changed.
+  * *Refactoring* is a method of cleaning up code for readability without changing code functionality. It helps to have regression tests to confirm nothing's really changed. It's associated with fixing code when it "smells."
     * Resharper for refactoring (application for free license in the works, results TBD)
     * Refactor free plug-in for Visual Studio http://msdn.microsoft.com/en-us/visualc/bb737896
     * CodeRush free tool (suggestion by Mihai)
