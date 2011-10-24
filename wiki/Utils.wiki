@@ -4,7 +4,7 @@
 
 A lot of (power)tools need an itempicker functionality. 
 Luckily SDL Tridion already build one for us, so we can re-use it. 
-Here you find information on how to use it in your code
+Here you can find information on how to use it in your code
 
 = Details =
 
