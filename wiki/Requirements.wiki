@@ -212,7 +212,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>SetPagesUnpublished</td>
+         <td>PageUnpublisher</td>
 
          <td>Resets the Published status of every Page in a publication to Not
          Published.</td>
@@ -295,7 +295,7 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td>FieldRemover</td>
+         <td>SchemaFieldRemover</td>
 
          <td>Safely remove a field from a schema. The tool warns you if any components
          have a value for the field</td>
