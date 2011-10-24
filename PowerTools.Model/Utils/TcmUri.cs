@@ -6,6 +6,10 @@ using System.Text.RegularExpressions;
 
 namespace PowerTools.Model.Utils
 {
+	/// <summary>
+	/// Creates TcmUri class from a string. Makes it easy to retrieve TcmUri properties like PublicationId, ItemId, ItemTypeId and Version.
+	/// Usage: var PubliationId = new TcmUri("tcm:45-3456-64").PublicationId;
+	/// </summary>
 	public class TcmUri
 	{
 		public int ItemId { get; set; }
