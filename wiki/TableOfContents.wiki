@@ -9,6 +9,7 @@
   * [Requirements]
     * [ComponentSynchronizer]
     * [PagePublisher]
+    * [CountItems]
   * [Standards]
     * [CodingStandards Code]
     * DesignGuidelines
