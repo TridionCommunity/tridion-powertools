@@ -8,7 +8,8 @@ Tridion consultants and developers come from a variety of backgrounds and amount
 
 We want more time to focus on requirements and code by making the tools part easy!
 
-<wiki:toc max_depth="1" />
+*Contents*
+<wiki:toc max_depth="2" />
 
 Add info for fellow developers that need info on related SVN clients, VMs, IDEs, refactoring tools, and even UI shortcuts. 
 
