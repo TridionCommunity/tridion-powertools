@@ -38,6 +38,6 @@ Popular/requested tools:
 ||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 ||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
 || || Recruit initial 2011 Q4 team || || ||  Oct 15, 2011 || ||
-|| || Create working Tool(s) || || || Oct 15, 2011|| ||
+|| || Create working Tool(s) || || || in progress || ||
 || || Refactor / Optimize first tools || || || || ||
 || || Create customer build script/batch/msi || || || || ||
