@@ -11,7 +11,7 @@ This tool was originally created...
 
 
 ==Description==
-Synchronize item fields based on a specific schema.
+{what does the tool do}
 
 == Audience ==
 Admins and Power Users
