@@ -21,7 +21,7 @@ PowerTools.Commands.CountItems.prototype._execute = function (selection)
 {
     var itemId = this._selectedItem(selection);
     var popUpUrl = $ptUtils.expandPath("/PowerTools/Client/CountItems/CountItems.aspx") + "#orgItemId=" + itemId;
-    var popup = $popup.create(popUpUrl, "toolbar=no,width=600,height=400,resizable=false,scrollbars=false", null);
+    var popup = $popup.create(popUpUrl, "toolbar=no,width=600px,height=400px,resizable=false,scrollbars=false", null);
     popup.open();
 };
 
