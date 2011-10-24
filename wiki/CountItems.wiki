@@ -1,51 +1,64 @@
 #summary Power Tool Requirements
 
 = Introduction =
-This tool was originally created...
+This tool was originally created by Quirijn Slings (back in R5.2? times). For T2011, it was written originally by Mihai Cadariu (Oct 2011).
 
-{add additional info}
+A great little tool to learn the T2011 GUI Extension mechanism, .NET WCF service contepts, JQuery, web-methods, PowerTools framework project.
 
-{difficulty}
+*Difficulty:* easy/medium depending on skills.
 
 = Details =
 
-
 ==Description==
-{what does the tool do}
+
+Currently the tool follows the GUI Extension mechanism:
+
+ * Ribbon button and context menu activated on Publication, Folder, Structure Group, Category Manager and Category items.
+
+ * Displays popup that allows user to select the item types to count items for. Currently the tool can count items for Folders, Components, Schemas, Component Templates, Page Templates, Template Building Blocks, Structure Groups, Pages, Categories and Keywords.
+
+ * Call to 'count' invokes WCF service that performs the actual count. Only the selected item types are searched for by calling the Core Service API GetListXml.
+
+ * The service returns a data object in JSon format, with the counts for each item type. Each count are obtained by calling repeatedly XmlElement's method SelectNodes and then retrieving the .Count property.
+
+ * The data object is used in the popup to display the count next to each selected item type.
 
 == Audience ==
 Admins and Power Users
 
-
 *Version #*
-0.1
+1.1
 
 Original release date
-TBD
+23 Oct 2011
 
 Last updated
-TBD
+23 Oct 2011
 
 *Compatibility*
-  * SDL Tridion 2009 (deprecated)
-  * SDL Tridion 2011 SP1
+  * SDL Tridion 2011
 
 *Contributor(s)*
-{list contributors}
+
+Mihai Cadariu
 
 *Document Author(s)*
-{list authors}
+
+Mihai Cadariu
 
 == Purpose ==
-Describe purpose, objectives, and requirements
-Probably this section overlaps with previous sections.
+
+Need to be able to give counts on the number of various items in the TCM. The tool allows to specify the scope of the search (Oragnizational Item to count items underneath) and granularity of item types (breaks down the counts for different selectable item types).
 
 == Installation ==
-{describe installation steps}
+
+No special installation steps required. Tool is installed together with the othe Power Tools.
 
 === Upgrade ===
-{as applicable}
-Removal Instructions
+
+No specific upgrade instructions available.
+
+Removal Instructions: no specific removal instructions.
 
 = Requirements =
 || ID || Description || Scope || Comments ||
