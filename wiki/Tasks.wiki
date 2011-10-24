@@ -11,18 +11,28 @@ Next steps you can take:
     * *Client-side UI* (JavaScript, CSS, and XHTML)
     * *Client-side Logic* (JQuery/JavaScript by implication)
 
-New contributors and interests (since retreat):
-  * Mark Saunders (dylan.home) | Page Unpublisher
-  * Mark Williams | Schema field remover
-  * John Winter | Page Publisher
-  * Kunal Shetye, Count Items and GUI framework
-  * Vikas Kumar, 2009 !PowerTools, waiting on 2011 (maybe we can add info here)
-  * Raúl Escudero, Access permissions manager, Access Explorer, or (possibly easier) Xml Viewer/Xpath searcher
-  * Kunle Daramola, Page Publisher
-  * Mihai Cadariu, Page Publisher, WhereUsed Publisher, Template Publisher
-  * Ángel Puntero, Show Lists and Component Synchronizer
-  * Robert Curlette, Component Publisher and Unlocalize Children (new)
-  * Graeme Wigglesworth, available to help (don't hesitate to ask!)
+Contributors grouped into interests:
+
+  * Publish / Unpublishing Tools
+    * Page Publishing / Unpublishing
+      * Mark Saunders (dylan.home), Page Unpublisher
+      * John Winter, Page Publisher
+      * Kunle Daramola, Page Publisher
+      * Mihai Cadariu, (and WhereUsed Publisher, Template Publisher)
+    * Robert Curlette, Component Publisher and Unlocalize Children (new)
+
+  * Permissions
+    * Raúl Escudero, Access permissions manager, Access Explorer, or (possibly easier) Xml Viewer/Xpath searcher
+
+  * Items and Schema
+    * Mark Williams, Schema field remover
+    * Kunal Shetye, Count Items and GUI framework
+    * Ángel Puntero, Show Lists and Component Synchronizer
+
+  * General Help and Development (for now...)
+    * Graeme Wigglesworth, available to help (don't hesitate to ask!)
+    * Vikas Kumar, 2009 !PowerTools, waiting on 2011, development info and tools
+
 Popular/requested tools:
   * PagePublisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
   * ComponentSynchronizer (in high-demand!)
