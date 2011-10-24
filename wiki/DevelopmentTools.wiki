@@ -12,7 +12,10 @@ Add info for fellow developers that need info on related SVN clients, VMs, IDEs,
 == Tools ==
   * *SourceControl* [SourceControl#Tortoise Tortoise] (Explorer-based) or [SourceControl#ankhsvn ankhsvn] (Visual Studio) for ways to connect to the SVN-based source
     * Can also edit wiki pages "offline" (Suggestion by Dominic)
-  * Resharper for refactoring (application for free license TBD)
+  * Refactoring is a method of cleaning up code for readability without changing function. It helps to have regression tests to confirm nothing's really changed.
+    * Resharper for refactoring (application for free license in the works, results TBD)
+    * Refactor free plug-in for Visual Studio http://msdn.microsoft.com/en-us/visualc/bb737896
+    * CodeRush free tool (suggestion by Mihai)
   * Visio for diagrams
   * http://www.websequencediagrams.com/ for swim lane or sequence diagrams
   * IRC http://webchat.freenode.net/ channel #tridion<br/>IRC may be quiet now, but will likely pick up as we get into more development -- use the forum and wiki for now. Email a lead if you're interested in joining the Skype chat.
