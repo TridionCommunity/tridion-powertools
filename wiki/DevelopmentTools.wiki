@@ -1,11 +1,14 @@
 #summary Add information about the tools you use to set up a Tridion environment, program for, and maintain the PowerTools.
 #labels Featured
 
+
 = Introduction =
 
 Tridion consultants and developers come from a variety of backgrounds and amount of experience. Even the most experienced programers may not use the same tools. This wiki page let's us share example tools, plugins, and related information to smooth out the development process.
 
 We want more time to focus on requirements and code by making the tools part easy!
+
+<wiki:toc max_depth="1" />
 
 Add info for fellow developers that need info on related SVN clients, VMs, IDEs, refactoring tools, and even UI shortcuts. 
 
