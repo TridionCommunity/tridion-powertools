@@ -28,8 +28,8 @@ Last updated
 TBD
 
 *Compatibility*
-SDL Tridion 2009 (deprecated)
-SDL Tridion 2011 SP1
+  * SDL Tridion 2009 (deprecated)
+  * SDL Tridion 2011 SP1
 
 *Contributor(s)*
 {list contributors}
