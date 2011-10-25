@@ -9,7 +9,9 @@ for details on the PlusOne button.
 
 <g:plusone size="standard"></g:plusone>
 
-*This guide is for _developing_ a Power Tool. See the InstallationGuide  to just configure and install the existing set.* 
+----
+*This guide is for _developing_ a Power Tool. See the InstallationGuide  to just configure and install the existing set of tools.* 
+----
 
 <wiki:toc max_depth="2" />
 
