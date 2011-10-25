@@ -6,10 +6,16 @@
     margin-top: 8px;
 }
 
+
+
 body{
     font-family: Arial;
-    font-size:12px;
+    font-size:11px;
+    color: #41464C;
+    font-family: Verdana,Helvetica;    
 }
+
+
 
 /* Z-index of #mask must lower than #boxes .window */
 #mask
@@ -53,4 +59,58 @@ div
 .tool-explanation
 {
     margin-bottom: 20px;
+}
+
+/* Page Publisher added */
+.tridion .splitter.vertical {
+    height: 100%;
+    position: relative;
+}
+
+.box-spacer-10 {
+    margin: 10px;
+}
+
+.handle {
+    background: none repeat scroll 0 0 transparent !important;
+    cursor: default !important;
+    width: 10px !important;
+}
+
+.panel1
+{
+
+    float: left;
+    height: 100%;
+    margin: 0 10px;
+    overflow: auto;
+    padding: 0;
+    width: auto;
+    width: 290px !important;
+}
+
+.panel1 .ttLabel {
+    margin: 0;
+    padding: 0 0 10px;
+}
+
+.panel2 {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    padding: 0 0 0 10px;
+    width: auto;
+    border: 1px solid #A1A9B2;
+}
+
+/* publishing target box */
+
+
+#TargetTypeList {
+    border: 1px solid #A1A9B2;
+}
+
+.tridion .list {
+    overflow: hidden;
+    position: relative;
 }
