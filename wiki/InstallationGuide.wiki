@@ -7,47 +7,53 @@
 
 = Installation guide =
 
-== Prerequisites ==
-Be sure you have:
-  # A [http://www.sdltridionworld.com/articles/sdltridion2011/tutorials/creating-development-vm-1.aspx Tridion Developer Virtual Machine] or other working SDL Tridion 2011 or higher environment
+The following describes how to get the libraries (dll), create the necessary virtual directories in IIS, and set up the CME system configuration file. We'll eventually revisit the options for a [DevelopmentTools#Tools build script]. 
 
+== Prerequisites and Assumptions ==
+  # Be sure you have a [http://www.sdltridionworld.com/articles/sdltridion2011/tutorials/creating-development-vm-1.aspx Tridion Developer Virtual Machine] or other working SDL Tridion 2011 or higher environment
+  # This assumes Tridion is installed in the default location for 64-bit Windows. 
+  # These instructions will assume that you have checked out the power tools to the following directory:<br/>
+*C:\powertools*
 
 == Get the code == 
 First get the code from the repository following the guidance at 
 http://code.google.com/p/tridion-2011-power-tools/source/checkout
 
-These instructions will assume that you have checked out the power tools to the following directory: 
 
-*C:\powertools*
+== Add virtual directories in IIS == 
+Open the IIS management snap-in.
+ 
+ # Open the Tridion web site, and find: *WebUI/Editors*
+ # Create a new virtual directory within Editors, called !PowerTools
+ # Configure its physical path as: *C:\powertools\!PowerTools.Editor\*
+ # Open the Tridion web site, and find: *WebUI/Models*
+ # Create a new virtual directory within Models, called !PowerTools
+ # Configure its physical path as: *C:\powertools\!PowerTools.Models\*
 
-It is also assumed that Tridion is installed in the default location for 64 bit Windows. 
-
-== Add a virtual directory in IIS == 
-Open the IIS management snap-in. 
-Open the Tridion web site, and within it find the following location: 
-
-*WebUI/Editors*
-
-Create a new virtual directory within Editors, called !PowerTools2011
-Configure its physical path to be:
-
-*C:\powertools\!PowerTools2011 - Editor\*
-
-(The name and location of the virtual directory are referenced in the configuration. See below.)
+_The name and location of the virtual directory are referenced in the configuration. See below._
 
 == Edit the Tridion GUI Extensions configuration == 
 
 Open the configuration file: 
-
 C:\Program Files (x86)\Tridion\web\WebUI\WebRoot\Configuration\System.config
 
 Locate the '<editors/>' element and add the power tools editor.
 
 {{{
-    <editor name="PowerTools2011" xmlns="http://www.sdltridion.com/2009/GUI/Configuration">
-      <installpath>C:\powertools\PowerTools2011 - Editor\</installpath>
-      <configuration>Configuration\editor.config</configuration>
-      <vdir >PowerTools2011</vdir>
+    <editor name="PowerTools" xmlns="http://www.sdltridion.com/2009/GUI/Configuration">
+      <installpath>C:\powertools\PowerTools.Editor\</installpath>
+      <configuration>Configuration\Editor.config</configuration>
+      <vdir>PowerTools</vdir>
+    </editor>
+}}}
+
+Locate the '<models/>' element and add the power tools editor.
+
+{{{
+    <editor name="PowerTools" xmlns="http://www.sdltridion.com/2009/GUI/Configuration">
+      <installpath>C:\powertools\PowerTools.Model\</installpath>
+      <configuration>Configuration\Model.config</configuration>
+      <vdir>PowerTools</vdir>
     </editor>
 }}}
 
