@@ -476,6 +476,56 @@ PowerTools.Utilities.prototype.getItemSelector = function (startUri, preSelected
 
 };
 
+///Helper method for getting a list of items from an organizational item
+//Usage: 
+//  Declare a filter (which items do you want to get back. Also, which columns, etc)
+//   var filterDefinition = new Tridion.ContentManager.ListFilter();
+//   filterDefinition.conditions.ItemTypes = [$const.ItemType.COMPONENT];
+// Define a callback function which takes one param. In this function you can manipulate/list/show the items
+//  function callBack(jsonObject)
+// {
+//      if (jsonObject.Item) {
+//            for (var j = 0, itemsLength = jsonObject.Item.length; j < itemsLength; j++) {
+//                console.log(jsonObject.Item[j]["@ID"]);
+//                console.log(jsonObject.Item[j]["@Title"]);
+//            }
+//        }
+//  }
+//
+//  Call the method
+//   var itemsInFolder = $ptUtils.getListTcmItems("tcm:1-5-2", filterDefinition, this.callBack);
+PowerTools.Utilities.prototype.getListTcmItems = function (orgItemUri, filter, callback) {      
+    
+    var listResult = $models.getItem(orgItemUri).getList(filter, false, true); 
+
+    var filtersListLoaded = function filtersListLoaded() {
+        $evt.removeEventHandler(listResult, "load", filtersListLoaded);
+        $evt.removeEventHandler(listResult, "loadfailed", filtersListLoaded);       
+        
+        var doc = $xml.getNewXmlDocument(listResult.getXml());
+
+        //Select all items
+        var node = $xml.selectSingleNode(doc, "//tcm:ListItems");
+        var jsonObject = $xml.toJson(node);
+
+        //Call the callback function with result
+        callback(jsonObject);
+
+    };
+
+    if (!listResult.isLoaded(true)) {
+        $evt.addEventHandler(listResult, "load", filtersListLoaded);
+        $evt.addEventHandler(listResult, "loadfailed", filtersListLoaded);
+
+        listResult.load();
+    }
+    else {
+        filtersListLoaded();
+    }
+};
+
+
+
 var $ptUtils = new PowerTools.Utilities();
 
 /// Useful GUI JS files
