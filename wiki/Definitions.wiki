@@ -1,4 +1,4 @@
-#summary Who's what.
+#summary Help on what means what.
 
 <wiki:toc max_depth="2" />
 
