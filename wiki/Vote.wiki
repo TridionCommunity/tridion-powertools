@@ -1,0 +1,8 @@
+#summary Testing voting options through a Google Gadget called Moderator.
+
+== How this works ==
+Submit an idea or suggestions and vote or reply to it. We're just testing this for now, but feel free to get creative with ideas.
+
+Non-members can post, but (I believe) are required to login to Google (to be confirmed).
+
+<wiki:gadget url="http://www.google.com/moderator/static/moderator-embed-gadget.xml" height="400" width="900" up_url="http://www.google.com/moderator/#15/e=10a799&t=10a799.40" up_sort="HOT" up_hl="en" />
