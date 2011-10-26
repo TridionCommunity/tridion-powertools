@@ -9,10 +9,11 @@ First you need access to the site, see the announcement
 See [http://code.google.com/p/support/wiki/WikiSyntax Google Code Wiki] Syntax or select "More examples" link from any page.
 
 == I have lots of edits for the wiki and/or an intermittent internet connection! ==
-To update the Wiki "offline" (over SVN) connect to:
+To update the Wiki "offline" (over SVN):
 
-  * https://tridion-2011-power-tools.googlecode.com/svn/wiki/ tridion-2011-power-tools
-  * use your google account for this site for "{{{--username}}}"
+  *  Connect to https://tridion-2011-power-tools.googlecode.com/svn/wiki/ tridion-2011-power-tools
+  * Use your google account for this site but the [http://code.google.com/p/tridion-2011-power-tools/source/checkout generated password] instead of your google password.
+  * Use your favorite text editor (but without the browser-based preview).
 
 Or per the [http://code.google.com/p/support/wiki/WikiSyntax#Localizing_Wiki_Content the Google WikiSyntax site]) use:
 {{{svn checkout https://yourproject.googlecode.com/svn/wiki/ yourdirectory -username yourusername}}} .
