@@ -1,6 +1,10 @@
 #summary Updates and milestones.
 
 == Updates ==
+(19-Oct-2011) The original priority list has been "wikified" into [Requirements]. Review the new list and update, sort, comment, or share. http://code.google.com/p/tridion-2011-power-tools/wiki/Requirements
+
+(19-Oct-2011) We're on Skype. Message or email a technical lead for an invite.
+
 (18-Oct-2011) We're refactoring the wiki with a new navigation (great suggestion from [http://code.google.com/u/107356881402740145015/ Angel Puntero]).
 
 == Care to help? ==
