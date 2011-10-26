@@ -1,9 +1,31 @@
 #summary Everyone needs help sometime
 
-Google Code Wiki Syntax
-http://code.google.com/p/support/wiki/WikiSyntax
+<wiki:toc max_depth="2" />
 
-Need help with Development Tools and Technology?
-Visit the [DevelopmentTools Tools Wiki Page].
+= Wiki =
 
+== How do I update this wiki? ==
+First you need access to the site, see the announcement
+See [http://code.google.com/p/support/wiki/WikiSyntax Google Code Wiki] Syntax or select "More examples" link from any page.
+
+== I have lots of edits for the wiki and/or an intermittent internet connection! ==
+To update the Wiki "offline" (over SVN) connect to:
+
+  * https://tridion-2011-power-tools.googlecode.com/svn/wiki/ tridion-2011-power-tools
+  * use your google account for this site for "{{{--username}}}"
+
+Or per the [http://code.google.com/p/support/wiki/WikiSyntax#Localizing_Wiki_Content the Google WikiSyntax site]) use:
+{{{svn checkout https://yourproject.googlecode.com/svn/wiki/ yourdirectory -username yourusername}}} .
+
+= Development =
+== I'm new to XYZ technology, where do I start? ==
+For help with relevant development tools and technology visit the [DevelopmentTools Tools Wiki Page].
+
+= Communication =
+
+== The default Google Groups site doesn't have the +1 button. ==
+Check out and bookmark the Google Groups forum version at: https://groups.google.com/forum/#!forum/tridion-powertools
+(looks better on mobile devices too)
+
+== What do these terms, nicknames, and organizations mean? ==
 Need help with the people, organizations, and seemingly random terminology? Visit and update the [Definitions] section!
