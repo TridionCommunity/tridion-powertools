@@ -1,5 +1,11 @@
 #summary Latest version and details.
 
+Since the PowerTools is a collection of tools, we can update specific tool updates here as well.
+
+(24-Oct-2011) CountItems released as version 1.1. No installer just yet, but functionality is intact.
+
+----
+
 Latest version: 0.8. Release date: October 15, 2011.
 
 We continuing work on the 0.9 release, the working draft can be downloaded from the trunk. Follow the discussion on http://groups.google.com/group/tridion-powertools.
