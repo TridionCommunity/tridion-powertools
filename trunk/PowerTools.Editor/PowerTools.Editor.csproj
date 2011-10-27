@@ -123,46 +123,39 @@
   <ItemGroup>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.designer.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.designer.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.designer.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>

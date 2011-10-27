@@ -17,12 +17,12 @@ PowerTools.Commands.ComponentSynchronizer.prototype.isAvailable = function (sele
     //            return true;
     //        }
     //    }
-    return this._defineEnabled();
+    return this._defineEnabled(selection);
 };
 
 PowerTools.Commands.ComponentSynchronizer.prototype.isEnabled = function (selection)
 {
-    return this._defineEnabled();
+    return this._defineEnabled(selection);
 };
 
 PowerTools.Commands.ComponentSynchronizer.prototype._execute = function (selection)
@@ -51,12 +51,14 @@ PowerTools.Commands.ComponentSynchronizer.prototype._onPopupClose = function ()
 };
 
 
-PowerTools.Commands.ComponentSynchronizer.prototype._defineEnabled = function ()
+PowerTools.Commands.ComponentSynchronizer.prototype._defineEnabled = function (selection)
 {
     var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
-    var selection = treeView.getSelection().getItem(0);
-    var itemType = $models.getItemType(selection);
-    if (itemType == $const.ItemType.FOLDER)
+    //var selection = treeView.getSelection().getItem(0);
+    var item = selection.getItem(0);
+    var itemType = $models.getItemType(item);
+
+    if (itemType == $const.ItemType.SCHEMA)
     {
         return true;
     }

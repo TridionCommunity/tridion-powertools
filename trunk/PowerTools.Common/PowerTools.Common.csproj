@@ -59,12 +59,8 @@
     <Compile Include="MasterPages\TreeViewMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\PowerToolsPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TreeViewPopupPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="Pages\PowerToolsPageBase.cs" />
+    <Compile Include="Pages\TreeViewPopupPageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
