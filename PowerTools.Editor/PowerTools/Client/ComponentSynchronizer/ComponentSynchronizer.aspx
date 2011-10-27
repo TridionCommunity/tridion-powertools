@@ -8,13 +8,9 @@
 		Synchronize item fields based on a specific schema.
 	</div>
 	<fieldset>
-		<legend>Options</legend>
-		<div>
-			<label>
-				Select the Schema to be updated:</label>
-			<div>
-				<c:dropdown id="Schema" runat="server" nullable="false" /></div>
-		</div>
+		<legend>Fields</legend>
+        Fill fields to stablish default value
+        <div id="schema"></div>
 		<div>
 			<c:button id="ExecuteButton" runat="server" label="Sync" class="customButton" />
 		</div>

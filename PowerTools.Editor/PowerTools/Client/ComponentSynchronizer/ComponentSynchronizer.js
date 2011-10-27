@@ -26,9 +26,9 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function ()
 
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
     c.CloseButton = $controls.getControl($("#CloseButton"), "Tridion.Controls.Button");
-    c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
+    //c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
 
-    $evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
+    //$evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
