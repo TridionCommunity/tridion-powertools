@@ -58,7 +58,7 @@
     </Reference>
     <Reference Include="Tridion.Web.UI.Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\References\Tridion.Web.UI.Core.dll</HintPath>
+      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -123,39 +123,46 @@
   <ItemGroup>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.designer.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.designer.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.designer.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
@@ -166,17 +173,6 @@
     <Content Include="Configuration\Editor.config">
       <SubType>Designer</SubType>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="VBA">
-      <Guid>{000204EF-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>6</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>9</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="PowerTools\Client\Shared\Views\PopUp.Master" />
