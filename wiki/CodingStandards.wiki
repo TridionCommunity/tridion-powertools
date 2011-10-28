@@ -14,9 +14,12 @@ Add ideas here and perhaps we can work out the details on the IRC #tridion chann
 = Discussion Points =
 These are from the Google Group and are not yet finalized.
 
-Example coding standards for C#:
-  * http://msdn.microsoft.com/en-us/library/ms229042.aspx 
-  * http://blogs.msdn.com/b/brada/archive/2005/01/26/361363.aspx 
+Proposed coding guidelines for JavaScript / CSS:
+  * [CodingGuidelines_Anguilla Tridion CME guidelines]
+
+Proposed coding guidelines for C#:
+  * [http://msdn.microsoft.com/en-us/library/ms229042.aspx Microsoft's  .NET 4.0 Design Guidelines] 
+  * Some further details discussed on [http://blogs.msdn.com/b/brada/archive/2005/01/26/361363.aspx Brad Abrahm's blog]. 
 
 General code layout:
   * Avoid copyright / author statement at the top of each file. Maintain this information here, in a readme, or other obvious place.
