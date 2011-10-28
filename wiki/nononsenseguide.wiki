@@ -19,11 +19,11 @@ for details on the PlusOne button.
 ==Get Solution==
   # Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
 
-  # Fix the references for PowerTools.Editor and PowerTools.Common:
-  * *TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll
-  * PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll
+  # Fix the references for !PowerTools.Editor and !PowerTools.Common:
+  * *TRIDION*\Web\!WebUI\!WebRoot\bin\Tridion.Web.UI.Core.dll
+  * !PowerTools.Common\!CoreService\Tridion.!ContentManager.!CoreService.Client.2010.dll
 
-  # Confirm the following post-build event to PowerTools.Editor and PowerTools.Model (no changes needed if this matches):
+  # Confirm the following post-build event to !PowerTools.Editor and !PowerTools.Model (no changes needed if this matches):
 {{{
 xcopy "$(TargetDir)*.dll" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
@@ -33,25 +33,25 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 
 ==Configure CME==
 ===System.Config===
-  # Edit System.Config (in TRIDION\web\WebUI\WebRoot\Configuration)
+  # Edit System.Config (in TRIDION\web\WebUI\!WebRoot\Configuration)
   * Add the Editor configuration (copy from Editor.Fragment.Config and correct the path)
   * Add the Model configuration (copy from Model.Fragment.config and correct the path)
 
 ===Virtual Directories===
   # Add virtual directories in IIS:
-  * Add a new virtual directory (not an application) under WebUI\Editors, pointing to the PowerTools.Editor folder.
-  * Also add a new one under WebUI\Models, pointing to the PowerTools.Model folder.
+  * Add a new virtual directory (not an application) under WebUI\Editors, pointing to the !PowerTools.Editor folder.
+  * Also add a new one under WebUI\Models, pointing to the !PowerTools.Model folder.
 
-  At this point the existing PowerTools and icons should be visible in the CME. Read on to create your new PowerTool!   
+  At this point the existing !PowerTools and icons should be visible in the CME. Read on to create your new !PowerTool!   
 
 =Create New Tool=
 ==Copy Example==
-  # Create a copy of the “ImageUploader” Power Tool (copy the PowerTools\Client\ImageUploader folder to a folder named "PublicationInfo")
+  # Create a copy of the “!ImageUploader” Power Tool (copy the !PowerTools\Client\!ImageUploader folder to a folder named "!PublicationInfo")
 
-  # Rename all files inside this folder to PublicationInfo* (replacing ImageUploader)
+  # Rename all files inside this folder to !PublicationInfo* (replacing !ImageUploader)
 
 ==Edit Page==
-  # Edit the PublicationInfo.aspx file:
+  # Edit the !PublicationInfo.aspx file:
 {{{
 <%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
     CodeBehind="PublicationInfo.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.PublicationInfo.PublicationInfo" %>
@@ -72,7 +72,7 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 }}}
 
 ===Edit Code-Behind File===
-  # Edit the PublicationInfo.aspx.cs file
+  # Edit the !PublicationInfo.aspx.cs file
 {{{
 using System;
 using Tridion.Web.UI.Core.Controls;
@@ -89,33 +89,33 @@ namespace PowerTools.Editor.PowerTools.Client.PublicationInfo
 }
 }}}
 
-===Edit JavaScript===
-====PublicationInfo.js====
-  # Edit the PublicationInfo.js file
+===Edit !JavaScript===
+====!PublicationInfo.js====
+  # Edit the !PublicationInfo.js file
 
-  * Find/Replace “ImageUploader” ==> “PublicationInfo”
-  * comment line 29 (c.SchemaControl …)
-  * comment line 31 ($evt.addEventHandler(c.SchemaControl …)
+  * Find/Replace “!ImageUploader” ==> “!PublicationInfo”
+  * comment line 29 (c.!SchemaControl …)
+  * comment line 31 ($evt.addEventHandler(c.!SchemaControl …)
   * comment lines 45 to 51 (related to params)
   * replace params with null on line 58
   * comment lines 88 to 108 (onSchemaLoadContent function)
   * comment lines 109 to 116 (getListFieldsSchemas function)
 
-====PublicationInfoCommand.js====
-  # Edit the PublicationInfoCommand.js file
+====!PublicationInfoCommand.js====
+  # Edit the !PublicationInfoCommand.js file
 
-  * Find/Replace “ImageUploader” ==> “PublicationInfo”
+  * Find/Replace “!ImageUploader” ==> “!PublicationInfo”
   * Change isAvailable and isEnabled to always return true
   * Comment lines 20 to 23
   * Remove “+"#folderId=" + uriSelection” from line 25
 
 ===Icons===
-  # Create the icons for the PowerTool
+  # Create the icons for the !PowerTool
   * Go to [http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/db_status.png this page] to find the icon
-  * Save the 16x16 and 32x32 files under PowerTools.Editor\PowerTools\Client\Shared\Theme\Icons, rename them to publicationinfo_16.png and publicationinfo_32.png
+  * Save the 16x16 and 32x32 files under !PowerTools.Editor\!PowerTools\Client\Shared\Theme\Icons, rename them to publicationinfo_16.png and publicationinfo_32.png
 
 ===Styles===
-  # Edit PowerTools.Editor\PowerTools\Client\Shared\Theme\styles.css
+  # Edit !PowerTools.Editor\!PowerTools\Client\Shared\Theme\styles.css
   * Copy the following 3 lines to this CSS
 
 {{{
@@ -125,8 +125,8 @@ namespace PowerTools.Editor.PowerTools.Client.PublicationInfo
 }}}
 
 ==Configuration==
-  # Edit PowerTools.Editor\Configuration\Editor.config
-  * Create a cfg:group for this PowerTool
+  # Edit !PowerTools.Editor\Configuration\Editor.config
+  * Create a cfg:group for this !PowerTool
 {{{
       <cfg:group name="PowerTools.PublicationInfo" merge="always">
         <cfg:fileset>
@@ -165,14 +165,14 @@ namespace PowerTools.Editor.PowerTools.Client.PublicationInfo
 <cfg:command name="PT_PublicationInfo" implementation="PowerTools.Commands.PublicationInfo"/>
 }}}
 
-Rebuild the PowerTools.Editor project.
+Rebuild the !PowerTools.Editor project.
 
 ==Confirm Button==
-Save & Reload the CME, you should now see your new button in the PowerTools 2012 Ribbon toolbar, and clicking it will bring up the popup.
+Save & Reload the CME, you should now see your new button in the !PowerTools 2012 Ribbon toolbar, and clicking it will bring up the popup.
 
 =Build the webservice=
 ==Copy the Example==
-Copy PowerTools.Model\Services\Example.svc into a PublicationInfo.svc file in the same folder
+Copy !PowerTools.Model\Services\Example.svc into a !PublicationInfo.svc file in the same folder
 
 Set the code to:
 {{{
@@ -189,7 +189,7 @@ Add a Service binding:
 }}}
 
 ==Create "Data" Class File==
-Create a new "Class File" in this folder, name it PublicationData.cs with the following code:
+Create a new "Class File" in this folder, name it !PublicationData.cs with the following code:
 {{{
 using System.Runtime.Serialization;
 namespace PowerTools.Model.Services
@@ -208,7 +208,7 @@ namespace PowerTools.Model.Services
 }}}
 
 ==Create Model Services Class File==
-Create another class file, PublicationInfo.svc.cs with the following code:
+Create another class file, !PublicationInfo.svc.cs with the following code:
 {{{
 using System.Collections.Generic;
 using System.Linq;
@@ -276,8 +276,8 @@ namespace PowerTools.Model.Services
 }
 }}}
 
-==Update JavaScript File==
-Modify PublicationInfo.js to use the following code (which includes the handling of GetPublicationList):
+==Update !JavaScript File==
+Modify !PublicationInfo.js to use the following code (which includes the handling of !GetPublicationList):
 {{{
 Type.registerNamespace("PowerTools.Popups");
 
