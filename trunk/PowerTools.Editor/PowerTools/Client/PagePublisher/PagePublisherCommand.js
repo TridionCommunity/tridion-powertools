@@ -8,14 +8,6 @@ PowerTools.Commands.PagePublisher = function () {
 
 PowerTools.Commands.PagePublisher.prototype.isAvailable = function (selection)
 {
-    //    //Only show the button if a single FOLDER is selected
-    //    if (selection.getCount() == 1) {
-    //        var itemType = $models.getItemType(selection.getItem(0));
-    //        var item = $models.getItem(selection.getItem(0))
-    //        if (itemType == $const.ItemType.FOLDER) {
-    //            return true;
-    //        }
-    //    }
     return this._defineEnabled();
 };
 
@@ -31,7 +23,7 @@ PowerTools.Commands.PagePublisher.prototype._execute = function (selection)
     var iFrame = $("#CustomPagesFrame");
     var self = this;
 
-    var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#structureId=" + uriSelection;
+    var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#locationId=" + uriSelection;
     var popup = $popup.create(PopUpUrl, "toolbar=no,width=600px,height=400px,resizable=false,scrollbars=false", null);
     popup.open();
 };
@@ -42,7 +34,6 @@ PowerTools.Commands.PagePublisher.prototype._defineEnabled = function ()
     var selection = treeView.getSelection().getItem(0);
     var itemType = $models.getItemType(selection);
     if (itemType == $const.ItemType.STRUCTURE_GROUP) {
-        
         return true;
     }
     return false;

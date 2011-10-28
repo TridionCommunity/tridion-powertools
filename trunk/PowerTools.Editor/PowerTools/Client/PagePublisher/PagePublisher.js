@@ -41,7 +41,7 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
     var c = p.controls;
 
     p.params = window.dialogArguments ? window.dialogArguments : null;
-    p.structureId = $url.getHashParam("structureId");
+    p.locationId = $url.getHashParam("locationId");
 
 
     // Publish target select list
@@ -63,27 +63,25 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
     //this._toggleItemsToPublish();
     // Start loading data
     this._asyncLoadTargetTypeListHeader();
-
 };
 
 PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
 
-
     $j('#CloseDialog').hide();
 
     var p = this.properties;
-
-
-    //-Local directory on the server
-    var localDirectory = $j("#Main_SourceFolder").val();
+    p.SelectedTarget = "hello";
+    p.Recursive = $j("#Recursive").val();
+    p.Republish = $j("#Republish").val();
+    p.PublishChildren = $j("#PublishChildren").val();
+    p.Priority = $j("#Priority").val();
 
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
 
     // pass in structure uri, publishing target uri
-    PowerTools.Model.Services.PagePublisher.Execute("tcm:xx-yy-zz", "tcm:xx-yy-zz");
-
+    PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren);
     var dialog = $j("#dialog");
     var win = $j(window);
 
@@ -123,9 +121,7 @@ PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (resu
     var p = this.properties;
 
     p.processId = result.Id;
-
     this._updateProgressBar(result);
-
     if (result.PercentComplete < 100) {
         this._pollStatus(p.processId);
     }
@@ -286,11 +282,14 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
 
     // Async handler
     var self = this;
+
     var populateList = function _asyncLoadTargetTypeList$listLoaded(event) {
         var ttList = self.getListTargetTypes();
         $evt.removeEventHandler(ttList, "load", populateList);
         // Get a local threaded xml document
         var xml = $xml.getNewXmlDocument(ttList.getXml());
+
+        alert($xml.getOuterXml(xml));
         // Add Icon attribute if it's not there
         var nodes = $xml.selectNodes(xml, "/tcm:*/tcm:Item");
         if (nodes) {
@@ -305,8 +304,10 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
             }
         }
 
+        alert("here");
         // restore previous settings after the list has been drawn
         $evt.addEventHandler(c.TargetTypeList, "draw", self.getDelegate(self._applyTargetTypePreferences));
+
 
         // Draw the list
         c.TargetTypeList.draw(xml, p.ttListHeadXml);
@@ -317,6 +318,7 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
         c.TargetTypeList.setLoading(false);
 
     };
+
 
     // Try load target type list from model
     var ttList = this.getListTargetTypes();
@@ -429,6 +431,7 @@ PowerTools.Popups.PagePublisher.prototype._populateDropdown = function _populate
     if (!dropdown || !list || !head) {
         return;
     }
+
     // Async handler
     var populateDropdown = function $_populateDropdown$listLoaded(event) {
         // Set dropdown options
@@ -437,6 +440,9 @@ PowerTools.Popups.PagePublisher.prototype._populateDropdown = function _populate
         // Set as loaded
         p.isPddLoaded = true;
         // One time, set default value
+
+        //alert($xml.getOuterXml(xml));
+
         var node = $xml.selectSingleNode(xml, "//tcm:Value[last()-1]");
         if (node) {
             dropdown.setValue(node.getAttribute("ID"), node.getAttribute("Title"));
