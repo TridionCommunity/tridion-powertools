@@ -8,7 +8,7 @@ The following is a modified version of the coding guidelines that were used duri
 They should also serve as guidelines for development of extensions such as the PowerTools.
 
 
-= JavaScript and HTML guidelines =
+= !JavaScript and HTML guidelines =
 
 == Code organization ==
 
@@ -20,42 +20,53 @@ They should also serve as guidelines for development of extensions such as the P
 
   * Use namespace prefixes for the classes you write.
   * Include namespace definition at the top of the file that uses that namespace. _Type.registerNamespace_ ensures that a namespace prefix exists before you attempt to use it.
-  * Namespaces should use Pascal Case <code>Type.registerNamespace("Tridion.MessageCenter");</code>
+  * Namespaces should use Pascal Case 
+{{{ 
+Type.registerNamespace("Tridion.MessageCenter");
+}}}
 
 == Functions ==
 
   * Name every function. This enables the stack trace to display actual names for function calls, instead of a series of anonymous() calls, which is a great help during debugging.
   * Use camel-case for all function names and arguments. This includes get and set functions. 
-  * <code>this.methodName = function Class$methodName(paramName)
+
+{{{
+this.methodName = function Class$methodName(paramName)
 {
 	...
-}</code>
+}
+}}}
   * ''id'' in function names should be capitalized like ''Id'', not ''ID''. For instance: ''getId()''
   * Functions that are used as callback functions or event handlers should be named using the following format: on[''Object''][''Event''], where ''Object'' is a name that identifies an object. For instance, _onButtonClick()_ or _onPageLoad()_.
   * Functions do not need a _return_ statement at the end if they do not return a value.
   * All function definitions should have a semicolon at the end
-  * <code>function thisFunctionName() 
+  * 
+{{{
+function thisFunctionName() 
 { 
    ... 
-};</code> 
+};
+}}}
 
 This is to prevent problems when the next statement is started with an opening parenthesis, for example the following code will generate an error:
 
-<code>
+{{{
 MyClass = function () {}
 
 (function()
 {
 	var item = new MyClass();
 })();
-</code> , while the following code will run fine: <code>
+}}}
+ , while the following code will run fine: 
+{{{
 MyClass = function () {};
 
 (function()
 {
 	var item = new MyClass();
 })();
-</code>
+}}}
 
 == Constants ==
 
