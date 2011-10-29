@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\ComponentSynchronizer.svc" />
+    <Content Include="Services\AppDataInspector.svc" />
     <Content Include="Services\CountItems.svc" />
     <Content Include="Services\PagePublisher.svc" />
     <Content Include="Services\FieldRemover.svc" />
@@ -77,6 +78,10 @@
     <Compile Include="Services\ComponentSynchronizer.svc.cs">
       <DependentUpon>ComponentSynchronizer.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\AppDataInspector.svc.cs">
+      <DependentUpon>AppDataInspector.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AppDataInspectorData.cs" />
     <Compile Include="Services\CountItems.svc.cs">
       <DependentUpon>CountItems.svc</DependentUpon>
     </Compile>

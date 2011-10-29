@@ -34,6 +34,10 @@
 .ribbontoolbar .button.PT_CountItems .image {background-image: url({ThemePath}/Icons/countitems_32.png);}
 .ribbontoolbar.minimized .button.PT_CountItems .image {background-image: url({ThemePath}/Icons/countitems_16.png);}
 
+.PT_AppDataInspector .image {background-image:url({ThemePath}/Icons/appdatainspector_16.png);}
+.ribbontoolbar .button.PT_AppDataInspector .image {background-image: url({ThemePath}/Icons/appdatainspector_32.png);}
+.ribbontoolbar.minimized .button.PT_AppDataInspector .image {background-image: url({ThemePath}/Icons/appdatainspector_16.png);}
+
 
 div#PowerToolIcon
 {
@@ -50,4 +54,9 @@ div#PowerToolIcon
 	display: none;
 	z-index: 9999;
 	padding: 20px;
+}
+
+#StackElement h1
+{
+	margin-left: 10px;
 }

@@ -40,9 +40,9 @@ namespace PowerTools.Model.Services
 		/// <summary>
 		/// Service operation that initiates the retrieval of item counts asynchronously.
 		/// Reads input parameters into a CountItemsParameters object.
-		/// Does basic validation on the orgItemUri - throws argument exception if not valid Publication, Folder or Structure Group TcmUri
+		/// Does basic validation on the itemUri - throws argument exception if not valid Publication, Folder or Structure Group TcmUri
 		/// </summary>
-		/// <param name="orgItemUri">TcmUri of the parent item to retrieve counts for items underneath it</param>
+		/// <param name="itemUri">TcmUri of the parent item to retrieve counts for items underneath it</param>
 		/// <param name="countFolders">bool flag to count Folder items</param>
 		/// <param name="countComponents">bool flag to count Component items</param>
 		/// <param name="countStructureGroups">bool flag to count Structure Group items</param>
