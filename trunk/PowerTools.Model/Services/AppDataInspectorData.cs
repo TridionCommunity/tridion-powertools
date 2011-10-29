@@ -11,5 +11,8 @@ namespace PowerTools.Model.Services
 
 		[DataMember]
 		public String Value;
+
+		[DataMember]
+		public String Type;
 	}
 }

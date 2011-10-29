@@ -21,7 +21,7 @@ PowerTools.Commands.AppDataInspector.prototype._execute = function (selection)
 {
     var itemId = this._selectedItem(selection);
     var popUpUrl = $ptUtils.expandPath("/PowerTools/Client/AppDataInspector/AppDataInspector.aspx") + "#itemId=" + itemId;
-    var popup = $popup.create(popUpUrl, "toolbar=no,width=600px,height=400px,resizable=false,scrollbars=false", null);
+    var popup = $popup.create(popUpUrl, "toolbar=no,width=700px,height=500px,resizable=false,scrollbars=false", null);
     popup.open();
 };
 

@@ -9,24 +9,29 @@
 		<c:button id="RefreshButton" runat="server" label="Refresh" class="customButton" />
 	</div>
 	<hr class="br" />
-	<table>
-		<thead>
-			<tr>
-				<th>
-					ApplicationId
-				</th>
-				<th>
-					Data
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>
-					Loading...
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div style="width: 685px; height: 350px; overflow: auto;">
+		<table>
+			<thead>
+				<tr>
+					<th>
+						ApplicationId
+					</th>
+					<th>
+						Data
+					</th>
+					<th>
+						Type
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						Loading...
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<hr class="br" />
 </asp:Content>
