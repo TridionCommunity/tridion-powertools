@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools.Model.Services.CountItems" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools.Model.Services.AppDataInspector" %>

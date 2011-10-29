@@ -26,11 +26,14 @@ PowerTools.Popups.AppDataInspector.prototype.initialize = function ()
 
     $evt.addEventHandler(c.RefreshButton, "click", this.getDelegate(this._onRefreshButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+
+    this._onRefreshButtonClicked();
 };
 
 // Reads the checkboxes values and initiates a service call to get the item counts
 PowerTools.Popups.AppDataInspector.prototype._onRefreshButtonClicked = function ()
 {
+    $j('#container tbody').html("<tr><td>Loading...</td></tr>");
     $j('#CloseDialog').hide();
     $j('#ProgressBar').css({ 'width': '1%', 'display': 'block' });
     $j('#ProgressStatus').html("Progress");
@@ -78,6 +81,7 @@ PowerTools.Popups.AppDataInspector.prototype._updateProgressBar = function (proc
 // Update status until process is not complete. Once complete, initial call for the AppDataInspectorData object.
 PowerTools.Popups.AppDataInspector.prototype._handleStatusResponse = function (result)
 {
+    $log.message("Handle Status Response...");
     var p = this.properties;
     p.processId = result.Id;
     this._updateProgressBar(result);
@@ -96,60 +100,27 @@ PowerTools.Popups.AppDataInspector.prototype._handleStatusResponse = function (r
     }
 }
 
+function htmlEncode(value)
+{
+    return $j('<div/>').text(value).html();
+}
+
+function htmlDecode(value)
+{
+    return $j('<div/>').html(value).text();
+}
+
 // We have a response with data. Fill in the values and visibility for each item type counts.
-PowerTools.Popups.AppDataInspector.prototype._handleAppDataInspector = function (response)
+PowerTools.Popups.AppDataInspector.prototype._displayData = function (response)
 {
     var p = this.properties;
+    var content = "";
+    response.each(function (elem)
+    {
+        content += "<tr><td>" + elem.ApplicationId + "</td><td>" + htmlEncode(elem.Value) + "</td></tr>";
+    });
 
-    if (p.countFolders)
-        $j('#FolderChk ~ span').html(response.Folders);
-    else
-        $j('#FolderChk ~ span').html('');
-
-    if (p.countComponents)
-        $j('#ComponentChk ~ span').html(response.Components);
-    else
-        $j('#ComponentChk ~ span').html('');
-
-    if (p.countSchemas)
-        $j('#SchemaChk ~ span').html(response.Schemas);
-    else
-        $j('#SchemaChk ~ span').html('');
-
-    if (p.countComponentTemplates)
-        $j('#ComponentTemplateChk ~ span').html(response.ComponentTemplates);
-    else
-        $j('#ComponentTemplateChk ~ span').html('');
-
-    if (p.countPageTemplates)
-        $j('#PageTemplateChk ~ span').html(response.PageTemplates);
-    else
-        $j('#PageTemplateChk ~ span').html('');
-
-    if (p.countTemplateBuildingBlocks)
-        $j('#TemplateBuildingBlockChk ~ span').html(response.TemplateBuildingBlocks);
-    else
-        $j('#TemplateBuildingBlockChk ~ span').html('');
-
-    if (p.countStructureGroups)
-        $j('#StructureGroupChk ~ span').html(response.StructureGroups);
-    else
-        $j('#StructureGroupChk ~ span').html('');
-
-    if (p.countPages)
-        $j('#PageChk ~ span').html(response.Pages);
-    else
-        $j('#PageChk ~ span').html('');
-
-    if (p.countCategories)
-        $j('#CategoryChk ~ span').html(response.Categories);
-    else
-        $j('#CategoryChk ~ span').html('');
-
-    if (p.countKeywords)
-        $j('#KeywordChk ~ span').html(response.Keywords);
-    else
-        $j('#KeywordChk ~ span').html('');
+    $j('#container tbody').html(content);
 };
 
 // Initiate service async call for retrieving the counts data (after the process completed)
@@ -158,10 +129,10 @@ PowerTools.Popups.AppDataInspector.prototype._getAppDataInspectorData = function
     if (id != "")
     {
         $log.debug("Retrieving AppDataInspectorData for process #" + id);
-        var onSuccess = Function.getDelegate(this, this._handleAppDataInspector);
+        var onSuccess = Function.getDelegate(this, this._displayData);
         var onFailure = null;
         var context = null;
-        PowerTools.Model.Services.AppDataInspector.GetAppDataInspectorData(onSuccess, onFailure, context, false);
+        PowerTools.Model.Services.AppDataInspector.GetData(onSuccess, onFailure, context, false);
     }
 };
 

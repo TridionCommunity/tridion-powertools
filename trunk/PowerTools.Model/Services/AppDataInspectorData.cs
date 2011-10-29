@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace PowerTools.Model.Services
 {
@@ -6,6 +7,9 @@ namespace PowerTools.Model.Services
 	public class AppDataInspectorData
 	{
 		[DataMember]
-		public int Value;
+		public String ApplicationId;
+
+		[DataMember]
+		public String Value;
 	}
 }
