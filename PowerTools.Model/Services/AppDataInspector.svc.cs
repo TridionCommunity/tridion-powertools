@@ -72,7 +72,8 @@ namespace PowerTools.Model.Services
 					_data.Add(new AppDataInspectorData
 					{
 						ApplicationId = appData.ApplicationId,
-						Value = ByteArrayToObject(appData.Data).ToString()
+						Value = ByteArrayToObject(appData.Data).ToString(),
+						Type = appData.TypeId
 					});
 				}
 

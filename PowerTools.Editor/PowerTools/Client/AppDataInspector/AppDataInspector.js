@@ -117,7 +117,10 @@ PowerTools.Popups.AppDataInspector.prototype._displayData = function (response)
     var content = "";
     response.each(function (elem)
     {
-        content += "<tr><td>" + elem.ApplicationId + "</td><td>" + htmlEncode(elem.Value) + "</td></tr>";
+        content += "<tr><td>" + elem.ApplicationId +
+                "</td><td>" + htmlEncode(elem.Value) +
+                "</td><td>" + htmlEncode(elem.Type) +
+                "</td></tr>";
     });
 
     $j('#container tbody').html(content);
