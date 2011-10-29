@@ -66,6 +66,10 @@
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.css" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerCommand.js" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.aspx" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.css" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.js" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorCommand.js" />
     <Content Include="PowerTools\Client\CountItems\CountItems.aspx" />
     <Content Include="PowerTools\Client\CountItems\CountItems.css" />
     <Content Include="PowerTools\Client\CountItems\CountItems.js" />
@@ -98,6 +102,8 @@
     <Content Include="PowerTools\Client\Shared\Scripts\ToolBase.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\Types.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_16.png" />
@@ -127,6 +133,13 @@
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspector.aspx.cs">
+      <DependentUpon>AppDataInspector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspector.aspx.designer.cs">
+      <DependentUpon>AppDataInspector.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>

@@ -25,7 +25,7 @@ namespace PowerTools.Model.Services
 		{
 			if (string.IsNullOrEmpty(orgItemUri))
 			{
-				throw new ArgumentNullException("orgItemUri");
+				throw new ArgumentNullException("itemUri");
 			}
 
 			if (string.IsNullOrEmpty(recursive))

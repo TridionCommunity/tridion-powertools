@@ -432,12 +432,14 @@ PowerTools.Utilities.prototype.isTridionType = function (id)
     return isType;
 };
 
-PowerTools.Utilities.prototype.getItemSelector = function (startUri, preSelectedUri, filterDefinition, singleSelectMode, listThumbNails, onSuccess) {
-    
+PowerTools.Utilities.prototype.getItemSelector = function (startUri, preSelectedUri, filterDefinition, singleSelectMode, listThumbNails, onSuccess)
+{
     //Callback method for ItemSelector 'unload' event.
-    var onSelectDialogClosed = function onSelectDialogClosed(event) {
+    var onSelectDialogClosed = function onSelectDialogClosed(event)
+    {
         var p = this.properties;
-        if (p.popup) {
+        if (p.popup)
+        {
             p.popup.dispose();
             p.popup = null;
         }
@@ -472,17 +474,15 @@ PowerTools.Utilities.prototype.getItemSelector = function (startUri, preSelected
     $evt.addEventHandler(popUp, "insert", onSuccess); //Bind callback function to 'insert' event. In this event you define what to do with the selected items.
     $evt.addEventHandler(popUp, "unload", onSelectDialogClosed); //Bind callback function to 'unload'. Properly dispose the popup.
     popUp.open();
-
-
 };
 
-///Helper method for getting a list of items from an organizational item
-//Usage: 
-//  Declare a filter (which items do you want to get back. Also, which columns, etc)
+// Helper method for getting a list of items from an organizational item
+// Usage: 
+// Declare a filter (which items do you want to get back. Also, which columns, etc)
 //   var filterDefinition = new Tridion.ContentManager.ListFilter();
 //   filterDefinition.conditions.ItemTypes = [$const.ItemType.COMPONENT];
 // Define a callback function which takes one param. In this function you can manipulate/list/show the items
-//  function callBack(jsonObject)
+// function callBack(jsonObject)
 // {
 //      if (jsonObject.Item) {
 //            for (var j = 0, itemsLength = jsonObject.Item.length; j < itemsLength; j++) {
@@ -492,16 +492,17 @@ PowerTools.Utilities.prototype.getItemSelector = function (startUri, preSelected
 //        }
 //  }
 //
-//  Call the method
-//   var itemsInFolder = $ptUtils.getListTcmItems("tcm:1-5-2", filterDefinition, this.callBack);
-PowerTools.Utilities.prototype.getListTcmItems = function (orgItemUri, filter, callback) {      
-    
-    var listResult = $models.getItem(orgItemUri).getList(filter, false, true); 
+// Call the method
+// var itemsInFolder = $ptUtils.getListTcmItems("tcm:1-5-2", filterDefinition, this.callBack);
+PowerTools.Utilities.prototype.getListTcmItems = function (orgItemUri, filter, callback)
+{
+    var listResult = $models.getItem(orgItemUri).getList(filter, false, true);
 
-    var filtersListLoaded = function filtersListLoaded() {
+    var filtersListLoaded = function filtersListLoaded()
+    {
         $evt.removeEventHandler(listResult, "load", filtersListLoaded);
-        $evt.removeEventHandler(listResult, "loadfailed", filtersListLoaded);       
-        
+        $evt.removeEventHandler(listResult, "loadfailed", filtersListLoaded);
+
         var doc = $xml.getNewXmlDocument(listResult.getXml());
 
         //Select all items
@@ -513,13 +514,15 @@ PowerTools.Utilities.prototype.getListTcmItems = function (orgItemUri, filter, c
 
     };
 
-    if (!listResult.isLoaded(true)) {
+    if (!listResult.isLoaded(true))
+    {
         $evt.addEventHandler(listResult, "load", filtersListLoaded);
         $evt.addEventHandler(listResult, "loadfailed", filtersListLoaded);
 
         listResult.load();
     }
-    else {
+    else
+    {
         filtersListLoaded();
     }
 };

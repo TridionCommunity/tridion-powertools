@@ -1,10 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
-	CodeBehind="CountItems.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.CountItems.CountItems" %>
+﻿<%@ Page Title="Count Items" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master"
+	AutoEventWireup="true" CodeBehind="CountItems.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.CountItems.CountItems" %>
 
 <asp:Content ID="CountItems" ContentPlaceHolderID="Main" runat="server">
-	<h1>
-		Count Items
-	</h1>
 	<div class="tool-explanation">
 		Counts items in a Publication, Structure Group or Folder. Select the types of items
 		to count.
