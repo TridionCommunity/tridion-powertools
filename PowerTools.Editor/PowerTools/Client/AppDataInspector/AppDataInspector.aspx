@@ -5,16 +5,28 @@
 	<div class="tool-explanation">
 		Retrieves the AppData of a given item in read-only mode.
 	</div>
-	<hr />
-	<table>
-		<tr>
-			<td align="center">
-				Loading...
-			</td>
-		</tr>
-	</table>
-	<hr class="br" />
 	<div>
 		<c:button id="RefreshButton" runat="server" label="Refresh" class="customButton" />
 	</div>
+	<hr class="br" />
+	<table>
+		<thead>
+			<tr>
+				<th>
+					ApplicationId
+				</th>
+				<th>
+					Data
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					Loading...
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr class="br" />
 </asp:Content>
