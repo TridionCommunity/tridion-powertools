@@ -16,7 +16,7 @@ PowerTools.AppDataInspectorWorker.prototype.execute = function ()
     $log.message("Executing AppDataInspectorWorker...");
 
     // prepare UI
-    $j('#tbody').html("<tr><td colspan=\"3\">Loading...</td></tr>");
+    $j('#tbody').html("<tr class=\"row0\"><td colspan=\"3\">Loading...</td></tr>");
     $j('#ProgressBar').css({ 'width': '1%', 'display': 'block' });
     $j('#ProgressStatus').html("Progress");
     $j('#CloseDialog').hide();
