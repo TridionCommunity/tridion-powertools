@@ -4,7 +4,10 @@ PowerTools.Popups.ImageUploader = function ()
 {
     Type.enableInterface(this, "PowerTools.Popups.ImageUploader");
     this.addInterface("Tridion.Cme.View");
-
+    
+    //Base class for initializing execute-,close button, and progressbar.
+    this.addInterface("PowerToolsBase", [this]); 
+    
     var p = this.properties;
 
     p.processId = null;
@@ -24,19 +27,13 @@ PowerTools.Popups.ImageUploader.prototype.initialize = function () {
 
     
     p.folderId = $url.getHashParam("folderId");
-
-    c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
+    
     c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
-
     $evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
-    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
-    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 };
 
-PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {
-    $j('#CloseDialog').hide();
 
+PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {   
     var p = this.properties;
 
     //-Schema Uri (ItemSelector)
@@ -50,33 +47,6 @@ PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () 
     //var folderId = this.getFolderId();
     PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.folderId, schemaUri, onSuccess, onFailure, context, false);
 
-
-    var dialog = $j("#dialog");
-    var win = $j(window);
-
-    //Get the screen height and width
-    var maskHeight = $j(document).height();
-    var maskWidth = win.width();
-
-    //Set height and width to mask to fill up the whole screen
-    $j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
-
-    //Get the window height and width
-
-    var winH = win.height();
-    var winW = win.width();
-
-    //Set the popup window to center
-    dialog.css({ "top": (winH / 2 - dialog.height() / 2),
-        "left": (winW / 2 - dialog.width() / 2)
-    }).fadeIn(2000);
-};
-
-PowerTools.Popups.ImageUploader.prototype._onCloseButtonClicked = function ()
-{
-    $j('#mask, .window').hide();
-    $j('#ProgressStatus').html("");
-    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
 
 PowerTools.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e)
@@ -106,64 +76,15 @@ PowerTools.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e)
 };
 
 PowerTools.Popups.ImageUploader.prototype.getListFieldsSchemas = function (purpose) {
-    var p = this.properties;   
+    var p = this.properties;
     var folder = $models.getItem(p.folderId);
     var publication = folder.getPublication();
     var list = publication.getListSchemas(purpose);
     return list;
-}
-
-
-PowerTools.Popups.ImageUploader.prototype._updateProgressBar = function (process)
-{
-
-    $j('#ProgressStatus').html(process.Status);
-    $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
-}
-
-PowerTools.Popups.ImageUploader.prototype._handleStatusResponse = function (result)
-{
-    var p = this.properties;
-
-    p.processId = result.Id;
-
-    this._updateProgressBar(result);
-
-    if (result.PercentComplete < 100)
-    {
-        this._pollStatus(p.processId);
-    }
-    else
-    {
-        $j('#ProgressStatus').html(result.Status);
-        $j('#CloseDialog').show();
-        p.processId = ""
-    }
-}
-
-PowerTools.Popups.ImageUploader.prototype._pollStatus = function (id)
-{
-    var onFailure = null;
-    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
-    var context = null;
-
-    var callback = function ()
-    {
-        $log.debug("Checking the status of process #" + id);
-        PowerTools.Model.Services.ImageUploader.GetProcessStatus(id, onSuccess, onFailure, context, false);
-    };
-
-    setTimeout(callback, this.properties.pollInterval);
-}
-
-PowerTools.Popups.ImageUploader.prototype._onExecuteStarted = function (result)
-{
-    if (result)
-    {
-        this._pollStatus(result.Id);
-    }
 };
 
-
+PowerTools.Popups.ImageUploader.prototype.afterSuccess = function () {
+    //Optional method: called after the service-call was finished (100%). Useful for getting data that was gathered/stored by the service-call
+};
 
 $display.registerView(PowerTools.Popups.ImageUploader);
