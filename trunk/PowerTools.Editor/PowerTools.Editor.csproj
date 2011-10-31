@@ -62,13 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.js" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorWorker.js" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.css" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerCommand.js" />
-    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.aspx" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.css" />
-    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.js" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.js" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorCommand.js" />
     <Content Include="PowerTools\Client\CountItems\CountItems.aspx" />
     <Content Include="PowerTools\Client\CountItems\CountItems.css" />
@@ -78,6 +81,9 @@
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemoverCommand.js" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.css" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.js" />
     <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx" />
     <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.css" />
     <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.js" />
@@ -127,6 +133,10 @@
     <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx.cs">
+      <DependentUpon>AppDataInspectorTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,12 +144,12 @@
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspector.aspx.cs">
-      <DependentUpon>AppDataInspector.aspx</DependentUpon>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.cs">
+      <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspector.aspx.designer.cs">
-      <DependentUpon>AppDataInspector.aspx</DependentUpon>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.designer.cs">
+      <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
@@ -154,6 +164,10 @@
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.cs">
+      <DependentUpon>ItemXmlTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>

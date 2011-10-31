@@ -84,3 +84,30 @@ td span
 	margin-bottom: 10px;
 }
 
+#table
+{
+	width: 685px;
+	height: 350px;
+	overflow: auto;
+}
+
+#tabletab
+{
+	width: 100%;
+	overflow: auto;
+}
+
+#table th, #tabletab th 
+{
+	padding: 3px;
+}
+
+#table th, #tabletab th, .row1
+{
+	background-color: #e5e5e5;
+}
+
+.row0
+{
+	background-color: #f2f2f2;
+}

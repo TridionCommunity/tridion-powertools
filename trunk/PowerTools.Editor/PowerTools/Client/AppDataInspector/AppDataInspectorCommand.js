@@ -1,31 +1,33 @@
 ﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools.Commands.AppDataInspector = function ()
+PowerTools.Commands.AppDataInspectorPopup = function ()
 {
-    Type.enableInterface(this, "PowerTools.Commands.AppDataInspector");
+    Type.enableInterface(this, "PowerTools.Commands.AppDataInspectorPopup");
     this.addInterface("Tridion.Cme.Command", ["AppDataInspector"]);
     this.addInterface("PowerTools.ToolBase", ["AppDataInspector"]);
 };
 
-PowerTools.Commands.AppDataInspector.prototype.isAvailable = function (selection)
+PowerTools.Commands.AppDataInspectorPopup.prototype.isAvailable = function (selection)
 {
     return this._defineEnabled(selection);
 };
 
-PowerTools.Commands.AppDataInspector.prototype.isEnabled = function (selection)
+PowerTools.Commands.AppDataInspectorPopup.prototype.isEnabled = function (selection)
 {
     return this._defineEnabled(selection);
 };
 
-PowerTools.Commands.AppDataInspector.prototype._execute = function (selection)
+PowerTools.Commands.AppDataInspectorPopup.prototype._execute = function (selection)
 {
     var itemId = this._selectedItem(selection);
-    var popUpUrl = $ptUtils.expandPath("/PowerTools/Client/AppDataInspector/AppDataInspector.aspx") + "#itemId=" + itemId;
+    var popUpUrl = $ptUtils.expandPath("/PowerTools/Client/AppDataInspector/AppDataInspectorPopup.aspx") + "#id=" + itemId;
     var popup = $popup.create(popUpUrl, "toolbar=no,width=700px,height=500px,resizable=false,scrollbars=false", null);
     popup.open();
 };
 
-PowerTools.Commands.AppDataInspector.prototype._selectedItem = function (selection)
+// Get the selected item from either the list selection (main panel) or the tree (left navigation tree).
+// Return null if no selection available.
+PowerTools.Commands.AppDataInspectorPopup.prototype._selectedItem = function (selection)
 {
     switch (selection.getCount())
     {
@@ -44,7 +46,7 @@ PowerTools.Commands.AppDataInspector.prototype._selectedItem = function (selecti
     }
 }
 
-PowerTools.Commands.AppDataInspector.prototype._defineEnabled = function (selection)
+PowerTools.Commands.AppDataInspectorPopup.prototype._defineEnabled = function (selection)
 {
     return true;
 }
