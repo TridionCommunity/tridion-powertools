@@ -1,44 +1,77 @@
 ﻿Type.registerNamespace("PowerToolsBase");
 
+var $ptConst;
 
+//Constructor. Pass the current powertool as the context parameter
 PowerToolsBase = function (context) {
-    Tridion.OO.enableInterface(this, "PowerToolsBase.BaseClass");
-
+    //Initialize base-class by adding some default Tridion properties/methods like 'getDelegate', 'getInterface', 'addInterface', etc. 
+    Tridion.OO.enableInterface(this, "PowerToolsBase.BaseClass");    
     var p = this.properties;
 
     //Constants
     constants = {};
     constants.POWERTOOLS_POPUP_NS = "PowerTools.Popups";
+    constants.EXECUTE_BUTTON_ID = "ExecuteButton";
+    constants.CLOSE_BUTTON_ID = "CloseDialog";
     p.constants = constants;
 
-
+    //Shorthand for the constants
+    $ptConst = p.constants;
 
     //Set the context
     this.PowerToolContext = context;
+    
     //Initialize Execute- and Close button
     this._initializeExecuteButton();
     this._initializeCloseButton();
 
-
 };
 
-//Execute button
+//Initializes excecutebutton. Initializes/shows progressbar and after that it calls the _onExecuteButtonClicked method from the powertool itself.
 PowerToolsBase.prototype._initializeExecuteButton = function () {
     var c = this.PowerToolContext.properties.controls;
 
-    c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
+    c.ExecuteButton = $controls.getControl($("#" + $ptConst.EXECUTE_BUTTON_ID), "Tridion.Controls.Button");
+    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._initializeProgressWindow));
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this.PowerToolContext._onExecuteButtonClicked));
 };
 
-//Close button
+PowerToolsBase.prototype._initializeProgressWindow = function () {
+
+    var dialog = $j("#dialog");
+    var win = $j(window);
+
+    //Get the screen height and width
+    var maskHeight = $j(document).height();
+    var maskWidth = win.width();
+
+    //Set height and width to mask to fill up the whole screen
+    $j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
+
+    //Get the window height and width
+
+    var winH = win.height();
+    var winW = win.width();
+
+    //Set the popup window to center
+    dialog.css({ "top": (winH / 2 - dialog.height() / 2),
+        "left": (winW / 2 - dialog.width() / 2)
+    }).fadeIn(2000);
+}
+
+//Initializes close button. (Close dialog) and after that it calls the _onCloseButtonClicked from the powertool
 PowerToolsBase.prototype._initializeCloseButton = function () {
     var c = this.PowerToolContext.properties.controls;
-    c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
-
+    c.CloseButton = $controls.getControl($("#" + $ptConst.CLOSE_BUTTON_ID), "Tridion.Controls.Button");
+    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this.PowerToolContext._onCloseButtonClicked));
 };
 
-
+PowerToolsBase.prototype._onCloseButtonClicked = function () {
+    $j('#mask, .window').hide();
+    $j('#ProgressStatus').html("");
+    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
+};
 
 PowerToolsBase.prototype._pollStatus = function (id) {
     var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
@@ -52,7 +85,7 @@ PowerToolsBase.prototype._pollStatus = function (id) {
         //eval("PowerTools.Model.Services.CountItems.GetProcessStatus(id, onSuccess, onFailure, context, false);");
         var powerToolName = context._getPowerToolName();        
         var ServiceCall = "PowerTools.Model.Services.{0}.GetProcessStatus(id, onSuccess, onFailure, context, false);".format(powerToolName);
-        eval(ServiceCall);
+        eval(ServiceCall); //TODO: Use a better eval method (Browser build-in or jQuery.)
 
     };
 
@@ -101,7 +134,7 @@ PowerToolsBase.prototype._onExecuteStarted = function (result) {
 PowerToolsBase.prototype._getPowerToolName = function () {
     var powerToolName;
     for (var p in this.PowerToolContext.interfaces) {
-        if (p.toString().startsWith(this.properties.constants.POWERTOOLS_POPUP_NS)) {
+        if (p.toString().startsWith($ptConst.POWERTOOLS_POPUP_NS)) {
             var constructor = Type.resolveNamespace(p.toString());
             if (constructor) {
                 powerToolName = p.toString().substring(18);
