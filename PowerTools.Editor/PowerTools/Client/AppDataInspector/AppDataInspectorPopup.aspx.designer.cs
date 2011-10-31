@@ -10,6 +10,6 @@
 namespace PowerTools.Editor.PowerTools.Client.AppDataInspector {
     
     
-    public partial class AppDataInspector {
+    public partial class AppDataInspectorPopup {
     }
 }

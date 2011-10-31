@@ -7,8 +7,8 @@ namespace PowerTools.Editor.PowerTools.Client.AppDataInspector
 {
 
 	[ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Tridion.Web.UI.Controls.Button), typeof(Stack), typeof(Dropdown), typeof(List) })]
-	[ControlResources("PowerTools.AppDataInspector")]
-	public partial class AppDataInspector : PowerToolsPageBase
+	[ControlResources("PowerTools.AppDataInspectorPopup")]
+	public partial class AppDataInspectorPopup : PowerToolsPageBase
 	{
 	}
 }

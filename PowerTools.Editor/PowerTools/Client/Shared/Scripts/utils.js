@@ -527,6 +527,32 @@ PowerTools.Utilities.prototype.getListTcmItems = function (orgItemUri, filter, c
     }
 };
 
+// Performs HTML encoding on the given parameter.
+// Returns the HTML-encoded string.
+PowerTools.Utilities.prototype.htmlEncode = function (value)
+{
+    return $j('<div/>').text(value).html();
+};
+
+// Performs HTML decoding on the given parameter.
+// Returns the HTML-decoded string.
+PowerTools.Utilities.prototype.htmlDecode = function (value)
+{
+    return $j('<div/>').html(value).text();
+};
+
+// Inserts wbr tags in the string 'str', after each 'num'th character in long words.
+// The method uses regular expressions so split long words which have at least 'num' characters
+// and inserts a wbr tag after each 'num'th character in that long word.
+// Returns a String with the inserted wbr tags
+PowerTools.Utilities.prototype.wbr = function (str, num)
+{
+    return str.replace(RegExp("(\\w{" + num + "})(\\w)", "g"), function (all, text, char)
+    {
+        return text + "<wbr>" + char;
+    });
+};
+
 
 
 var $ptUtils = new PowerTools.Utilities();
