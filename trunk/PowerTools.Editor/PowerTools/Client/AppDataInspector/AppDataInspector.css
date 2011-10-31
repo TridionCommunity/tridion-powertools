@@ -94,11 +94,13 @@ td span
 #tabletab
 {
 	width: 100%;
+	height: 100%;
 	overflow: auto;
 }
 
 #table th, #tabletab th 
 {
+	height: 20px;
 	padding: 3px;
 }
 
