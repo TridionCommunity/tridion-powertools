@@ -114,7 +114,7 @@ PowerTools.Popups.ImageUploader.prototype._onCloseButtonClicked = function ()
 You don't have to implement this method.
 
 ==== afterSuccess ====
-If your WCF services also needs to give some data back to the screen (like the ItemCount PowerTool) you need to implement the following method:
+If your WCF services also needs to give some data back to the screen (like the CountItems PowerTool) you need to implement the following method:
 
 {{{
 PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
@@ -123,8 +123,6 @@ PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
 }}}
 
 After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the CountItems powertool for an example of this functionality.
-
-
 
 
 
