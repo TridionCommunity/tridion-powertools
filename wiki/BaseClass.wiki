@@ -1,0 +1,141 @@
+#summary How to use the javascript base-class in your PowerTool
+
+= The PowerTools Javascript Baseclass and how to use it= 
+
+Every powertool that opens in a popup, shows an 'Execute' and 'Close' button, does a WCF-call and need to show a progressbar needs to use the PowerTools baseclass.
+
+This baseclass takes care of all the above mentioned functionality.
+
+To build your own PowerTool the best way to start is to get familiar with the Anquilla framework and to follow the [nononsenseguide]
+
+== Setting up your PoweTool== 
+Every PowerTool that opens in a popup must be in the following namespace: PowerTools.Popups
+
+So start your implementatin with the following line of code:
+{{{
+Type.registerNamespace("PowerTools.Popups");
+}}}
+
+This ensures that your PowerTool is available in the right namespace. 
+
+Next create your PowerTool constructor like this:
+
+{{{
+PowerTools.Popups.ImageUploader = function ()
+{
+    Type.enableInterface(this, "PowerTools.Popups.ImageUploader");
+    this.addInterface("Tridion.Cme.View");
+    
+    //Base class for initializing execute-,close button, and progressbar.
+    this.addInterface("PowerToolsBase", [this]); 
+    
+    var p = this.properties;
+
+    p.processId = null;
+    p.folderId = null;
+    p.pollInterval = 500; //Milliseconds between each call to check the status of a process
+};
+}}}
+
+The name of your PowerTool is important. This name (in this case 'ImageUploader') must match the WCF-class name *exactly!*
+So the ImageUploader WCF class looks like this:
+
+{{{
+//Attributes...
+public class ImageUploader : BaseService
+{
+      ....implementation
+}                         
+}}}
+
+The base-class calls this service-class to retrieve the state so it can show and update the progressbar. That's why the name of your PowerTool as you use it in your javascript-constructor and the WCF-classname must be the same.
+
+As you can see the PowerTool javascript base-class is initialized by this line of code in your constructor:
+
+{{{
+this.addInterface("PowerToolsBase", [this]); 
+}}}
+
+'addInterface' is a javascript method from the Anquilla framework that add's all the methods from the (in this case) PowerToolsBase class to the current class (the ImageUploader). So that means that the ImageUploader class can call methods from the PowerToolsBase class. And that's exactly whats going to happen.
+
+Next, your PowerTool needs to implement the following methods:
+
+====initialize====
+
+Example:
+
+{{{
+PowerTools.Popups.ImageUploader.prototype.initialize = function () {
+
+    $log.message("initializing ImageUploader popup...");
+
+    this.callBase("Tridion.Cme.View", "initialize");
+
+    var p = this.properties;
+    var c = p.controls;
+
+    
+    p.folderId = $url.getHashParam("folderId");
+    
+    c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
+    $evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
+};
+
+}}}
+
+The initialize method is called by the Anguilla framework to initialize (...) your PowerTool. Typically you add code to set some properties/constants and 
+you wire up the controls.
+
+==== Execute- and Close button ===
+The baseclass wires up the Execute-button and the 'Close' button for you. All you have to do is to implement  what should happen when the user clicks on the Execute button.
+
+This is achieved by implementing the following method:
+
+{{{
+PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {   
+   //Do/read some variables/settings/properties...
+  var p = this.properties;
+  //...'
+
+  //Call the WCF service:
+  PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.folderId, schemaUri, onSuccess, onFailure, context, false);
+  
+};
+}}}
+
+If you want to excute some logic after the user clicked on the the close button, you can implement this using the following method:
+
+{{{
+PowerTools.Popups.ImageUploader.prototype._onCloseButtonClicked = function ()
+{
+   //Do stuff
+};
+}}}
+You don't have to implement this method.
+
+==== afterSuccess ====
+If your WCF services also needs to give some data back to the screen (like the ItemCount PowerTool) you need to implement the following method:
+
+{{{
+PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
+    //Optional method: called after the service-call was finished (100%). Useful for getting data that was gathered/stored by the service-call
+};
+}}}
+
+After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the CountItems powertool for an example of this functionality.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
