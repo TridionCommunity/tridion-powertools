@@ -8,7 +8,7 @@ This baseclass takes care of all the above mentioned functionality.
 
 To build your own PowerTool the best way to start is to get familiar with the Anquilla framework and to follow the [nononsenseguide]
 
-== Setting up your PoweTool== 
+== Setting up your PowerTool== 
 Every PowerTool that opens in a popup must be in the following namespace: PowerTools.Popups
 
 So start your implementatin with the following line of code:
@@ -123,8 +123,6 @@ PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
 }}}
 
 After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the CountItems powertool for an example of this functionality.
-
-
 
 
 
