@@ -12,9 +12,13 @@ Below you will find how to disable this behaviour. Thanks to [http://code.google
 Edit yout System.config file, located in: $\Tridion\web\WebUI\WebRoot\Configuration
 
 Modify the following node:
+{{{
 <code language="xml">
 <filter for="Script" type="Tridion.Web.UI.Resources.Filters.JScriptMinifier, Tridion.Web.UI.Resources.Filters" enabled="always"></code>
+}}}
 
 to 
 
+{{{
 <code language="xml"><filter for="Script" type="Tridion.Web.UI.Resources.Filters.JScriptMinifier, Tridion.Web.UI.Resources.Filters" enabled="never"></code>
+}}}
