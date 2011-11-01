@@ -14,6 +14,7 @@ Add ideas here and perhaps we can work out the details on the IRC #tridion chann
 = Discussion Points =
 These are from the Google Group and are not yet finalized.
 
+== JavaScript ==
 Proposed coding guidelines for JavaScript / CSS:
   * [CodingGuidelines_Anguilla Tridion CME guidelines]
 
