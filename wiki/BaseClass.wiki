@@ -1,24 +1,24 @@
 #summary How to use the javascript base-class in your PowerTool
 
-= The PowerTools Javascript Baseclass and how to use it= 
+= The !PowerTools Javascript Baseclass and how to use it= 
 
 Every powertool that opens in a popup, shows an 'Execute' and 'Close' button, does a WCF-call and need to show a progressbar needs to use the PowerTools baseclass.
 
 This baseclass takes care of all the above mentioned functionality.
 
-To build your own PowerTool the best way to start is to get familiar with the Anquilla framework and to follow the [nononsenseguide]
+To build your own !PowerTool the best way to start is to get familiar with the Anquilla framework and to follow the [nononsenseguide]
 
-== Setting up your PowerTool== 
-Every PowerTool that opens in a popup must be in the following namespace: PowerTools.Popups
+== Setting up your !PowerTool== 
+Every !PowerTool that opens in a popup must be in the following namespace: !PowerTools.Popups
 
-So start your implementatin with the following line of code:
+So start your implementation with the following line of code:
 {{{
 Type.registerNamespace("PowerTools.Popups");
 }}}
 
-This ensures that your PowerTool is available in the right namespace. 
+This ensures that your !PowerTool is available in the right namespace. 
 
-Next create your PowerTool constructor like this:
+Next create your !PowerTool constructor like this:
 
 {{{
 PowerTools.Popups.ImageUploader = function ()
@@ -37,8 +37,8 @@ PowerTools.Popups.ImageUploader = function ()
 };
 }}}
 
-The name of your PowerTool is important. This name (in this case 'ImageUploader') must match the WCF-class name *exactly!*
-So the ImageUploader WCF class looks like this:
+The name of your !PowerTool is important. This name (in this case '!ImageUploader') must match the WCF-class name *exactly!*
+So the !ImageUploader WCF class looks like this:
 
 {{{
 //Attributes...
@@ -48,17 +48,17 @@ public class ImageUploader : BaseService
 }                         
 }}}
 
-The base-class calls this service-class to retrieve the state so it can show and update the progressbar. That's why the name of your PowerTool as you use it in your javascript-constructor and the WCF-classname must be the same.
+The base-class calls this service-class to retrieve the state so it can show and update the progressbar. That's why the name of your !PowerTool as you use it in your javascript-constructor and the WCF-classname must be the same.
 
-As you can see the PowerTool javascript base-class is initialized by this line of code in your constructor:
+As you can see the !PowerTool javascript base-class is initialized by this line of code in your constructor:
 
 {{{
 this.addInterface("PowerToolsBase", [this]); 
 }}}
 
-'addInterface' is a javascript method from the Anquilla framework that add's all the methods from the (in this case) PowerToolsBase class to the current class (the ImageUploader). So that means that the ImageUploader class can call methods from the PowerToolsBase class. And that's exactly whats going to happen.
+'addInterface' is a javascript method from the Anquilla framework that adds all the methods from the (in this case) !PowerToolsBase class to the current class (the !ImageUploader). So that means that the !ImageUploader class can call methods from the !PowerToolsBase class. And that's exactly whats going to happen.
 
-Next, your PowerTool needs to implement the following methods:
+Next, your !PowerTool needs to implement the following methods:
 
 ====initialize====
 
@@ -83,7 +83,7 @@ PowerTools.Popups.ImageUploader.prototype.initialize = function () {
 
 }}}
 
-The initialize method is called by the Anguilla framework to initialize (...) your PowerTool. Typically you add code to set some properties/constants and 
+The initialize method is called by the Anguilla framework to initialize (...) your !PowerTool. Typically you add code to set some properties/constants and 
 you wire up the controls.
 
 ==== Execute- and Close button ===
@@ -114,7 +114,7 @@ PowerTools.Popups.ImageUploader.prototype._onCloseButtonClicked = function ()
 You don't have to implement this method.
 
 ==== afterSuccess ====
-If your WCF services also needs to give some data back to the screen (like the CountItems PowerTool) you need to implement the following method:
+If your WCF services also needs to give some data back to the screen (like the !CountItems !PowerTool) you need to implement the following method:
 
 {{{
 PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
@@ -122,9 +122,7 @@ PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
 };
 }}}
 
-After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the CountItems powertool for an example of this functionality.
-
-
+After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the !CountItems powertool for an example of this functionality.
 
 
 
