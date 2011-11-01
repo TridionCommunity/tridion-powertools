@@ -3,8 +3,15 @@
 // Constructs a new tab for AppData Inspector. Adds itself to the current tabs deck
 PowerTools.Tabs.AppDataInspector = function (element)
 {
-    Tridion.OO.enableInterface(this, "PowerTools.Tabs.AppDataInspector");
-    this.addInterface("Tridion.Controls.DeckPage", [element]);
+    if ($ptUtils.isCurrentUserAdmin())
+    {
+        Tridion.OO.enableInterface(this, "PowerTools.Tabs.AppDataInspector");
+        this.addInterface("Tridion.Controls.DeckPage", [element]);
+    }
+    else
+    {
+        $j("#AppDataInspectorTab_switch").hide();
+    }
 };
 
 // Initialization called by Anguilla. Deffers execution to base.initialize()
@@ -12,6 +19,7 @@ PowerTools.Tabs.AppDataInspector.prototype.initialize = function ()
 {
     $log.message("Initializing AppDataInspector tab...");
     this.callBase("Tridion.Controls.DeckPage", "initialize");
+    alert("initialize hide");
 };
 
 // Upon selection of the tab, calls the updateView()
