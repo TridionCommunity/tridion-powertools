@@ -2,8 +2,15 @@
 
 BootCamp2011Editor.ItemXmlTab = function BootCamp2011Editor$ItemXmlTab(element)
 {
-    Tridion.OO.enableInterface(this, "BootCamp2011Editor.ItemXmlTab");
-    this.addInterface("Tridion.Controls.DeckPage", [element]);
+    if ($ptUtils.isCurrentUserAdmin())
+    {
+        Tridion.OO.enableInterface(this, "BootCamp2011Editor.ItemXmlTab");
+        this.addInterface("Tridion.Controls.DeckPage", [element]);
+    }
+    else
+    {
+        $j("#ItemXmlTab_switch").hide();
+    }
 };
 
 BootCamp2011Editor.ItemXmlTab.prototype.initialize = function ItemXmlTab$initialize()
