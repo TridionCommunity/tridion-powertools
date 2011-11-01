@@ -12,6 +12,7 @@
     * [CountItems]
   * [Standards]
     * [CodingStandards Code]
+      * [CodingGuidelines_Anguilla JavaScript]
     * DesignGuidelines
   * [Testing]
   * [Development]
