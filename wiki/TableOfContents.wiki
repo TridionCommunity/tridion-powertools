@@ -10,6 +10,7 @@
     * [ComponentSynchronizer]
     * [PagePublisher]
     * [CountItems]
+    * [AppDataInspector]
   * [Standards]
     * [CodingStandards Code]
       * [CodingGuidelines_Anguilla JavaScript]
