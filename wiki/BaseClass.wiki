@@ -2,7 +2,7 @@
 
 = The !PowerTools Javascript Baseclass and how to use it= 
 
-Every powertool that opens in a popup, shows an 'Execute' and 'Close' button, does a WCF-call and need to show a progressbar needs to use the PowerTools baseclass.
+Every powertool that opens in a popup, shows an 'Execute' and 'Close' button, does a WCF-call and need to show a progressbar needs to use the !PowerTools baseclass.
 
 This baseclass takes care of all the above mentioned functionality.
 
@@ -123,8 +123,6 @@ PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
 }}}
 
 After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the !CountItems powertool for an example of this functionality.
-
-
 
 
 
