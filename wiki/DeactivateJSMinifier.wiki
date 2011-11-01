@@ -13,12 +13,11 @@ Edit yout System.config file, located in: $\Tridion\web\WebUI\WebRoot\Configurat
 
 Modify the following node:
 {{{
-<code language="xml">
-<filter for="Script" type="Tridion.Web.UI.Resources.Filters.JScriptMinifier, Tridion.Web.UI.Resources.Filters" enabled="always"></code>
+<filter for="Script" type="Tridion.Web.UI.Resources.Filters.JScriptMinifier, Tridion.Web.UI.Resources.Filters" enabled="always">
 }}}
 
 to 
 
 {{{
-<code language="xml"><filter for="Script" type="Tridion.Web.UI.Resources.Filters.JScriptMinifier, Tridion.Web.UI.Resources.Filters" enabled="never"></code>
+<filter for="Script" type="Tridion.Web.UI.Resources.Filters.JScriptMinifier, Tridion.Web.UI.Resources.Filters" enabled="never">
 }}}
