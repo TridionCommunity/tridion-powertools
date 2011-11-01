@@ -6,3 +6,4 @@ Follow these links to add details for standards for the design (look-and-feel, c
 
   * DesignGuidelines
   * CodingStandards
+    * [JavaScript CodingGuidelines_Anguilla]
