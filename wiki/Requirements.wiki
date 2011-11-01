@@ -109,21 +109,21 @@ hint: each row has 9 fields, use a tr to wrap 9 td's
       </tr>
 
       <tr>
-         <td></td>
+         <td>AppDataInspector</td>
 
-         <td></td>
+         <td>Allows admins to inspect AppData on pretty much any Tridion item</td>
 
-         <td></td>
+         <td>Admin</td>
 
-         <td></td>
+         <td>Tab in all views and popup accessed from Context Menu on all items and from Ribbon Button</td>
 
-         <td></td>
+         <td>Mihai Cadariu</td>
 
-         <td></td>
+         <td>Normal</td>
 
-         <td></td>
+         <td>Easy</td>
 
-         <td></td>
+         <td>Complete</td>
 
          <td></td>
       </tr>
