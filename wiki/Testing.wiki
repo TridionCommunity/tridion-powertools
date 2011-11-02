@@ -1,5 +1,21 @@
 #summary One-sentence summary of this page.
 
+= Functional =
+CME functionality is driven by context. Some things to test within the GUI include:
+ * Main list view
+   * Context menu in list
+ * Tree view
+   * Context menu on tree view
+ * Pop-up selection dialogue
+   * Context menus on pop-up tree view
+   * Context menu in pop-up main list
+ * Organizational items (folders) seen above but also virtual folders
+ * Custom folders, favorites
+
+Basically you'll want your tool to be visible where appropriate, not visible where not appropriate, and if possible "grayed out" if it should be available in that specific context, but not selectable for whatever reason.
+
+= Tools =
+
 Vesa mentioned:
  * Unit Test Suite (Beside their obvious function tests are also the 
 best documentation for developers) 
