@@ -16,13 +16,12 @@ PowerTools.Commands.PagePublisher.prototype.isEnabled = function (selection)
     return this._defineEnabled();
 };
 
-PowerTools.Commands.PagePublisher.prototype._execute = function (selection)
-{
-    var uriSelection = selection.getItem(0);
-    var baseElement = $("#contentsplitter_container");
-    var iFrame = $("#CustomPagesFrame");
-    var self = this;
+PowerTools.Commands.PagePublisher.prototype._execute = function (selection) {
 
+    // get the id of the selected item
+    var uriSelection = selection.getItem(0);
+
+    // build the pop up url for the publish dialog and open it
     var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#locationId=" + uriSelection;
     var popup = $popup.create(PopUpUrl, "toolbar=no,width=600px,height=400px,resizable=false,scrollbars=false", null);
     popup.open();
