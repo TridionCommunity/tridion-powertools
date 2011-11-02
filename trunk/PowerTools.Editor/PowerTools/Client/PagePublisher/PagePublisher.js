@@ -42,7 +42,7 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
     var c = p.controls;
 
     p.params = window.dialogArguments ? window.dialogArguments : null;
-    p.structureId = p.locationId;
+    //p.structureId = p.locationId;
     p.locationId = $url.getHashParam("locationId");
 
     $log.message("Initializing page publisher for item: " + p.locationId);
