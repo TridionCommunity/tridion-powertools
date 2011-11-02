@@ -19,7 +19,6 @@ PowerTools.Tabs.AppDataInspector.prototype.initialize = function ()
 {
     $log.message("Initializing AppDataInspector tab...");
     this.callBase("Tridion.Controls.DeckPage", "initialize");
-    alert("initialize hide");
 };
 
 // Upon selection of the tab, calls the updateView()
