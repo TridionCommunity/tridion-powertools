@@ -13,10 +13,10 @@ PowerTools.Popups.PagePublisher = function () {
     // Params: items, republish, userWorkflow
     p.params = null;
     // Items to publish list
-    p.itplHeight = null;
-    p.isItplVisible = true;
-    p.itpList = null;
-    p.itpListHeadXml = null;
+    //p.itplHeight = null;
+    //p.isItplVisible = true;
+    //p.itpList = null;
+    //p.itpListHeadXml = null;
     // Priority dropdown
     p.isPddLoaded = false;
     // Target types domain list
@@ -298,7 +298,6 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
         // Get a local threaded xml document
         var xml = $xml.getNewXmlDocument(ttList.getXml());
 
-        alert($xml.getOuterXml(xml));
         // Add Icon attribute if it's not there
         var nodes = $xml.selectNodes(xml, "/tcm:*/tcm:Item");
         if (nodes) {
@@ -350,11 +349,6 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
 * @returns {Object} Target Types  List. 
 */
 PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListTargetTypes() {
-
-    
-    var test = Tridion.ContentManager.Model.getListTargetTypes($const.ColumnFilter.ID);
-
-    alert(test);
 
     var p = this.properties;
     if (!p.targetTypesListId) {
