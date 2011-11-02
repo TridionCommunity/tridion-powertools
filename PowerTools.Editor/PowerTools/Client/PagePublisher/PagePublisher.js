@@ -7,7 +7,7 @@ PowerTools.Popups.PagePublisher = function () {
 
     var p = this.properties;
     p.processId = null;
-    p.structureId = null;
+    p.locationId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 
     // Params: items, republish, userWorkflow
@@ -32,17 +32,20 @@ PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH = $config.expandEditorPath(
 PowerTools.Popups.PagePublisher.ITEMSTOPUBLISH_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/ItemsToPublishList-head.xml", $const.CMEEditorName);
 
 
-PowerTools.Popups.PagePublisher.prototype.initialize = function () {
 
-    $log.message("Initializing page publisher...");
+PowerTools.Popups.PagePublisher.prototype.initialize = function () 
+{
+
     this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
     var c = p.controls;
 
     p.params = window.dialogArguments ? window.dialogArguments : null;
+    p.structureId = p.locationId;
     p.locationId = $url.getHashParam("locationId");
 
+    $log.message("Initializing page publisher for item: " + p.locationId);
 
     // Publish target select list
     c.TargetTypeList = $controls.getControl($("#TargetTypeList"), "Tridion.Controls.List");
@@ -60,10 +63,17 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
 
     // Init controls
     this._setupControls();
-    //this._toggleItemsToPublish();
+
+    $log.message("Page publisher control loading processed");
+
     // Start loading data
     this._asyncLoadTargetTypeListHeader();
 };
+
+/**
+* TODO: Comment
+* @id - TODO:
+*/
 
 PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
 
@@ -103,19 +113,32 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     }).fadeIn(2000);
 };
 
+/**
+* TODO: Comment
+* @id - TODO:
+*/
+
 PowerTools.Popups.PagePublisher.prototype._onCloseButtonClicked = function () {
     $j('#mask, .window').hide();
     $j('#ProgressStatus').html("");
     $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
 
-
+/**
+* TODO: Comment
+* @id - TODO:
+*/
 
 PowerTools.Popups.PagePublisher.prototype._updateProgressBar = function (process) {
 
     $j('#ProgressStatus').html(process.Status);
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 }
+
+/**
+* TODO: Comment
+* @id - TODO:
+*/
 
 PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (result) {
     var p = this.properties;
@@ -132,18 +155,25 @@ PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (resu
     }
 }
 
+/**
+* TODO: Comment
+* @id - TODO:
+*/
+
 PowerTools.Popups.PagePublisher.prototype._pollStatus = function (id) {
     var onFailure = null;
     var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
     var context = null;
-
     var callback = function () {
         $log.debug("Checking the status of process #" + id);
         PowerTools.Model.Services.PagePublisher.GetProcessStatus(id, onSuccess, onFailure, context, false);
     };
-
     setTimeout(callback, this.properties.pollInterval);
 }
+
+/**
+* TODO: Comment
+*/
 
 PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) {
     if (result) {
@@ -152,20 +182,13 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) 
 };
 
 
-// Publishing related stuff :)
-
-/*
-Dev notes: 
-Checks if the action is a publish or unpublish and specifies the button text accordingly.
-
-
+/**
+* Set the publish button to disabled and loads the drop down header xml
 */
 
 PowerTools.Popups.PagePublisher.prototype._setupControls = function _setupControls() {
     var p = this.properties;
     var c = p.controls;
-
-    $log.message("page publisher set up controls entered");
 
     // Disable some buttons
     c.ExecuteButton.disable();
@@ -211,20 +234,6 @@ PowerTools.Popups.PagePublisher.prototype._onTargetTypeListSelectionChanged = fu
 };
 
 
-// =======================================================================================================
-
-/**
-* Asynchronously load Target types list header.
-*/
-PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeListHeader = function _asyncLoadTargetTypeListHeader() {
-    var p = this.properties;
-    $log.message("PagePublisher - loading target list header");
-    // Continue loading target types list header
-    var ttListHeadPath = $config.expandBasePath(PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH + "?forView=" + Tridion.Core.Configuration.CurrentView + "&forControl=" + this.properties.controls.TargetTypeList.getId());
-    alert(ttListHeadPath);
-    // Async load
-    $xml.loadXmlDocument(ttListHeadPath, this.getDelegate(this._ttListHeadLoaded), this.getDelegate(this._ttListHeadLoadFailed));
-};
 
 
 // =======================================================================================================
@@ -304,7 +313,6 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
             }
         }
 
-        alert("here");
         // restore previous settings after the list has been drawn
         $evt.addEventHandler(c.TargetTypeList, "draw", self.getDelegate(self._applyTargetTypePreferences));
 
@@ -342,6 +350,12 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
 * @returns {Object} Target Types  List. 
 */
 PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListTargetTypes() {
+
+    
+    var test = Tridion.ContentManager.Model.getListTargetTypes($const.ColumnFilter.ID);
+
+    alert(test);
+
     var p = this.properties;
     if (!p.targetTypesListId) {
         var publication = this._getPublicationFromParams();
@@ -367,7 +381,7 @@ PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListT
 */
 PowerTools.Popups.PagePublisher.prototype._getPublicationFromParams = function _getPublicationFromParams() {
     var p = this.properties;
-    var itemId = p.structureId;
+    var itemId = p.locationId;
     if (itemId) {
         var item = $models.getItem(itemId);
         if (item) {
@@ -439,10 +453,6 @@ PowerTools.Popups.PagePublisher.prototype._populateDropdown = function _populate
         dropdown.draw(xml, head);
         // Set as loaded
         p.isPddLoaded = true;
-        // One time, set default value
-
-        //alert($xml.getOuterXml(xml));
-
         var node = $xml.selectSingleNode(xml, "//tcm:Value[last()-1]");
         if (node) {
             dropdown.setValue(node.getAttribute("ID"), node.getAttribute("Title"));
