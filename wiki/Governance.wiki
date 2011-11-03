@@ -1,5 +1,5 @@
 #summary With such a evocative title as "governance" I know you have to read this "road map" page.
-#labels Phase-Requirements,Featured
+#labels Phase-Requirements
 
 #sidebar TableOfContents
 
