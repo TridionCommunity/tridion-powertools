@@ -6,6 +6,9 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using PowerTools.Model.Services.Exceptions;
 using PowerTools.Model.Services.Progress;
+using PowerTools.Common.CoreService;
+using Tridion.ContentManager.CoreService.Client;
+using System.Xml;
 
 
 namespace PowerTools.Model.Services
@@ -25,6 +28,7 @@ namespace PowerTools.Model.Services
             public bool PublishChildren { get; set; }
         }
 
+
         /// <summary>
         /// Service operation that initiates the publishing of individual page items within structure groups
         /// Reads input parameters into a PagePublisherParameters object.
@@ -38,8 +42,10 @@ namespace PowerTools.Model.Services
         /// <param name="publishChildren"></param>
         /// <returns></returns>
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public ServiceProcess Execute(string locationId, string targetUri, bool recursive, bool republish, string priority, bool publishChildren)
+        //public ServiceProcess Execute(string locationId, string targetUri, bool recursive, bool republish, string priority, bool publishChildren)
+        public ServiceProcess Execute(string locationId)
         {
+            //PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren);
             if (string.IsNullOrEmpty(locationId))
             {
                 throw new ArgumentNullException("locationId");
@@ -48,11 +54,11 @@ namespace PowerTools.Model.Services
             PagePublisherParameters arguments = new PagePublisherParameters
             {
                 LocationId = locationId,
-                TargetUri = targetUri,
-                Recursive = recursive,
-                Republish = republish,
-                Priority = priority,
-                PublishChildren = publishChildren
+                TargetUri = "targetUri",
+                Recursive = true, //recursive,
+                Republish = true, //republish,
+                Priority = "priority",
+                PublishChildren = true //publishChildren
             };
             return ExecuteAsync(arguments);
         }
@@ -66,36 +72,23 @@ namespace PowerTools.Model.Services
         public override void Process(ServiceProcess process, object arguments)
         {
             PagePublisherParameters parameters = (PagePublisherParameters)arguments;
+			process.SetCompletePercentage(25);
+			process.SetStatus("Initializing");
 
-            if (!Directory.Exists(parameters.LocationId))
-            {
-                throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Structure URI '{0}' does not exist.", parameters.LocationId));
-            }
+			using (var coreService = Client.GetCoreService())
+			{
+				//ItemsFilterData filter = GetFilter(parameters);
+				process.SetCompletePercentage(50);
+				process.SetStatus("Retrieving count data");
 
+				//XmlElement listXml = coreService.GetListXml(parameters.OrgItemUri, filter);
+				process.SetCompletePercentage(75);
+				process.SetStatus("Extracting item counts");
 
-            var client = PowerTools.Common.CoreService.Client.GetCoreService();
-
-            try
-            {
-                int i = 0;
-                for (i = 0; i == 100; i++)
-                {
-                    process.SetStatus(string.Format("Publishing Page: {0} of 100", i.ToString()));
-                    process.SetCompletePercentage(i);
-                    System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
-                }
-
-                process.Complete();
-
-            }
-            finally
-            {
-                if (client != null)
-                {
-                    client.Close();
-                }
-            }
-        }
+				//ProcessCounts(parameters, listXml);
+				process.Complete("Done");
+			}
+		}
     }
 }
 
