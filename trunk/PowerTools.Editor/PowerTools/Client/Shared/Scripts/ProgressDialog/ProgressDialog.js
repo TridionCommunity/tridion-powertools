@@ -34,6 +34,7 @@ ProgressDialog = function (context) {
 };
 
 ProgressDialog.prototype._initializeProgressWindow = function () {
+    
     var dialog = $j("#dialog");
     var win = $j(window);
 
@@ -81,15 +82,17 @@ ProgressDialog.prototype._onDialogCloseButtonClicked = function () {
 };
 
 ProgressDialog.prototype._pollStatus = function (id) {
+    
     var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
     var onFailure = null;
-    var context = this; 
+    var context = this;
 
     var callback = function () {
         $log.debug("Checking the status of process #" + id);
-        
-        var powerToolName = context._getPowerToolName();        
+
+        var powerToolName = context._getPowerToolName();
         var ServiceCall = "PowerTools.Model.Services.{0}.GetProcessStatus(id, onSuccess, onFailure, context, false);".format(powerToolName);
+        
         eval(ServiceCall); //TODO: Use a better eval method (Browser build-in or jQuery.)
 
     };
@@ -130,7 +133,8 @@ ProgressDialog.prototype._updateProgressBar = function (process) {
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 };
 
-ProgressDialog.prototype._onExecuteStarted = function (result) {    
+ProgressDialog.prototype._onExecuteStarted = function (result) {
+    
     if (result) {
         this._pollStatus(result.Id);
     }
