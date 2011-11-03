@@ -40,4 +40,5 @@ PowerTools.Tabs.AppDataInspector.prototype.updateView = function ()
 };
 
 // Register itself with the Tridion.Controls.Deck namespace
+
 Tridion.Controls.Deck.registerPageType(PowerTools.Tabs.AppDataInspector, "AppDataInspectorTab");

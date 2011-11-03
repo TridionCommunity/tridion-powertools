@@ -1,18 +1,19 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
 PowerTools.Popups.CountItems = function () {
+   
     Type.enableInterface(this, "PowerTools.Popups.CountItems");
     this.addInterface("Tridion.Cme.View");
     this.addInterface("PowerToolsBase", [this]);
-
+    
     var p = this.properties;
 
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process  
-
+    
     //Optional: set properties for the progressbar/modal dialog
-    p.progressDialog = {showAnimation: false, closeAfterComplete: true};
+    p.progressDialog = { showAnimation: false, closeAfterComplete: true };
 
 };
 

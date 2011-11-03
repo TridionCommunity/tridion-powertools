@@ -101,10 +101,12 @@
     <Content Include="PowerTools\Client\PagePublisher\PagePublisher.js" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisherCommand.js" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisher.aspx" />
+    <Content Include="PowerTools\Client\Shared\Scripts\BasePowerTool.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\PowerToolsRegisty.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\ProgressDialog\ProgressDialog.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\ToolBase.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\Types.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
@@ -120,6 +122,7 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.16x16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.24x24.png" />
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
+    <Content Include="PowerTools\Client\Shared\Views\ProgressDialog.htm" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.css" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_16.png" />
