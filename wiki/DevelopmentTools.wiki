@@ -1,5 +1,4 @@
 #summary Add information about the tools you use to set up a Tridion environment, program for, and maintain the PowerTools.
-#labels Featured
 
 
 = Introduction =
