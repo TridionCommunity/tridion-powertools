@@ -125,9 +125,24 @@ PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
 After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the !CountItems powertool for an example of this functionality.
 
 
+==== Progress Dialog settings ====
+You can influence the behavior of the progress-dialog by setting some properties in your constructor. You can set the following properties:
 
+  * showAnimation
+Possible values: true or false 
+This defines if the progress-dialog fades in and out when the user clicks the execute button
 
+  * closeAfterComplete
+Possible values: true or false
+True means that the progress-dialog automatically closes after the service-call is finished. False means that the 'close' button appears on the progressbar when the 
+service-call is finished. The user has to click on this button the close the 
+progress-dialog.
 
+The name of the propertie to set is: progressDialog.
 
-
+Example:
+{{{
+var p = this.properties;
+p.progressDialog = { showAnimation: false, closeAfterComplete: true };
+}}}
 
