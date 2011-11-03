@@ -1,5 +1,13 @@
 #summary Latest version and details.
 
+== Disclaimer ==
+As a set of extensions without support from a commercial organization, the Tridion PowerTools are released "as is" and user assumes all responsibility for their use.
+
+=== Open Source Project ===
+The source code is open and  developed, supported, and updated by a community open to Tridion developers, consultants, partners, and customers.
+
+The current PowerTools version requires Tridion Content Management System configuration and a manual installation of library files. An installer may follow shortly. 
+
 Since the PowerTools is a collection of tools, we can update specific tool updates here as well.
 
 (24-Oct-2011) CountItems released as version 1.1. No installer just yet, but functionality is intact.
