@@ -1,34 +1,32 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools.Popups.CountItems = function ()
-{
+PowerTools.Popups.CountItems = function () {
     Type.enableInterface(this, "PowerTools.Popups.CountItems");
     this.addInterface("Tridion.Cme.View");
+    this.addInterface("PowerToolsBase", [this]);
 
     var p = this.properties;
 
     p.processId = null;
     p.folderId = null;
-    p.pollInterval = 500; //Milliseconds between each call to check the status of a process
+    p.pollInterval = 500; //Milliseconds between each call to check the status of a process  
+
+    //Optional: set properties for the progressbar/modal dialog
+    p.progressDialog = {showAnimation: false, closeAfterComplete: true};
+
 };
 
 // Read parameters and assign callbacks for buttons in the GUI
-PowerTools.Popups.CountItems.prototype.initialize = function ()
-{
+PowerTools.Popups.CountItems.prototype.initialize = function () {
     $log.message("Initializing CountItems popup...");
     this.enableDefaultCheckboxes();
     this.callBase("Tridion.Cme.View", "initialize");
 
+
     var p = this.properties;
     var c = p.controls;
 
-    p.orgItemId = $url.getHashParam("orgItemId");
-
-    c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
-
-    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
-    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+    p.orgItemId = $url.getHashParam("orgItemId");   
 };
 
 // Set the enabled status of the Checkboxes depending on the type of the given parent OrgItem
@@ -87,27 +85,6 @@ PowerTools.Popups.CountItems.prototype.enableDefaultCheckboxes = function ()
 // Reads the checkboxes values and initiates a service call to get the item counts
 PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
 {
-    $j('#CloseDialog').hide();
-    $j('#ProgressBar').css({ 'width': '1%', 'display': 'block' });
-    $j('#ProgressStatus').html("Progress");
-    var dialog = $j("#dialog");
-    var win = $j(window);
-
-    //Get the screen height and width
-    var maskHeight = $j(document).height();
-    var maskWidth = win.width();
-
-    //Set height and width to mask to fill up the whole screen
-    //$j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
-
-    //Get the window height and width
-    var winH = win.height();
-    var winW = win.width();
-
-    //Set the popup window to center
-    dialog.css({ "top": (winH / 2 - dialog.height() / 2),
-        "left": (winW / 2 - dialog.width() / 2)
-    }).fadeIn(400);
 
     var p = this.properties;
     p.countFolders = $j('#FolderChk').attr('checked');
@@ -121,47 +98,13 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
     p.countCategories = $j('#CategoryChk').attr('checked');
     p.countKeywords = $j('#KeywordChk').attr('checked');
 
-    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
+    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);   
     var onFailure = null;
     var context = null;
     PowerTools.Model.Services.CountItems.Execute(p.orgItemId, p.countFolders, p.countComponents, p.countSchemas,
             p.countComponentTemplates, p.countPageTemplates, p.countTemplateBuildingBlocks, p.countStructureGroups,
             p.countPages, p.countCategories, p.countKeywords, onSuccess, onFailure, context, false);
 };
-
-PowerTools.Popups.CountItems.prototype._onCloseButtonClicked = function ()
-{
-    $j('#mask, .window').hide();
-    $j('#ProgressStatus').html("");
-    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
-};
-
-PowerTools.Popups.CountItems.prototype._updateProgressBar = function (process)
-{
-    $j('#ProgressStatus').html(process.Status);
-    $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
-}
-
-// Update status until process is not complete. Once complete, initial call for the CountItemsData object.
-PowerTools.Popups.CountItems.prototype._handleStatusResponse = function (result)
-{
-    var p = this.properties;
-    p.processId = result.Id;
-    this._updateProgressBar(result);
-
-    if (result.PercentComplete < 100)
-    {
-        this._pollStatus(p.processId);
-    }
-    else
-    {
-        this._getCountItemsData(p.processId);
-        $j('#ProgressStatus').html(result.Status);
-        //$j('#CloseDialog').show();
-        this._onCloseButtonClicked();
-        p.processId = "";
-    }
-}
 
 // We have a response with data. Fill in the values and visibility for each item type counts.
 PowerTools.Popups.CountItems.prototype._handleCountItems = function (response)
@@ -219,40 +162,15 @@ PowerTools.Popups.CountItems.prototype._handleCountItems = function (response)
         $j('#KeywordChk ~ span').html('');
 };
 
-// Initiate service async call for retrieving the counts data (after the process completed)
-PowerTools.Popups.CountItems.prototype._getCountItemsData = function (id)
-{
-    if (id != "")
-    {
-        $log.debug("Retrieving CountItemsData for process #" + id);
+PowerTools.Popups.CountItems.prototype.afterSuccess = function (processId) {
+    if (processId != "") {
+        $log.debug("Retrieving CountItemsData for process #" + processId);
         var onSuccess = Function.getDelegate(this, this._handleCountItems);
         var onFailure = null;
         var context = null;
         PowerTools.Model.Services.CountItems.GetCountItemsData(onSuccess, onFailure, context, false);
     }
-};
-
-PowerTools.Popups.CountItems.prototype._pollStatus = function (id)
-{
-    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
-    var onFailure = null;
-    var context = null;
-
-    var callback = function ()
-    {
-        $log.debug("Checking the status of process #" + id);
-        PowerTools.Model.Services.CountItems.GetProcessStatus(id, onSuccess, onFailure, context, false);
-    };
-
-    setTimeout(callback, this.properties.pollInterval);
 }
 
-PowerTools.Popups.CountItems.prototype._onExecuteStarted = function (result)
-{
-    if (result)
-    {
-        this._pollStatus(result.Id);
-    }
-};
 
 $display.registerView(PowerTools.Popups.CountItems);
