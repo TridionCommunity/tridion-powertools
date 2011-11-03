@@ -26,15 +26,10 @@ PowerTools.Popups.PagePublisher = function () {
 
 };
 
-
 PowerTools.Popups.PagePublisher.DROPDOWN_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/PublishQueueDropdown-head.xml", $const.CMEEditorName);
 PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/TargetTypeList-head.xml", $const.CMEEditorName);
-PowerTools.Popups.PagePublisher.ITEMSTOPUBLISH_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/ItemsToPublishList-head.xml", $const.CMEEditorName);
 
-
-
-PowerTools.Popups.PagePublisher.prototype.initialize = function () 
-{
+PowerTools.Popups.PagePublisher.prototype.initialize = function () {
 
     this.callBase("Tridion.Cme.View", "initialize");
 
@@ -42,7 +37,6 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
     var c = p.controls;
 
     p.params = window.dialogArguments ? window.dialogArguments : null;
-    //p.structureId = p.locationId;
     p.locationId = $url.getHashParam("locationId");
 
     $log.message("Initializing page publisher for item: " + p.locationId);
@@ -55,11 +49,20 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
     // Priority drop down
     c.Priority = $controls.getControl($("#Priority"), "Tridion.Controls.Dropdown");
 
+    // checkbox options
+    /*
+    c.Recursive = $j("#RecursiveChk");
+    c.Republish = $j("#RepublishChk");
+    c.PublishChildren = $j("#PublishChildrenChk");
+    c.Priority = $j("#Priority");
+    */
+
     // Exe and close
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
     c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+
 
     // Init controls
     this._setupControls();
@@ -70,9 +73,9 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
     this._asyncLoadTargetTypeListHeader();
 };
 
+
 /**
-* TODO: Comment
-* @id - TODO:
+* When the publish button is clicked the form values are checked and sent to publishpage service
 */
 
 PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
@@ -80,18 +83,21 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     $j('#CloseDialog').hide();
 
     var p = this.properties;
-    p.SelectedTarget = "hello";
-    p.Recursive = $j("#Recursive").val();
-    p.Republish = $j("#Republish").val();
-    p.PublishChildren = $j("#PublishChildren").val();
-    p.Priority = $j("#Priority").val();
+    var c = p.controls;
+    p.SelectedTarget = this._getSelectedTargetTypes();
+    p.Recursive = $j("#RecursiveChk").attr('checked');
+    p.Republish = $j("#RepublishChk").attr('checked');
+    p.PublishChildren = $j("#PublishChildrenChk").attr('checked');
+    p.Priority = c.Priority.getValue();
+    $log.message("Page publisher publish : Recursive = [" + p.Recursive + "] | Republish in children = [" + p.PublishChildren + "] | Republish only = [" + p.Republish + "] |  Priority = [" + p.Priority + "]");
 
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
 
     // pass in structure uri, publishing target uri
-    PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren);
+    //PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren);
+    PowerTools.Model.Services.PagePublisher.Execute(p.locationId);
     var dialog = $j("#dialog");
     var win = $j(window);
 
@@ -362,6 +368,25 @@ PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListT
     else {
         return $models.getItem(p.targetTypesListId);
     }
+};
+
+/**
+* _getSelectedTargetTypes 
+* @returns {Object} Target Types  List. 
+*/
+
+PowerTools.Popups.PagePublisher.prototype._getSelectedTargetTypes = function _getSelectedTargetTypes() {
+    var p = this.properties;
+    var checkBoxes = p.checkBoxView.getSelectedCheckBoxes();
+    var targets = [];
+
+    for (var checkboxKey in checkBoxes) {
+        if (checkBoxes[checkboxKey]) {
+            targets[targets.length] = checkBoxes[checkboxKey];
+        }
+    }
+
+    return targets;
 };
 
 
