@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools.Model.Services.ImageUploader"%>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PowerTools.Model.Services.MarkUnpublished"%>
