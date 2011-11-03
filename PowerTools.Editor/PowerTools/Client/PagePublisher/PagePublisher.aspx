@@ -26,34 +26,18 @@ Publish a collection of pages individually, as seperate publish instructions. Th
                 <div class="handle"></div>
                 <div id="StackElement3" class="panel2">
                     <asp:Literal ID="PubTitle" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPublishSettings %>" />
-                    <!--
-                    TODO:)
                     <div class="stack-elem box-spacer-5">
-	                    <input id="publishNow" type="radio" name="p" class="radio" tabindex="3" checked="checked" />
-	                    <label for="publishNow"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPublishNow %>" /></label>
-                    </div>
-                    <div class="stack-elem box-spacer-5">
-	                    <div>
-		                    <input id="publishLater" type="radio" name="p" class="radio" tabindex="3" />
-		                    <label for="publishLater"><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPublishLater %>" /></label>
-	                    </div>
-	                    <div id="setPublishLater" style="display:none" class="left-tabbed top-spacer-5 dt-box">
-		                    <c:Date id="PublishLaterDate" runat="server" IsSeparateFields="false" AddClearButton="false" TabIndex="19"></c:Date>
-	                    </div>
-                    </div>
-                    -->
-                    <div class="stack-elem box-spacer-5">
-	                    <input id="recursive" type="checkbox" class="radio" tabindex="3"  />
+	                    <input id="RecursiveChk" type="checkbox" class="radio" tabindex="3"  />
 	                    <label for="recursive"><asp:Literal ID="Literal4" runat="server" Text="Recursive" /></label>
                     </div>
                     <div class="stack-elem box-spacer-5">
 	                    <div>
-		                    <input id="republish" type="checkbox" tabindex="4" checked="checked" />
+		                    <input id="RepublishChk" type="checkbox" tabindex="4" />
 		                    <label for="republish"><asp:Literal ID="Literal12" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupRepublish %>" /></label>
 	                    </div>
                     </div>
 					<div class="stack-elem box-spacer-5">
-						<input id="propagateInChildren" type="checkbox" tabindex="26" />
+						<input id="PublishChildrenChk" type="checkbox" tabindex="26" />
 						<label for="propagateInChildren"><asp:Literal ID="Literal6" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPropagateInChildren %>" /></label>
 					</div>
                     <div class="stack-elem box-spacer-5">
