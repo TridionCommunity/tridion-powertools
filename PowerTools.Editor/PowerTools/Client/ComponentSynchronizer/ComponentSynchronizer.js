@@ -59,9 +59,6 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
         c.fieldBuilder = new Tridion.FieldBuilder(p.fieldsElement);
     }
 
-
-
-
     /* Js base class should take care of this
     
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
@@ -74,10 +71,6 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 
     this.generateFields(true);
-
-
-
-
 
 };
 
@@ -153,15 +146,20 @@ PowerTools.Popups.ComponentSynchronizer.prototype.generateFields = function Comp
 
                     if (schema.isStaticTridionWebSchema()) {
                         var nameSpace = schema.getStaticNamespaceUri();
-                        if (false) {
-                            c.fieldBuilder.setSchema(schema.getStaticMetadataFields(), "Metadata", nameSpace);
-                        }
-                        else {
-                            c.fieldBuilder.setSchema(schema.getStaticFields(), schema.getStaticRootElementName(), nameSpace);
-                        }
+
+                        c.fieldBuilder.setSchema(schema.getStaticFields(), schema.getStaticRootElementName(), nameSpace);
                         c.fieldBuilder.setData(fieldData);
-                        //c.fieldBuilder.setReadOnly(this.isItemReadOnly());
                         c.fieldBuilder.generate();
+
+                        this.setSchemaBasedFieldsElement($("#MetadataSchemaBasedFields"));
+                        c.fieldBuilder = new Tridion.FieldBuilder(p.fieldsElement);
+                            c.fieldBuilder.setSchema(schema.getStaticMetadataFields(), "Metadata", nameSpace);
+                            c.fieldBuilder.setData(fieldData);
+                            c.fieldBuilder.generate();
+                            
+                        
+                        //c.fieldBuilder.setReadOnly(this.isItemReadOnly());
+                        
                         if (isInstanceData) {
                             //this.notifyFieldChange(c.fieldBuilder);
                         }
