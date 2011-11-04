@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/FieldView.Master" AutoEventWireup="true"
 	CodeBehind="ComponentSynchronizer.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.ComponentSynchronizer.ComponentSynchronizer" %>
 
 <asp:Content ID="ComponentSynchronizer" ContentPlaceHolderID="Main" runat="server">
@@ -10,7 +10,7 @@
 	<fieldset>
 		<legend>Fields</legend>
         Fill fields to stablish default value
-        <div id="schema"></div>
+        <div id="SchemaBasedFields" class="form fieldgroup fieldbuilder"></div>
 		<div>
 			<c:button id="ExecuteButton" runat="server" label="Sync" class="customButton" />
 		</div>

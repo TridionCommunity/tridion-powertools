@@ -45,11 +45,14 @@
       <HintPath>CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
     <Reference Include="Tridion.Web.UI.Core">
-      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
+      <HintPath>..\..\..\References\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreService\Client.cs" />
+    <Compile Include="MasterPages\FieldViewMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="MasterPages\FullPageMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
