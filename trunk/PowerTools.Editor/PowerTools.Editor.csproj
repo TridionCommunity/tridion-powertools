@@ -58,7 +58,7 @@
     </Reference>
     <Reference Include="Tridion.Web.UI.Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\References\Tridion.Web.UI.Core.dll</HintPath>
+      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
