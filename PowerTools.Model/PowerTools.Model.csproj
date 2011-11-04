@@ -47,7 +47,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="Tridion.ContentManager.CoreService.Client.2010, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\PowerTools2011.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
+      <HintPath>..\PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
