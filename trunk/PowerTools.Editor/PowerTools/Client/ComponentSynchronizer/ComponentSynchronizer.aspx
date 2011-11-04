@@ -11,6 +11,7 @@
 		<legend>Fields</legend>
         Fill fields to stablish default value
         <div id="SchemaBasedFields" class="form fieldgroup fieldbuilder"></div>
+        <div id="MetadataSchemaBasedFields" class="form fieldgroup fieldbuilder"></div>
 		<div>
 			<c:button id="ExecuteButton" runat="server" label="Sync" class="customButton" />
 		</div>

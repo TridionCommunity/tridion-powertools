@@ -5,6 +5,9 @@ PowerTools.Popups.ComponentSynchronizer = function () {
     Type.enableInterface(this, "PowerTools.Popups.ComponentSynchronizer");
     this.addInterface("Tridion.Cme.View");
     this.addInterface("Tridion.Cme.Views.ItemWithSchema");
+
+    //Base class for initializing execute-,close button, and progressbar.
+    this.addInterface("PowerToolsBase", [this]); 
     
     var p = this.properties;
 
@@ -47,40 +50,28 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 
 
     p.item = $models.getItem(p.schemaId);
-
-
-
-
-
-    console.debug("subtype " + p.item.getTitle());
-
-
-
-
-
     $j('#schemaTcm').html(p.schemaId);
 
 
     this.setSchemaBasedFieldsElement($("#SchemaBasedFields"));
 
-    if (p.fieldsElement) {
-        console.debug("1");
+    if (p.fieldsElement) {        
         c.fieldBuilder = new Tridion.FieldBuilder(p.fieldsElement);
-        console.debug("2");
-
-        //Attach events? propably not needed. We are not changing the used schema after popup creation  
-        //$evt.addEventHandler(c.fieldBuilder, "change", this.getDelegate(this.onFormFieldsChanged));
-        //$evt.addEventHandler(c.fieldBuilder, "focusmove", this.getDelegate(this._onFormFocusMoved));
     }
 
+
+
+
+    /* Js base class should take care of this
+    
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    c.CloseButton = $controls.getControl($("#CloseButton"), "Tridion.Controls.Button");
-    //c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
-
-    //$evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
+    
+        
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
-    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+    */
 
+    c.CloseButton = $controls.getControl($("#CloseButton"), "Tridion.Controls.Button");
+    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
 
     this.generateFields(true);
 
@@ -91,20 +82,8 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 };
 
 
-
-PowerTools.Popups.ComponentSynchronizer.prototype.initializeControls = function ComponentSynchronizer$initializeControls() {
-    alert("Im used!");
-    /*var p = this.properties;
-    var c = p.controls;
-
-    this.callBase("Tridion.Cme.Views.Item", "initializeControls");
-    c.formatPage = c.ItemToolbar.getPage(p.formatPageId);
-    p.enabledControls.formatPage = true;*/
-};
-
-
 PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function () {
-    alert("Execute code");
+    alert("Development in progress :)");
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function () {
@@ -116,39 +95,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = functi
     this.fireEvent("close");
 };
 
-PowerTools.Popups.ComponentSynchronizer.prototype.onSchemaLoadContent = function (e) {
 
-    var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.COMPONENT);
-
-    if (schemaList) {
-
-        var dropdown = this.properties.controls.SchemaControl;
-        function Component$onSchemaLoadContent$listLoaded() {
-            $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            dropdown.setContent(schemaList.getXml());
-        }
-
-        if (schemaList.isLoaded(true)) {
-            Component$onSchemaLoadContent$listLoaded();
-        }
-        else {
-            $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            schemaList.load();
-        }
-    }
-};
-
-
-
-PowerTools.Popups.ComponentSynchronizer.prototype.getListFieldsSchemas = function (purpose) {
-    var p = this.properties;
-
-    var folder = $models.getItem(p.folderId);
-    var publication = folder.getPublication();
-
-    var list = publication.getListSchemas(purpose);
-    return list;
-}
 
 
 /**
@@ -172,11 +119,6 @@ PowerTools.Popups.ComponentSynchronizer.prototype.generateFields = function Comp
     if (!p.isFieldsGenerated && c.fieldBuilder) {
         //var item = this.getItem();
         var schema = p.schemaId ? $models.getItem(p.schemaId) : null;
-
-
-
-
-
 
         //this.applyFieldsSchema(schema, true);
 
@@ -260,28 +202,6 @@ PowerTools.Popups.ComponentSynchronizer.prototype.generateFields = function Comp
     Tridion.DisplayController.resize();
 };
 
-
-/**
-* Gets Item fields XML representation.
-* @returns {String} XML String of Item fields.
-*/
-PowerTools.Popups.ComponentSynchronizer.getItemFields = function ComponentSynchronizer$getItemFields() {
-    var item = this.getItem();
-    if (item) {
-        return this.properties.useMetadataSchema ? item.getMetadata() : item.getContent();
-    }
-};
-
-
-/**
-* Loading the Schema if it`s not loaded and applying the fields to the Schema.
-* @param {Tridion.ContentManager.Schema} schema. Schema which is used to loading and fields generating.
-* @param {Boolean} invalidateItemFields. True invalidate Item fields. Optional. 
-*/
-PowerTools.Popups.ComponentSynchronizer.applyFieldsSchema = function Component$ComponentSynchronizer(schema, invalidateItemFields) {
-    //this.getMetadataTab().applyFieldsSchema(schema, invalidateItemFields);
-    this.callBase("Tridion.Cme.Views.ItemWithSchema", "applyFieldsSchema", [schema, invalidateItemFields]);
-};
 
 PowerTools.Popups.ComponentSynchronizer.prototype.onStaticWebSchemaLoad = function Schema$ComponentSynchronizer(value)
 {
