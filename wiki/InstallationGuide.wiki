@@ -50,11 +50,11 @@ Locate the '<editors/>' element and add the power tools editor.
 Locate the '<models/>' element and add the power tools editor.
 
 {{{
-    <editor name="PowerTools" xmlns="http://www.sdltridion.com/2009/GUI/Configuration">
+    <model name="PowerTools" xmlns="http://www.sdltridion.com/2009/GUI/Configuration">
       <installpath>C:\powertools\PowerTools.Model\</installpath>
       <configuration>Configuration\Model.config</configuration>
       <vdir>PowerTools</vdir>
-    </editor>
+    </model>
 }}}
 
 == Final step == 
