@@ -5,15 +5,16 @@
 
 *Also see [Requirements]*
 
-=Next Steps=
-
-==Road to Release 1.0==
+=Road to Release 1.0=
+_Please discussion and offer suggestions on the [https://groups.google.com/forum/#!topic/tridion-powertools/fTsk1Yx5aWk group post on version 1.0].
   # Create installer (Mihai has point)
   # (in parallel) Update [Nononsenseguide] into a "Developer Toolkit"
   # Alpha in progress ("internal" testing)
   # Beta Q4 2011 / Q1 2012, dates TBD
   # Release Candidate (RC) Q1 2012
   # PowerTools version 0.9 or 1.0 based on progress 2012
+
+=Next Steps=
 
 Individual steps you can take:
   * Get comfortable with the MVC model and Anguilla framework by checking out the !ImageUploader !PowerTool (or any of the examples)
@@ -54,7 +55,7 @@ Contributors grouped into interests. This is _not_ set in stone--please work on 
 ||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVPs ||
 ||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVPs ||
 ||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVPs ||
-|| X || Create developer guide || Nuno made the [Nononsenseguide No nonsense guide] || Oct 1, 2011 || Oct 15, 2011
+|| X || Create developer guide || Nuno made the [Nononsenseguide No nonsense guide] || Oct 1, 2011 || Oct 15, 2011 || ||
 || X || Recruit initial 2011 Q4 team || Two weeks to get a roster of about 20, with a dozen active participants || Sept 30, 2011 ||  Oct 15, 2011 || Team with a little help from Twitter, Nuno, and MVPs ||
 || X || Create a working Tool || || Sept 30, 2011 || Oct 26, 2011 || Mihai ||
 || Assigned || Create customer build script/batch/msi || || || || ||
