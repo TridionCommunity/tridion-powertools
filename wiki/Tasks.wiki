@@ -2,8 +2,9 @@
 #labels Featured,Phase-Requirements
 
 <wiki:toc max_depth="2" />
-
-*Also see [Requirements]*
+----
+*See [Requirements] for the list of tools in progress and the wishlist for new tools.*
+----
 
 =Road to Release 1.0=
 _Please discussion and offer suggestions on the [https://groups.google.com/forum/#!topic/tridion-powertools/fTsk1Yx5aWk group post on version 1.0].
