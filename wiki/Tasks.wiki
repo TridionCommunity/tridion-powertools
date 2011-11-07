@@ -6,8 +6,17 @@
 *Also see [Requirements]*
 
 =Next Steps=
-Next steps you can take:
-  * Get comfortable with the MVC model by checking out the !ImageUploader !PowerTool (or any of the examples)
+
+==Road to Release 1.0==
+  # Create installer (Mihai has point)
+  # (in parallel) Update [Nononsenseguide] into a "Developer Toolkit"
+  # Alpha in progress ("internal" testing)
+  # Beta Q4 2011 / Q1 2012, dates TBD
+  # Release Candidate (RC) Q1 2012
+  # PowerTools version 0.9 or 1.0 based on progress 2012
+
+Individual steps you can take:
+  * Get comfortable with the MVC model and Anguilla framework by checking out the !ImageUploader !PowerTool (or any of the examples)
   * Review Anguilla controls
   * Document [Requirements requirements] (function, design, fields, permissions, drop-downs, etc)
   * Consider which part of development you're interested/comfortable with:
@@ -17,11 +26,14 @@ Next steps you can take:
 
 =Organization=
 Contributors grouped into interests. This is _not_ set in stone--please work on what interests you.
+  * Component Synchronizer
+    * Ángel Puntero, Show Lists and Component Synchronizer
+
   * Publish / Unpublishing Tools
-    * Page Publishing / Unpublishing
-      * Mark Saunders (dylan.home), Page Unpublisher
-      * John Winter, Page Publisher
-      * Kunle Daramola, Page Publisher
+    * Page Unpublishing
+      * Mark Saunders (dylan.home)[PageUnpublisher]
+    * PagePublisher
+      * John Winter
       * Mihai Cadariu, (and WhereUsed Publisher, Template Publisher)
     * Robert Curlette, Component Publisher and Unlocalize Children (new)
 
@@ -31,27 +43,19 @@ Contributors grouped into interests. This is _not_ set in stone--please work on 
   * Items and Schema
     * Mark Williams, Schema field remover
     * Kunal Shetye, Count Items and GUI framework
-    * Ángel Puntero, Show Lists and Component Synchronizer
 
   * General Help and Development (for now...)
     * Graeme Wigglesworth, available to help (don't hesitate to ask!)
     * Vikas Kumar, 2009 !PowerTools, waiting on 2011, development info and tools
 
-Popular/requested tools:
-  * PagePublisher (search helps replace functionality, but progress visualization, status, and smaller transport package features are still useful)
-  * ComponentSynchronizer (in high-demand!)
-  * (new suggestion) Component Publisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
-  * (new suggestion) FieldContentCopier
-  * (new suggestion) UnlocalizeChildren based on URI
-  * See [Requirements] for more info
-
 =Project Milestones=
 || Status || Task || Description || Date Created || Date Completed || Completed by ||
-||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVP11_A ||
-|| || Recruit initial 2011 Q4 team || || ||  Oct 15, 2011 || ||
-|| || Create working Tool(s) || || || in progress || ||
-|| || Refactor / Optimize first tools || || || || ||
-|| || Create customer build script/batch/msi || || || || ||
+||X||Process and Roadmap.||Post-MVP retreat plan?||Sept 30, 2011||Sept 30, 2011|| MVPs||
+||X||Copyright License Options||(TBD: pick an appropriate open source license)||Sept 30, 2011||Sept 30, 2011|| MVPs ||
+||X||Documentation Template||See wiki or word version in charter||Sept 30, 2011||Sept 30, 2011|| MVPs ||
+||X||Update and Prioritize Spreadsheet||Has selection, can revisit location in CME for each item (context-menu, ribbon, etc)||Sept 30, 2011||Sept 30, 2011|| MVPs ||
+|| X || Create developer guide || Nuno made the [Nononsenseguide No nonsense guide] || Oct 1, 2011 || Oct 15, 2011
+|| X || Recruit initial 2011 Q4 team || Two weeks to get a roster of about 20, with a dozen active participants || Sept 30, 2011 ||  Oct 15, 2011 || Team with a little help from Twitter, Nuno, and MVPs ||
+|| X || Create a working Tool || || Sept 30, 2011 || Oct 26, 2011 || Mihai ||
+|| Assigned || Create customer build script/batch/msi || || || || ||
+|| X || Update logo for issue 1 || || Oct 11, 2011 || Nov 3, 2011 || Team || 
