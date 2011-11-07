@@ -5,7 +5,8 @@ Publish pages in batches in a more friendly way.
 
 Should this tool allow publish, based on a template?
 
-This tools was not identified as a priority in a first round, but after multiple requests and proper, the priority was raised.
+This tools was not identified as a priority in a first round (search replaces some PagePublisher functionality, but after multiple requests and proper debate, the priority was raised due to:
+progress visualization, status, and smaller transport package features are still useful.
 
 The initial difficulty was not very high, but the real difficulty will depend on the number of extra functionalities implemented.
 
