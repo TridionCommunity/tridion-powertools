@@ -1,0 +1,14 @@
+#summary JavaScript has "grown up."
+
+= Introduction =
+
+New to JavaScript programming? Or have you been away so long and don't know how it connects with other technology, frameworks, and buzzwords (MVC, JQuery, Anguilla,etc).
+
+
+= Chrome =
+Debug JavaScript in Chrome.
+ # Open page or start pop-up.
+ # Use CTRL+SHIFT+J to open the JavaScript console.
+ # Select a script from the top-left dropdown and set a breakpoint by right-clicking on the left-side numbered lines.
+ # Close the console (CTRL+W to close any Chrome tab/pop-up)
+ # Re-run the page or pop-up and press CTRL+SHIFT+I to trigger the breakpoint.
