@@ -8,7 +8,7 @@ New to JavaScript programming? Or have you been away so long and don't know how 
 = Chrome =
 Debug JavaScript in Chrome.
  # Open page or start pop-up.
- # Use CTRL+SHIFT+J to open the JavaScript console.
+ # Use CTRL+SHIFT+I to open the Developer tools (CTRL+SHIFT+J to jump straight to the JavaScript console).
  # Select a script from the top-left dropdown and set a breakpoint by right-clicking on the left-side numbered lines.
  # Close the console (CTRL+W to close any Chrome tab/pop-up)
  # Re-run the page or pop-up and press CTRL+SHIFT+I to trigger the breakpoint.
