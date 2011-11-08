@@ -12,3 +12,5 @@ Debug JavaScript in Chrome.
  # Select a script from the top-left dropdown and set a breakpoint by right-clicking on the left-side numbered lines.
  # Close the console (CTRL+W to close any Chrome tab/pop-up)
  # Re-run the page or pop-up and press CTRL+SHIFT+I to trigger the breakpoint.
+
+Tip: Tough to read minified code? Check out DeactivateJSMinifier!
