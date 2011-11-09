@@ -1,6 +1,13 @@
 #summary Updates and milestones.
 
 == Updates ==
+
+(29-Oct-2011) Nice job and thanks on the work on the [Logo].
+
+(26-Oct-2011) A "small" milestone and BIG congrats to the team for the first _non-example_ tool, CountItems. Nice work to [http://code.google.com/u/110283915126182123830/updates Mihai aka mitza13] and to [http://code.google.com/p/tridion-2011-power-tools/people/list everyone] who's put in coding time, answered questions, and debated approach.
+
+<font color="red">(21-Oct-2011) The latest changes done to this project (today, Friday) break the System.Config and IIS Virtual Dir because we renamed the PowerTools - Editor project to PowerTools.Editor!</font>
+
 (19-Oct-2011) The original priority list has been "wikified" into [Requirements]. Review the new list and update, sort, comment, or share. http://code.google.com/p/tridion-2011-power-tools/wiki/Requirements
 
 (19-Oct-2011) We're on Skype. Message or email a technical lead for an invite.
