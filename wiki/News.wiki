@@ -1,6 +1,12 @@
 #summary Updates and milestones.
 
-== Updates ==
+= Updates =
+
+(09-Nov-2011) Great work on the project. So good, our application to JetBrains for a community license for [http://www.jetbrains.com/resharper/download/ ReSharper] was approved. Contact a fellow developer or check the Skype chat for today to get the license. It's good for a year, use it well (but only on the PowerTools). :-)
+
+<font color="red">*Do not share the actual key on this site or in the Google Group PowerTools forum. Remember replying to forum emails will post them publicly!*</font>
+
+(08-Nov-2011) Welcome new team members. Don't hesitate to use this project to learn more about Tridion 2011 extensions, the Anguilla framework, open source projects, or to honestly build out your resume. All we ask for is a little code and some wiki updates. :-)
 
 (29-Oct-2011) Nice job and thanks on the work on the [Logo].
 
