@@ -1,22 +1,20 @@
 #summary Component Synchronizer Tool Info Page
+#labels Phase-Requirements,Phase-Design,Featured
 
 = Introduction =
-This tool was originally created to solve the problems derived from a schema design change, when there is already content created using it.
-
+This tool was originally created to solve the problems derived from a schema design change with existing content.
 
 This tools has been requested by multiple contributors and is one of the most important for implementors to have so it as been marked as *High priority*.
 
-The implementation of the tool will be complex, and faces multiple challenges, like the performance. 
+The implementation of the tool will be complex, and faces multiple challenges including performance. 
 
 = Details =
 
-
 ==Description==
-Synchronize item fields based on a specific schema.
+Synchronize item fields based on a user-selected schema.
 
 == Audience ==
-Admins and Power Users
-
+* Admins and Power Users looking to match components to their schema before Content Port 
 
 *Version #*
 0.1
@@ -37,12 +35,8 @@ SDL Tridion 2011 SP1
 *Document Author(s)*
 {list authors}
 
-== Purpose ==
-Describe purpose, objectives, and requirements
-Probably this section overlaps with previous sections.
-
 == Installation ==
-{describe installation steps}
+See InstallationGuide.
 
 === Upgrade ===
 {as applicable}
@@ -50,7 +44,10 @@ Removal Instructions
 
 = Requirements =
 || ID || Description || Scope || Comments ||
-|| 1 ||Provided an Schema, Component Synchronizer should be able to set default values for it´s fields in all components using the schema. Previously existing values, will not be overwritten unless the overwrite checkbox is checked|| || ||
-|| 2 ||Provided an Schema, Component Synchronizer should remove(hide) those fields no longer existing from all components using it. || || ||
-|| 3 ||There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.|| || ||
-|| 4 ||Component synchronizer should retrieve all the schema fields, and display them to the user, so the user can enter the default values to be set|| || ||
+|| 1 ||Provided a Schema, Component Synchronizer will set default values for its fields in all components based on the schema. Existing values will not be overwritten unless the overwrite checkbox is checked.|| || ||
+|| 2 ||Provided a Schema, Component Synchronizer should remove (hide) those fields no longer existing from all components using it. || || ||
+|| 3 ||There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.|| || Can components save commented-out XML nodes? ||
+|| 4 || Component Synchronizer should retrieve all the schema fields, and display them to the user, so the user can enter the default values to be set|| || ||
+|| 5 || Permissions and Rights should use the existing user's rights || || Req 5 needs feedback and review ||
+|| 6 || Component Synchronizer should {rollback,fail,or do a partial update?} if all found components can not be updated in a single request || || Req 6 needs feedback and review ||
+|| 7 || Component Synchronizer should {return an error on, update the parent, ignore, unlocalize (probably not), just report on, edit the localized version of} components that have parent items || || Req 7 needs feedback and review ||
