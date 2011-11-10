@@ -2,11 +2,11 @@
 
 = Details =
 
-# Go to about:blank in your browser
-# Clear Browser Cache for:
-  * Empty the cache
-  * Browsing History
-  * Cookies
+  # Go to about:blank in your browser
+  # Clear Browser Cache for:
+    * Empty the cache
+    * Browsing History
+    * Cookies
 
 == Browser-specific instructions ==
 * Chrome
@@ -20,4 +20,3 @@
 
 == Questions ==
 * Do we always close the browser?
-
