@@ -1,5 +1,4 @@
 #summary Table of Contents (used for the sidebar nav)
-#labels Featured
 
   * Project
     * [Tasks] 
