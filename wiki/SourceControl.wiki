@@ -6,8 +6,9 @@
 Using an open source control standard like Subversion (SVN) means you have a few options on how to manage versioning. See some suggestions below and feel free to comment on or build out these tutorials as needed.
 
 = SVN Primer =
+----
 *See SVN Tutorial at http://svnbook.red-bean.com/.
-
+----
 == Tortoise SVN ==
   * Explorer, file-based shell integration with SVN
   * Get it at the [http://tortoisesvn.net/downloads.html TortoiseSVN download page].
