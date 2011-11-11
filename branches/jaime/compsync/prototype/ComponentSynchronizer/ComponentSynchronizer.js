@@ -1,38 +1,14 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
 PowerTools.Popups.ComponentSynchronizer = function () {
-
     Type.enableInterface(this, "PowerTools.Popups.ComponentSynchronizer");
     this.addInterface("Tridion.Cme.View");
-    this.addInterface("Tridion.Cme.Views.ItemWithSchema");
 
-    //Base class for initializing execute-,close button, and progressbar.
-    this.addInterface("PowerToolsBase", [this]); 
-    
     var p = this.properties;
 
     p.processId = null;
-    p.schemaId = null;
+    p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
-
-    p.item;
-    //The following is a list of properties used in the ItemWithSchema interface. Probably we won´t need all of them
-    p.fieldsElement;
-    p.isFieldsGenerated = false;
-    p.isFieldsGenerating = false;
-    p.useMetadataSchema = true;
-    p.validationPopup = null;
-    p.activeEditor;
-    p.activeFormatAreaEditor;
-    p.activeFormatAreaName;
-    p.hasClickedFaToolbar;
-    p.faToolbarsHideTimeout;
-    p.activePopup;
-    p.isUserAction = false;
-    p.isUserAutoCorrectRequest = false;
-    p.formatPageId = "FormatPage";
-    p.previousToolbarPageId;
-    p.prevFormatAreaState;
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
@@ -41,179 +17,162 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 
     this.callBase("Tridion.Cme.View", "initialize");
 
-
     var p = this.properties;
     var c = p.controls;
 
-    p.schemaId = $url.getHashParam("folderId");
+    p.folderId = $url.getHashParam("folderId");
 
-
-
-    p.item = $models.getItem(p.schemaId);
-    $j('#schemaTcm').html(p.schemaId);
-
-
-    this.setSchemaBasedFieldsElement($("#SchemaBasedFields"));
-
-    if (p.fieldsElement) {        
-        c.fieldBuilder = new Tridion.FieldBuilder(p.fieldsElement);
-    }
-
-    /* Js base class should take care of this
-    
+    c.CreateReferenceButton = $controls.getControl($("#CreateReferenceButton"), "Tridion.Controls.Button");
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    
-        
-    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
-    */
-
     c.CloseButton = $controls.getControl($("#CloseButton"), "Tridion.Controls.Button");
+    c.BtnBrowse = $controls.getControl($("#BtnBrowse"), "Tridion.Controls.Button");
+    c.BtnRemove = $controls.getControl($("#BtnRemove"), "Tridion.Controls.Button");
+    c.FieldTitle = $("#FieldTitle");
+    c.FieldURI = $("#FieldURI");
+    c.FieldSchema = $("#FieldSchema");
+
+    //$evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
+    $evt.addEventHandler(c.CreateReferenceButton, "click", this.getDelegate(this._onCreateReferenceButtonClicked));
+    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+    $evt.addEventHandler(c.BtnBrowse, "click", this.getDelegate(this._onBrowseClicked));
 
-    this.generateFields(true);
-
+    c.BtnRemove.hide();
 };
 
 
-PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function () {
-	alert("Development in progress :)");
-	var element = $("#dialog");
-    $css.show(element);
 
+PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _onBrowseClicked(event) {
+    //$log.message("_onBrowseClicked: fired! [" +  this +"]");
+    var p = this.properties;
+    var c = p.controls;
+    if (p.ItemPopup && p.ItemPopup.isOpen()) {
+        p.ItemPopup.focus();
+    } else {
+
+        var filter = new Tridion.ContentManager.ListFilter();
+        filter.conditions.ItemTypes = [$const.ItemType.COMPONENT];
+        p.ItemPopup = $popup.create($cme.Popups.ITEM_SELECT.URL.format('tcm:2-1-2'), $cme.Popups.ITEM_SELECT.FEATURES, { filter: filter });
+
+
+        var self = this;
+
+        function ComponentSynchronizer$_onBrowseClicked$onPopupClosed(event) {
+            // Release
+            if (p.ItemPopup) {
+                p.ItemPopup.dispose();
+                p.ItemPopup = null;
+
+                //clean area
+                //$j('#SchemaBasedFields').empty();
+                //$j('#SchemaBasedFieldsEmbeded').empty();
+                //$j('#PageFields').empty();
+                //$j('#PageFieldsComponents').empty();
+                alert('close');
+            }
+        };
+
+        $evt.addEventHandler(p.ItemPopup, "insert",
+			function ComponentSynchronizer$_onBrowseClicked$onPopupSubmitted(event) {
+
+			    // Update
+			    var items = event.data.items;
+			    if (items) {
+
+			        var itemId, itemName, schemaName;
+			        for (var i = 0, len = items.length; i < len; i++) {
+			            itemId = items[i];
+
+			            if (!String.isNullOrEmpty(itemId)) {
+			                var item = $models.getItem(itemId);
+			                if (item) {
+			                    itemName = item.getStaticTitle();
+			                    var schema = item.getSchema();
+			                    schemaName = schema ? (schema.getStaticTitle() || schema.getTitle() || "") : "";
+			                }
+			            }
+			            break;
+			        }
+
+			        if (itemId && itemName) {
+			            c.FieldURI.value = itemId;
+			            c.FieldTitle.value = itemName;
+			            c.FieldSchema.value = schemaName;
+			            c.BtnRemove.show();
+			        }
+
+			    }
+
+			    // Release
+			    ComponentSynchronizer$_onBrowseClicked$onPopupClosed();
+			});
+
+        $evt.addEventHandler(p.ItemPopup, "unload", ComponentSynchronizer$_onBrowseClicked$onPopupClosed);
+        p.ItemPopup.open();
+    }
+}
+
+
+
+
+
+PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicked = function () {
+    var itemType = $const.ItemType.COMPONENT;
+    var item = $models.createNewItem(itemType);
+    var urlParams = {};
+
+    var orgItemId = "tcm:2-1-2";
+    item.setOrganizationalItem(orgItemId);
+    var editorURL = "/WebUI/item.aspx?tcm=16"
+    item.setTitle("Synchronization Component - [Unique ID]");
+
+    if (!item.openInEditor(editorURL, null, urlParams)) {
+        $messages.registerError($localization.getCoreResource("IsPopupBlocker"), null, null, null, true);
+    }
+    return item;
+};
+
+PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function () {
+    alert("Execute code");
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function () {
-
-    $j('#mask, .window').hide();
-    $j('#ProgressStatus').html("");
-    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
-    $log.message("Close event Fired");
-    this.fireEvent("close");
+    this.fireEvent("cancel");
+    window.close();
 };
 
+PowerTools.Popups.ComponentSynchronizer.prototype.onSchemaLoadContent = function (e) {
 
+    var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.COMPONENT);
 
+    if (schemaList) {
 
-/**
-* Generate Schema Fields.
-* @param {Boolean} reload. True regenarates fields Item fields. Optional.
-*/
-PowerTools.Popups.ComponentSynchronizer.prototype.generateFields = function ComponentSynchronizer$generateFields(reload) {
-    var p = this.properties;
-    var c = p.controls;
+        var dropdown = this.properties.controls.SchemaControl;
+        function Component$onSchemaLoadContent$listLoaded() {
+            $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+            dropdown.setContent(schemaList.getXml());
+        }
 
-    p.toLoad = true;
-
-    if (p.isFieldsGenerating) {
-        return;
-    }
-
-    if (reload) {
-        p.isFieldsGenerated = false;
-    }
-
-    if (!p.isFieldsGenerated && c.fieldBuilder) {
-        //var item = this.getItem();
-        var schema = p.schemaId ? $models.getItem(p.schemaId) : null;
-
-        //this.applyFieldsSchema(schema, true);
-
-        p.isFieldsGenerating = true;
-
-        if (!schema) {
-            c.fieldBuilder.setData(null);
-            c.fieldBuilder.setSchema(null);
-            c.fieldBuilder.generate();
-            p.isFieldsGenerating = false;
-            p.isFieldsGenerated = true;
-            $css.undisplay(p.fieldsElement);
+        if (schemaList.isLoaded(true)) {
+            Component$onSchemaLoadContent$listLoaded();
         }
         else {
-            $css.display(p.fieldsElement);
-            if (!schema.isStaticWebSchemaLoading() && schema.isStaticWebSchemaLoaded()) {
-                //var fieldData = this.getItemFields(); Ojo
-                //
-                var fieldData = null;
-                var isInstanceData = false;
-                var orgItem;
-                if (true) {
-                    orgItem = schema.getOrganizationalItem();
-                }
-
-
-                if (fieldData || (schema.isInstanceDataLoaded(orgItem) && !schema.isInstanceDataLoading(orgItem))) {
-                    if (!fieldData) {
-                        fieldData = schema.getInstanceData(orgItem, !p.useMetadataSchema);
-                        isInstanceData = !!fieldData;
-                    }
-
-                    if (schema.isStaticTridionWebSchema()) {
-                        var nameSpace = schema.getStaticNamespaceUri();
-
-                        c.fieldBuilder.setSchema(schema.getStaticFields(), schema.getStaticRootElementName(), nameSpace);
-                        c.fieldBuilder.setData(fieldData);
-                        c.fieldBuilder.generate();
-
-                        this.setSchemaBasedFieldsElement($("#MetadataSchemaBasedFields"));
-                        c.fieldBuilder = new Tridion.FieldBuilder(p.fieldsElement);
-                            c.fieldBuilder.setSchema(schema.getStaticMetadataFields(), "Metadata", nameSpace);
-                            c.fieldBuilder.setData(fieldData);
-                            c.fieldBuilder.generate();
-                            
-                        
-                        //c.fieldBuilder.setReadOnly(this.isItemReadOnly());
-                        
-                        if (isInstanceData) {
-                            //this.notifyFieldChange(c.fieldBuilder);
-                        }
-                    }
-                    else	//complex schema
-                    {
-                        c.fieldBuilder.setData(null);
-                        c.fieldBuilder.setSchema(null);
-                        c.fieldBuilder.generate();
-                        $css.undisplay(p.fieldsElement);
-                        if (isInstanceData || !fieldData) {
-                            if (!fieldData) {
-                                fieldData = "<{0} xmlns=\"{1}\" />".format(schema.getStaticRootElementName(), schema.getStaticNamespaceUri());
-                            }
-                            item.setContent(fieldData, this); // content, because we know metadata cannot be complex
-                        }
-                    }
-                    p.isFieldsGenerating = false;
-                    p.isFieldsGenerated = true;
-                }
-                else {
-                    schema.loadInstanceData(orgItem);
-                    $evt.addEventHandler(schema, "instancedataload", this.getDelegate(this.onInstancedataload));                
-                }
-            }
-            else {
-                schema.staticLoad();
-                $evt.addEventHandler(schema, "staticwebschemaload", this.getDelegate(this.onStaticWebSchemaLoad));
-
-            }
-
-            if (!p.isFieldsGenerated) {
-                c.fieldBuilder.setLoading();
-                p.isFieldsGenerating = false;
-            }
+            $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
+            schemaList.load();
         }
     }
-    Tridion.DisplayController.resize();
 };
 
 
-PowerTools.Popups.ComponentSynchronizer.prototype.onStaticWebSchemaLoad = function Schema$ComponentSynchronizer(value)
-{
-    console.debug("onStaticWebSchemaLoad");
-    this.generateFields(true);
-};
 
-PowerTools.Popups.ComponentSynchronizer.prototype.onInstancedataload = function Schema$ComponentSynchronizer(value)
-{
-    console.debug("onInstancedataload");
-    this.generateFields(true);
-};
+PowerTools.Popups.ComponentSynchronizer.prototype.getListFieldsSchemas = function (purpose) {
+    var p = this.properties;
+
+    var folder = $models.getItem(p.folderId);
+    var publication = folder.getPublication();
+
+    var list = publication.getListSchemas(purpose);
+    return list;
+}
 
 $display.registerView(PowerTools.Popups.ComponentSynchronizer);
