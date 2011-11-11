@@ -12,31 +12,31 @@ We want more time to focus on requirements and code by making the tools part eas
 
 Add info for your fellow team members on SVN clients, VMs, IDEs, refactoring tools, and even UI shortcuts. 
 
-== Tools ==
-===Source ===
+= Tools =
+==Source ==
 *SourceControl* [SourceControl#Tortoise Tortoise] (Explorer-based) or [SourceControl#ankhsvn ankhsvn] (Visual Studio) for ways to connect to the SVN-based source
     * We can edit wiki pages "offline" (Suggestion by Dominic)
     * Tip: as a general "good practice" do not put your project files on your Desktop or other "special" user folders; these have restricted permissions that the the CMS may not have access to (thanks Hao for the tip).
 
-===Refactoring Tools===
+==Refactoring Tools==
 Refactoring is a method of cleaning up code for readability without changing functionality. Regression tests help confirm refactored code is functionality equivalent. Refactor to fix "smelly code."
     * *ReSharper* (preferred) for refactoring (community license for the [http://www.jetbrains.com/resharper/download/index.html full version] approved, contact a team member for the key)
     * Others
       * [http://msdn.microsoft.com/en-us/visualc/bb737896 Refactor plug-in for Visual Studio] 
       * CodeRush free tool (suggestion by Mihai)
 
-===Diagraming and Requirements===
+==Diagraming and Requirements==
   * Visio for diagrams
   * [http://www.websequencediagrams.com/ Web Sequence Diagrams site]
  * [https://chrome.google.com/webstore/search/wireframe Chrome-based wireframe tools] (Chrome Web Store search)
 
-===Communication===
+==Communication==
   * IRC http://webchat.freenode.net/ channel #tridion<br/>IRC may be quiet now, but may be useful for joint development sessions or as a community (old skool) "hang out;" use the forum, wiki, or group Skype for now. Email a lead to get invited to the Skype chat.
 
-===Builds===
+==Builds==
   * Build scripts such as Maven and NANT (Mihai's volunteered to create a build script)
 
-===Microsoft Stack of Development Tools===
+==Microsoft Stack of Development Tools==
   * *Visual Studio*
   * *Internet Information Services (IIS)* may be unfamiliar for developers used to working on the code-side of Web development. Access it by running {{{inetmgr}}} on the CME server. Use IIS to create the virtual directories for the PowerTools editor and model folders in the [nononsenseguide].
 
@@ -54,6 +54,29 @@ Some topics you might want to learn about or share your expertise in.
   * About GUI extensions for Tridion 2011
   * Tridion 2011 SP1 delta info
 
-== Testing and Troubleshooting ==
+= Testing and Troubleshooting =
   * How to [DeactivateJSMinifier Deactivate JS Minifier] to troubleshoot JavaScript  
   * Also see [Testing] page.
+  * Quick deactivate .bat script (backup original system.config before using!). If you need to see your CME without the PowerTools, create a .bat file with the following and run it as an administrator. It simply moves a file called "SystemPower.config" to a temp file, swaps out the existing config, and moves the temp back to the System.config file. 
+
+{{{
+REM Info on path checking: http://support.microsoft.com/kb/121170
+
+IF "%TRIDION_HOME%" == "" GOTO NOPATH
+	:PATH FOUND
+   @ECHO The TRIDION_HOME environment variable was detected.
+   PATH=%TRIDION_HOME%
+   GOTO COPY
+   :NOPATH
+   @ECHO The TRIDION_HOME environment variable was NOT detected. No changes will be made.
+   GOTO END
+   :COPY
+   REM test for temp file!
+   CD %PATH%\web\WebUI\WebRoot\Configuration
+   MOVE "SystemPower.config" "Config_temp.config"
+   MOVE "System.config" "SystemPower.config"
+   MOVE "Config_temp.config" "System.config"
+   :END
+
+PAUSE	
+}}}
