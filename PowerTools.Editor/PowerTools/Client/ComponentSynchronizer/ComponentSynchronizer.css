@@ -32,6 +32,7 @@ body{
     display: none;
     z-index: 9999;
     padding: 20px;
+    visibility: hidden;
 }
         
         
@@ -55,4 +56,9 @@ div
 .tool-explanation
 {
     margin-bottom: 20px;
+}
+
+.popup body
+{
+    overflow: auto;
 }

@@ -76,7 +76,10 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function () {
-    alert("Development in progress :)");
+	alert("Development in progress :)");
+	var element = $("#dialog");
+    $css.show(element);
+
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function () {
