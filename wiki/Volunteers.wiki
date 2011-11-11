@@ -1,0 +1,14 @@
+#summary We do this because we want to!
+
+ 
+=== Volunteer Project Leads ===
+
+|| Role || Name || Organization || Twitter || Blog ||
+|| Technical Lead || Peter Kjaer || SDL ||  || [http://pkjaer.wordpress.com/ Peter Kjaer] ||
+|| Technical Lead || Dominic Cronin || Hinttech || || [http://www.dominic.cronin.nl/weblog Dominic Cronin] ||
+|| Technical Lead || Chris Summers || !UrbanCherry ||  || ||
+|| Functional Lead || Alvin Reyes || SDL || [http://twitter.com/nivlong Nivlong]  || [http://createandbreak.net CreateAndBreak]||
+
+=== Members ===
+  * The [http://code.google.com/p/tridion-2011-power-tools/people/list full list]
+  * [Tasks Tasks and organization]
