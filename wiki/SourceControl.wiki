@@ -23,4 +23,5 @@ Steps:
  Note for those used to TFS or doing single-user checkouts that lock files, multiple checkouts are allowed (think "updates"). You're not locking files or preventing work by checking out files. An explicit lock is required to do so.
 
 = Other Windows-Based SVN clients =
+SmartSVN (recommended by Peter)
 http://subversion.apache.org/packages.html#windows
