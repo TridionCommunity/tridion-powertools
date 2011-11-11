@@ -1,4 +1,7 @@
-#summary One-sentence summary of this page.
+#summary Testing approach
+
+= Template =
+Let's formalize testing requirements on a TestingTemplate. It could serve as the necessary steps to release a tool.
 
 = Functional =
 CME functionality is driven by context. Some things to test within the GUI include:
