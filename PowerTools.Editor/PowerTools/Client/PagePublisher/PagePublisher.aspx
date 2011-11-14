@@ -1,18 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Page Publisher" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
 	CodeBehind="PagePublisher.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.PagePublisher.PagePublisher" %>
 
 
 
 <asp:Content ID="PagePublisher" ContentPlaceHolderID="Main" runat="server">
-        <h1>Page publisher</h1>
         <div class="tool-explanation">
 Publish a collection of pages individually, as seperate publish instructions. This can be necessary as when you press publish on a publication in Tridion R5, if a failure occurs, the entire transaction will be fail.
         </div>
 
         <div id="StackElement1" class="stack horizontal">
-            <div id="MsgCenter" class="stack-elem">
-                MESSAGE CENTER HERE
-            </div>
             <div id="Options" class="stack-calc splitter vertical box-spacer-10">
                 <div id="StackElement2" class="panel1 stack horizontal">
                     <!-- Select target types -->
@@ -41,24 +37,15 @@ Publish a collection of pages individually, as seperate publish instructions. Th
 						<label for="propagateInChildren"><asp:Literal ID="Literal6" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPropagateInChildren %>" /></label>
 					</div>
                     <div class="stack-elem box-spacer-5">
-	                    <div>
-							<div id="setPriority" class="left-tabbed top-spacer-5">
-								<table border="0" style="height:auto; width:auto">
-									<tbody><tr>
-										<td><label><asp:Literal ID="Literal5" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, Priority %>" />:</label></td>
-										<td><c:Dropdown ID="Priority" runat="server" Nullable="false" TabIndex="5" /></td>
-									</tr></tbody>
-								</table>
-							</div>
-	                    </div>
+                        <label><asp:Literal ID="Literal5" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, Priority %>" />:</label>
+                        <select id="Priority">
+                            <option value="2">Low</option>
+                            <option value="4">Normal</option>
+                            <option value="6">High</option>
+                        </select>	
                     </div>
-								
-                    </div>
-
             </div>
-
             <div id="Footer" class="footer stack-elem">
-                <!-- Buttons -->
                 <c:Button ID="ExecuteButton"  runat="server" Label="Publish pages" Class="customButton" />
             </div>
         </div>
