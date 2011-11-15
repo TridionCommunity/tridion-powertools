@@ -41,7 +41,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
     c.CloseButton = $controls.getControl($("#CloseButton"), "Tridion.Controls.Button");
     c.BtnBrowse = $controls.getControl($("#BtnBrowse"), "Tridion.Controls.Button");
     c.BtnRemove = $controls.getControl($("#BtnRemove"), "Tridion.Controls.Button");
-    c.FieldTitle = $("#FieldTitle");
+    c.FieldTitle = $("#FieldTitle", p.element); ;
     c.FieldURI = $("#FieldURI");
     c.FieldSchema = $("#FieldSchema");
 
@@ -180,8 +180,8 @@ PowerTools.Popups.ComponentSynchronizer.prototype.loadList = function ComponetSy
 
 
 
-PowerTools.Popups.ComponentSynchronizer.prototype.onRefreshBtnClicked = function ComponentSynchronizer$onRefreshBtnClicked(event) {    
-    this.loadList(true);
+PowerTools.Popups.ComponentSynchronizer.prototype.onRefreshBtnClicked = function ComponentSynchronizer$onRefreshBtnClicked(event) {
+    this.loadList(true)
 };
 
 
@@ -194,15 +194,18 @@ PowerTools.Popups.ComponentSynchronizer.prototype.onListSelectionChanged = funct
     var selection = this.getSelection();
     var openCommand = $models.isContainerItemType(selection.getItemType(0)) ? "Properties" : "Open";
     var c = this.properties.controls;
-    switch (this.getSelectedPageID()) {
-        case "UsedIn":
-            c.BtnUsedInOpen.setDisabled(!this.isCommandAvailable(openCommand, selection));
-            c.BtnUsedInGoTo.setDisabled(!this.isCommandAvailable("Goto", selection));
-            this.updateItemDetails();
-            break;
-    }
+   
+       c.BtnUsedInOpen.setDisabled(!this.isCommandAvailable(openCommand, selection));
+       c.BtnUsedInGoTo.setDisabled(!this.isCommandAvailable("Goto", selection));
+       this.updateItemDetails();
+   
 };
 
+
+PowerTools.Popups.ComponentSynchronizer.prototype.isCommandAvailable = function ComponentSynchronizer$isCommandAvailable(commandName, selection) {
+    var command = $cme.getCommand(commandName);
+    return (command != null) && command.isAvailable(selection) && command.isEnabled(selection);
+};
 
 
 /**
@@ -216,16 +219,11 @@ PowerTools.Popups.ComponentSynchronizer.prototype.getListItems = function Compon
     var item = this.getItem();
     var tab = this.properties.tabType[tabType];
     if(item && tab && $models.getItemType(item.getId()) == $const.ItemType.SCHEMA){
-        
         return item.getListUsingItems(tab.filter);
     }
     else
     {
-        
-        //var customList = new PowerTools.ComponentSynchronizer.Lists.CustomListTcmItems("tcm:5-260-2",tab.filter);
-        //var customList = new PowerTools.ComponentSynchronizer.Lists.CustomListTcmItems("tcm:0-0-0",tab.filter);
-        
-        
+       
         //Build the list
         var strXml = '<tcm:ListUsingItems xmlns:tcm="http://www.tridion.com/ContentManager/5.0">'
         var p = this.properties;
@@ -291,58 +289,28 @@ PowerTools.Popups.ComponentSynchronizer.prototype.renderList = function Componen
 };
 
 
-PowerTools.Popups.ComponentSynchronizer.prototype.updateItemDetails = function ComponentSynchronizer$updateItemDetails() {
-    
-    $log.message('9');
-    /*var p = this.properties;
-    var c = p.controls;
-    var tab = p.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN];
+PowerTools.Popups.ComponentSynchronizer.prototype.getSelection = function ComponentSynchronizer$getSelection() {
+    var p = this.properties;
+    var tab = this.properties.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN];
 
-    var usedInList = tab.control;
-    var items = usedInList.getSelection().getItems();
-    var versionsString;
-    
-    var details;
-    if (items.length == 1) {
-        var item = this.getItem();
-        alert('11');
-        var list = tab.getListItems();
-        var versions = list.getVersions(items[0]);
-
-        if (!versions || !versions.length) {
-            details = $localization.getEditorResource("NoDetails");
-        }
-        else {
-            var listDefinition = usedInList.getDefinition();
-            var node = listDefinition.selectNode(usedInList.getContent(), items[0]);
-            var details = $localization.getEditorResource("VersionsDetails", [listDefinition.getNodeTitle(node), item.getStaticTitle()]);
-            var isStartsWithZero = versions[0] == 0;
-            var prevVer = versionsString = isStartsWithZero ? versions[1] : versions[0];
-            var startPointer = isStartsWithZero ? 2 : 1;
-            var sequenceCount = 1;
-
-            for (var i = startPointer, len = versions.length; i < len; i++) {
-                if (versions[i] == parseInt(versions[i - 1]) + 1) {
-                    sequenceCount++;
-                    prevVer = versions[i];
-                }
-                else {
-                    if (sequenceCount > 1) {
-                        versionsString += ((sequenceCount > 2) ? ("..") : (", ")) + prevVer;
-                    }
-                    versionsString += ", " + versions[i];
-                    sequenceCount = 1;
-                }
-            }
-
-            if (sequenceCount > 1) {
-                versionsString += ((sequenceCount > 2) ? ("..") : (", ")) + prevVer;
-            }
-        }
+    var selection;
+    if (tab) {
+        selection = tab.control.getSelection();
     }
-    $dom.setInnerText(c.DetailsText, details || "");
-    $dom.setInnerText(c.DetailsVersions, versionsString || "");(
-    */
+
+    var list = tab.getListItems();
+
+    return new Tridion.Cme.Selection(selection, null, list ? list.getId() : undefined);
+};
+
+
+PowerTools.Popups.ComponentSynchronizer.prototype.updateItemDetails = function ComponentSynchronizer$updateItemDetails() {
+    var p = this.properties;
+    var c = p.controls;
+
+    $dom.setInnerText(c.DetailsText, "Enter here details about the selected item");
+
+
 };
 
 
@@ -422,10 +390,8 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 			        }
 
 			        if (itemId && itemName) {
-
-			            c.FieldTitle.value = ("Reference Component: " + itemName + " (" + itemId + ")");
-			            $css.show(c.FieldTitle);
-			            c.BtnRemove.show();
+			            $dom.setInnerText(c.FieldTitle, "Reference Component: " + itemName + " (" + itemId + ")");
+			            $css.show(c.BtnRemove);
 
 			        }
 

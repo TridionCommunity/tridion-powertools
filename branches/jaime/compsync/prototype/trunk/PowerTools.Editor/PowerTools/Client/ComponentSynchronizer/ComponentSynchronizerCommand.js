@@ -29,7 +29,7 @@ PowerTools.Commands.ComponentSynchronizer.prototype._execute = function (selecti
         //We are passing the uri selection. Needed? Maysbe Component Synchronizer can be activated for schemas.
         var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/ComponentSynchronizer/ComponentSynchronizer.aspx"); // +"#folderId=" + uriSelection;
 
-        this._popup = $popup.create(PopUpUrl, "toolbar=no,width=750px,height=550px,resizable=false,scrollbars=false", { sel: selection });
+        this._popup = $popup.create(PopUpUrl, "toolbar=no,width=750px,height=600px,resizable=false,scrollbars=false", { sel: selection });
 
         $evt.addEventHandler(this._popup, "unload", this.getDelegate(this._onPopupClose));
 
