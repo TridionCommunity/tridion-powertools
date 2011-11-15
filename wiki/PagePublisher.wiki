@@ -60,3 +60,13 @@ Removal Instructions
 || 6 ||The tool will have an advanced options tab, containing an option to publish in child publications|| || ||
 || 7 ||The tool will have an advanced options tab, containing an option to just render the page, but not publish it||This allows to detect templating errors while not actually publishing anything|| ||
 || 8 ||The tool will have an advanced options tab, containing an option to publish only those pages which are already published to a target, and will allow the user to choose that target from a list|| || ||
+
+== Diagrams ==
+
+<wiki:comment>
+Add a fake QueryString paramater below to make the generated image show (e.g. &faked=fake.png).
+</wiki:comment>
+
+http://www.websequencediagrams.com/cgi-bin/cdraw?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default&faked=fake.png
+
+Update the diagram on [http://www.websequencediagrams.com/?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default WebSequenceDiagrams] (will need to update these links)
