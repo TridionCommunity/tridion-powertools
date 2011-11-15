@@ -6,9 +6,9 @@
 *See [Requirements] for the list of tools in progress and the wishlist for new tools.*
 ----
 
-=Road to Release 1.0=
-_Please discussion and offer suggestions on the [https://groups.google.com/forum/#!topic/tridion-powertools/fTsk1Yx5aWk group post on version 1.0].
-  # Create installer (Mihai has point)
+=Road to Releasing 1.0=
+_Please discussion and offer suggestions on the [https://groups.google.com/forum/#!topic/tridion-powertools/fTsk1Yx5aWk group post on version 1.0]._
+  # Create installer (Mihai volunteered, but we can help gather examples and info)
   # (in parallel) Update [Nononsenseguide] into a "Developer Toolkit"
   # Alpha in progress ("internal" testing)
   # Beta Q4 2011 / Q1 2012, dates TBD
@@ -25,6 +25,8 @@ Individual steps you can take:
     * *Webservice* back-end (Webservices, Core API, etc)
     * *Client-side UI* (JavaScript, CSS, and XHTML)
     * *Client-side Logic* (JQuery/JavaScript by implication)
+
+We need your help building out the Wiki, especially helping with troubleshooting and how-to guides.
 
 =Organization=
 Contributors grouped into interests. This is _not_ set in stone--please work on what interests you.
