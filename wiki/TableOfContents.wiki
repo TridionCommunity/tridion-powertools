@@ -17,7 +17,7 @@
   * [Testing]
   * [Development]
     * *[nononsenseguide Getting Started "No Nonsense" Guide]*
-    * *[BaseClass The PowerTool Javascript base class]*
+    * [BaseClass The PowerTool Javascript base class]
     * [Utils]
       *[ItemPicker Item picker]
     * [DevelopmentTools Developer Tools]
