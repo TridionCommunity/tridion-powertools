@@ -29,9 +29,11 @@ Individual steps you can take:
 We need your help building out the Wiki, especially helping with troubleshooting and how-to guides.
 
 =Organization=
-Contributors grouped into interests. This is _not_ set in stone--please work on what interests you.
-  * Component Synchronizer
-    * Ángel Puntero, Show Lists and Component Synchronizer
+See [http://code.google.com/p/tridion-2011-power-tools/people/list full list of contributors] or below, grouped by interest. Contributors, this is _not_ set in stone--please work on what interests you and update this list freely!
+  * Component Synchronizer (3 active developers as of 14-Oct-2011)
+    * Ángel Puntero (also Show Lists)
+    * Hao Houang
+    * Jaime Santos Alcón
 
   * Publish / Unpublishing Tools
     * Page Unpublishing
@@ -39,14 +41,14 @@ Contributors grouped into interests. This is _not_ set in stone--please work on 
     * PagePublisher
       * John Winter
       * Mihai Cadariu, (and WhereUsed Publisher, Template Publisher)
-    * Robert Curlette, Component Publisher and Unlocalize Children (new)
+    * Robert Curlette, Component Publisher and Unlocalize Children (new tools)
 
   * Permissions
     * Raúl Escudero, Access permissions manager, Access Explorer, or (possibly easier) Xml Viewer/Xpath searcher
 
   * Items and Schema
     * Mark Williams, Schema field remover
-    * Kunal Shetye, Count Items and GUI framework
+    * Kunal Shetye,GUI framework
 
   * General Help and Development (for now...)
     * Graeme Wigglesworth, available to help (don't hesitate to ask!)
