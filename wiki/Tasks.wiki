@@ -1,9 +1,9 @@
-#summary Project volunteers, progress, and next steps.
+#summary Project [http://code.google.com/p/tridion-2011-power-tools/people/list volunteers], progress, and next steps.
 #labels Featured,Phase-Requirements
 
 <wiki:toc max_depth="2" />
 ----
-*See [Requirements] for the list of tools in progress and the wishlist for new tools.*
+*See [Requirements] for individual tool progress and the wishlist for new tools.*
 ----
 
 =Road to Releasing 1.0=
