@@ -8,15 +8,7 @@ PowerTools.Commands.ComponentSynchronizer = function ()
 };
 
 PowerTools.Commands.ComponentSynchronizer.prototype.isAvailable = function (selection)
-{
-    //    //Only show the button if a single FOLDER is selected
-    //    if (selection.getCount() == 1) {
-    //        var itemType = $models.getItemType(selection.getItem(0));
-    //        var item = $models.getItem(selection.getItem(0))
-    //        if (itemType == $const.ItemType.FOLDER) {
-    //            return true;
-    //        }
-    //    }
+{   
     return this._defineEnabled(selection);
 };
 
@@ -25,21 +17,54 @@ PowerTools.Commands.ComponentSynchronizer.prototype.isEnabled = function (select
     return this._defineEnabled(selection);
 };
 
-PowerTools.Commands.ComponentSynchronizer.prototype._execute = function (selection)
-{
-    var uriSelection = selection.getItem(0);
-    var baseElement = $("#contentsplitter_container");
-    var iFrame = $("#CustomPagesFrame");
-    var self = this;
+PowerTools.Commands.ComponentSynchronizer.prototype._execute = function (selection) {
+    var validSelection = this.isValidSelection(selection);
 
-    //We are passing the uri selection. Needed? Maysbe Component Synchronizer can be activated for schemas.
-    var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/ComponentSynchronizer/ComponentSynchronizer.aspx") + "#folderId=" + uriSelection;
-    this._popup = $popup.create(PopUpUrl, "toolbar=no,width=600px,height=400px,resizable=false,scrollbars=false", null);
+    if (validSelection) {
+        var uriSelection = selection.getItem(0);
+        var baseElement = $("#contentsplitter_container");
+        var iFrame = $("#CustomPagesFrame");
+        var self = this;
 
-    $evt.addEventHandler(this._popup, "unload", this.getDelegate(this._onPopupClose));
+        //We are passing the uri selection. Needed? Maysbe Component Synchronizer can be activated for schemas.
+        var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/ComponentSynchronizer/ComponentSynchronizer.aspx"); // +"#folderId=" + uriSelection;
 
-    this._popup.open();
+        this._popup = $popup.create(PopUpUrl, "toolbar=no,width=1024px,height=768px,resizable=false,scrollbars=false", { sel: selection });
+
+        $evt.addEventHandler(this._popup, "unload", this.getDelegate(this._onPopupClose));
+
+        this._popup.open();
+        
+    }
+    else {
+        var msg = $messages.createMessage("Tridion.Cme.Model.WarningMessage", "SYNCHRONIZATION", "Invalid selection", true, true);
+        $messages.registerMessage(msg);
+    }
+    
 };
+
+PowerTools.Commands.ComponentSynchronizer.prototype.isValidSelection = function (sel) {
+    var items = sel.getItems();
+    if (items.length > 1) {
+        var firstSchema = '';
+        for (var i = 0, len = items.length; i < len; i++) {
+            var itemId = sel.getItem(i);
+            var item = $models.getItem(itemId);
+
+            if (item) {
+                if (i == 0) {
+                    firstSchema = item.getSchema().getId();                    
+                }
+                if (i > 0 && item.getSchema().getId() != firstSchema) {
+                    return false;
+                }
+            }
+            
+        }
+    }
+    return true;
+}
+
 
 
 PowerTools.Commands.ComponentSynchronizer.prototype._onPopupClose = function ()
@@ -51,16 +76,34 @@ PowerTools.Commands.ComponentSynchronizer.prototype._onPopupClose = function ()
 };
 
 
-PowerTools.Commands.ComponentSynchronizer.prototype._defineEnabled = function (selection)
-{
-    var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
-    //var selection = treeView.getSelection().getItem(0);
-    var item = selection.getItem(0);
-    var itemType = $models.getItemType(item);
-
-    if (itemType == $const.ItemType.SCHEMA)
-    {
-        return true;
+PowerTools.Commands.ComponentSynchronizer.prototype._defineEnabled = function (selection) {
+    if (!selection) {
+        return false;
     }
-    return false;
+    var items = selection.getItems();
+    if (items.length == 0) {
+        //Nothing Selected
+        return false;
+    } else if (items.length == 1) {
+        var itemId = selection.getItem(0);
+        var item = $models.getItem(itemId);
+        if (item) {
+            if (item.getItemType() != $const.ItemType.SCHEMA && item.getItemType() != $const.ItemType.COMPONENT) {
+                return false;
+            }
+        }
+    } else {
+        for (var i = 0, len = items.length; i < len; i++) {
+            var itemId = selection.getItem(0);
+            var item = $models.getItem(itemId);
+
+            if (item) {
+                if (item.getItemType() != $const.ItemType.COMPONENT) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+
 }
