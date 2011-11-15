@@ -11,7 +11,7 @@ PowerTools.Popups.ComponentSynchronizer = function () {
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
     
     PowerTools.Popups.ComponentSynchronizer.USEDIN = 0;
-    PowerTools.Popups.ComponentSynchronizer.USEDINLIST_HEAD_PATH = $config.expandEditorPath("PowerTools/Client/ComponentSynchronizer/Xml/UsedInList-head.xml", "PowerTools");
+    PowerTools.Popups.ComponentSynchronizer.USEDINLIST_HEAD_PATH = $config.expandEditorPath("PowerTools/Client/ComponentSynchronizer/Xml/SyncList-head.xml", "PowerTools");
     
 };
 
