@@ -1,4 +1,4 @@
-#summary Project [http://code.google.com/p/tridion-2011-power-tools/people/list volunteers], progress, and next steps.
+#summary Project volunteers, progress, and next steps.
 #labels Featured,Phase-Requirements
 
 <wiki:toc max_depth="2" />
