@@ -51,3 +51,13 @@ Removal Instructions
 || 5 || Permissions and Rights should use the existing user's rights || || Req 5 needs feedback and review ||
 || 6 || Component Synchronizer should {rollback,fail,or do a partial update?} if all found components can not be updated in a single request || || Req 6 needs feedback and review ||
 || 7 || Component Synchronizer should {return an error on, update the parent, ignore, unlocalize (probably not), just report on, edit the localized version of} components that have parent items || || Req 7 needs feedback and review ||
+
+== Diagrams ==
+
+<wiki:comment>
+Add a fake QueryString paramater below to make the generated image show (e.g. &faked=fake.png).
+</wiki:comment>
+
+http://www.websequencediagrams.com/cgi-bin/cdraw?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default&faked=fake.png
+
+Update the diagram on [http://www.websequencediagrams.com/?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default WebSequenceDiagrams] (will need to update these links)
