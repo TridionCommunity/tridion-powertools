@@ -7,12 +7,12 @@
 PowerTools.Popups.ComponentSynchronizer = function () {
     Type.enableInterface(this, "PowerTools.Popups.ComponentSynchronizer");
     this.addInterface("Tridion.Cme.View");
-
     var p = this.properties;
     
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
+
     
     PowerTools.Popups.ComponentSynchronizer.USEDIN = 0;
     PowerTools.Popups.ComponentSynchronizer.USEDINLIST_HEAD_PATH = $config.expandEditorPath("PowerTools/Client/ComponentSynchronizer/Xml/SyncList-head.xml", "PowerTools");
@@ -24,23 +24,20 @@ PowerTools.Popups.ComponentSynchronizer = function () {
 * @private
 */
 PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
-    
+
     $log.message("initializing component Synchronizer popup...");
 
-    this.callBase("Tridion.Cme.View", "initialize");  
+    this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
     var c = p.controls;
-    p.sel = window.dialogArguments.sel; 
-    
-    
-    var p = this.properties;
-    var c = p.controls;
-    
-    p.schema = this.getItem();
-    
 
-    p.folderId = $url.getHashParam("folderId");
+    p.sel = window.dialogArguments.sel;
+    p.schema = window.dialogArguments.schema;
+    p.publication = window.dialogArguments.pub;
+    p.folderId = window.dialogArguments.folder;
+
+
     p.tabType = {};
     p.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN];
 
@@ -80,7 +77,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 						$const.ColumnFilter.VERSIONS,
 			    conditions:
 				{
-                    ItemTypes: [$const.ItemType.COMPONENT],
+				    ItemTypes: [$const.ItemType.COMPONENT],
 				    InclLocalCopies: true
 				}
 			}),
@@ -368,28 +365,28 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 
         var filter = new Tridion.ContentManager.ListFilter();
         filter.conditions.ItemTypes = [$const.ItemType.COMPONENT];
-        p.ItemPopup = $popup.create($cme.Popups.ITEM_SELECT.URL.format('tcm:2-1-2'), $cme.Popups.ITEM_SELECT.FEATURES, { filter: filter });
+        filter.conditions.BasedOnSchema = [p.schema];
+        p.ItemPopup = $popup.create($cme.Popups.ITEM_SELECT.URL.format(p.publication), $cme.Popups.ITEM_SELECT.FEATURES, { filter: filter });
 
 
         var self = this;
 
         function ComponentSynchronizer$_onBrowseClicked$onPopupClosed(event) {
             // Release
-            if (p.ItemPopup) {
+            if (p.ItemPopup && p.ItemPopup.allowClose) {
                 p.ItemPopup.dispose();
-                p.ItemPopup = null;
-                $log.message('close');
+                p.ItemPopup = null;               
             }
         };
 
         $evt.addEventHandler(p.ItemPopup, "insert",
 			function ComponentSynchronizer$_onBrowseClicked$onPopupSubmitted(event) {
-
+			    
 			    // Update
 			    var items = event.data.items;
 			    if (items) {
 
-			        var itemId, itemName, schemaName;
+			        var itemId, itemName;
 			        for (var i = 0, len = items.length; i < len; i++) {
 			            itemId = items[i];
 
@@ -397,27 +394,24 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 			                var item = $models.getItem(itemId);
 			                if (item) {
 			                    itemName = item.getStaticTitle();
-			                    var schema = item.getSchema();
-			                    p.schema = schema;
-
-			                    p.schema = $models.getItem("tcm:3-89-8");
+			                    var schema = item.getSchema();			                    
 			                    p.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN].headDocument = null;
-			                    schemaName = schema ? (schema.getStaticTitle() || schema.getTitle() || "") : "";
 			                }
 			            }
 			            break;
 			        }
 
-			        if (itemId && itemName) {
+			        if (itemId && itemName){
 			            $dom.setInnerText(c.FieldTitle, "Reference Component: " + itemName + " (" + itemId + ")");
 			            $css.show(c.BtnRemove);
-
 			        }
 
 			    }
-
-			    // Release
+			    
+			    
 			    ComponentSynchronizer$_onBrowseClicked$onPopupClosed();
+			    
+
 			});
 
         $evt.addEventHandler(p.ItemPopup, "unload", ComponentSynchronizer$_onBrowseClicked$onPopupClosed);
@@ -430,17 +424,73 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 * @param {Tridion.Core.Event}. The click event.
 */
 PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicked = function () {
+    var p = this.properties;
+
     var itemType = $const.ItemType.COMPONENT;
     var item = $models.createNewItem(itemType);
     var urlParams = {};
 
-    var orgItemId = "tcm:2-1-2";
+
+    //TODO: CHECK WHERE TO SAVE THE REFERENCE COMPONENT...
+    var orgItemId = "tcm:3-1-2";
     item.setOrganizationalItem(orgItemId);
     var editorURL = "/WebUI/item.aspx?tcm=16"
     item.setTitle("Synchronization Component - [Unique ID]");
+    
+    //TODO: CHECK CONTEXT, DOES IT AFFECT THE COMPOENNT CREATION?
+    item.setSchema(p.schema, p.schema);
 
-    if (!item.openInEditor(editorURL, null, urlParams)) {
-        $messages.registerError($localization.getCoreResource("IsPopupBlocker"), null, null, null, true);
+
+    var clearEvents = function () {
+        $evt.removeEventHandler(item, "load", gotItem);
+        $evt.removeEventHandler(item, "loadfailed", failedToLoad);
+    };
+
+    if (item) {
+        if (!item.isLoaded()) {
+            var gotItem = function () {
+                clearEvents();
+                $log.message("here");
+                var editor = item.openInEditor(editorURL, null, urlParams);
+                window.$currentEditor = editor;
+                if (!editor) {
+                    $messages.registerError($localization.getCoreResource("IsPopupBlocker"), null, null, null, true);
+                } else {
+                    /*$evt.addEventHandler(editor, "load", function () {
+                    $log.message("OnReady");
+                    $evt.removeEventHandler(editor, "load", ComponentSynchronizer$_onEditorReady);
+                    var schemaControl = editor.$display.getView().properties.controls.SchemaControl;
+                    $evt.addEventHandler(c.SchemaControl, "loadcontent", function () {
+                    $evt.removeEventHandler(schemaControl, "load", ComponentSynchronizer$_onSchemaLoadContent);
+                    schemaControl.setDisabled(true);
+                    $log.message("Schema Load ");
+                    });
+                    });*/
+                    alert(editor.document);
+                    $(editor.document).ready(function () {
+                        $log.message("ready");
+                        alert('jaime');
+                    });
+
+
+                }
+
+            };
+
+            var failedToLoad = function (error) {
+                $log.message("ComponentSynchronizer.LoadItem: item failed to load");
+
+
+            };
+
+            $evt.addEventHandler(item, "load", gotItem);
+            $evt.addEventHandler(item, "loadfailed", failedToLoad);
+
+            item.load(true);
+        }
+        else {
+            gotItem();
+        }
     }
     return item;
 };
