@@ -16,5 +16,5 @@
     <!--list:column id="PublicationColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Publication}" selector="@Publication"  enablefiltering="true" columnfilter="value"/>
 		<list:column id="CommentColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Comment}" selector="@Comment"  enablefiltering="true" columnfilter="value"/>
 		<list:column id="LocationColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Location}" selector="@Path"  enablefiltering="true" columnfilter="group"/ -->
-  </list:columns>
+  </list:columns> 
 </list:listDefinition>
