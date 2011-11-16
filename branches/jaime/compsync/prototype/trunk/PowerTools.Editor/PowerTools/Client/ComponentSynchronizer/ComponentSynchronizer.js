@@ -197,7 +197,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.loadList = function ComponetSy
 
 /**
 * On Refresh Button Click. 
-* @param {Event}. The click event.
+* @param {Tridion.Core.Event}. The click event.
 */
 PowerTools.Popups.ComponentSynchronizer.prototype.onRefreshBtnClicked = function ComponentSynchronizer$onRefreshBtnClicked(event) {
     this.loadList(true)
@@ -356,7 +356,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.updateItemDetails = function C
 
 /**
 * On Reference Component Browse. 
-* @param {Event}. The click event.
+* @param {Tridion.Core.Event}. The click event.
 */
 PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _onBrowseClicked(event) {
 
@@ -378,12 +378,6 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
             if (p.ItemPopup) {
                 p.ItemPopup.dispose();
                 p.ItemPopup = null;
-
-                //clean area
-                //$j('#SchemaBasedFields').empty();
-                //$j('#SchemaBasedFieldsEmbeded').empty();
-                //$j('#PageFields').empty();
-                //$j('#PageFieldsComponents').empty();
                 $log.message('close');
             }
         };
@@ -433,7 +427,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 
 /**
 * On Reference Component Browse. 
-* @param {Event}. The click event.
+* @param {Tridion.Core.Event}. The click event.
 */
 PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicked = function () {
     var itemType = $const.ItemType.COMPONENT;
