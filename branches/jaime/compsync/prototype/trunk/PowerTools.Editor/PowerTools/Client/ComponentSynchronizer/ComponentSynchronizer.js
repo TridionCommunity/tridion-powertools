@@ -253,9 +253,9 @@ PowerTools.Popups.ComponentSynchronizer.prototype.getListItems = function Compon
             var itemId = items[i];
             var item = $models.getItem(itemId);
             
-            if(item){              
-                
-                var icon = item.callBase("Tridion.ContentManager.VersionedItem", "getItemIcon");//item.getItemIcon();                
+            if(item){
+
+                var icon = item.getItemIcon(); //item.callBase("Tridion.ContentManager.VersionedItem", "getItemIcon");                
                 strXml+='<tcm:Item ID="'+itemId+'" Title="'+item.getStaticTitle()+'" Type="16" Icon="'+icon+'"/>';
             }
             
