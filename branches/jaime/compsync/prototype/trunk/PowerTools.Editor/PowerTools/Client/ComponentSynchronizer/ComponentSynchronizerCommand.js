@@ -100,7 +100,7 @@ PowerTools.Commands.ComponentSynchronizer.prototype.isValidSelection = function 
             var item = $models.getItem(itemId);
 
             if (item) {
-                if (item.getItemType() != $const.ItemType.SCHEMA) {
+                if (item.getItemType() != $const.ItemType.COMPONENT) {
                     return false;
                 }
                 if (i == 0) {
