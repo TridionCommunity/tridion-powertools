@@ -1,5 +1,9 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
+/**
+* Implements Component Synchronizer popup view.
+* @constructor
+*/
 PowerTools.Popups.ComponentSynchronizer = function () {
     Type.enableInterface(this, "PowerTools.Popups.ComponentSynchronizer");
     this.addInterface("Tridion.Cme.View");
@@ -15,6 +19,10 @@ PowerTools.Popups.ComponentSynchronizer = function () {
     
 };
 
+/**
+* Initializes Component Synchronizer popup view.
+* @private
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
     
     $log.message("initializing component Synchronizer popup...");
@@ -93,7 +101,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 
 
     //# End of Setups
-    //$evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
+    $evt.addEventHandler(c.BtnUsedInGoTo, "click", this.getDelegate(this.onGoToBtnClicked));
     $evt.addEventHandler(c.CreateReferenceButton, "click", this.getDelegate(this._onCreateReferenceButtonClicked));
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
@@ -101,13 +109,16 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 
     c.BtnRemove.hide();
     this.loadList(true);
-    
-
-    
 
 };
 
-
+/**
+* Reacts to the DOM click event.
+* @param {DOMEvent} event The DOM click event that occured.
+*/
+PowerTools.Popups.ComponentSynchronizer.prototype.onGoToBtnClicked = function ComponentSynchronizer$onGoToBtnClicked(event) {
+    $cme.executeCommand("Goto", this.getSelection());
+};
 
 /**
 * Gets TCM Item object.
@@ -132,13 +143,19 @@ PowerTools.Popups.ComponentSynchronizer.prototype.getItem = function ComponentSy
     
 };
 
-
+/**
+* Gets The selected Tab (always the same, but there could be more tabs)
+* @returns {Object} The selected tab.
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype.getSelectedTabType = function ComponentSynchronizer$getSelectedTabType() {
     var p = this.properties;
     return p.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN];
 };
 
-
+/**
+* Loads the list.
+* @param {Boolean} reload. Determines wheter to reload the list or not.
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype.loadList = function ComponetSynchronizer$loadList(reload) {
     
     var p = this.properties;
@@ -178,8 +195,10 @@ PowerTools.Popups.ComponentSynchronizer.prototype.loadList = function ComponetSy
     }
 };
 
-
-
+/**
+* On Refresh Button Click. 
+* @param {Event}. The click event.
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype.onRefreshBtnClicked = function ComponentSynchronizer$onRefreshBtnClicked(event) {
     this.loadList(true)
 };
@@ -193,26 +212,31 @@ PowerTools.Popups.ComponentSynchronizer.prototype.onListSelectionChanged = funct
     
     var selection = this.getSelection();
     var openCommand = $models.isContainerItemType(selection.getItemType(0)) ? "Properties" : "Open";
-    var c = this.properties.controls;
-   
-       c.BtnUsedInOpen.setDisabled(!this.isCommandAvailable(openCommand, selection));
-       c.BtnUsedInGoTo.setDisabled(!this.isCommandAvailable("Goto", selection));
-       this.updateItemDetails();
+    var c = this.properties.controls;   
+    c.BtnUsedInOpen.setDisabled(!this.isCommandAvailable(openCommand, selection));
+    c.BtnUsedInGoTo.setDisabled(!this.isCommandAvailable("Goto", selection));
+    this.updateItemDetails();
    
 };
 
 
-PowerTools.Popups.ComponentSynchronizer.prototype.isCommandAvailable = function ComponentSynchronizer$isCommandAvailable(commandName, selection) {
-    var command = $cme.getCommand(commandName);
-    return (command != null) && command.isAvailable(selection) && command.isEnabled(selection);
-};
+/**
+* Checks wether a command is available or not.
+* @param {String} commandName. The event is the event fired from the list.
+* @param {Tridion.Cme.Selection] selection. The selected items in the list
+*/
+PowerTools.Popups.ComponentSynchronizer.prototype.isCommandAvailable = function ComponentSynchronizer$isCommandAvailable(commandName, selection) {
+    //var command = $cme.getCommand(commandName);
+    //return (command != null) && command.isAvailable(selection) && command.isEnabled(selection);
+    return true;
+};
 
 
 /**
 * Gets Items List. 
 * @param {Enum} tabType Type of opened tab.
 * @returns {Object} Items List. 
-* <tcm:ListUsingItems xmlns:tcm="http://www.tridion.com/ContentManager/5.0"><tcm:Item ID="tcm:3-924" Title="Labels Component 123" Type="16" OrgItemID="tcm:3-5-2" Path="\020 Content\Building Blocks\Content" SchemaId="tcm:3-923-8" Versions="1 2 3 4" IsNew="false" Allow="268560777" Deny="614" Icon="T16L0P0" Publication="020 Content" /></tcm:ListUsingItems>
+* List format: <tcm:ListUsingItems xmlns:tcm="http://www.tridion.com/ContentManager/5.0"><tcm:Item ID="tcm:3-924" Title="Labels Component 123" Type="16" OrgItemID="tcm:3-5-2" Path="\020 Content\Building Blocks\Content" SchemaId="tcm:3-923-8" Versions="1 2 3 4" IsNew="false" Allow="268560777" Deny="614" Icon="T16L0P0" Publication="020 Content" /></tcm:ListUsingItems>
 */
 PowerTools.Popups.ComponentSynchronizer.prototype.getListItems = function ComponentSynchronizer$getListItems(tabType) {
     
@@ -249,7 +273,11 @@ PowerTools.Popups.ComponentSynchronizer.prototype.getListItems = function Compon
 };
 
 
-
+/**
+* Renders the List. 
+* @param {Enum} tabType Type of opened tab.
+* @returns {bodyXml} String xml with Items List. 
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype.renderList = function ComponentSynchronizer$renderList(tabType, bodyXml) {
     
     var p = this.properties;
@@ -289,6 +317,9 @@ PowerTools.Popups.ComponentSynchronizer.prototype.renderList = function Componen
 };
 
 
+/**
+* Gets the list selection. 
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype.getSelection = function ComponentSynchronizer$getSelection() {
     var p = this.properties;
     var tab = this.properties.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN];
@@ -304,35 +335,29 @@ PowerTools.Popups.ComponentSynchronizer.prototype.getSelection = function Compon
 };
 
 
+/**
+* Updates the Item Details. 
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype.updateItemDetails = function ComponentSynchronizer$updateItemDetails() {
     var p = this.properties;
     var c = p.controls;
+    var p = this.properties;
+    var c = p.controls;
+    var tab = p.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN];
 
-    $dom.setInnerText(c.DetailsText, "Enter here details about the selected item");
+    var usedInList = tab.control;
+    var items = usedInList.getSelection().getItems();
+
+    var itemId = items[0];
+    $dom.setInnerText(c.DetailsText, "Enter here details for item: "+ itemId);
 
 
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+* On Reference Component Browse. 
+* @param {Event}. The click event.
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _onBrowseClicked(event) {
 
     var p = this.properties;
@@ -406,10 +431,10 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
     }
 }
 
-
-
-
-
+/**
+* On Reference Component Browse. 
+* @param {Event}. The click event.
+*/
 PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicked = function () {
     var itemType = $const.ItemType.COMPONENT;
     var item = $models.createNewItem(itemType);
@@ -435,44 +460,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = functi
     window.close();
 };
 
-PowerTools.Popups.ComponentSynchronizer.prototype.onSchemaLoadContent = function (e) {
-
-    var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.COMPONENT);
-
-    if (schemaList) {
-
-        var dropdown = this.properties.controls.SchemaControl;
-        function Component$onSchemaLoadContent$listLoaded() {
-            $evt.removeEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            dropdown.setContent(schemaList.getXml());
-        }
-
-        if (schemaList.isLoaded(true)) {
-            Component$onSchemaLoadContent$listLoaded();
-        }
-        else {
-            $evt.addEventHandler(schemaList, "load", Component$onSchemaLoadContent$listLoaded);
-            schemaList.load();
-        }
-    }
-};
-
-
-
-PowerTools.Popups.ComponentSynchronizer.prototype.getListFieldsSchemas = function (purpose) {
-    var p = this.properties;
-
-    var folder = $models.getItem(p.folderId);
-    var publication = folder.getPublication();
-
-    var list = publication.getListSchemas(purpose);
-    return list;
-}
-
-
-
-
-
+//Registers View
 $display.registerView(PowerTools.Popups.ComponentSynchronizer);
 
 
