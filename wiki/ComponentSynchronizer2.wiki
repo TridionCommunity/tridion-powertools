@@ -32,7 +32,8 @@ The new approach will add the following features:
 
 Some Screenshots can be downloaded [http://tridion-2011-power-tools.googlecode.com/files/compsync.zip here ]
 
-= Using the New Branch =
+= SVN New Branch =
+A new branch has been created in the SVN repository to store the files used for this approach.
 To use the new branch of the repository, right-click over the Solution within Visual Studio 2010 and select: Subversion --> Switch Solution...
 
 Then select the following branch:
