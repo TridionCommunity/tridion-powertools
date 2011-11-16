@@ -22,3 +22,5 @@ The new approach will add the following features:
   * Launch the Component Syncrhonizer from a Search, by selecting the results 
 
 = Screenshots =
+
+Some Screenshots can be downloaded [http://tridion-2011-power-tools.googlecode.com/files/compsync.zip here ]
