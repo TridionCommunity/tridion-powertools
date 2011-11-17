@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E10D003-9313-449E-9E21-61265236F43A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PowerTools.Model</RootNamespace>
+    <AssemblyName>PowerTools.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="Tridion.ContentManager.CoreService.Client.2010, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\ItemQuery.svc" />
+    <Content Include="Services\ComponentSynchronizer.svc" />
+    <Content Include="Services\AppDataInspector.svc" />
+    <Content Include="Services\CountItems.svc" />
+    <Content Include="Services\PagePublisher.svc" />
+    <Content Include="Services\FieldRemover.svc" />
+    <Content Include="Services\MarkUnpublished.svc" />
+    <Content Include="Services\Example.svc" />
+    <Content Include="Services\ImageUploader.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\ItemQuery.svc.cs">
+      <DependentUpon>ItemQuery.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Exceptions\BaseServiceException.cs" />
+    <Compile Include="Progress\ServiceProcess.cs" />
+    <Compile Include="Progress\ServiceProcessHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ComponentSynchronizer.svc.cs">
+      <DependentUpon>ComponentSynchronizer.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AppDataInspector.svc.cs">
+      <DependentUpon>AppDataInspector.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AppDataInspectorData.cs" />
+    <Compile Include="Services\CountItems.svc.cs">
+      <DependentUpon>CountItems.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CountItemsData.cs" />
+    <Compile Include="Services\PagePublisher.svc.cs">
+      <DependentUpon>PagePublisher.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\FieldRemover.svc.cs">
+      <DependentUpon>FieldRemover.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MarkUnpublished.svc.cs">
+      <DependentUpon>MarkUnpublished.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Example.svc.cs">
+      <DependentUpon>Example.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ImageUploader.cvs.cs">
+      <DependentUpon>ImageUploader.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ServiceResponseBase.cs" />
+    <Compile Include="Services\StatusServiceResponse.cs" />
+    <Compile Include="Utils\Serializer.cs" />
+    <Compile Include="Utils\StringExtensions.cs" />
+    <Compile Include="Utils\TcmUri.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\Model.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\Model.Fragment.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerTools.Common\PowerTools.Common.csproj">
+      <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
+      <Name>PowerTools.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49310</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y
+xcopy "$(TargetDir)*.pdb" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
