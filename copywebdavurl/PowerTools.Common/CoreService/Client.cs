@@ -27,7 +27,7 @@ namespace PowerTools.Common.CoreService
 			var endpoint = new EndpointAddress("http://localhost/WebServices/CoreService.svc/wsHttp_2010");
 			var result = new SessionAwareCoreService2010Client(httpBinding, endpoint);
 			result.Impersonate(userName);
-
+            
 			return result;
 		}
 	}

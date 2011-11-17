@@ -29,7 +29,8 @@ namespace PowerTools.Model.Services
 
 		public virtual ServiceProcess GetProcessStatus(String Id)
 		{
-			System.Collections.ObjectModel.Collection<ServiceProcessHelper> processes = OperationContext.Current.InstanceContext.Extensions.FindAll<ServiceProcessHelper>();
+			System.Collections.ObjectModel.Collection<ServiceProcessHelper> processes 
+                = OperationContext.Current.InstanceContext.Extensions.FindAll<ServiceProcessHelper>();
 			foreach (ServiceProcessHelper storedprocess in processes)
 			{
 				if (storedprocess.Process.Id == Id)

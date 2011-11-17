@@ -3,20 +3,30 @@
 PowerTools.Popups.PagePublisher = function () {
     Type.enableInterface(this, "PowerTools.Popups.PagePublisher");
     this.addInterface("Tridion.Cme.View");
-    this.callBase("Tridion.Cme.View", "initialize");
+
 
     var p = this.properties;
     p.processId = null;
     p.locationId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 
+    // Params: items, republish, userWorkflow
     p.params = null;
+    // Items to publish list
+    //p.itplHeight = null;
+    //p.isItplVisible = true;
+    //p.itpList = null;
+    //p.itpListHeadXml = null;
+    // Priority dropdown
     p.isPddLoaded = false;
     // Target types domain list
     p.targetTypesListId;
+    // Selected target type ids
+    p.selectedTts = [];
 
 };
 
+PowerTools.Popups.PagePublisher.DROPDOWN_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/PublishQueueDropdown-head.xml", $const.CMEEditorName);
 PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/TargetTypeList-head.xml", $const.CMEEditorName);
 
 PowerTools.Popups.PagePublisher.prototype.initialize = function () {
@@ -36,11 +46,23 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
     $evt.addEventHandler(c.TargetTypeList, "select", this.getDelegate(this._onTargetTypeListSelectionChanged));
     $evt.addEventHandler(c.TargetTypeList, "deselect", this.getDelegate(this._onTargetTypeListSelectionChanged));
 
+    // Priority drop down
+    c.Priority = $controls.getControl($("#Priority"), "Tridion.Controls.Dropdown");
+
+    // checkbox options
+    /*
+    c.Recursive = $j("#RecursiveChk");
+    c.Republish = $j("#RepublishChk");
+    c.PublishChildren = $j("#PublishChildrenChk");
+    c.Priority = $j("#Priority");
+    */
+
     // Exe and close
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
     c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+
 
     // Init controls
     this._setupControls();
@@ -59,15 +81,14 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
 PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
 
     $j('#CloseDialog').hide();
-    alert($j("#Priority").val());
+
     var p = this.properties;
     var c = p.controls;
     p.SelectedTarget = this._getSelectedTargetTypes();
     p.Recursive = $j("#RecursiveChk").attr('checked');
     p.Republish = $j("#RepublishChk").attr('checked');
     p.PublishChildren = $j("#PublishChildrenChk").attr('checked');
-    //p.Priority = parseInt(c.Priority.getValue());
-    p.Priority = parseInt($j("#Priority").val());
+    p.Priority = c.Priority.getValue();
     $log.message("Page publisher publish : Recursive = [" + p.Recursive + "] | Republish in children = [" + p.PublishChildren + "] | Republish only = [" + p.Republish + "] |  Priority = [" + p.Priority + "]");
 
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
@@ -75,7 +96,8 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     var context = null;
 
     // pass in structure uri, publishing target uri
-    PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren, onSuccess, onFailure, context, false);
+    //PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren);
+    PowerTools.Model.Services.PagePublisher.Execute(p.locationId);
     var dialog = $j("#dialog");
     var win = $j(window);
 
@@ -98,8 +120,10 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
 };
 
 /**
-* When the overlayer close button is clicked the div is faded out
+* TODO: Comment
+* @id - TODO:
 */
+
 PowerTools.Popups.PagePublisher.prototype._onCloseButtonClicked = function () {
     $j('#mask, .window').hide();
     $j('#ProgressStatus').html("");
@@ -107,9 +131,10 @@ PowerTools.Popups.PagePublisher.prototype._onCloseButtonClicked = function () {
 };
 
 /**
-* Updates the overlayer progress bar with the current percentage of the process
-* @process - the service process:
+* TODO: Comment
+* @id - TODO:
 */
+
 PowerTools.Popups.PagePublisher.prototype._updateProgressBar = function (process) {
 
     $j('#ProgressStatus').html(process.Status);
@@ -117,12 +142,13 @@ PowerTools.Popups.PagePublisher.prototype._updateProgressBar = function (process
 }
 
 /**
-* Manages the responses from the status
-* @result:
+* TODO: Comment
+* @id - TODO:
 */
 
 PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (result) {
     var p = this.properties;
+
     p.processId = result.Id;
     this._updateProgressBar(result);
     if (result.PercentComplete < 100) {
@@ -136,8 +162,8 @@ PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (resu
 }
 
 /**
-* Gets the process status from the page publisher webservice
-* @id - the id of the process:
+* TODO: Comment
+* @id - TODO:
 */
 
 PowerTools.Popups.PagePublisher.prototype._pollStatus = function (id) {
@@ -152,8 +178,7 @@ PowerTools.Popups.PagePublisher.prototype._pollStatus = function (id) {
 }
 
 /**
-* While the tool is processing polls the status
-* @result - the process 
+* TODO: Comment
 */
 
 PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) {
@@ -171,19 +196,19 @@ PowerTools.Popups.PagePublisher.prototype._setupControls = function _setupContro
     var p = this.properties;
     var c = p.controls;
 
-    // Disable the execute button
+    // Disable some buttons
     c.ExecuteButton.disable();
-
     var publishLabel = $localization.getEditorResource("Publish");
     document.title = publishLabel;
     c.ExecuteButton.setText(publishLabel);
+
+    var dropdownHeadPath = $config.expandBasePath(PowerTools.Popups.PagePublisher.DROPDOWN_HEAD_PATH + "?forView=" + Tridion.Core.Configuration.CurrentView + "&forControl=" + this.properties.controls.Priority.getId());
+    $xml.loadXmlDocument(dropdownHeadPath, this.getDelegate(this._dropdownHeadLoaded), this.getDelegate(this._dropdownHeadLoadFailed));
 }
 
 
-/* ============================================
-*  Publishing target checkbox related functions
-============================================ */
 
+// =========================================================================================================================
 /**
 * Handles the list selection change event.
 * @param {Tridion.Core.Event} event. The event is the event fired from the list.
@@ -215,6 +240,11 @@ PowerTools.Popups.PagePublisher.prototype._onTargetTypeListSelectionChanged = fu
 };
 
 
+
+
+// =======================================================================================================
+
+
 /**
 * Handles the definitions XML document load event.
 * @param {XMLDocument} headXml Definitions XML document.
@@ -227,6 +257,9 @@ PowerTools.Popups.PagePublisher.prototype._ttListHeadLoaded = function _ttListHe
 };
 
 
+// =======================================================================================================
+
+
 /**
 * Handles the definitions XML document load faild event.
 */
@@ -235,6 +268,8 @@ PowerTools.Popups.PagePublisher.prototype._ttListHeadLoadFailed = function _ttLi
 };
 
 $display.registerView(PowerTools.Popups.PagePublisher);
+
+// =======================================================================================================
 
 
 /**
@@ -248,6 +283,7 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeListHeader = funct
     $xml.loadXmlDocument(ttListHeadPath, this.getDelegate(this._ttListHeadLoaded), this.getDelegate(this._ttListHeadLoadFailed));
 };
 
+// =======================================================================================================
 
 /**
 * Asynchronously load target types list header.
@@ -282,6 +318,10 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
             }
         }
 
+        // restore previous settings after the list has been drawn
+        $evt.addEventHandler(c.TargetTypeList, "draw", self.getDelegate(self._applyTargetTypePreferences));
+
+
         // Draw the list
         c.TargetTypeList.draw(xml, p.ttListHeadXml);
         c.TargetTypeList.setView(Tridion.Controls.List.ViewType.CHECKBOXES);
@@ -305,6 +345,9 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
         }
     }
 };
+
+
+// =======================================================================================================
 
 
 /**
@@ -347,6 +390,9 @@ PowerTools.Popups.PagePublisher.prototype._getSelectedTargetTypes = function _ge
 };
 
 
+// =======================================================================================================
+
+
 /**
 * Gets item publication.
 * @returns {Tridion.ContentManager.Publication} Using item <c>Tridion.ContentManager.Publication</c>.
@@ -363,3 +409,81 @@ PowerTools.Popups.PagePublisher.prototype._getPublicationFromParams = function _
     }
     return null;
 };
+
+
+
+
+/* Populate drop down priority functions */
+
+// ======================================================================================================================================
+
+/**
+* Handles the definitions XML document load event.
+* @param {XMLDocument} headXml Definitions XML document.
+*/
+PowerTools.Popups.PagePublisher.prototype._dropdownHeadLoaded = function _dropdownHeadLoaded(headXml) {
+    // Save dropdown header
+    this.properties.dropdownHeadXml = headXml;
+    // Update priority dropdown
+    this._populatePriorityDropdown();
+};
+
+// ========================================================================================================================
+
+/**
+* Handles the definitions XML document load faild event.
+*/
+PowerTools.Popups.PagePublisher.prototype._dropdownHeadLoadFailed = function _dropdownHeadLoadFailed() {
+    $log.message("PowerTools.Popups.PagePublisher._dropdownHeadLoadFailed");
+};
+
+// ========================================================================================================================
+
+
+/**
+* Populates Publish Priorities dropdown
+* @private
+*/
+PowerTools.Popups.PagePublisher.prototype._populatePriorityDropdown = function _populatePriorityDropdown() {
+    var p = this.properties;
+    var list = Tridion.ContentManager.Model.getListPublishPriorities();
+    this._populateDropdown(p.controls.Priority, list, p.dropdownHeadXml);
+};
+
+
+
+/**
+* Populates dropdown
+* @param {Tridion.Controls.Dropdown} dropdown Dropdown to populate.
+* @param {Tridion.ContentManager.List} list List items.
+* @param {XMLDocument} head Definitions XML document. 
+* @private
+*/
+PowerTools.Popups.PagePublisher.prototype._populateDropdown = function _populateDropdown(dropdown, list, head) {
+    var p = this.properties;
+    if (!dropdown || !list || !head) {
+        return;
+    }
+
+    // Async handler
+    var populateDropdown = function $_populateDropdown$listLoaded(event) {
+        // Set dropdown options
+        var xml = $xml.getNewXmlDocument(list.getXml());
+        dropdown.draw(xml, head);
+        // Set as loaded
+        p.isPddLoaded = true;
+        var node = $xml.selectSingleNode(xml, "//tcm:Value[last()-1]");
+        if (node) {
+            dropdown.setValue(node.getAttribute("ID"), node.getAttribute("Title"));
+        }
+    };
+
+    if (list.isLoaded(true)) {
+        populateDropdown();
+    }
+    else {
+        $evt.addEventHandler(list, "load", populateDropdown);
+        list.load();
+    }
+};
+

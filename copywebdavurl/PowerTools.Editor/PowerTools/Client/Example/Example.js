@@ -1,7 +1,7 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools.Popups.Example = function ()
-{
+PowerTools.Popups.Example = function () {
+    $log.message("PowerTools.Popups.Example.ctor");
     Type.enableInterface(this, "PowerTools.Popups.Example");
     this.addInterface("Tridion.Cme.View");
 
@@ -93,8 +93,8 @@ PowerTools.Popups.Example.prototype._onSelectButtonClicked = function () {
 
 }
 
-PowerTools.Popups.Example.prototype._onExecuteButtonClicked = function ()
-{
+PowerTools.Popups.Example.prototype._onExecuteButtonClicked = function () {
+    $log.message("on example execute button clicked");
     $j('#CloseDialog').hide();
 
     var p = this.properties;

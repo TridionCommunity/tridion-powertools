@@ -70,9 +70,13 @@
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerCommand.js" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx" />
+    <Content Include="PowerTools\Client\CopyWebDAVUrl\CopyWebDAVUrl.aspx" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.css" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.js" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorCommand.js" />
+    <Content Include="PowerTools\Client\CopyWebDAVUrl\CopyWebDAVUrl.js" />
+    <Content Include="PowerTools\Client\CopyWebDAVUrl\CopyWebDAVUrlCommand.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\jquery.zclip.js" />
     <Content Include="PowerTools\Client\CountItems\CountItems.aspx" />
     <Content Include="PowerTools\Client\CountItems\CountItems.css" />
     <Content Include="PowerTools\Client\CountItems\CountItems.js" />
@@ -96,7 +100,6 @@
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.css" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.js" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploaderCommand.js" />
-    <Content Include="PowerTools\Client\IndexPageCommand.js" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisher.css" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisher.js" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisherCommand.js" />
@@ -153,6 +156,13 @@
     </Compile>
     <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.designer.cs">
       <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\CopyWebDAVUrl\CopyWebDAVUrl.aspx.cs">
+      <DependentUpon>CopyWebDAVUrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\CopyWebDAVUrl\CopyWebDAVUrl.aspx.designer.cs">
+      <DependentUpon>CopyWebDAVUrl.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
@@ -230,6 +240,7 @@
   <ItemGroup>
     <Content Include="PowerTools\Client\Shared\Views\FieldView.Master" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

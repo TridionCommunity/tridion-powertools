@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\ItemQuery.svc" />
     <Content Include="Services\ComponentSynchronizer.svc" />
     <Content Include="Services\AppDataInspector.svc" />
     <Content Include="Services\CountItems.svc" />
@@ -70,6 +71,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\ItemQuery.svc.cs">
+      <DependentUpon>ItemQuery.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Exceptions\BaseServiceException.cs" />
     <Compile Include="Progress\ServiceProcess.cs" />
@@ -108,7 +112,9 @@
     <Compile Include="Utils\TcmUri.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Configuration\Model.config" />
+    <Content Include="Configuration\Model.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Model.Fragment.config" />
