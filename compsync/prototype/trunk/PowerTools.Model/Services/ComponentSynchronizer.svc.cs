@@ -15,32 +15,29 @@ namespace PowerTools.Model.Services
 	[ServiceContract(Namespace = "PowerTools.Model.Services")]
 	public class ComponentSynchronizer : BaseService
 	{
-		class ImageUploadParameters
+		class CompSyncParameters
 		{
-			public string Directory { get; set; }
-			public string FolderUri { get; set; }
-			public string SchemaUri { get; set; }
+			public string[] SelectedURIs { get; set; }
+			public string ReferenceCompoenntURI { get; set; }
+			
 		}
 
 		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-		public ServiceProcess Execute(string directory, string folderUri, string schemaUri)
+		public ServiceProcess Execute(string selectedURIs, string referenceComponentURI)
 		{
-			if (string.IsNullOrEmpty(directory))
+            if (string.IsNullOrEmpty(selectedURIs))
 			{
-				throw new ArgumentNullException("directory");
+                throw new ArgumentNullException("selectedURIs");
 			}
 
-			if (string.IsNullOrEmpty(folderUri))
+            if (string.IsNullOrEmpty(referenceComponentURI))
 			{
-				throw new ArgumentNullException("folderUri");
+                throw new ArgumentNullException("referenceComponentURI");
 			}
 
-			if (string.IsNullOrEmpty(schemaUri))
-			{
-				throw new ArgumentNullException("schemaUri");
-			}
+            
 
-			ImageUploadParameters arguments = new ImageUploadParameters { Directory = directory, FolderUri = folderUri, SchemaUri = schemaUri };
+            CompSyncParameters arguments = new CompSyncParameters { SelectedURIs = selectedURIs.Split(','), ReferenceCompoenntURI =referenceComponentURI };
 			return ExecuteAsync(arguments);
 		}
 
@@ -52,10 +49,10 @@ namespace PowerTools.Model.Services
 
 		public override void Process(ServiceProcess process, object arguments)
 		{
-			ImageUploadParameters parameters = (ImageUploadParameters)arguments;
-			if (!Directory.Exists(parameters.Directory))
+            CompSyncParameters parameters = (CompSyncParameters)arguments;
+			if (parameters.SelectedURIs == null)
 			{
-				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Directory '{0}' does not exist.", parameters.Directory));
+				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "List '{0}' is null.", parameters.SelectedURIs));
 			}
 
 			var client = PowerTools.Common.CoreService.Client.GetCoreService();
@@ -63,13 +60,13 @@ namespace PowerTools.Model.Services
 			try
 			{
 
-				string[] files = Directory.GetFiles(parameters.Directory);
+				
 				int i = 0;
 
-				foreach (string file in files)
+				foreach (string uri in parameters.SelectedURIs)
 				{
-					process.SetStatus("Importing image: " + Path.GetFileName(file));
-					process.SetCompletePercentage(++i * 100 / files.Length);
+					process.SetStatus("Synchronizing Component: " + uri);
+                    process.SetCompletePercentage(++i * 100 / parameters.SelectedURIs.Length);
 					System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
 				}
 
