@@ -12,7 +12,7 @@ PowerTools.Popups.ComponentSynchronizer = function () {
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
-
+    p.referenceComponent = null;
     
     PowerTools.Popups.ComponentSynchronizer.USEDIN = 0;
     PowerTools.Popups.ComponentSynchronizer.USEDINLIST_HEAD_PATH = $config.expandEditorPath("PowerTools/Client/ComponentSynchronizer/Xml/SyncList-head.xml", "PowerTools");
@@ -403,6 +403,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 
 			        if (itemId && itemName){
 			            $dom.setInnerText(c.FieldTitle, "Reference Component: " + itemName + " (" + itemId + ")");
+                        p.referenceComponent = itemId;
 			            $css.show(c.BtnRemove);
 			        }
 
@@ -496,7 +497,12 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicke
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function () {
-    $log.message("Execute code");
+    var p = this.properties;
+    if (true) { //TODO: ADD SOME CHECKS
+        var worker = new PowerTools.ComponentSynchronizerWorker();
+        worker.execute(p.sel, p.referenceComponent);
+    }  
+    
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function () {
