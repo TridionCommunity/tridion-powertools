@@ -59,5 +59,20 @@ Locate the '<models/>' element and add the power tools editor.
     </model>
 }}}
 
+
+== Add the Tridion Web.UI.Core DLL  == 
+
+# Open the Solution in Visual Studio 2010.
+# Open the PowerTools.Common project
+# Remove the Tridion.Web.UI.Core reference with the yellow warning icon
+# Add the Tridion.Web.UI.Core reference from your server at 'C:\Program Files\Tridion\web\WebUI\WebRoot\bin'
+# Repeat the same for the PowerTools.Editor project
+# Build and compile(Ctrl-Shift-B shortcut)
+
+== Update the URL to the Core Service (if not running CMS on port 80)  == 
+# Open the PowerTools.Common project
+# Open the Client.js file located in the CoreService folder
+# Edit the Endpoint to your CMS URL with port number.  For example, var endpoint = new EndpointAddress("http://localhost:8080/WebServices/CoreService.svc/wsHttp_2010");
+
 == Final step == 
 [ClearBrowserCache Clear your browser cache].
