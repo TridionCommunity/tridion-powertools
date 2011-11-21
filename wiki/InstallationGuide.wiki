@@ -19,6 +19,8 @@ The following describes how to get the libraries (dll), create the necessary vir
 First get the code from the repository following the guidance at 
 http://code.google.com/p/tridion-2011-power-tools/source/checkout
 
+Read-only copy at
+http://tridion-2011-power-tools.googlecode.com/svn/trunk/
 
 == Add virtual directories in IIS == 
 Open the IIS management snap-in.
