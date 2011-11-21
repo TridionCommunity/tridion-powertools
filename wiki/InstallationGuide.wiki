@@ -76,3 +76,6 @@ Locate the '<models/>' element and add the power tools editor.
 
 == Final step == 
 [ClearBrowserCache Clear your browser cache].
+
+== Test == 
+  # Select a Folder and then choose the 'Count items' PowerTool. 
