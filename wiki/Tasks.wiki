@@ -30,15 +30,19 @@ We need your help building out the Wiki, especially helping with troubleshooting
 
 =Organization=
 See [http://code.google.com/p/tridion-2011-power-tools/people/list full list of contributors] or below, grouped by interest. Contributors, this is _not_ set in stone--please work on what interests you and update this list freely!
-  * Component Synchronizer (3 active developers as of 14-Oct-2011)
+  * *Component Synchronizer* (3 active developers as of 14-Oct-2011)
+ Current challenge and approach: the team is evaluating whether to re-use the existing component view or create similar functionality from scratch. The following team members are working out an approach in separate branches as well as working out what's possible while learning how it's all wired together.
     * Ángel Puntero (also Show Lists)
     * Hao Houang
     * Jaime Santos Alcón
 
+ Follow or join the [https://groups.google.com/forum/#!topic/tridion-powertools/Iy7d2PsE83s discussion on approach].
+
   * Publish / Unpublishing Tools
+ Current page publisher is in a working state but could use review and testing (as of 23-Nov-2011). Thanks much to John and all who's worked on it!
     * Page Unpublishing
       * Mark Saunders (dylan.home)[PageUnpublisher]
-    * PagePublisher
+    * *PagePublisher*
       * John Winter
       * Mihai Cadariu, (and WhereUsed Publisher, Template Publisher)
     * Robert Curlette, Component Publisher and Unlocalize Children (new tools)
