@@ -98,7 +98,7 @@
     <Compile Include="Services\Example.svc.cs">
       <DependentUpon>Example.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\ImageUploader.cvs.cs">
+    <Compile Include="Services\ImageUploader.svc.cs">
       <DependentUpon>ImageUploader.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\ServiceResponseBase.cs" />
