@@ -71,7 +71,7 @@ Locate the '<models/>' element and add the power tools editor.
 
 == Update the URL to the Core Service (if not running CMS on port 80)  == 
   # Open the PowerTools.Common project
-  # Open the Client.js file located in the CoreService folder
+  # Open the Client.cs file located in the CoreService folder
   # Edit the Endpoint to your CMS URL with port number.  For example, var endpoint = new EndpointAddress("http://localhost:8080/WebServices/CoreService.svc/wsHttp_2010");
 
 == Final step == 
