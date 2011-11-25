@@ -1,2 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="BootCamp2011Editor.Extensions.Tabs.ItemXmlTab" %>
-<pre id="itemXml" readonly="readonly"></pre>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="PowerTools.Editor.PowerTools.Client.ItemXmlTab.ItemXmlTab" %>
+<div id="itemXmlWrapper" readonly="readonly">
+    <div id="itemXml" readonly="readonly"></div>
+</div>

@@ -1,10 +1,10 @@
-﻿Type.registerNamespace("BootCamp2011Editor");
+﻿Type.registerNamespace("ItemXmlTab");
 
-BootCamp2011Editor.ItemXmlTab = function BootCamp2011Editor$ItemXmlTab(element)
+ItemXmlTab.ItemXmlTab = function ItemXmlTab$ItemXmlTab(element)
 {
-    if ($ptUtils.isCurrentUserAdmin())
+    if ($ptUtils.isCurrentUserAdmin()) 
     {
-        Tridion.OO.enableInterface(this, "BootCamp2011Editor.ItemXmlTab");
+        Tridion.OO.enableInterface(this, "ItemXmlTab.ItemXmlTab");
         this.addInterface("Tridion.Controls.DeckPage", [element]);
     }
     else
@@ -13,24 +13,36 @@ BootCamp2011Editor.ItemXmlTab = function BootCamp2011Editor$ItemXmlTab(element)
     }
 };
 
-BootCamp2011Editor.ItemXmlTab.prototype.initialize = function ItemXmlTab$initialize()
+ItemXmlTab.ItemXmlTab.prototype.initialize = function ItemXmlTab$initialize()
 {
     this.callBase("Tridion.Controls.DeckPage", "initialize");
     $evt.addEventHandler($display.getItem(), "load", this.getDelegate(this.updateView));
 };
 
-BootCamp2011Editor.ItemXmlTab.prototype.select = function ItemXmlTab$select()
+ItemXmlTab.ItemXmlTab.prototype.select = function ItemXmlTab$select()
 {
     this.callBase("Tridion.Controls.DeckPage", "select");
     this.updateView();
 };
 
-BootCamp2011Editor.ItemXmlTab.prototype.updateView = function ItemXmlTab$updateView()
+ItemXmlTab.ItemXmlTab.prototype.updateView = function ItemXmlTab$updateView()
 {
-    if (this.isSelected())
+    if (this.isSelected()) 
     {
-        $dom.setInnerText($("#itemXml"), $display.getItem().getXml());
+        var xslPath = $ptUtils.expandPath("/PowerTools/Client/ItemXml/ItemXmlTab.xslt", true);
+
+        $xml.loadXsltProcessor(xslPath, function (value) 
+        {
+            var xmlSource = $display.getItem().getXml();
+
+            // Filter out all spacing characters
+            xmlSource = xmlSource.replace(/\t|\n|\r/g, "");
+
+            var html = $xml.xsltTransform(value, $xml.getNewXmlDocument(xmlSource), null);
+
+            $dom.setOuterHTML($("#itemXml"), html);
+        });        
     }
 };
 
-Tridion.Controls.Deck.registerPageType(BootCamp2011Editor.ItemXmlTab, "ItemXmlTab");
+Tridion.Controls.Deck.registerPageType(ItemXmlTab.ItemXmlTab, "ItemXmlTab");
