@@ -175,23 +175,23 @@ namespace PowerTools.Model.Services
 		//        .Select(el => el.Attribute("ID").Value).FirstOrDefault();
 		//}
 
-		private static string GetMultiMediaType(string extension)
-		{
-			//Strip of leading . from extension
-			string ext = extension.StartsWith(".") ? extension.Substring(1) : extension;
+        private static string GetMultiMediaType(string extension)
+        {
+            //Strip of leading . from extension
+            string ext = extension.StartsWith(".") ? extension.Substring(1) : extension;
 
-			XmlDocument doc = new XmlDocument(); 
-			doc.LoadXml(MultiMediaTypes.OuterXml);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(MultiMediaTypes.OuterXml);
 
-			XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable); ns.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
-			var mmTypeId = MultiMediaTypes.SelectSingleNode("//tcm:Item[contains(@FileExtensions, '" + ext + "')]", ns);
-			if (mmTypeId != null)
-			{
-				return mmTypeId.Attributes["ID"].Value;
-			}
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable); ns.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
+            var mmTypeId = MultiMediaTypes.SelectSingleNode("//tcm:Item[contains(@FileExtensions, '" + ext + "')]/@ID", ns);
+            if (mmTypeId != null)
+            {
+                return mmTypeId.Value;
+            }
 
-			return null;
-		}
+            return null;
+        }
 
 		private static string MakeValidFileName(string name)
 		{
