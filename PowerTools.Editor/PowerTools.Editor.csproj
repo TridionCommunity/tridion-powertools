@@ -84,6 +84,7 @@
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.css" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.js" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.xslt" />
     <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx" />
     <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.css" />
     <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.js" />

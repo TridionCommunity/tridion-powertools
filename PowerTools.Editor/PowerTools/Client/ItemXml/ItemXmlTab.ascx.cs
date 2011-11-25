@@ -1,9 +1,9 @@
 ﻿using Tridion.Web.UI.Controls;
 using Tridion.Web.UI.Core.Controls;
 
-namespace BootCamp2011Editor.Extensions.Tabs
+namespace PowerTools.Editor.PowerTools.Client.ItemXmlTab
 {
-	[ControlResources("BootCamp2011Editor.Extensions.Tabs.ItemXmlTab")]
+    [ControlResources("PowerTools.ItemXmlTab")]
 	[ControlResourcesDependency(typeof(TabControl))]
 	public class ItemXmlTab : Tridion.Web.UI.Controls.TridionUserControl
 	{
