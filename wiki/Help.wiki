@@ -33,4 +33,5 @@ Need help with the people, organizations, and seemingly random terminology? Visi
 
 == IRC ==
 Much of the team's communication takes place in a secret Skype chat. (OK - it's not that secret! You can be invited simply for the sake of asking.) We also have an IRC channel. Some members of the project are IRC-friendly, and you may find them there
-[irc://irc.freenode.org/tridion Tridion IRC Channel]
+[irc://irc.freenode.org/tridion]
+If anyone knows how to format the above link correctly, pleae help out. 
