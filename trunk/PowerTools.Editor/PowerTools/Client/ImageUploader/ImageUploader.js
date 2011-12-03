@@ -83,8 +83,10 @@ PowerTools.Popups.ImageUploader.prototype.getListFieldsSchemas = function (purpo
     return list;
 };
 
-PowerTools.Popups.ImageUploader.prototype.afterSuccess = function () {
-    //Optional method: called after the service-call was finished (100%). Useful for getting data that was gathered/stored by the service-call
+PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (event) {
+    //Optional method: called after the service-call was finished (100%). Useful for getting data that was gathered/stored by the service-call  
+    window.opener.$display.getView().refreshList();
+
 };
 
 $display.registerView(PowerTools.Popups.ImageUploader);
