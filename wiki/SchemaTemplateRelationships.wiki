@@ -9,9 +9,11 @@ This tool was originally created...
 
 = Details =
 
+||Audience||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||Power User||Context menu on publication||Quirijn Slings||Medium||Medium|| ||Updates don't seem to work||
 
 ==Description==
-{what does the tool do}
+Shows the relationships between schemas and component templates, and allows you to change these relationships.
 
 == Audience ==
 Admins and Power Users
