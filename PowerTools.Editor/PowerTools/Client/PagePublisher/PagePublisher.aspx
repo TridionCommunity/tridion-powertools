@@ -7,7 +7,7 @@
         <div class="tool-explanation">Publish a collection of pages individually, as separate publish instructions. This can be necessary as when you press publish on a publication in SDL Tridion, if a failure occurs, the entire transaction will be fail.</div>
 
         <div id="StackElement1" class="stack horizontal">
-            <div id="Options" class="stack-calc splitter vertical box-spacer-10">
+            <div id="Options" class="stack-calc splitter vertical bottom-spacer-10">
                 <div id="StackElement2" class="panel1 stack horizontal">
                     <!-- Select target types -->
                     <div class="ttLabel stack-elem">
@@ -33,7 +33,7 @@
 										<input id="publishLater" type="radio" name="publishWhen" class="radio" tabindex="3" />
 										<label for="publishLater"><asp:Literal ID="litPublishLater" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPublishLater %>" /></label>
 									</div>
-									<div id="setPublishLater" style="display:none" class="left-tabbed top-spacer-5 dt-box">
+									<div id="setPublishLater" style="display:none" class="top-spacer-5 dt-box">
 										<c:Date id="PublishLaterDate" runat="server" IsSeparateFields="false" AddClearButton="false" TabIndex="19"></c:Date>
 									</div>
 								</div>
@@ -60,7 +60,7 @@
 																	<input id="generateContentLater" type="radio" name="gpc" class="radio" tabindex="3" />
 																	<label for="generateContentLater"><asp:Literal ID="Literal7" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPhase1GenerateContentLater %>" /></label>
 																</div>
-																<div id="setGenerateContentLater" style="display:none" class="left-tabbed top-spacer-5 dt-box">
+																<div id="setGenerateContentLater" style="display:none" class="top-spacer-5 dt-box">
 																	<c:Date id="GenerateContentDate" runat="server" IsSeparateFields="false" AddClearButton="false" TabIndex="19"></c:Date>
 																</div>
 															</div>
@@ -82,7 +82,7 @@
 																	<input id="placeContentLater" type="radio" name="pco" class="radio" tabindex="3" />
 																	<label for="placeContentLater"><asp:Literal ID="Literal10" runat="server" Text="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPhase2PlaceContentLater %>" /></label>
 																</div>
-																<div id="setPlaceContentLater" style="display:none" class="left-tabbed top-spacer-5 dt-box">
+																<div id="setPlaceContentLater" style="display:none" class="top-spacer-5 dt-box">
 																	<c:Date id="PlaceContentDate" runat="server" IsSeparateFields="false" AddClearButton="false" TabIndex="19"></c:Date>
 																</div>
 															</div>
@@ -103,13 +103,6 @@
 									</div>
 								</div>									
 							</div>
-
-
-
-                            <div class="stack-elem box-spacer-5">
-	                            <input id="RecursiveChk" type="checkbox" class="radio" tabindex="3"  />
-	                            <label for="recursive"><asp:Literal ID="litRecursive" runat="server" Text="Recursive" /></label>
-                            </div>
                             <div class="stack-elem box-spacer-5">
 	                            <div>
 		                            <input id="RepublishChk" type="checkbox" tabindex="4" />
@@ -126,6 +119,10 @@
                             </div>
 						</c:DeckPage>
 						<c:DeckPage runat="server" ID="AdvancedTab" Label="<%$ Resources: Tridion.Web.UI.Strings, Advanced %>" IsHidden="false">
+                            <div class="stack-elem box-spacer-5">
+	                            <input id="RecursiveChk" type="checkbox" class="radio" tabindex="3"  />
+	                            <label for="recursive"><asp:Literal ID="litRecursive" runat="server" Text="Recursive" /></label>
+                            </div>
 				            <div class="stack-elem box-spacer-5">
 					            <input id="PublishChildrenChk" type="checkbox" tabindex="26" />
 					            <label for="propagateInChildren"><asp:Literal ID="litPublishChildren" runat="server" Text="Publish in child publications" /></label>
@@ -160,8 +157,11 @@
             </div>
             </div>
             <div id="Footer" class="footer stack-elem">
+                <!-- Buttons -->
                 <div class="box-spacer-10">
-                <c:Button ID="ExecuteButton"  runat="server" Label="Publish pages" Class="customButton" />
+                    <div class="alignRight" style="width:50%">
+                        <c:Button ID="ExecuteButton"  runat="server" disabled="disabled" Label="<%$ Resources: Tridion.Web.UI.Strings, Publish %>" Class="customButton" />
+                    </div>
                 </div>
             </div>
         </div>

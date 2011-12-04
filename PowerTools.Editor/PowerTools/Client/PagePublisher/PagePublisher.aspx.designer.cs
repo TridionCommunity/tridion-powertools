@@ -121,15 +121,6 @@ namespace PowerTools.Editor.PowerTools.Client.PagePublisher {
         protected global::System.Web.UI.WebControls.Literal Literal12;
         
         /// <summary>
-        /// litRecursive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litRecursive;
-        
-        /// <summary>
         /// litRepublish control.
         /// </summary>
         /// <remarks>
@@ -146,6 +137,15 @@ namespace PowerTools.Editor.PowerTools.Client.PagePublisher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litPublishPriority;
+        
+        /// <summary>
+        /// litRecursive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litRecursive;
         
         /// <summary>
         /// litPublishChildren control.
