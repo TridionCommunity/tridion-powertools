@@ -57,8 +57,7 @@
       <HintPath>..\PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
     <Reference Include="Tridion.Web.UI.Core">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
+      <HintPath>C:\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -143,28 +142,24 @@
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.cs">
       <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.designer.cs">
       <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.designer.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
@@ -175,25 +170,21 @@
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.designer.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.designer.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
@@ -226,6 +217,7 @@
     <Content Include="PowerTools\Client\Shared\Views\TreeView.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PowerTools\Client\ViewInFrontend\ViewInFrontEnd.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
