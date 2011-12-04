@@ -9,12 +9,15 @@ This tool was originally created...
 
 = Details =
 
+||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||  ||  || ||  || || ||
 
 ==Description==
 {what does the tool do}
 
 == Audience ==
 Admins and Power Users
+
 
 
 *Version #*
