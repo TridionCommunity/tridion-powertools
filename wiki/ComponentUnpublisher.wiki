@@ -9,9 +9,11 @@ This tool was originally created...
 
 = Details =
 
+||Audience||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+|| Admin || Context menu on publication||Will Price||High||Medium|| ||Useful for broken or removed publication targets||
 
 ==Description==
-{what does the tool do}
+Resets the Published status of every Component in a publication to Not Published
 
 == Audience ==
 Admins and Power Users
