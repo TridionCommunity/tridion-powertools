@@ -1,4 +1,4 @@
-#summary Power Tool Requirements
+#summary Power Tool Requirements for Schema Field Remover
 
 = Introduction =
 This tool was originally created...
@@ -8,10 +8,13 @@ This tool was originally created...
 {difficulty}
 
 = Details =
+||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+|| Context Menu on Schema||Quirijn Slings||Medium||Medium|| || ||
+
 
 
 ==Description==
-{what does the tool do}
+Safely remove a field from a schema. The tool warns you if any components have a value for the field
 
 == Audience ==
 Admins and Power Users
