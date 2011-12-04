@@ -3,15 +3,12 @@
 = Introduction =
 This tool was originally created...
 
-{add additional info}
-
-{difficulty}
-
 = Details =
-
+||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||Add to existing add user screen||Quirijn Slings||High||Easy||Complete||Created by Tory||
 
 ==Description==
-{what does the tool do}
+Add a user directly (from a domain or directory service),he 
 
 == Audience ==
 Admins and Power Users
