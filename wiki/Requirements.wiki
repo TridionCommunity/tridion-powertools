@@ -4,6 +4,7 @@ Links to requirements (add more as we go along):
 
   * ComponentSynchronizer
   * PagePublisher
+  * BatchImageUploader
   * (new suggestion) ComponentPublisher, (search helps replace functionality, but component publisher useful for Tridion folder publish)
   * (new suggestion) FieldContentCopier
   * (new suggestion) UnlocalizeChildren (based on URI)
