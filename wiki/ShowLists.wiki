@@ -9,9 +9,11 @@ This tool was originally created...
 
 = Details =
 
+||Audience||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||Developer||PowerTool Button on Ribbon||Nuno Linhares||Medium||Easy|| || ||
 
 ==Description==
-{what does the tool do}
+Shows the output of different Tridion XML Lists, with column and row filters
 
 == Audience ==
 Admins and Power Users
