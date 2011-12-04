@@ -64,6 +64,11 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
     $evt.addEventHandler(c.TargetTypeList, "select", this.getDelegate(this._onTargetTypeListSelectionChanged));
     $evt.addEventHandler(c.TargetTypeList, "deselect", this.getDelegate(this._onTargetTypeListSelectionChanged));
 
+    // Auto resizing of stacks
+    $controls.getControl($("#StackElement"), "Tridion.Controls.Stack");
+    //$controls.getControl($("#StackElement1"), "Tridion.Controls.Stack");
+    $controls.getControl($("#StackElement2"), "Tridion.Controls.Stack");
+    //$controls.getControl($("#StackElement3"), "Tridion.Controls.Stack");
 
     // Exe and close
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
