@@ -4,7 +4,7 @@
 
 
 <asp:Content ID="PagePublisher" ContentPlaceHolderID="Main" runat="server">
-        <div class="tool-explanation">Publish a collection of pages individually, as seperate publish instructions. This can be necessary as when you press publish on a publication in SDL Tridion, if a failure occurs, the entire transaction will be fail.</div>
+        <div class="tool-explanation">Publish a collection of pages individually, as separate publish instructions. This can be necessary as when you press publish on a publication in SDL Tridion, if a failure occurs, the entire transaction will be fail.</div>
 
         <div id="StackElement1" class="stack horizontal">
             <div id="Options" class="stack-calc splitter vertical box-spacer-10">
