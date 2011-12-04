@@ -44,6 +44,8 @@ div#PowerToolIcon
 	width: 64px;
 	height: 64px;
 	float: right;
+	background-repeat:no-repeat;
+	background-image: url({ThemePath}/Icons/power-tools-logo.png);
 }
 
 #ModalDialog .window
