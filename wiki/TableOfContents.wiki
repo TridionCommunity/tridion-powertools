@@ -8,6 +8,7 @@
   * [Requirements]
     * [ComponentSynchronizer]
     * [PagePublisher]
+    * [BatchImageUploader]
     * [CountItems]
     * [AppDataInspector]
   * [Standards]
