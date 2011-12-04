@@ -10,6 +10,9 @@ The implementation of the tool will be complex, and faces multiple challenges in
 
 = Details =
 
+||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||Context Menu on Schema||Willem-Jan van den Bichelaer & Quirijn Slings||Highest priority||Hard||(development approaches being done in parallel||Let's start with the hardest, most useful tool (utility is subjective, but at least two or more have asked for this and PagePublisher)||
+
 ==Description==
 Synchronize item fields based on a user-selected schema.
 
