@@ -1,4 +1,4 @@
-#summary Power Tool Requirements
+#summary Power Tool Requirements for Page Unpublisher
 
 = Introduction =
 This tool was originally created...
@@ -8,11 +8,11 @@ This tool was originally created...
 {difficulty}
 
 = Details =
-
+||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||Context menu on publication||Nuno Linhares||High||Medium|| || ||
 
 ==Description==
-{what does the tool do}
-
+Resets the Published status of every Page in a publication to Not Published
 == Audience ==
 Admins and Power Users
 
