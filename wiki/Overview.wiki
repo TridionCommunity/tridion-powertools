@@ -11,7 +11,10 @@ This tool was originally created...
 
 
 ==Description==
-{what does the tool do}
+
+|| Description||Audience||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||Gives an overview of several items in a publication||Power User||Context menu on publication||Quirijn Slings||High||Medium|| || ||
+
 
 == Audience ==
 Admins and Power Users
