@@ -25,16 +25,45 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
 
     var p = this.properties;
     var c = p.controls;
-
+    p.today = this._getToday(); // Today - used to populate the date picker text boxes with today's date and time
     p.params = window.dialogArguments ? window.dialogArguments : null;
     p.locationId = $url.getHashParam("locationId");
 
     $log.message("Initializing page publisher for item: " + p.locationId);
 
+    // the tab control
+    c.TabControl = $controls.getControl($("#OptionsTabControl"), "Tridion.Controls.TabControl");
+    //$evt.addEventHandler(c.TabControl, "select", this.getDelegate(this._onTabActivated));
+
+    /* PUBLISH TAB */
+    // publish now or later buttons
+    c.PublishLaterDate = $controls.getControl($("#PublishLaterDate"), "Tridion.Controls.Date", { popupUrl: $cme.Popups.DATE_PICKER.URL, popupFeatures: $cme.Popups.DATE_PICKER.FEATURES });
+    c.publishNow = $("#publishNow");
+    c.publishLater = $("#publishLater");
+    c.schedulePublish = $("#schedulePublish");
+    c.setPublishLater = $("#setPublishLater");
+    c.setSchedulePublish = $("#setSchedulePublish");
+    c.generateContentNow = $("#generateContentNow");
+    c.generateContentLater = $("#generateContentLater");
+    c.setGenerateContentLater = $("#setGenerateContentLater");
+    c.GenerateContentDate = $controls.getControl($("#GenerateContentDate"), "Tridion.Controls.Date", { popupUrl: $cme.Popups.DATE_PICKER.URL, popupFeatures: $cme.Popups.DATE_PICKER.FEATURES });
+    c.placeContentNow = $("#placeContentNow");
+    c.placeContentLater = $("#placeContentLater");
+    c.setPlaceContentLater = $("#setPlaceContentLater");
+    c.PlaceContentDate = $controls.getControl($("#PlaceContentDate"), "Tridion.Controls.Date", { popupUrl: $cme.Popups.DATE_PICKER.URL, popupFeatures: $cme.Popups.DATE_PICKER.FEATURES });
+    $evt.addEventHandler(c.publishNow, "click", this.getDelegate(this._onPublishRadioChanged));
+    $evt.addEventHandler(c.publishLater, "click", this.getDelegate(this._onPublishRadioChanged));
+    $evt.addEventHandler(c.schedulePublish, "click", this.getDelegate(this._onPublishRadioChanged));
+    $evt.addEventHandler(c.generateContentNow, "click", this.getDelegate(this._onGenerateContentRadioChanged));
+    $evt.addEventHandler(c.generateContentLater, "click", this.getDelegate(this._onGenerateContentRadioChanged));
+    $evt.addEventHandler(c.placeContentNow, "click", this.getDelegate(this._onPlaceContentRadioChanged));
+    $evt.addEventHandler(c.placeContentLater, "click", this.getDelegate(this._onPlaceContentRadioChanged));
+
     // Publish target select list
     c.TargetTypeList = $controls.getControl($("#TargetTypeList"), "Tridion.Controls.List");
     $evt.addEventHandler(c.TargetTypeList, "select", this.getDelegate(this._onTargetTypeListSelectionChanged));
     $evt.addEventHandler(c.TargetTypeList, "deselect", this.getDelegate(this._onTargetTypeListSelectionChanged));
+
 
     // Exe and close
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
@@ -59,13 +88,16 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
 PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
 
     $j('#CloseDialog').hide();
-    alert($j("#Priority").val());
     var p = this.properties;
     var c = p.controls;
     p.SelectedTarget = this._getSelectedTargetTypes();
     p.Recursive = $j("#RecursiveChk").attr('checked');
     p.Republish = $j("#RepublishChk").attr('checked');
     p.PublishChildren = $j("#PublishChildrenChk").attr('checked');
+    p.IncludeComponentLinks = $j("#includeComponentLinksChk").attr('checked');
+    p.PublishStructureGroupInfo = $j("#resolveStructureGroupInfoChk").attr('checked');
+    p.IncludeWorkflow = $j("#includeWorkFlowChk").attr('checked');
+    
     //p.Priority = parseInt(c.Priority.getValue());
     p.Priority = parseInt($j("#Priority").val());
     $log.message("Page publisher publish : Recursive = [" + p.Recursive + "] | Republish in children = [" + p.PublishChildren + "] | Republish only = [" + p.Republish + "] |  Priority = [" + p.Priority + "]");
@@ -75,7 +107,7 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     var context = null;
 
     // pass in structure uri, publishing target uri
-    PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren, onSuccess, onFailure, context, false);
+    PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren, p.IncludeComponentLinks, p.PublishStructureGroupInfo, p.IncludeWorkflow, onSuccess, onFailure, context, false);
     var dialog = $j("#dialog");
     var win = $j(window);
 
@@ -177,6 +209,15 @@ PowerTools.Popups.PagePublisher.prototype._setupControls = function _setupContro
     var publishLabel = $localization.getEditorResource("Publish");
     document.title = publishLabel;
     c.ExecuteButton.setText(publishLabel);
+
+    // set the PublishTab to visible
+    var page = c.TabControl.getPage("PublishTab");
+    if (page) {
+        c.TabControl.showItem(page);
+        c.TabControl.selectItem(page);
+    }
+
+
 }
 
 
@@ -362,4 +403,98 @@ PowerTools.Popups.PagePublisher.prototype._getPublicationFromParams = function _
         }
     }
     return null;
+};
+
+/**
+* _onPublishRadioChanged
+* Manages what happens when a user clicks on Publish now, later or schedule
+* @private 
+*/
+PowerTools.Popups.PagePublisher.prototype._onPublishRadioChanged = function _onPublishRadioChanged(e) {
+    var p = this.properties;
+    var c = p.controls;
+    var source = e.source || $e.srcElement(e);
+    switch (source) {
+        case c.publishLater:
+            $css.undisplay(c.setSchedulePublish);
+            $css.display(c.setPublishLater);
+            c.PublishLaterDate.setDate(p.today);
+            c.PublishLaterDate.setStartDate(p.today);
+            break;
+        case c.schedulePublish:
+            $css.undisplay(c.setPublishLater);
+            $css.display(c.setSchedulePublish);
+            c.PublishLaterDate.setDate(null);
+            c.PublishLaterDate.setStartDate(null);
+            break;
+        default:
+            $css.undisplay(c.setPublishLater);
+            $css.undisplay(c.setSchedulePublish);
+            c.PublishLaterDate.setDate(null);
+            c.PublishLaterDate.setStartDate(null);
+            break;
+    }
+    // Resize page layout
+    Tridion.DisplayController.resize();
+};
+
+
+/**
+* _onGenerateContentRadioChanged
+* Manages what happens when a user clicks on generate content now
+* @private 
+*/
+PowerTools.Popups.PagePublisher.prototype._onGenerateContentRadioChanged = function _onGenerateContentRadioChanged(e) {
+    var p = this.properties;
+    var c = p.controls;
+    var source = e.source || $e.srcElement(e);
+    switch (source) {
+        case c.generateContentLater:
+            $css.display(c.setGenerateContentLater);
+            c.GenerateContentDate.setDate(p.today);
+            c.GenerateContentDate.setStartDate(p.today);
+            break;
+        default:
+            $css.undisplay(c.setGenerateContentLater);
+            c.GenerateContentDate.setDate(null);
+            c.GenerateContentDate.setStartDate(null);
+            break;
+    }
+    // Resize page layout
+    Tridion.DisplayController.resize();
+};
+
+
+/**
+* _onPlaceContentRadioChanged
+* Manages what happens when a user clicks place content now
+* @private 
+*/
+PowerTools.Popups.PagePublisher.prototype._onPlaceContentRadioChanged = function _onPlaceContentRadioChanged(e) {
+    var p = this.properties;
+    var c = p.controls;
+    var source = e.source || $e.srcElement(e);
+    switch (source) {
+        case c.placeContentLater:
+            $css.display(c.setPlaceContentLater);
+            c.PlaceContentDate.setDate(p.today);
+            c.PlaceContentDate.setStartDate(p.today);
+            break;
+        default:
+            $css.undisplay(c.setPlaceContentLater);
+            c.PlaceContentDate.setDate(null);
+            c.PlaceContentDate.setStartDate(null);
+            break;
+    }
+    // Resize page layout
+    Tridion.DisplayController.resize();
+};
+
+/**
+* Gets today.
+* @returns {Date} Today.
+*/
+PowerTools.Popups.PagePublisher.prototype._getToday = function _getToday() {
+    var now = Tridion.UI.ServerTime.getInstance().getDate();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
 };

@@ -9,12 +9,12 @@ PowerTools.Commands.PagePublisher = function ()
 
 PowerTools.Commands.PagePublisher.prototype.isAvailable = function (selection)
 {
-    return this._defineEnabled();
+    return this._defineEnabled(selection);
 };
 
 PowerTools.Commands.PagePublisher.prototype.isEnabled = function (selection)
 {
-    return this._defineEnabled();
+    return this._defineEnabled(selection);
 };
 
 PowerTools.Commands.PagePublisher.prototype._execute = function (selection) {
@@ -24,16 +24,32 @@ PowerTools.Commands.PagePublisher.prototype._execute = function (selection) {
 
     // build the pop up url for the publish dialog and open it
     var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#locationId=" + uriSelection;
-    var popup = $popup.create(PopUpUrl, "toolbar=no,width=750px,height=400px,resizable=false,scrollbars=false", null);
+    var popup = $popup.create(PopUpUrl, "toolbar=no,width=750px,height=500px,resizable=false,scrollbars=false", null);
     popup.open();
 };
 
-PowerTools.Commands.PagePublisher.prototype._defineEnabled = function ()
-{
-    var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
-    var selection = treeView.getSelection().getItem(0);
-    var itemType = $models.getItemType(selection);
-    if (itemType == $const.ItemType.STRUCTURE_GROUP) {
+PowerTools.Commands.PagePublisher.prototype._defineEnabled = function (selection) {
+
+    var selected;
+
+    switch (selection.getCount()) {
+        case 0: // check the Tree selection
+            var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
+            selected = treeView.getSelection().getItem(0);
+            break;
+
+        case 1: // multiple items selected in the main list
+            selected = selection.getItem(0);
+            break;
+
+        default:
+            return null;
+            break;
+    }
+
+    var itemType = $models.getItemType(selected);
+
+    if (itemType == $const.ItemType.STRUCTURE_GROUP || itemType == $const.ItemType.PUBLICATION) {
         return true;
     }
     return false;

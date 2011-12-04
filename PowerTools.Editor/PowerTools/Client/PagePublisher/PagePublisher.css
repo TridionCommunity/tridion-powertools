@@ -17,7 +17,7 @@ body{
 
 
 
-/* Z-index of #mask must lower than #boxes .window */
+/* Z-index of #mask must lower than #boxes .window 
 #mask
 {
     position: absolute;
@@ -37,23 +37,13 @@ body{
     z-index: 9999;
     padding: 20px;
 }
-        
+        */
         
 /* Customize your modal window here, you can add background image too */
 #boxes #dialog
 {
     width: 375px;
     height: 203px;
-}
-
-.Sample
-{
-    background-color: Red;
-}
-
-div
-{
-    
 }
 
 .tool-explanation
@@ -88,7 +78,6 @@ div
 
 .panel1
 {
-
     float: left;
     height: 100%;
     margin: 0 10px;
@@ -109,11 +98,20 @@ div
     overflow: auto;
     padding: 0 0 0 10px;
     width: auto;
-    border: 1px solid #A1A9B2;
 }
 
-/* publishing target box */
+.box-spacer-5 {
+    margin: 5px;
+}
 
+.top-spacer-5 {
+    margin-top: 5px;
+}
+
+
+#OptionsTabControl_pages {
+    border: 1px solid #A1A9B2;
+}
 
 #TargetTypeList {
     border: 1px solid #A1A9B2;
@@ -123,3 +121,40 @@ div
     overflow: hidden;
     position: relative;
 }
+
+input[type=text] {
+    font-family: Verdana;
+    font-size: 11px;  
+}
+
+
+
+#PublishLaterDate
+{
+    display: block;
+    clear:both;
+}
+
+#PublishLaterDate input[type="text"], #GenerateContentDate input[type="text"], #PlaceContentDate input[type="text"]
+{
+    width: 165px !important; /* afraid I had too! */
+    border: 1px solid #B8C1CC;
+    margin: 5px 0 0 25px;
+}
+
+.tridion .text_highlight {
+    color: #2972CC;
+}
+
+.left-tabbed {
+    margin-left: 25px;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+

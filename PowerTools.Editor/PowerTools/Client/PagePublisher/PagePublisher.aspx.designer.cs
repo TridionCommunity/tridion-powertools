@@ -22,13 +22,22 @@ namespace PowerTools.Editor.PowerTools.Client.PagePublisher {
         protected global::System.Web.UI.WebControls.Literal Literal1;
         
         /// <summary>
-        /// PubTitle control.
+        /// litPublishNow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal PubTitle;
+        protected global::System.Web.UI.WebControls.Literal litPublishNow;
+        
+        /// <summary>
+        /// litPublishLater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPublishLater;
         
         /// <summary>
         /// Literal4 control.
@@ -40,13 +49,13 @@ namespace PowerTools.Editor.PowerTools.Client.PagePublisher {
         protected global::System.Web.UI.WebControls.Literal Literal4;
         
         /// <summary>
-        /// Literal12 control.
+        /// Literal5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal12;
+        protected global::System.Web.UI.WebControls.Literal Literal5;
         
         /// <summary>
         /// Literal6 control.
@@ -58,12 +67,120 @@ namespace PowerTools.Editor.PowerTools.Client.PagePublisher {
         protected global::System.Web.UI.WebControls.Literal Literal6;
         
         /// <summary>
-        /// Literal5 control.
+        /// Literal7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal5;
+        protected global::System.Web.UI.WebControls.Literal Literal7;
+        
+        /// <summary>
+        /// Literal8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal8;
+        
+        /// <summary>
+        /// Literal9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal9;
+        
+        /// <summary>
+        /// Literal10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal10;
+        
+        /// <summary>
+        /// Literal11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal11;
+        
+        /// <summary>
+        /// Literal12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal12;
+        
+        /// <summary>
+        /// litRecursive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litRecursive;
+        
+        /// <summary>
+        /// litRepublish control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litRepublish;
+        
+        /// <summary>
+        /// litPublishPriority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPublishPriority;
+        
+        /// <summary>
+        /// litPublishChildren control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPublishChildren;
+        
+        /// <summary>
+        /// litPublishStructureGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPublishStructureGroup;
+        
+        /// <summary>
+        /// litIncludeComponentLinks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litIncludeComponentLinks;
+        
+        /// <summary>
+        /// litIncludeWorkflow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litIncludeWorkflow;
     }
 }
