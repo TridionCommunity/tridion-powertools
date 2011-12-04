@@ -8,10 +8,11 @@ This tool was originally created...
 {difficulty}
 
 = Details =
-
+||Audience||Suggested implementation||Original ||Developer||Priority||Difficulty||Status||Notes||
+||Power User||Context Menu on all items and orgitems||Quirijn Slings||Medium||Medium|| || || ||
 
 ==Description==
-{what does the tool do}
+Show permissions on folders and structure groups
 
 == Audience ==
 Admins and Power Users
