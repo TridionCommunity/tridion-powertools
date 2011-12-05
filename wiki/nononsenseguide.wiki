@@ -24,8 +24,7 @@ for details on the PlusOne button.
 
   # Confirm the following post-build event to !PowerTools.Common, !PowerTools.Editor and !PowerTools.Model (no changes needed if this matches):
 {{{
-xcopy "$(TargetDir)*.dll" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
-xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
+xcopy "$(TargetDir)$(TargetName).*" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 }}}
 
   # Build the solution
@@ -38,8 +37,8 @@ xcopy "$(TargetDir)*.pdb" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 
 ===Virtual Directories===
   # Add virtual directories in IIS:
-  * Add a new virtual directory (not an application) under WebUI\Editors, pointing to the !PowerTools.Editor folder.
-  * Also add a new one under WebUI\Models, pointing to the !PowerTools.Model folder.
+  * Add a new virtual directory (not an application) called !PowerTools under WebUI\Editors, pointing to the !PowerTools.Editor folder.
+  * Also add a new virtual directory called !PowerTools under WebUI\Models, pointing to the !PowerTools.Model folder.
 
   At this point the existing !PowerTools and icons should be visible in the CME. Read on to create your new !PowerTool!   
 
