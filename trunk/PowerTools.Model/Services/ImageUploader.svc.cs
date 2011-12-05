@@ -89,17 +89,19 @@ namespace PowerTools.Model.Services
 		public override void Process(ServiceProcess process, object arguments)
 		{
 			ImageUploadParameters parameters = (ImageUploadParameters)arguments;
-			if (!Directory.Exists(parameters.Directory))
-			{
-				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Directory '{0}' does not exist.", parameters.Directory));
-			}
-
-			client = PowerTools.Common.CoreService.Client.GetCoreService();
 
 			try
 			{
-				string[] files = Directory.GetFiles(parameters.Directory);
+                string directory = parameters.Directory;
+                if (!Directory.Exists(directory))
+                {
+                    process.Failed = true;
+                    process.Complete(string.Format(CultureInfo.InvariantCulture, "Directory '{0}' does not exist. No images were uploaded!", directory));
+                    return;
+                }
+                string[] files = Directory.GetFiles(directory);
 				int i = 0;
+                client = PowerTools.Common.CoreService.Client.GetCoreService();
 
 				foreach (string file in files)
 				{
@@ -147,8 +149,7 @@ namespace PowerTools.Model.Services
 								BinaryContent = bcd
 							};
 
-							ComponentData comp = (ComponentData)client.Create(compData, new ReadOptions());
-							string newlyCreatedComponentID = comp.Id;
+							ComponentData comp = (ComponentData)client.Create(compData, new ReadOptions());							
 						}
 					}
 				}
