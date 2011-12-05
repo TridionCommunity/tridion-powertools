@@ -12,19 +12,15 @@ PowerToolsBase = function (context) {
     this.addInterface("ProgressDialog", [this.powerToolContext]);
 
     var p = this.properties;
-   
-    //Constants
-    //        var consts = {};
-    //        consts.POWERTOOLS_POPUP_NS = "PowerTools.Popups";
-    //        consts.EXECUTE_BUTTON_ID = "ExecuteButton";
-    //        p.const = constants;
-    
+      
     var constants = {
         POWERTOOLS_POPUP_NS: "PowerTools.Popups",
         EXECUTE_BUTTON_ID: "ExecuteButton"
     };
     cc = constants;
-    
+
+    //Initialize messagecenter
+    $controls.getControl($("#MessageCenter"), "Tridion.Controls.ActiveMessageCenter");
 
     //Initialize Execute- and Close button
     this._initializeExecuteButton();
@@ -35,15 +31,27 @@ PowerToolsBase = function (context) {
 PowerToolsBase.prototype._initializeExecuteButton = function () {
     var c = this.powerToolContext.properties.controls;
     var controlSelector = "#ExecuteButton";
-    c.ExecuteButton = $controls.getControl($(controlSelector), "Tridion.Controls.Button");
-    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._initializeProgressWindow));
+    c.ExecuteButton = $controls.getControl($(controlSelector), "Tridion.Controls.Button");       
+    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._validateInput));
+};
+
+PowerToolsBase.prototype._validateInput = function () {   
+    if (this.powerToolContext.validateInput) {
+        if (this.powerToolContext.validateInput()) {           
+            this._execute();
+        }
+    } else {//No input validation...        
+        this._execute();
+    }
+};
+
+PowerToolsBase.prototype._execute = function () {
     if (this.powerToolContext._onExecuteButtonClicked) {
-        $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this.powerToolContext._onExecuteButtonClicked));
+        this._initializeProgressWindow();
+        this.powerToolContext._onExecuteButtonClicked();
     } else {
         $assert.raiseError("Powertool '{0}' does not implement method '_onExecuteButtonClicked'. Implement this method in your PowerTool".format(this._getPowerToolName()));
     }
-
-
 };
 
 //Find the powertool name from the namespace.
