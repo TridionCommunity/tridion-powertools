@@ -11,6 +11,7 @@ To clarify what tools are "done," we collect thoughts and plans on potential too
   * FieldContentCopier
   * UnlocalizeChildren (based on URI)
   * [XMLFieldRenamer] (see [http://groups.google.com/group/tridion-powertools/browse_thread/thread/b641aa78f181da63 discussion])
+  * Copy WebDAVUrl to clipboard (this is what Dominic is currently hacking on privately in an attempt to grok anguilla before moving on to more ambitious functionality) Could also form part of a "Developer toolbar". (Further suggestions for developer toolbar, anyone?)
 
 Not all extensions are PowerTools, but with other extension work needing similar setups (and being developed by the same community), it makes sense to collect "PowerTool candidates" here. Feel free to add and update suggestions here.
 
