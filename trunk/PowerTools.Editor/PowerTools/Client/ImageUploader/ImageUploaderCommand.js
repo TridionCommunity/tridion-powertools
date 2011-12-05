@@ -5,18 +5,12 @@ PowerTools.Commands.ImageUploader = function ()
     Type.enableInterface(this, "PowerTools.Commands.ImageUploader");
     this.addInterface("Tridion.Cme.Command", ["ImageUploader"]);
     this.addInterface("PowerTools.ToolBase", ["ImageUploader"]);
+
+   
 };
 
 PowerTools.Commands.ImageUploader.prototype.isAvailable = function (selection)
 {
-    //    //Only show the button if a single FOLDER is selected
-    //    if (selection.getCount() == 1) {
-    //        var itemType = $models.getItemType(selection.getItem(0));
-    //        var item = $models.getItem(selection.getItem(0))
-    //        if (itemType == $const.ItemType.FOLDER) {
-    //            return true;
-    //        }
-    //    }
     return this._defineEnabled();
 };
 
@@ -38,8 +32,6 @@ PowerTools.Commands.ImageUploader.prototype._execute = function (selection) {
 
 PowerTools.Commands.ImageUploader.prototype._defineEnabled = function ()
 {
-    //var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
-    //var selection = treeView.getSelection().getItem(0);
     var itemType = $models.getItemType($url.getHashParam("locationId"));
     if (itemType == $const.ItemType.FOLDER)
     {
