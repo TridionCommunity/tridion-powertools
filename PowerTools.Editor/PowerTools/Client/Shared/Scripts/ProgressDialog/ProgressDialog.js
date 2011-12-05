@@ -34,7 +34,7 @@ ProgressDialog = function (context) {
 };
 
 ProgressDialog.prototype._initializeProgressWindow = function () {
-    
+
     var dialog = $j("#dialog");
     var win = $j(window);
 
@@ -43,7 +43,7 @@ ProgressDialog.prototype._initializeProgressWindow = function () {
     var maskWidth = win.width();
 
     //Set height and width to mask to fill up the whole screen
-    if (this.properties.progressDialog.showAnimation === true) {
+    if (this.properties.progressDialog.showAnimation === true) {       
         $j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
     } else {
         $j('#ProgressBar').css({ 'width': '1%', 'display': 'block' });
@@ -107,6 +107,18 @@ ProgressDialog.prototype._handleStatusResponse = function (result) {
     p.processId = result.Id;
     this._updateProgressBar(result);
 
+
+    if (result.Failed) {
+        //        $j('#ProgressStatus').css("color", "red");
+        //        $j('#ProgressStatus').html(result.Status);
+        //        $j('#CloseDialog').show();
+        this._onDialogCloseButtonClicked();
+        $messages.registerError(result.Status, null, null, true, true);
+        p.processId = "";
+        return;
+    }
+
+
     if (result.PercentComplete < 100) {
         this._pollStatus(p.processId);
     }
@@ -119,7 +131,7 @@ ProgressDialog.prototype._handleStatusResponse = function (result) {
 
         $j('#ProgressStatus').html(result.Status);
 
-        if (this.properties.progressDialog.closeAfterComplete === true) {           
+        if (this.properties.progressDialog.closeAfterComplete === true) {
             this.powerToolContext.properties.controls.CloseButton.fireEvent("click");
         } else {
             $j('#CloseDialog').show();
@@ -133,8 +145,7 @@ ProgressDialog.prototype._updateProgressBar = function (process) {
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 };
 
-ProgressDialog.prototype._onExecuteStarted = function (result) {
-    
+ProgressDialog.prototype._onExecuteStarted = function (result) {    
     if (result) {
         this._pollStatus(result.Id);
     }
