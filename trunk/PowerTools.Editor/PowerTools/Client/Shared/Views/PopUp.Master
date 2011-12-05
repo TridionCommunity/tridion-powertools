@@ -14,7 +14,11 @@ class="tridion popup">
 	</asp:ContentPlaceHolder>
 </head>
 <body id="StackElement" class="stack popupview">
+				
+                <c:ActiveMessageCenter runat="server" id="MessageCenter" />
+               
 	<form id="form1" runat="server">
+
 	<asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
 	</asp:ScriptManager>
 	<div id="PowerToolIcon">
@@ -40,6 +44,7 @@ class="tridion popup">
 			</div>
 		</div>
 	</div>
+    
 	</form>
 </body>
 </html>
