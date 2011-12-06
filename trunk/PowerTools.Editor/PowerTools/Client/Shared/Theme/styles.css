@@ -38,6 +38,13 @@
 .ribbontoolbar .button.PT_AppDataInspector .image {background-image: url({ThemePath}/Icons/appdatainspector_32.png);}
 .ribbontoolbar.minimized .button.PT_AppDataInspector .image {background-image: url({ThemePath}/Icons/appdatainspector_16.png);}
 
+.PT_ViewInStaging .image {background-image:url({ThemePath}/Icons/viewinfrontend_16.png);}
+.ribbontoolbar .button.PT_ViewInStaging .image {background-image: url({ThemePath}/Icons/viewinfrontend_32.png);}
+.ribbontoolbar.minimized .button.PT_ViewInStaging  .image {background-image: url({ThemePath}/Icons/viewinfrontend_16.png);}
+
+.PT_ViewInLive .image {background-image:url({ThemePath}/Icons/viewinfrontend_16.png);}
+.ribbontoolbar .button.PT_ViewInLive  .image {background-image: url({ThemePath}/Icons/viewinfrontend_32.png);}
+.ribbontoolbar.minimized .button.PT_ViewInLive .image {background-image: url({ThemePath}/Icons/viewinfrontend_16.png);}
 
 div#PowerToolIcon
 {
