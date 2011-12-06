@@ -20,7 +20,7 @@
                 <div class="handle"></div>
                 <div id="StackElement3" class="panel2">
                     <!-- All options -->
-					<c:TabControl runat="server" ID="OptionsTabControl" ActivePage="UnpublishTab" Class="stack horizontal">
+					<c:TabControl runat="server" ID="OptionsTabControl" ActivePage="PublishTab" Class="stack horizontal">
 						<c:DeckPage runat="server" ID="PublishTab" Label="<%$ Resources: Tridion.Web.UI.Strings, PublishPopupPublishSettings %>" IsHidden="true">
 							<!-- Publish opts -->
 							<div id="publishFields" class="stack horizontal">
@@ -141,16 +141,6 @@
 				            </div>                                                    
 						</c:DeckPage>
 					</c:TabControl>
-
-
-
-
-
-
-
-
-
-
 
 
 
