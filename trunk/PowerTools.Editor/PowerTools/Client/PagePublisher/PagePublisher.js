@@ -3,17 +3,16 @@
 PowerTools.Popups.PagePublisher = function () {
     Type.enableInterface(this, "PowerTools.Popups.PagePublisher");
     this.addInterface("Tridion.Cme.View");
-    this.callBase("Tridion.Cme.View", "initialize");
+    //this.addInterface("PowerToolsBase", [this]);     //Base class for initializing execute-,close button, and progressbar.
 
     var p = this.properties;
     p.processId = null;
     p.locationId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
-
     p.params = null;
     p.isPddLoaded = false;
-    // Target types domain list
-    p.targetTypesListId;
+    p.targetTypesListId; // Target types domain list
+    p.progressDialog = { showAnimation: true, closeAfterComplete: true }; // turn off the dialog after complete
 
 };
 
@@ -280,7 +279,6 @@ PowerTools.Popups.PagePublisher.prototype._ttListHeadLoadFailed = function _ttLi
     $log.message("PowerTools.Popups.PagePublisher._ttListHeadLoadFailed");
 };
 
-$display.registerView(PowerTools.Popups.PagePublisher);
 
 
 /**
@@ -503,3 +501,5 @@ PowerTools.Popups.PagePublisher.prototype._getToday = function _getToday() {
     var now = Tridion.UI.ServerTime.getInstance().getDate();
     return new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
 };
+
+$display.registerView(PowerTools.Popups.PagePublisher);

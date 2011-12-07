@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="Page Publisher" Language="C#" MasterPageFile="../Shared/Views/PopUp.Master" AutoEventWireup="true"
 	CodeBehind="PagePublisher.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.PagePublisher.PagePublisher" %>
 
-
-
 <asp:Content ID="PagePublisher" ContentPlaceHolderID="Main" runat="server">
         <div class="tool-explanation">Publish a collection of pages individually, as separate publish instructions. This can be necessary as when you press publish on a publication in SDL Tridion, if a failure occurs, the entire transaction will be fail.</div>
 

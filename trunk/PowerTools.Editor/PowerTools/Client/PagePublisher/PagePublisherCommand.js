@@ -20,7 +20,7 @@ PowerTools.Commands.PagePublisher.prototype.isEnabled = function (selection)
 PowerTools.Commands.PagePublisher.prototype._execute = function (selection) {
 
     // get the id of the selected item
-    var uriSelection = selection.getItem(0);
+    var uriSelection = $url.getHashParam("locationId");  //selection.getItem(0);
 
     // build the pop up url for the publish dialog and open it
     var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#locationId=" + uriSelection;
@@ -30,6 +30,7 @@ PowerTools.Commands.PagePublisher.prototype._execute = function (selection) {
 
 PowerTools.Commands.PagePublisher.prototype._defineEnabled = function (selection) {
 
+/*
     var selected;
 
     switch (selection.getCount()) {
@@ -47,7 +48,9 @@ PowerTools.Commands.PagePublisher.prototype._defineEnabled = function (selection
             break;
     }
 
-    var itemType = $models.getItemType(selected);
+*/
+
+    var itemType = $models.getItemType($url.getHashParam("locationId"));
 
     if (itemType == $const.ItemType.STRUCTURE_GROUP || itemType == $const.ItemType.PUBLICATION) {
         return true;
