@@ -11,6 +11,7 @@
     * [BatchImageUploader]
     * [CountItems]
     * [AppDataInspector]
+    * [RequirementsTemplate [Wiki Template]]
   * [Standards]
     * [CodingStandards Code]
       * [CodingGuidelines_Anguilla JavaScript]
