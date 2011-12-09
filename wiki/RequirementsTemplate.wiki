@@ -10,6 +10,8 @@ This tool was originally created...
 
 = Details =
 
+||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+||Button/Context-Menu/Pop-up/other||...||Low/Medium/High||Low/Medium/High||...||...||
 
 ==Description==
 {what does the tool do}
