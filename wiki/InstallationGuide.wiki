@@ -30,7 +30,7 @@ Open the IIS management snap-in.
  # Configure its physical path as: *C:\powertools\!PowerTools.Editor\*
  # Open the Tridion web site, and find: *WebUI/Models*
  # Create a new virtual directory within Models, called !PowerTools
- # Configure its physical path as: *C:\powertools\!PowerTools.Models\*
+ # Configure its physical path as: *C:\powertools\!PowerTools.Model\*
 
 _The name and location of the virtual directory are referenced in the configuration. See below._
 
