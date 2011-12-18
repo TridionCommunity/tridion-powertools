@@ -2,6 +2,10 @@
 
 = Updates =
 
+(30-Nov-2011) We're researching an IRC-like communication option with [http://flowdock.com FlowDock]. Anyone can [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main join the "flow"] and conversations are saved. The Web-based tool has contemporary social media features including hash tagging (#), /emotes (/me does something...), and Google Account integration. (Thanks Vesa for the suggestion to get a free license. We've valid through May 2012)
+
+(29-Nov-2011) Team is making progress on ComponentSynchronizer (it really is hard, thanks Angel, Jaime, and Hao for sticking with it) and PagePublisher (ready for testing, thanks John!). Great work all!
+
 (09-Nov-2011) Great work on the project. So good, our application to JetBrains for a community license for [http://www.jetbrains.com/resharper/download/ ReSharper] was approved. Contact a fellow developer or check the Skype chat for today to get the license. It's good for a year, use it well (but only on the PowerTools). :-)
 
 <font color="red">*Do not share the actual key on this site or in the Google Group PowerTools forum. Remember replying to forum emails will post them publicly!*</font>
