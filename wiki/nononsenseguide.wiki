@@ -94,10 +94,10 @@ namespace PowerTools.Editor.PowerTools.Client.PublicationInfo
   * Find/Replace “!ImageUploader” ==> “!PublicationInfo”
   * comment line 30 (c.!SchemaControl …)
   * comment line 31 ($evt.addEventHandler(c.!SchemaControl …)
-  * comment lines 45 to 51 (related to params)
-  * replace params with null on line 58
-  * comment lines 88 to 108 (onSchemaLoadContent function)
-  * comment lines 109 to 116 (getListFieldsSchemas function)
+  * comment lines 36 to 46 (related to params schemaUri, localDirectory)
+  * replace params with null on lines 55 and 57 (schemaUri, localDirectory)
+  * comment lines 68 to 92 (onSchemaLoadContent function)
+  * comment lines 94 to 100 (getListFieldsSchemas function)
 
 ====!PublicationInfoCommand.js====
   # Edit the !PublicationInfoCommand.js file
