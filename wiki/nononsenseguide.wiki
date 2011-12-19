@@ -104,8 +104,8 @@ namespace PowerTools.Editor.PowerTools.Client.PublicationInfo
 
   * Find/Replace “!ImageUploader” ==> “!PublicationInfo”
   * Change isAvailable and isEnabled to always return true
-  * Comment lines 20 to 23
-  * Remove “+"#folderId=" + uriSelection” from line 25
+  * Comment lines 25 to 28 (var uriSelection...var self)
+  * Remove “+"#folderId=" + uriSelection” from line 30
 
 ===Icons===
   # Create the icons for the !PowerTool
