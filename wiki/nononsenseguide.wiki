@@ -92,7 +92,7 @@ namespace PowerTools.Editor.PowerTools.Client.PublicationInfo
   # Edit the !PublicationInfo.js file
 
   * Find/Replace “!ImageUploader” ==> “!PublicationInfo”
-  * comment line 29 (c.!SchemaControl …)
+  * comment line 30 (c.!SchemaControl …)
   * comment line 31 ($evt.addEventHandler(c.!SchemaControl …)
   * comment lines 45 to 51 (related to params)
   * replace params with null on line 58
