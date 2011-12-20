@@ -18,3 +18,382 @@ Not all extensions are PowerTools, but with other extension work needing similar
 
   * Chris Summers brainstormed an idea with the Skype group for a micro-site publisher functionality that would take a zip file possibly from a third-party and publish it out to a site. This could be done via variants, treating the zip as a multimedia component but alternatives exist.
    * Note from Julian. I demo'ed this to HP using Dreamweaver as the entry point. Works quite OK but is a technical person's way of getting a microsite imported and published. If the DW import API could be utilized :)
+
+== Old List ==
+This is the list of planned tools for SDL Tridion 2011; each item links to its requirements doc. For the full list, see the [http://code.google.com/p/tridion-2011-power-tools/downloads/detail?name=PowerTools2011Matrix_Prioritized_v01.xlsx&can=4&q=#makechanges deprecated Spreadsheet] and unhide all rows.
+
+See [Requirements] for the official list or the PowerTools wiki page for links to the original source code (you'll need an R5.3 or 2009 environment to try the old versions).
+
+<wiki:comment>
+hint: each row has 9 fields, use a tr to wrap 9 td's
+<tr>
+   <td>{name}</td>
+   <td>{description}</td>
+   <td>{audience}</td>
+   <td>{CME location}</td>
+   <td>{author or idea from}</td>
+   <td>{priority}</td>
+   <td>{difficulty}</td>
+   <td>{status}</td>
+   <td>{notes}</td>
+</tr>
+</wiki:comment>
+
+<table border="1">
+
+      <tr>
+         <th>Name</th>
+
+         <th>Description</th>
+
+         <th>Audience</th>
+
+         <th>Suggested implementation</th>
+
+         <th>Original Developer</th>
+
+         <th>Priority</th>
+
+         <th>Difficulty</th>
+
+         <th>Status</th>
+
+         <th>Notes</th>
+      </tr>
+
+      <tr>
+         <td>ComponentSynchronizer</td>
+
+         <td>For all components based on the chosen schema, default a field to a certain
+         value. If you leave the overrule checkbox unchecked, then current values are not
+         overwritten, ...</td>
+
+         <td>Power User</td>
+
+         <td>Context Menu on Schema</td>
+
+         <td>Willem-Jan van den Bichelaer &amp; Quirijn Slings</td>
+
+         <td>Highest priority</td>
+
+         <td>Hard</td>
+
+         <td></td>
+
+         <td>Let's start with the hardest, most useful tool (utility is subjective, but at least two or more have asked for this and PagePublisher</td>
+      </tr>
+
+      <tr>
+         <td>PagePublisher</td>
+
+         <td>Publish pages, separately, track status</td>
+
+         <td>All / Mihai</td>
+
+         <td>Context Menu on folders</td>
+
+         <td></td>
+
+         <td>First</td>
+
+         <td>Medium</td>
+
+         <td>We have volunteers</td>
+
+         <td>Assumed not needed because of search functionality, but PagePublisher is
+         more than that</td>
+      </tr>
+
+      <tr>
+         <td>CountItems</td>
+
+         <td>Count items in a publication, folder or structure group</td>
+
+         <td>All</td>
+
+         <td>Context Menu on OrgItems</td>
+
+         <td>Quirijn Slings</td>
+
+         <td>High</td>
+
+         <td>Easy</td>
+
+         <td>Complete</td>
+
+         <td>Needed more than ever as this is missing from the GUI</td>
+      </tr>
+
+      <tr>
+         <td>AppDataInspector</td>
+
+         <td>Allows admins to inspect AppData on pretty much any Tridion item</td>
+
+         <td>Admin</td>
+
+         <td>Tab in all views and popup accessed from Context Menu on all items and from Ribbon Button</td>
+
+         <td>Mihai Cadariu</td>
+
+         <td>Normal</td>
+
+         <td>Easy</td>
+
+         <td>Complete</td>
+
+         <td></td>
+      </tr>
+
+
+      <tr>
+         <td>AddUser</td>
+
+         <td>Add a user directly (from a domain or directory service)</td>
+
+         <td>Power User</td>
+
+         <td>Added to existin add user screen</td>
+
+         <td>Quirijn Slings</td>
+
+         <td>High</td>
+
+         <td>Easy</td>
+
+         <td>Complete</td>
+
+         <td>Created by Tory</td>
+      </tr>
+
+      <tr>
+         <td>ShowLists</td>
+
+         <td>Shows the output of different Tridion XML Lists, with column and row
+         filters</td>
+
+         <td>Developer</td>
+
+         <td>PowerTool Button on Ribbon</td>
+
+         <td>Nuno Linhares</td>
+
+         <td>Medium</td>
+
+         <td>Easy</td>
+
+         <td></td>
+
+         <td></td>
+      </tr>
+
+      <tr>
+         <td>[Overview]</td>
+
+         <td>Gives an overview of several items in a publication</td>
+
+         <td>Power User</td>
+
+         <td>Context menu on publication</td>
+
+         <td>Quirijn Slings</td>
+
+         <td>High</td>
+
+         <td>Medium</td>
+
+         <td></td>
+
+         <td></td>
+      </tr>
+
+      <tr>
+         <td>ComponentUnpublisher</td>
+
+         <td>Resets the Published status of every Component in a publication to Not
+         Published.</td>
+
+         <td>Admin.</td>
+
+         <td>Context menu on publication</td>
+
+         <td>Will Price</td>
+
+         <td>High</td>
+
+         <td>Medium</td>
+
+         <td></td>
+
+         <td>Useful for broken or removed publication targets</td>
+      </tr>
+
+      <tr>
+         <td>PageUnpublisher</td>
+
+         <td>Resets the Published status of every Page in a publication to Not
+         Published.</td>
+
+         <td>Admin.</td>
+
+         <td>Context menu on publication</td>
+
+         <td>Nuno Linhares</td>
+
+         <td>High</td>
+
+         <td>Medium</td>
+
+         <td></td>
+
+         <td></td>
+      </tr>
+
+      <tr>
+         <td>SchemaTemplateRelationships</td>
+
+         <td>Shows the relationships between schemas and component templates, and allows
+         you to change these relationships.</td>
+
+         <td>Power User</td>
+
+         <td>Context menu on publication</td>
+
+         <td>Quirijn Slings</td>
+
+         <td>Medium</td>
+
+         <td>Medium</td>
+
+         <td></td>
+
+         <td>Updates don't seem to work</td>
+      </tr>
+
+      <tr>
+         <td>XMLViewerXPathSearcher</td>
+
+         <td>Shows the xml of a Tridion item, and allows you to search it using
+         xpath</td>
+
+         <td>Developer</td>
+
+         <td>Context Menu on all items and orgitems</td>
+
+         <td>Jean-Baptiste Minchelli</td>
+
+         <td>Medium</td>
+
+         <td>Medium</td>
+
+         <td></td>
+
+         <td>Yoav made a working prototype</td>
+      </tr>
+
+      <tr>
+         <td>AccessExplorer</td>
+
+         <td>Show permissions on folders and structure groups</td>
+
+         <td>Power User</td>
+
+         <td>Context Menu on all items and orgitems</td>
+
+         <td>Quirijn Slings</td>
+
+         <td>Medium</td>
+
+         <td>Medium</td>
+
+         <td></td>
+
+         <td></td>
+      </tr>
+
+      <tr>
+         <td>SchemaFieldRemover</td>
+
+         <td>Safely remove a field from a schema. The tool warns you if any components
+         have a value for the field</td>
+
+         <td>Admin.</td>
+
+         <td>Context Menu on Schema</td>
+
+         <td>Quirijn Slings</td>
+
+         <td>Medium</td>
+
+         <td>Medium</td>
+
+         <td></td>
+
+         <td></td>
+      </tr>
+
+      <tr>
+         <td>AccessPermissionsManager</td>
+
+         <td>Show/Set permissions on folders and structure groups for multiple
+         groups</td>
+
+         <td>Power User</td>
+
+         <td>Context Menu on OrgItems</td>
+
+         <td>James English</td>
+
+         <td>High</td>
+
+         <td>Hard</td>
+
+         <td></td>
+
+         <td>See "System" below for access explorer</td>
+      </tr>
+
+
+
+      <tr>
+         <td>QuickSearchReplace</td>
+
+         <td>Search and replace XML of components. Warning: this tool can damage your
+         content if you don't know what you're doing!</td>
+
+         <td>Power User</td>
+
+         <td>Context menu on schema</td>
+
+         <td>Quirijn Slings</td>
+
+         <td>Medium</td>
+
+         <td>Hard</td>
+
+         <td></td>
+
+         <td>Not sure on this one</td>
+      </tr>
+
+      <tr>
+         <td>AccessRightsManager</td>
+
+         <td>Show access rights on groups for all publications, and change them</td>
+
+         <td>Admin.</td>
+
+         <td></td>
+
+         <td>James English</td>
+
+         <td>Medium</td>
+
+         <td>Hard</td>
+
+         <td></td>
+
+         <td></td>
+      </tr>
+
+
+</table>
