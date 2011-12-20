@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools.Common.MasterPages.PopupMaster" %>
-
+<%@ Register TagPrefix="cme" Namespace="Tridion.Web.UI.Editors.CME.Controls" Assembly="Tridion.Web.UI.Editors.CME" %>
 <%@ Import Namespace="Tridion.Web.UI.Core" %>
 <%@ Import Namespace="Tridion.Web.UI" %>
 <%@ Import Namespace="System.Web" %>
@@ -15,7 +15,7 @@ class="tridion popup">
 </head>
 <body id="StackElement" class="stack popupview">
 				
-                <c:ActiveMessageCenter runat="server" id="MessageCenter" />
+                <cme:ActiveMessageCenter runat="server" id="MessageCenter" />
                
 	<form id="form1" runat="server">
 
