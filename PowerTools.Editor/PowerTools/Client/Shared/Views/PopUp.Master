@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools.Common.MasterPages.PopupMaster" %>
-<%@ Register TagPrefix="cme" Namespace="Tridion.Web.UI.Editors.CME.Controls" Assembly="Tridion.Web.UI.Editors.CME" %>
 <%@ Import Namespace="Tridion.Web.UI.Core" %>
 <%@ Import Namespace="Tridion.Web.UI" %>
 <%@ Import Namespace="System.Web" %>
@@ -7,18 +6,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://www.sdltridion.com/web/ui/controls"
 class="tridion popup">
 <head runat="server">
-	<title>PowerTools:
-		<%=Page.Title%></title>
+	<title>PowerTools:<%=Page.Title%></title>
 	<asp:ContentPlaceHolder ID="TridionDependencies" runat="server">
 		<%--Place holder for including Tridion dependencies specific for a powertool--%>
 	</asp:ContentPlaceHolder>
 </head>
 <body id="StackElement" class="stack popupview">
-				
-                <cme:ActiveMessageCenter runat="server" id="MessageCenter" />
+    <c:ActiveMessageCenter runat="server" id="MessageCenter" />
                
 	<form id="form1" runat="server">
-
 	<asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
 	</asp:ScriptManager>
 	<div id="PowerToolIcon">
