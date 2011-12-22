@@ -24,7 +24,7 @@ PowerTools.Commands.PagePublisher.prototype._execute = function (selection) {
 
     // build the pop up url for the publish dialog and open it
     var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#locationId=" + uriSelection;
-    var popup = $popup.create(PopUpUrl, "toolbar=no,width=750px,height=500px,resizable=false,scrollbars=false", null);
+    var popup = $popup.create(PopUpUrl, "toolbar=no,width=750px,height=510px,resizable=false,scrollbars=false", null);
     popup.open();
 };
 
