@@ -70,10 +70,10 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
     //$controls.getControl($("#StackElement3"), "Tridion.Controls.Stack");
 
     // Exe and close
+    c.BtnCancel = $controls.getControl($("#BtnCancel"), "Tridion.Controls.Button");
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
-    $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
+    $evt.addEventHandler(c.BtnCancel, "click", this.getDelegate(this._onBtnCancelClicked));
 
     // Init controls
     this._setupControls();
@@ -491,6 +491,14 @@ PowerTools.Popups.PagePublisher.prototype._onPlaceContentRadioChanged = function
     }
     // Resize page layout
     Tridion.DisplayController.resize();
+};
+
+/**
+* Reacts to the DOM click event.
+* @private
+*/
+PowerTools.Popups.PagePublisher.prototype._onBtnCancelClicked = function Publish$_onBtnCancelClicked() {
+    window.close();
 };
 
 /**
