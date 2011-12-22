@@ -200,7 +200,7 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) 
 
 
 /**
-* Set the publish button to disabled and loads the drop down header xml
+* Sets the publish button to disabled and loads the drop down header xml
 */
 
 PowerTools.Popups.PagePublisher.prototype._setupControls = function _setupControls() {
@@ -242,7 +242,7 @@ PowerTools.Popups.PagePublisher.prototype._onTargetTypeListSelectionChanged = fu
     var enable = false;
 
     // Update selected tt array	
-    var checkBoxes = p.checkBoxView.getSelectedCheckBoxes();
+    var checkBoxes = p.checkBoxView.getSelection();
     for (var checkboxKey in checkBoxes) {
         var tcmId = checkBoxes[checkboxKey];
         if (tcmId) {
