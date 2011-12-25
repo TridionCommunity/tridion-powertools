@@ -33,7 +33,13 @@ The new approach will add the following features:
 
 = Screenshots =
 
-Some Screenshots can be downloaded [http://tridion-2011-power-tools.googlecode.com/files/compsync.zip here ]
+Launch from search results:
+
+[https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_1.png]
+
+Launch from schema:
+
+[https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_2.png]
 
 = SVN New Branch =
 A new branch has been created in the SVN repository to store the files used for this approach.
