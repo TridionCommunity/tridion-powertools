@@ -8,6 +8,16 @@
 First you need access to the site, see the announcement
 See [http://code.google.com/p/support/wiki/WikiSyntax Google Code Wiki] Syntax or select "More examples" link from any page.
 
+
+== How do I add images to a wiki page? ==
+First you need access to the site, see the announcement
+See [http://code.google.com/p/support/wiki/WikiSyntax Google Code Wiki] Syntax or select "More examples" link from any page.
+
+  *  checkout the wiki folder from svn: {{{https://tridion-2011-power-tools.googlecode.com/svn/wiki}}}
+  *  Put the image in the folder /wiki/images
+  *  Add it to svn and commit changes
+  *  Link to your image from the page using an url like: {{{https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/myImage.png}}}
+
 == I have lots of edits for the wiki and/or an intermittent internet connection! ==
 To update the Wiki "offline" (over SVN):
 
