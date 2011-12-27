@@ -1,9 +1,11 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
 PowerTools.Popups.PagePublisher = function () {
+
+    $log.message("Page publisher started");
     Type.enableInterface(this, "PowerTools.Popups.PagePublisher");
     this.addInterface("Tridion.Cme.View");
-    //this.addInterface("PowerToolsBase", [this]);     //Base class for initializing execute-,close button, and progressbar.
+    this.addInterface("PowerToolsBase", [this]);     //Base class for initializing execute-,close button, and progressbar.
 
     var p = this.properties;
     p.processId = null;
@@ -13,26 +15,23 @@ PowerTools.Popups.PagePublisher = function () {
     p.isPddLoaded = false;
     p.targetTypesListId; // Target types domain list
     p.progressDialog = { showAnimation: true, closeAfterComplete: true }; // turn off the dialog after complete
-
 };
 
 PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/TargetTypeList-head.xml", $const.CMEEditorName);
 
-PowerTools.Popups.PagePublisher.prototype.initialize = function () {
-
-    this.callBase("Tridion.Cme.View", "initialize");
+PowerTools.Popups.PagePublisher.prototype.initialize = function ()
+{
 
     var p = this.properties;
     var c = p.controls;
-    p.today = this._getToday(); // Today - used to populate the date picker text boxes with today's date and time
-    p.params = window.dialogArguments ? window.dialogArguments : null;
-    p.locationId = $url.getHashParam("locationId");
+    this.callBase("Tridion.Cme.View", "initialize");
 
+    p.today = this._getToday(); // Today - used to populate the date picker text boxes with today's date and time
+    p.locationId = $url.getHashParam("locationId");
     $log.message("Initializing page publisher for item: " + p.locationId);
 
     // the tab control
     c.TabControl = $controls.getControl($("#OptionsTabControl"), "Tridion.Controls.TabControl");
-    //$evt.addEventHandler(c.TabControl, "select", this.getDelegate(this._onTabActivated));
 
     /* PUBLISH TAB */
     // publish now or later buttons
@@ -63,22 +62,18 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
     $evt.addEventHandler(c.TargetTypeList, "select", this.getDelegate(this._onTargetTypeListSelectionChanged));
     $evt.addEventHandler(c.TargetTypeList, "deselect", this.getDelegate(this._onTargetTypeListSelectionChanged));
 
-    // Auto resizing of stacks
+    // Auto resizing of stack divs
     $controls.getControl($("#StackElement"), "Tridion.Controls.Stack");
-    //$controls.getControl($("#StackElement1"), "Tridion.Controls.Stack");
     $controls.getControl($("#StackElement2"), "Tridion.Controls.Stack");
-    //$controls.getControl($("#StackElement3"), "Tridion.Controls.Stack");
 
     // Exe and close
     c.BtnCancel = $controls.getControl($("#BtnCancel"), "Tridion.Controls.Button");
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
+    //$evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked)); // removed as handled in the base
     $evt.addEventHandler(c.BtnCancel, "click", this.getDelegate(this._onBtnCancelClicked));
 
     // Init controls
     this._setupControls();
-
-    $log.message("Page publisher control loading processed");
 
     // Start loading data
     this._asyncLoadTargetTypeListHeader();
@@ -91,6 +86,7 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function () {
 
 PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
 
+    $log.message("Page publisher execute button clicked");
     $j('#CloseDialog').hide();
     var p = this.properties;
     var c = p.controls;
@@ -101,36 +97,18 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     p.IncludeComponentLinks = $j("#includeComponentLinksChk").attr('checked');
     p.PublishStructureGroupInfo = $j("#resolveStructureGroupInfoChk").attr('checked');
     p.IncludeWorkflow = $j("#includeWorkFlowChk").attr('checked');
-    
-    //p.Priority = parseInt(c.Priority.getValue());
     p.Priority = parseInt($j("#Priority").val());
-    $log.message("Page publisher publish : Recursive = [" + p.Recursive + "] | Republish in children = [" + p.PublishChildren + "] | Republish only = [" + p.Republish + "] |  Priority = [" + p.Priority + "]");
-
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
 
     // pass in structure uri, publishing target uri
-    PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority, p.PublishChildren, p.IncludeComponentLinks, p.PublishStructureGroupInfo, p.IncludeWorkflow, onSuccess, onFailure, context, false);
-    var dialog = $j("#dialog");
-    var win = $j(window);
+    $log.message("Page publisher publish : Recursive = [" + p.Recursive + "] | Republish in children = [" + p.PublishChildren + "] | Republish only = [" + p.Republish + "] |  Priority = [" + p.Priority + "]");
+    alert("clicked");
+    PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority,
+        p.PublishChildren, p.IncludeComponentLinks, p.PublishStructureGroupInfo,
+        p.IncludeWorkflow, onSuccess, onFailure, context, false);
 
-    //Get the screen height and width
-    var maskHeight = $j(document).height();
-    var maskWidth = win.width();
-
-    //Set height and width to mask to fill up the whole screen
-    $j('#mask').css({ 'width': maskWidth, 'height': maskHeight }).fadeIn(1000).fadeTo("slow", 0.8);
-
-    //Get the window height and width
-
-    var winH = win.height();
-    var winW = win.width();
-
-    //Set the popup window to center
-    dialog.css({ "top": (winH / 2 - dialog.height() / 2),
-        "left": (winW / 2 - dialog.width() / 2)
-    }).fadeIn(2000);
 };
 
 /**
@@ -204,6 +182,8 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) 
 */
 
 PowerTools.Popups.PagePublisher.prototype._setupControls = function _setupControls() {
+    $log.message("Page publisher setting up controls");
+
     var p = this.properties;
     var c = p.controls;
 
@@ -378,7 +358,7 @@ PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListT
 
 PowerTools.Popups.PagePublisher.prototype._getSelectedTargetTypes = function _getSelectedTargetTypes() {
     var p = this.properties;
-    var checkBoxes = p.checkBoxView.getSelectedCheckBoxes();
+    var checkBoxes = p.checkBoxView.getSelection();
     var targets = [];
 
     for (var checkboxKey in checkBoxes) {

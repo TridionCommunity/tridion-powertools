@@ -139,9 +139,6 @@
 				            </div>                                                    
 						</c:DeckPage>
 					</c:TabControl>
-
-
-
             </div>
             </div>
             <div id="Footer" class="footer stack-elem">
