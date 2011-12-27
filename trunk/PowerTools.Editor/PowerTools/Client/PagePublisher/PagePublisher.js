@@ -70,7 +70,7 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
     c.BtnCancel = $controls.getControl($("#BtnCancel"), "Tridion.Controls.Button");
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
     //$evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked)); // removed as handled in the base
-    $evt.addEventHandler(c.BtnCancel, "click", this.getDelegate(this._onBtnCancelClicked));
+    //$evt.addEventHandler(c.BtnCancel, "click", this.getDelegate(this._onBtnCancelClicked));
 
     // Init controls
     this._setupControls();
@@ -104,11 +104,9 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
 
     // pass in structure uri, publishing target uri
     $log.message("Page publisher publish : Recursive = [" + p.Recursive + "] | Republish in children = [" + p.PublishChildren + "] | Republish only = [" + p.Republish + "] |  Priority = [" + p.Priority + "]");
-    alert("clicked");
     PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority,
         p.PublishChildren, p.IncludeComponentLinks, p.PublishStructureGroupInfo,
         p.IncludeWorkflow, onSuccess, onFailure, context, false);
-
 };
 
 /**
@@ -358,16 +356,8 @@ PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListT
 
 PowerTools.Popups.PagePublisher.prototype._getSelectedTargetTypes = function _getSelectedTargetTypes() {
     var p = this.properties;
-    var checkBoxes = p.checkBoxView.getSelection();
-    var targets = [];
-
-    for (var checkboxKey in checkBoxes) {
-        if (checkBoxes[checkboxKey]) {
-            targets[targets.length] = checkBoxes[checkboxKey];
-        }
-    }
-
-    return targets;
+    var selection = p.checkBoxView.getSelection();
+    return selection.getItems();
 };
 
 
@@ -470,7 +460,7 @@ PowerTools.Popups.PagePublisher.prototype._onPlaceContentRadioChanged = function
             break;
     }
     // Resize page layout
-    Tridion.DisplayController.resize();
+    //Tridion.DisplayController.resize();
 };
 
 /**

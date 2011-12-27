@@ -145,8 +145,8 @@
                 <!-- Buttons -->
                 <div class="box-spacer-10">
                     <div class="alignRight" style="width:50%">
-                        <c:Button ID="BtnCancel" runat="server" Label="<%$ Resources: Tridion.Web.UI.Strings, Close %>" />
-                        <c:Button ID="ExecuteButton"  runat="server" disabled="disabled" Label="<%$ Resources: Tridion.Web.UI.Strings, Publish %>" Class="customButton" />
+                        <c:button ID="BtnCancel" runat="server" label="<%$ Resources: Tridion.Web.UI.Strings, Close %>" />
+                        <c:button ID="ExecuteButton"  runat="server" disabled="disabled" label="<%$ Resources: Tridion.Web.UI.Strings, Publish %>" Class="customButton" />
                     </div>
                 </div>
             </div>
