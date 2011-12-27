@@ -92,15 +92,13 @@ namespace PowerTools.Model.Services
                 // Publish pages
                 try
                 {
-                    //coreService.Publish(pageIds, GetPublishInstructionData(parameters), parameters.TargetUri, parameters.Priority, new ReadOptions());
+                    coreService.Publish(pageIds, GetPublishInstructionData(parameters), parameters.TargetUri, parameters.Priority, new ReadOptions());
                     process.Complete(string.Format("Completed publishing {0} pages", pageIds.Length.ToString()));
                 }
                 catch (Exception ex)
                 {
                     process.Complete(string.Format("Failed to publish, reason: {0}", ex.Message));
                 }
-
-                //process.Complete(listXml.OuterXml);
 			}
 		}
 
