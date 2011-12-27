@@ -86,21 +86,19 @@ namespace PowerTools.Model.Services
 				ItemsFilterData filter = GetFilter(parameters);
 				XmlElement listXml = coreService.GetListXml(parameters.LocationId, filter);
 
-
                 // Get the page id's that will be published
                 string[] pageIds = GetPageIds(listXml);
 
                 // Publish pages
                 try
                 {
-                    coreService.Publish(pageIds, GetPublishInstructionData(parameters), parameters.TargetUri, parameters.Priority, new ReadOptions());
+                    //coreService.Publish(pageIds, GetPublishInstructionData(parameters), parameters.TargetUri, parameters.Priority, new ReadOptions());
                     process.Complete(string.Format("Completed publishing {0} pages", pageIds.Length.ToString()));
                 }
                 catch (Exception ex)
                 {
                     process.Complete(string.Format("Failed to publish, reason: {0}", ex.Message));
                 }
-
 
                 //process.Complete(listXml.OuterXml);
 			}
