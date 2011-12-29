@@ -1,4 +1,4 @@
-#summary Page Publisher Tool Info Page
+#summary PowerTools Requirements - PagePublisher
 
 = Introduction =
 Publish pages in batches in a more friendly way.

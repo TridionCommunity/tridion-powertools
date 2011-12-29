@@ -1,4 +1,4 @@
-#summary We do this because we want to!
+#summary Project - Volunteers. We do this because we want to!
 
  
 === Volunteer Project Leads ===

@@ -1,7 +1,7 @@
-#summary Power Tool Requirements
+#summary PowerTools Requirements - AccessRightsManager
 
 = Introduction =
-This tool was originally created...
+This tool is not in progress. Update the wiki and start development if interested in the AccessRightsManager.
 
 {add additional info}
 

@@ -1,7 +1,7 @@
-#summary Power Tool Requirements
+#summary PowerTools Requirements - AddUser
 
 = Introduction =
-This tool was originally created...
+The tool is available in the current PowerTools release.
 
 = Details =
 ||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||

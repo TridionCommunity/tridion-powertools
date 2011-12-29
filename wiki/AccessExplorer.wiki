@@ -1,7 +1,7 @@
-#summary Power Tool Requirements
+#summary PowerTool Requirements - AccessExplorer
 
 = Introduction =
-This tool was originally created...
+This tool is currently _not_ in progress. Update the wiki and start development if interested in the AccessExplorer.
 
 {add additional info}
 

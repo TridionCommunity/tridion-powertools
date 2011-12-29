@@ -1,11 +1,7 @@
-#summary Power Tool Requirements
+#summary PowerTools Requirements - BatchImageUploader (active)
 
 = Introduction =
-This tool was originally created...
-
-{add additional info}
-
-{difficulty}
+The batch image uploader allows a user to select a local directory and load the multimedia components into SDL Tridion.
 
 = Details =
 
@@ -13,12 +9,10 @@ This tool was originally created...
 ||  ||  || ||  || || ||
 
 ==Description==
-{what does the tool do}
+Run the tool, select a local folder, and load images.
 
 == Audience ==
 Admins and Power Users
-
-
 
 *Version #*
 0.1

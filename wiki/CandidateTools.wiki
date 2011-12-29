@@ -1,4 +1,6 @@
-#summary Not all SDL Tridion GUI extensions are PowerTools.
+#summary PowerTools Requirements - 00 Candidates and Suggestions
+
+Not all SDL Tridion GUI extensions are PowerTools.
 
 = Introduction =
 

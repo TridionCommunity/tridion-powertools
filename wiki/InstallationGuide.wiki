@@ -1,4 +1,4 @@
-#summary How to install the power tools on your server.
+#summary How-To Guide - How to install the power tools on your server.
 #labels Featured,Phase-Implementation
 
 ----

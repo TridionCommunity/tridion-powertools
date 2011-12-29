@@ -1,4 +1,4 @@
-#summary Add information about the tools you use to set up a Tridion environment, program for, and maintain the PowerTools.
+#summary How-To Guide. Development Tools. Add information about the tools you use to set up a Tridion environment, program for, and maintain the PowerTools.
 
 
 = Introduction =

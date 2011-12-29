@@ -1,4 +1,4 @@
-#summary The PowerTools extend the functionality of the Tridion Web Content Management (WCM) system.
+#summary Project - The PowerTools extend the functionality of the Tridion Web Content Management (WCM) system.
 
 = Introduction =
 

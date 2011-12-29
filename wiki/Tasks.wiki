@@ -1,4 +1,4 @@
-#summary Project volunteers, progress, and next steps.
+#summary Updates - Project volunteers, progress, and next steps.
 #labels Featured,Phase-Requirements
 
 <wiki:toc max_depth="2" />

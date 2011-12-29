@@ -1,4 +1,4 @@
-#summary Power Tool Requirements
+#summary PowerTools Requirements - XMLViewerXPathSearcher
 
 = Introduction =
 This tool was originally created...

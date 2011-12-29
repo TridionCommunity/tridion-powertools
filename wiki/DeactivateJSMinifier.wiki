@@ -1,4 +1,4 @@
-#summary How to deactivate Javascript minifier for debugging purposes
+#summary How-To Guide - How to deactivate Javascript minifier for debugging purposes
 
 = Introduction =
 

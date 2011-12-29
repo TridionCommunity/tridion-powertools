@@ -1,4 +1,4 @@
-#summary Power Tool Requirements for Page Unpublisher
+#summary PowerTools Requirements - PageUnpublisher
 
 = Introduction =
 This tool was originally created...

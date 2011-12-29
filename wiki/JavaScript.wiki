@@ -1,4 +1,4 @@
-#summary JavaScript has "grown up."
+#summary How-To Guide - JavaScript Debugging. JavaScript has "grown up."
 
 = Introduction =
 

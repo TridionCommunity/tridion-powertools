@@ -1,4 +1,4 @@
-#summary Not to be construed as strict unbreakable rules, but the following summarizes design guidelines and coding standards.
+#summary Standards - Index. Not to be construed as strict unbreakable rules, but the following summarizes design guidelines and coding standards.
 
 Follow these links to add details for standards for the design (look-and-feel, colors, and maybe PowerTool context) and coding standards (comments, casing, naming conventions, etc).
 

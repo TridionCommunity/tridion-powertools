@@ -1,4 +1,4 @@
-#summary Coding guidelines used during development of Tridion Content Manager Explorer 2011.
+#summary Standards - JavaScript. Coding guidelines used during development of Tridion Content Manager Explorer 2011.
 #labels Phase-Implementation
 
 = Introduction =

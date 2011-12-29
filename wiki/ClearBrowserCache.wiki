@@ -1,4 +1,4 @@
-#summary The Tridion CME caches pages to improve performance. The trade-off is needing to remember this during development.
+#summary How-To Guide - The Tridion CME caches pages to improve performance. The trade-off is needing to remember this during development.
 
 = Details =
 

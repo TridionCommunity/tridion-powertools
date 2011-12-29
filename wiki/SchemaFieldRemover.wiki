@@ -1,7 +1,7 @@
-#summary Power Tool Requirements for Schema Field Remover
+#summary PowerTools Requirements - SchemaField Remover
 
 = Introduction =
-This tool was originally created...
+This tool is not in progress. Update the wiki and start development if interested in the SchemaFieldRemover tool.
 
 {add additional info}
 

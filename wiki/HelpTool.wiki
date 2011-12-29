@@ -1,4 +1,4 @@
-#summary PowerTool Requirements for End-User Help Screen
+#summary PowerTools Requirements - End-User Help Screen (in requirements)
 #labels Phase-Requirements
 
 = Introduction =

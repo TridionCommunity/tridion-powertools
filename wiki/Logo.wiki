@@ -1,4 +1,4 @@
-#summary Logo for issue 1.
+#summary Project - Logo created to address issue 1.
 
 = History =
 

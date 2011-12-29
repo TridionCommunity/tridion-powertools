@@ -1,4 +1,4 @@
-#summary This page describes the new approach for the Component Synchronizer Power Tool
+#summary PowerTools Requirements - ComponentSynchronizer2. This page describes the new approach for the Component Synchronizer Power Tool
 #labels PowerTools,ComponentSynchronizer,SDLTridion2011
 
 = Introduction =

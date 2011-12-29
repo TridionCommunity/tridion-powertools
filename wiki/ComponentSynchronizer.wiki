@@ -1,4 +1,4 @@
-#summary Component Synchronizer Tool Info Page
+#summary PowerTools Requirements - ComponentSynchronizer (active)
 #labels Phase-Requirements,Phase-Design,Featured
 
 = Introduction =

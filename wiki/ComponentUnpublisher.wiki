@@ -1,7 +1,7 @@
-#summary Power Tool Requirements
+#summary PowerTools Requirements - ComponentUnpublisher
 
 = Introduction =
-This tool was originally created...
+This tool is in progress.
 
 {add additional info}
 

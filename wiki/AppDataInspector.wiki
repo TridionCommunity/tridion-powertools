@@ -1,4 +1,4 @@
-#summary Power Tool Requirements
+#summary PowerTools Requirements - AppDataInspector (active)
 
 = Introduction =
 This is a new tool. Original creator Mihai Cadariu.

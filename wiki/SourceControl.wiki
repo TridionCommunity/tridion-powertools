@@ -1,7 +1,8 @@
-#summary The beauty of source control is that we can collaborate and build on each other's work, but at the same time protect the project's history.
+#summary How-To Guide - Source Control and SVN
 #labels Phase-Implementation
 
 = Introduction =
+The beauty of source control is that we can collaborate and build on each other's work, but at the same time protect the project's history.
 
 Using an open source control standard like Subversion (SVN) means you have a few options on how to manage versioning. See some suggestions below and feel free to comment on or build out these tutorials as needed.
 
