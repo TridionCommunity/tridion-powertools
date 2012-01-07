@@ -32,7 +32,6 @@ namespace PowerTools.Model.Services
             public bool IncludeWorkflow { get; set; }
         }
 
-
         /// <summary>
         /// Service operation that initiates the publishing of individual page items within structure groups
         /// Reads input parameters into a PagePublisherParameters object.
