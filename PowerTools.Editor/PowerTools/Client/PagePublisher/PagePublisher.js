@@ -2,30 +2,27 @@
 
 PowerTools.Popups.PagePublisher = function () {
 
-    $log.message("Page publisher started");
     Type.enableInterface(this, "PowerTools.Popups.PagePublisher");
     this.addInterface("Tridion.Cme.View");
     this.addInterface("PowerToolsBase", [this]);     //Base class for initializing execute-,close button, and progressbar.
 
     var p = this.properties;
+
     p.processId = null;
     p.locationId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
-    p.params = null;
-    p.isPddLoaded = false;
     p.targetTypesListId; // Target types domain list
-    p.progressDialog = { showAnimation: true, closeAfterComplete: true }; // turn off the dialog after complete
+    p.progressDialog = { showAnimation: false, closeAfterComplete: true }; // turn off the dialog after complete
 };
 
 PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/TargetTypeList-head.xml", $const.CMEEditorName);
 
 PowerTools.Popups.PagePublisher.prototype.initialize = function ()
 {
+    this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
     var c = p.controls;
-    this.callBase("Tridion.Cme.View", "initialize");
-
     p.today = this._getToday(); // Today - used to populate the date picker text boxes with today's date and time
     p.locationId = $url.getHashParam("locationId");
     $log.message("Initializing page publisher for item: " + p.locationId);
@@ -69,8 +66,7 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
     // Exe and close
     c.BtnCancel = $controls.getControl($("#BtnCancel"), "Tridion.Controls.Button");
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
-    //$evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked)); // removed as handled in the base
-    //$evt.addEventHandler(c.BtnCancel, "click", this.getDelegate(this._onBtnCancelClicked));
+    $evt.addEventHandler(c.BtnCancel, "click", this.getDelegate(this._onBtnCancelClicked));
 
     // Init controls
     this._setupControls();
@@ -87,10 +83,11 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
 PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
 
     $log.message("Page publisher execute button clicked");
-    $j('#CloseDialog').hide();
     var p = this.properties;
     var c = p.controls;
     p.SelectedTarget = this._getSelectedTargetTypes();
+    alert(p.locationId);
+    //TODO: if the p.locationId value is a publication id - enable recursing, if you don't it will fail!
     p.Recursive = $j("#RecursiveChk").attr('checked');
     p.Republish = $j("#RepublishChk").attr('checked');
     p.PublishChildren = $j("#PublishChildrenChk").attr('checked');
@@ -107,6 +104,14 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority,
         p.PublishChildren, p.IncludeComponentLinks, p.PublishStructureGroupInfo,
         p.IncludeWorkflow, onSuccess, onFailure, context, false);
+};
+
+/**
+* TODO: When the publishing is completed, close the dialog and update the message center 
+*/
+
+PowerTools.Popups.PagePublisher.prototype.afterSuccess = function (processId) {
+    alert("everything is completed!");
 };
 
 /**
