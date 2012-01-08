@@ -111,73 +111,73 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
 */
 
 PowerTools.Popups.PagePublisher.prototype.afterSuccess = function (processId) {
-    alert("everything is completed!");
+    //alert("everything is completed!");
 };
 
-/**
-* When the overlayer close button is clicked the div is faded out
-*/
-PowerTools.Popups.PagePublisher.prototype._onCloseButtonClicked = function () {
-    $j('#mask, .window').hide();
-    $j('#ProgressStatus').html("");
-    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
-};
+///**
+//* When the overlayer close button is clicked the div is faded out
+//*/
+//PowerTools.Popups.PagePublisher.prototype._onCloseButtonClicked = function () {
+//    $j('#mask, .window').hide();
+//    $j('#ProgressStatus').html("");
+//    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
+//};
 
-/**
-* Updates the overlayer progress bar with the current percentage of the process
-* @process - the service process:
-*/
-PowerTools.Popups.PagePublisher.prototype._updateProgressBar = function (process) {
+///**
+//* Updates the overlayer progress bar with the current percentage of the process
+//* @process - the service process:
+//*/
+//PowerTools.Popups.PagePublisher.prototype._updateProgressBar = function (process) {
 
-    $j('#ProgressStatus').html(process.Status);
-    $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
-}
+//    $j('#ProgressStatus').html(process.Status);
+//    $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
+//}
 
-/**
-* Manages the responses from the status
-* @result:
-*/
+///**
+//* Manages the responses from the status
+//* @result:
+//*/
 
-PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (result) {
-    var p = this.properties;
-    p.processId = result.Id;
-    this._updateProgressBar(result);
-    if (result.PercentComplete < 100) {
-        this._pollStatus(p.processId);
-    }
-    else {
-        $j('#ProgressStatus').html(result.Status);
-        $j('#CloseDialog').show();
-        p.processId = ""
-    }
-}
+//PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (result) {
+//    var p = this.properties;
+//    p.processId = result.Id;
+//    this._updateProgressBar(result);
+//    if (result.PercentComplete < 100) {
+//        this._pollStatus(p.processId);
+//    }
+//    else {
+//        $j('#ProgressStatus').html(result.Status);
+//        $j('#CloseDialog').show();
+//        p.processId = ""
+//    }
+//}
 
-/**
-* Gets the process status from the page publisher webservice
-* @id - the id of the process:
-*/
+///**
+//* Gets the process status from the page publisher webservice
+//* @id - the id of the process:
+//*/
 
-PowerTools.Popups.PagePublisher.prototype._pollStatus = function (id) {
-    var onFailure = null;
-    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
-    var context = null;
-    var callback = function () {
-        $log.debug("Checking the status of process #" + id);
-        PowerTools.Model.Services.PagePublisher.GetProcessStatus(id, onSuccess, onFailure, context, false);
-    };
-    setTimeout(callback, this.properties.pollInterval);
-}
+//PowerTools.Popups.PagePublisher.prototype._pollStatus = function (id) {
+//    var onFailure = null;
+//    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
+//    var context = null;
+//    var callback = function () {
+//        $log.debug("Checking the status of process #" + id);
+//        PowerTools.Model.Services.PagePublisher.GetProcessStatus(id, onSuccess, onFailure, context, false);
+//    };
+//    setTimeout(callback, this.properties.pollInterval);
+//}
 
-/**
-* While the tool is processing polls the status
-* @result - the process 
-*/
+///**
+//* While the tool is processing polls the status
+//* @result - the process 
+//*/
 
-PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) {
-    if (result) {
-        this._pollStatus(result.Id);
-    }
-};
+//PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) {
+//    if (result) {
+//        this._pollStatus(result.Id);
+//    }
+//};
 
 
 /**
