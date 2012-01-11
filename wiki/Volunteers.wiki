@@ -5,7 +5,7 @@
 
 || Role || Name || Organization || Twitter || Blog ||
 || Technical Lead || Peter Kjaer || SDL ||  || [http://pkjaer.wordpress.com/ Peter Kjaer] ||
-|| Technical Lead || Dominic Cronin || Hinttech || || [http://www.dominic.cronin.nl/weblog Dominic Cronin] ||
+|| Technical Lead || Dominic Cronin || Indivirtual || || [http://www.dominic.cronin.nl/weblog Dominic Cronin] ||
 || Technical Lead || Chris Summers || !UrbanCherry ||  || ||
 || Functional Lead || Alvin Reyes || SDL || [http://twitter.com/nivlong Nivlong]  || [http://createandbreak.net CreateAndBreak]||
 
