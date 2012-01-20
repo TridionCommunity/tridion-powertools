@@ -57,6 +57,7 @@ Some topics you might want to learn about or share your expertise in.
 = Testing and Troubleshooting =
   * How to [DeactivateJSMinifier Deactivate JS Minifier] to troubleshoot JavaScript  
   * Also see [Testing] page.
+  * Unclear error? Visit http://localhost/WebUI/Editors/CME/Views/Dashboard/Dashboard_v6.0.0.39607.6_.aspx?mode=js on your CMS environment to see the details.
   * Quick deactivate .bat script (backup original system.config before using!). If you need to see your CME without the PowerTools, create a .bat file with the following and run it as an administrator. It simply moves a file called "SystemPower.config" to a temp file, swaps out the existing config, and moves the temp back to the System.config file. 
 
 {{{
