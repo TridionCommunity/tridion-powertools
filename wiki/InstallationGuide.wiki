@@ -79,3 +79,11 @@ Locate the '<models/>' element and add the power tools editor.
 
 == Test == 
   # Select a Folder and then choose the 'Count items' PowerTool. 
+
+= Moving an Installation =
+
+If you have to move an existing setup, be sure to update the following:
+ # Cut and Paste your existing project folder (if copying, you may need to update folder permissions).
+ # Update the virtual directories in IIS to point to the new locations for the editor and model folders.
+ # Update the System.Config file with the new folder locations.
+ # Finally, optionally clean and build the solution in Visual Studio to update old references.
