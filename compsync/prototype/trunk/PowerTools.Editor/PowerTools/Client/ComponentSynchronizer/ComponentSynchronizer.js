@@ -55,8 +55,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
     c.TabControl = $controls.getControl($("#TabControl"), "Tridion.Controls.TabControl");
     c.UsedInPage = c.TabControl.getPage("UsedIn");
     c.UsedInList = $controls.getControl($("#UsedInList"), "Tridion.Controls.List");
-    c.DetailsText = $("#ItemDetailsText", p.element);
-    c.DetailsVersions = $("#ItemDetailsVersions", p.element);
+    
 
     //# Buttons
     c.BtnUsedInOpen = $controls.getControl($("#BtnUsedInOpen"), "Tridion.Controls.Button");
@@ -76,7 +75,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
 						$const.ColumnFilter.ALLOWED_ACTIONS |
 						$const.ColumnFilter.VERSIONS,
 			    conditions:
-				{
+				{                
 				    ItemTypes: [$const.ItemType.COMPONENT],
 				    InclLocalCopies: true
 				}
@@ -84,7 +83,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function () {
         getListItems: this.getDelegate(this.getListItems, [PowerTools.Popups.ComponentSynchronizer.USEDIN]),
         renderList: function ComponentSynchronizer$renderUsedInList(bodyDocument) {
             self.renderList(PowerTools.Popups.ComponentSynchronizer.USEDIN, bodyDocument);
-            //self.updateItemDetails();
+            
         }
     };
 
@@ -212,7 +211,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.onListSelectionChanged = funct
     var c = this.properties.controls;   
     c.BtnUsedInOpen.setDisabled(!this.isCommandAvailable(openCommand, selection));
     c.BtnUsedInGoTo.setDisabled(!this.isCommandAvailable("Goto", selection));
-    this.updateItemDetails();
+    
    
 };
 
@@ -236,34 +235,33 @@ PowerTools.Popups.ComponentSynchronizer.prototype.isCommandAvailable = function 
 * List format: <tcm:ListUsingItems xmlns:tcm="http://www.tridion.com/ContentManager/5.0"><tcm:Item ID="tcm:3-924" Title="Labels Component 123" Type="16" OrgItemID="tcm:3-5-2" Path="\020 Content\Building Blocks\Content" SchemaId="tcm:3-923-8" Versions="1 2 3 4" IsNew="false" Allow="268560777" Deny="614" Icon="T16L0P0" Publication="020 Content" /></tcm:ListUsingItems>
 */
 PowerTools.Popups.ComponentSynchronizer.prototype.getListItems = function ComponentSynchronizer$getListItems(tabType) {
-    
+
     var item = this.getItem();
     var tab = this.properties.tabType[tabType];
-    if(item && tab && $models.getItemType(item.getId()) == $const.ItemType.SCHEMA){
+    if (item && tab && $models.getItemType(item.getId()) == $const.ItemType.SCHEMA) {        
         return item.getListUsingItems(tab.filter);
     }
-    else
-    {
-       
+    else {
+
         //Build the list
         var strXml = '<tcm:ListUsingItems xmlns:tcm="http://www.tridion.com/ContentManager/5.0">'
         var p = this.properties;
         var items = p.sel.getItems();
-        for(var i=0; i<items.length;i++){
+        for (var i = 0; i < items.length; i++) {
             var itemId = items[i];
             var item = $models.getItem(itemId);
-            
-            if(item){
+
+            if (item) {
 
                 var icon = item.getItemIcon(); //item.callBase("Tridion.ContentManager.VersionedItem", "getItemIcon");                
-                strXml+='<tcm:Item ID="'+itemId+'" Title="'+item.getStaticTitle()+'" Type="16" Icon="'+icon+'"/>';
+                strXml += '<tcm:Item ID="' + itemId + '" Title="' + item.getStaticTitle() + '" Type="16" Icon="' + icon + '"/>';
             }
-            
+
         }
-        
-        strXml+='</tcm:ListUsingItems>';
-        var xmlDoc = $xml.getNewXmlDocument(strXml);    
-        
+
+        strXml += '</tcm:ListUsingItems>';
+        var xmlDoc = $xml.getNewXmlDocument(strXml);
+
         this.renderList(PowerTools.Popups.ComponentSynchronizer.USEDIN, strXml);
     }
     return null;
@@ -276,28 +274,37 @@ PowerTools.Popups.ComponentSynchronizer.prototype.getListItems = function Compon
 * @returns {bodyXml} String xml with Items List. 
 */
 PowerTools.Popups.ComponentSynchronizer.prototype.renderList = function ComponentSynchronizer$renderList(tabType, bodyXml) {
-    
+
     var p = this.properties;
     $assert.isString(bodyXml);
 
     var tab = this.properties.tabType[tabType];
     var control = tab.control;
     var headDocument = tab.headDocument;
-    
+
     var xmlDoc = $xml.getNewXmlDocument(bodyXml);
 
     control.setLoading(true);
 
     function ComponentSynchronizer$drawControl(definitionDocument) {
-        
-    
         control.draw(xmlDoc, definitionDocument);
         control.setLoading(false);
-    }
-    
-    if (!headDocument) {
+
         
-        function ComponentSynchronizer$headDocumentLoaded(headDocument) {                        
+        var selection = $xml.selectNodes(tab.getListItems().getXmlDocument(), "//tcm:Item/@ID", $const.Namespaces);
+        p.sel = new Tridion.Cme.Selection();
+        var length = selection.length;
+        for (var i = 0; i < length; i++) {
+            
+            p.sel.addItem(selection[i].value);
+        }
+
+
+    }
+
+    if (!headDocument) {
+
+        function ComponentSynchronizer$headDocumentLoaded(headDocument) {
             tab.headDocument = headDocument;
             ComponentSynchronizer$drawControl(headDocument);
         }
@@ -305,9 +312,9 @@ PowerTools.Popups.ComponentSynchronizer.prototype.renderList = function Componen
         function ComponentSynchronizer$headDocumentLoadFailed() {
             $log.error("Unable to load head xml file for list.");
         }
-        
+
         $xml.loadXmlDocument(tab.headPath, ComponentSynchronizer$headDocumentLoaded, ComponentSynchronizer$headDocumentLoadFailed);
-        
+
         return;
     }
     ComponentSynchronizer$drawControl(headDocument);
@@ -332,24 +339,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype.getSelection = function Compon
 };
 
 
-/**
-* Updates the Item Details. 
-*/
-PowerTools.Popups.ComponentSynchronizer.prototype.updateItemDetails = function ComponentSynchronizer$updateItemDetails() {
-    var p = this.properties;
-    var c = p.controls;
-    var p = this.properties;
-    var c = p.controls;
-    var tab = p.tabType[PowerTools.Popups.ComponentSynchronizer.USEDIN];
 
-    var usedInList = tab.control;
-    var items = usedInList.getSelection().getItems();
-
-    var itemId = items[0];
-    $dom.setInnerText(c.DetailsText, "Enter here details for item: "+ itemId);
-
-
-};
 
 /**
 * On Reference Component Browse. 
@@ -456,25 +446,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicke
                 window.$currentEditor = editor;
                 if (!editor) {
                     $messages.registerError($localization.getCoreResource("IsPopupBlocker"), null, null, null, true);
-                } else {
-                    /*$evt.addEventHandler(editor, "load", function () {
-                    $log.message("OnReady");
-                    $evt.removeEventHandler(editor, "load", ComponentSynchronizer$_onEditorReady);
-                    var schemaControl = editor.$display.getView().properties.controls.SchemaControl;
-                    $evt.addEventHandler(c.SchemaControl, "loadcontent", function () {
-                    $evt.removeEventHandler(schemaControl, "load", ComponentSynchronizer$_onSchemaLoadContent);
-                    schemaControl.setDisabled(true);
-                    $log.message("Schema Load ");
-                    });
-                    });*/
-                    alert(editor.document);
-                    $(editor.document).ready(function () {
-                        $log.message("ready");
-                        alert('jaime');
-                    });
-
-
-                }
+                } 
 
             };
 
@@ -499,10 +471,10 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicke
 PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function () {
     var p = this.properties;
     if (true) { //TODO: ADD SOME CHECKS
-        var worker = new PowerTools.ComponentSynchronizerWorker();
+        var worker = new PowerTools.ComponentSynchronizerWorker();        
         worker.execute(p.sel, p.referenceComponent);
-    }  
-    
+    }
+
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function () {

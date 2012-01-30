@@ -44,12 +44,16 @@
 					    </div>
 				    </div>	
                     <div style="padding-top: 10px">
-                    <fieldset>
-                            <legend>Item Details</legend>
-						    <div class="stack-elem" id="ItemDetails">
-							    <div id="ItemDetailsText">No item selected</div>							        
-						    </div>
-                            </fieldset>				
+                        <fieldset>
+                            <legend id="StatusLegend">Process Status</legend>                            
+                            <span class="progressBar" id="element4">
+                                <img id="pbImage" src="../Shared/Theme/Icons/percentImage.png" alt="80%"
+                                    style="width: 100px; height: 12px; background-image: url(../Shared/Theme/Icons/percentImage_back.png);
+                                    padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;
+                                    margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; background-position: -120px 50%;"
+                                    class="percentImage" title="80%"><span id="processComplete" class="percentText"> -
+                                        0%</span></span>                                        
+                        </fieldset>
                     </div>
 				    
 			    </div>
@@ -66,19 +70,8 @@
                         <c:Button ID="CloseButton" runat="server" TabIndex="10" Label="<%$ Resources: Tridion.Web.UI.Strings, Cancel %>" /> 
                     </fieldset>
 				    </div>
+                    
     </div>
-    
-	
-		
-	<div id="ModalDialog">
-	<div id="dialog" class="window" style="border: 2px solid black; width: 300px; height: 100px;
-		background-color: white; text-align: center">
-		<div style="border: 1px solid black; background-color: white; width: 100%">
-			<div id="ProgressBar" style="height: 15px; width: 1px; background-color: navy;">
-				&nbsp;</div>
-		</div>
-		<div id="ProgressStatus" style="width: 100%; text-align: center">Progress</div>
-	</div>
 </div>	
             
 		
