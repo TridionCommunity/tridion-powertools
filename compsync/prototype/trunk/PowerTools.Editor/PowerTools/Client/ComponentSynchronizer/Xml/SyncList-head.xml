@@ -12,8 +12,8 @@
   <list:columns>
     <list:column id="IconColum" type="icon" title="" width="20" enableresizing="false" enablesorting="false" enablefiltering="false" selector="@Icon" />
     <list:column id="NameColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Name}"  selector="@Title"  enablefiltering="true" columnfilter="group"/>
-    <list:column id="NameColumn" type="data" title="Synchronization Status" width="300" selector="@SyncStatus"  enablefiltering="true" columnfilter="group"/>
-    <!--list:column id="PublicationColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Publication}" selector="@Publication"  enablefiltering="true" columnfilter="value"/>
+    <!-- list:column id="NameColumn" type="data" title="Synchronization Status" width="300" selector="@SyncStatus"  enablefiltering="true" columnfilter="group"/>
+    <list:column id="PublicationColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Publication}" selector="@Publication"  enablefiltering="true" columnfilter="value"/>
 		<list:column id="CommentColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Comment}" selector="@Comment"  enablefiltering="true" columnfilter="value"/>
 		<list:column id="LocationColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Location}" selector="@Path"  enablefiltering="true" columnfilter="group"/ -->
   </list:columns>
