@@ -6,6 +6,8 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using PowerTools.Model.Services.Exceptions;
 using PowerTools.Model.Services.Progress;
+using Tridion.ContentManager.CoreService.Client;
+using System.Collections;
 
 
 namespace PowerTools.Model.Services
@@ -15,12 +17,14 @@ namespace PowerTools.Model.Services
 	[ServiceContract(Namespace = "PowerTools.Model.Services")]
 	public class ComponentSynchronizer : BaseService
 	{
-		class CompSyncParameters
+        class CompSyncParameters
 		{
 			public string[] SelectedURIs { get; set; }
 			public string ReferenceCompoenntURI { get; set; }
 			
 		}
+
+        private IList _processedItems = new ArrayList();
 
 		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
 		public ServiceProcess Execute(string selectedURIs, string referenceComponentURI)
@@ -35,8 +39,9 @@ namespace PowerTools.Model.Services
                 throw new ArgumentNullException("referenceComponentURI");
 			}
 
-            
-
+            selectedURIs = selectedURIs.Replace("[", "");
+            selectedURIs = selectedURIs.Replace("]", "");
+            selectedURIs = selectedURIs.Replace("\"", "");
             CompSyncParameters arguments = new CompSyncParameters { SelectedURIs = selectedURIs.Split(','), ReferenceCompoenntURI =referenceComponentURI };
 			return ExecuteAsync(arguments);
 		}
@@ -60,17 +65,20 @@ namespace PowerTools.Model.Services
 			try
 			{
 
-				
 				int i = 0;
-
-				foreach (string uri in parameters.SelectedURIs)
+                ComponentData ReferenceComponentData = client.Read(parameters.ReferenceCompoenntURI,new ReadOptions()) as ComponentData;
+				
+                foreach (string uri in parameters.SelectedURIs)
 				{
-					process.SetStatus("Synchronizing Component: " + uri);
+                    ComponentData currentComponent = client.Read(uri, new ReadOptions()) as ComponentData;
+					process.SetStatus("Synchronizing: " + currentComponent.Title);
+                    _processedItems.Add(uri);
                     process.SetCompletePercentage(++i * 100 / parameters.SelectedURIs.Length);
 					System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
 				}
-
-				process.Complete();
+                process.SetStatus("Synchronization succesfully finished!");
+                process.Complete();
+                _processedItems = new ArrayList();
 
 			}
 			finally
