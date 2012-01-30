@@ -118,9 +118,17 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\custom1_bar.gif" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\custom1_box.gif" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back1.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back2.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back3.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back4.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.16x16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.24x24.png" />
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
