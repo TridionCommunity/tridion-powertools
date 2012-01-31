@@ -33,20 +33,13 @@ TBD
 *Document Author(s)*
 {list authors}
 
-== Purpose ==
-Describe purpose, objectives, and requirements
-Probably this section overlaps with previous sections.
 
 == Installation ==
-{describe installation steps}
-
-=== Upgrade ===
-{as applicable}
-Removal Instructions
+Installed with the other power tools.
 
 = Requirements =
 || ID || Description || Scope || Comments ||
-|| 1 || ... || || ||
+|| 1 || Allow power user the ability to select a folder of multimedia for uploading into the CMS. || || ||
 || 2 || ... || || ||
 || 3 || ... || || ||
 || 4 || ... || || ||
