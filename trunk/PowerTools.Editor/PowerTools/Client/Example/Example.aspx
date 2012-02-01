@@ -3,21 +3,46 @@
 
 <asp:Content ID="ExampleContent" ContentPlaceHolderID="Main" runat="server">
 	<div id="container" style="padding: 10px">
-		This is an example PowerTool which shows the use of a status bar. The tool make
-		use of Client and Server elements:<br />
-		<strong>Client</strong>
-		<ul>
-			<li><em>/PowerTools/Client/Example/Example.aspx (this pop-up):</em> used to control
-				the main layout of the page</li>
-			<li><em>/PowerTools/Client/Example/Example.js:</em> JavaScript functions for the popup</li>
-			<li><em>/PowerTools/Client/Example/ExampleCommand.js:</em> JavaScript command set to
-				add buttons to the GUI (isAvailable/isEnabled/_execute)</li>
-			<li><em>/PowerTools/Client/Example/Example.css:</em> CSS to control look and feel of
-				this popup</li>
-			<li><em>/PowerTools/Client/Shared/Theme/styles.css:</em> CSS to control look and feel
-				of the buttons</li>
-		</ul>
-		<strong>Server</strong>
+		<p>This example PowerTool demonstrates the status bar using Client (JavaScript) and Server (Core Service) code:</p>
+		<h2>Client</h2>
+
+		<table summary="Paths and descriptions of the client and server parts of a PowerTool.">
+		    <thead>
+		        <tr>
+		            <th>Path</th>
+                    <th>Purpose</th>
+		        </tr>
+		    </thead>
+            <tbody>
+			<tr>
+			    <td>/PowerTools/Client/Example/Example.aspx<br/>(this pop-up)</td>
+                <td>displays content and controls layout</td>
+			</tr>
+			<tr>
+			    <td>/PowerTools/Client/Example/Example.js:</td>
+                <td>JavaScript functions for this popup</td>
+			</tr>
+			<tr>
+			    <td>/PowerTools/Client/Example/ExampleCommand.js:</td>
+                <td>JavaScript commands to add buttons to the GUI, for example:
+                    <ul>
+                        <li>isAvailable</li>
+                        <li>isEnabled</li>
+                        <li>_execute</li>
+                    </ul>
+                </td>
+			</tr>
+			<tr>
+			    <td>/PowerTools/Client/Example/Example.css</td>
+                <td>Cascading Style Sheet (CSS) controls look and feel of page (pop-up) elements</td>
+			</tr>
+			<tr>
+			    <td>/PowerTools/Client/Shared/Theme/styles.css</td>
+                <td>CSS controls look and feel of the buttons</td>
+			</tr>
+            </tbody>
+		</table>
+		<h2>Server</h2>
 		<ul>
 			<li><em>PowerTools.Model/Services/Example.svc:</em> the back-end web service</li>
 		</ul>
