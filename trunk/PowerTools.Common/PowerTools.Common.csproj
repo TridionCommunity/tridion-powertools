@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference Assemblies\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -45,11 +49,16 @@
       <HintPath>CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
     <Reference Include="Tridion.Web.UI.Core">
-      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
+      <HintPath>..\..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreService\Client.cs" />
+    <Compile Include="Handlers\DocumentItemHandler.cs" />
+    <Compile Include="Handlers\Model\Schema.cs" />
+    <Compile Include="Handlers\Model\SchemaField.cs" />
+    <Compile Include="Handlers\WordHelper.cs" />
     <Compile Include="MasterPages\FieldViewMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

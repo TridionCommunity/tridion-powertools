@@ -56,9 +56,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
-    <Reference Include="Tridion.Web.UI.Core, Version=6.0.0.39607, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
+    <Reference Include="Tridion.Web.UI.Core">
+      <HintPath>..\..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +76,8 @@
     <Content Include="PowerTools\Client\CountItems\CountItems.css" />
     <Content Include="PowerTools\Client\CountItems\CountItems.js" />
     <Content Include="PowerTools\Client\CountItems\CountItemsCommand.js" />
+    <Content Include="PowerTools\Client\DocumentItem\DocumentItemCommand.js" />
+    <Content Include="PowerTools\Client\DocumentItem\ExportToWord.css" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.aspx" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
@@ -231,6 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PowerTools\Client\Shared\Views\FieldView.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PowerTools\Client\DocumentItem\schema.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
