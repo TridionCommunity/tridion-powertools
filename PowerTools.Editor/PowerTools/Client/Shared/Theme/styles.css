@@ -46,6 +46,11 @@
 .ribbontoolbar .button.PT_ViewInLive  .image {background-image: url({ThemePath}/Icons/viewinfrontend_32.png);}
 .ribbontoolbar.minimized .button.PT_ViewInLive .image {background-image: url({ThemePath}/Icons/viewinfrontend_16.png);}
 
+.PT_DocumentItem .image {background-image:url({ThemePath}/Icons/documentitem_16.png);}
+.ribbontoolbar .button.PT_DocumentItem  .image {background-image: url({ThemePath}/Icons/documentitem_32.png);}
+.ribbontoolbar.minimized .button.PT_DocumentItem .image {background-image: url({ThemePath}/Icons/documentitem_16.png);}
+
+
 .PT_Help .image {background-image:url({ThemePath}/Icons/help_16.png);}
 .ribbontoolbar .button.PT_Help  .image {background-image: url({ThemePath}/Icons/help_32.png);}
 .ribbontoolbar.minimized .button.PT_Help .image {background-image: url({ThemePath}/Icons/help_16.png);}

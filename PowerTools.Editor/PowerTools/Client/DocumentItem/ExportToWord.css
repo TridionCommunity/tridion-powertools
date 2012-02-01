@@ -1,0 +1,9 @@
+.contextmenu .item.ExportToWord .image {
+    background-image:url(/WebUI/Editors/DocumentationExtension/client/commands/ExportToWord/Icons/Documentation_16.png);
+}
+.ribbontoolbar .button.ExportToWord .image {
+    background-image: url(/WebUI/Editors/DocumentationExtension/client/commands/ExportToWord/Icons/Documentation_32.png);
+} 
+.ribbontoolbar.minimized .button.ExportToWord .image {
+    background-image: url(/WebUI/Editors/DocumentationExtension/client/commands/ExportToWord/Icons/Documentation_16.png);
+}
