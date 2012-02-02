@@ -28,5 +28,5 @@ PowerTools.Commands.DocumentItem.prototype._execute = function ExportToWord$_exe
     var itemID = selection.getItem(0);
     //var itemType = $models.getItemType(itemID);
 
-    window.location = document.location.protocol + "//" + document.location.host + "/WebUI/SchemaDefinition.docx?id=" + itemID;
+    window.location = document.location.protocol + "//" + document.location.host + "/WebUI/Editors/PowerTools/PowerTools/Client/DocumentItem/SchemaDefinition.docx?id=" + itemID;
 };
