@@ -37,7 +37,7 @@ namespace PowerTools.Common.Handlers
 
         public void  ProcessRequest(HttpContext context)
         {
-            const string TEMPLATE_FOLDER = @"Editors\PowerTools\PowerTools\Client\DocumentItem";
+            const string TEMPLATE_FOLDER = @"";
             const string SCHEMA_TEMPLATE_FILENAME = "schema.docx";
 
             byte[] binWordFile = null;
