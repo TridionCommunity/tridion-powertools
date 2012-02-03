@@ -2,6 +2,10 @@
 
 = Updates =
 
+(22-Jan-2011) Congrats to the 2012 [http://www.sdltridionworld.com/community/mvp_award/mvp-award-2012.aspx SDL Tridion MVPs]! 
+
+(01-Jan-2011) New Year new members, but the same plan. We've made sample and working tools as planned. We're working towards a tentative 2012 Q2 release date and need the most help with Core Service work on Component Synchronizer and extending existing functionality.
+
 (18-Dec-2011) As we approach the holidays, we wanted to thank everyone for their work on the PowerTools. Please enjoy any time-off or vacations you have--you definitely deserve it. Feel free to catch us afterwards, or hole yourself away to crank out a tool or two. Either way works! :-)
 
 (30-Nov-2011) We're researching an IRC-like communication option with [http://flowdock.com FlowDock]. Anyone can [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main join the "flow"] and conversations are saved. The Web-based tool has contemporary social media features including hash tagging (#), /emotes (/me does something...), and Google Account integration. (Thanks Vesa for the suggestion to get a free license. We've valid through May 2012)
