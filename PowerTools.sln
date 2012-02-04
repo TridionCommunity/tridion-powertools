@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools.Model", "PowerTo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools.Common", "PowerTools.Common\PowerTools.Common.csproj", "{B0EF0918-58E9-4439-BF26-76895E3BE66B}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PowerTools.Installer", "PowerTools.Installer\PowerTools.Installer.vdproj", "{14A490D8-1D89-41D2-92EA-E3679E4D244E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,8 @@ Global
 		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Debug|Any CPU.ActiveCfg = Debug
+		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

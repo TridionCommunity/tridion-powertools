@@ -36,7 +36,10 @@
       <HintPath>..\Reference Assemblies\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
@@ -59,6 +62,12 @@
     <Compile Include="Handlers\Model\Schema.cs" />
     <Compile Include="Handlers\Model\SchemaField.cs" />
     <Compile Include="Handlers\WordHelper.cs" />
+    <Compile Include="Installer\CustomActions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Installer\CustomActions.Designer.cs">
+      <DependentUpon>CustomActions.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\FieldViewMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
