@@ -81,6 +81,10 @@
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemoverCommand.js" />
+    <Content Include="PowerTools\Client\Help\Help.aspx" />
+    <Content Include="PowerTools\Client\Help\Help.css" />
+    <Content Include="PowerTools\Client\Help\Help.js" />
+    <Content Include="PowerTools\Client\Help\HelpCommand.js" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.css" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.js" />
@@ -168,6 +172,9 @@
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\Help\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.cs">
       <DependentUpon>ItemXmlTab.ascx</DependentUpon>
