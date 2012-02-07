@@ -99,6 +99,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_39575EAD279949948825E2DAA2275478"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4C012EE7D9994C8F3BB0239EBA907797"
         "OwnerKey" = "8:_F577648C0B394BCFA517DF7766CE44D9"
         "MsmSig" = "8:_UNDEFINED"
@@ -551,6 +557,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_39575EAD279949948825E2DAA2275478"
+            {
+            "SourcePath" = "8:power-tools-logo-without-text-48-48.ico"
+            "TargetName" = "8:power-tools-logo-without-text-48-48.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_1D6EC0399DD24F8F8C0EB3D20806B582"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4C012EE7D9994C8F3BB0239EBA907797"
             {
             "AssemblyRegister" = "3:1"
@@ -833,7 +859,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PowerTools 2011"
         "ProductCode" = "8:{2E2F4F99-F95F-4E36-AD02-12697EF6A870}"
-        "PackageCode" = "8:{E06B1D9C-0D05-44B7-80F6-3DB36E593128}"
+        "PackageCode" = "8:{973D00BA-70DE-4DB4-9CA7-F515C5580165}"
         "UpgradeCode" = "8:{4F9F5093-A744-4EC6-A19D-36E9B9DF4448}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -850,7 +876,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Installs the PowerTools extension to SDL Tridion Content Manager Explorer."
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_39575EAD279949948825E2DAA2275478"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1296,8 +1322,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1202"
+                            "Setting" = "3:2"
+                            "Value" = "8:"
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }
