@@ -399,7 +399,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_2E6F2AC5_22C0_4DD1_BBDF_E88E84D496C4"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
+            "CustomActionData" = "8:/CME_WEBSITE_ID=\"[CME_WEBSITE_ID]\" /TARGETDIR=\"[TARGETDIR]\\\""
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F63EE011DAA3471CA71FC5460303AC59"
             {
@@ -806,11 +806,19 @@
         }
         "Locator"
         {
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_B1D0F062B499433B89E34EF2CB9D53CB"
+            {
+            "Name" = "8:Search for CME Website ID"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\Tridion\\Content Manager Web Site"
+            "Value" = "8:web_name"
+            "Property" = "8:CME_WEBSITE_ID"
+            }
             "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_E8E8651A07AD4DDD81002F7C349F3428"
             {
             "Name" = "8:Search for CME WebRoot"
             "Root" = "2:1"
-            "RegKey" = "8:SOFTWARE\\Wow6432Node\\Tridion\\Content Manager Explorer"
+            "RegKey" = "8:SOFTWARE\\Tridion\\Content Manager Explorer"
             "Value" = "8:CME WebRoot"
             "Property" = "8:CME_WEBROOT"
             }
@@ -825,7 +833,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PowerTools 2011"
         "ProductCode" = "8:{2E2F4F99-F95F-4E36-AD02-12697EF6A870}"
-        "PackageCode" = "8:{2716B067-C18C-4472-962A-B06C46383962}"
+        "PackageCode" = "8:{776F6289-4009-479C-9CC1-294A8095BAE8}"
         "UpgradeCode" = "8:{4F9F5093-A744-4EC6-A19D-36E9B9DF4448}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
