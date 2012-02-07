@@ -833,7 +833,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PowerTools 2011"
         "ProductCode" = "8:{2E2F4F99-F95F-4E36-AD02-12697EF6A870}"
-        "PackageCode" = "8:{6CD108E5-5C6E-4C76-9B83-B062C69F59A1}"
+        "PackageCode" = "8:{E06B1D9C-0D05-44B7-80F6-3DB36E593128}"
         "UpgradeCode" = "8:{4F9F5093-A744-4EC6-A19D-36E9B9DF4448}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -992,7 +992,7 @@
                             "ContextData" = "8:1;True=1;False=0"
                             "Attributes" = "3:0"
                             "Setting" = "3:0"
-                            "Value" = "3:1"
+                            "Value" = "3:0"
                             "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
