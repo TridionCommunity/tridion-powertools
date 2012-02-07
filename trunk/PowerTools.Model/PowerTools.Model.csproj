@@ -141,7 +141,9 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)$(TargetName).*" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y</PostBuildEvent>
+    <PostBuildEvent>IF DEFINED TRIDION_CM_HOME (
+xcopy "$(TargetDir)$(TargetName).*" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y
+)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
