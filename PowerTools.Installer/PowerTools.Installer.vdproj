@@ -371,7 +371,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_B9D9D3D3_F7FE_40DC_98D6_BDD755C71699"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
+            "CustomActionData" = "8:/CME_WEBSITE_ID=\"[CME_WEBSITE_ID]\" /TARGETDIR=\"[TARGETDIR]\\\" /CME_WEBROOT=\"[CME_WEBROOT]\\\""
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_822EEDB500C84A10BB84DD56A4290D3E"
             {
@@ -385,7 +385,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_A2578B02_D6D6_420D_9169_CC5786608B52"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
+            "CustomActionData" = "8:/CME_WEBSITE_ID=\"[CME_WEBSITE_ID]\" /TARGETDIR=\"[TARGETDIR]\\\" /CME_WEBROOT=\"[CME_WEBROOT]\\\""
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_BCF1705B91BE4037B14424113D56CE53"
             {
@@ -399,7 +399,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_2E6F2AC5_22C0_4DD1_BBDF_E88E84D496C4"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:/CME_WEBSITE_ID=\"[CME_WEBSITE_ID]\" /TARGETDIR=\"[TARGETDIR]\\\""
+            "CustomActionData" = "8:/CME_WEBSITE_ID=\"[CME_WEBSITE_ID]\" /TARGETDIR=\"[TARGETDIR]\\\" /CME_WEBROOT=\"[CME_WEBROOT]\\\""
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F63EE011DAA3471CA71FC5460303AC59"
             {
@@ -413,7 +413,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_57442456_6749_4181_84D3_641E125C3D60"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
+            "CustomActionData" = "8:/CME_WEBSITE_ID=\"[CME_WEBSITE_ID]\" /TARGETDIR=\"[TARGETDIR]\\\" /CME_WEBROOT=\"[CME_WEBROOT]\\\""
             }
         }
         "DefaultFeature"
@@ -833,7 +833,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PowerTools 2011"
         "ProductCode" = "8:{2E2F4F99-F95F-4E36-AD02-12697EF6A870}"
-        "PackageCode" = "8:{776F6289-4009-479C-9CC1-294A8095BAE8}"
+        "PackageCode" = "8:{6CD108E5-5C6E-4C76-9B83-B062C69F59A1}"
         "UpgradeCode" = "8:{4F9F5093-A744-4EC6-A19D-36E9B9DF4448}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
