@@ -5,6 +5,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 using PowerTools.Common.CoreService;
+using PowerTools.Model.Progress;
 using PowerTools.Model.Services.Progress;
 using Tridion.ContentManager.CoreService.Client;
 
