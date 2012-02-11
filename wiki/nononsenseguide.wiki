@@ -22,10 +22,11 @@ for details on the PlusOne button.
   # Locate the Reference Assemblies folder and copy the Core dll into it
   from *TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll 
 
-  # Confirm the following post-build event to !PowerTools.Common, !PowerTools.Editor and !PowerTools.Model (no changes needed if this matches):
+  # Confirm the post-build event to !PowerTools.Common, !PowerTools.Editor and !PowerTools.Model (no changes needed if this matches):
 {{{
+IF DEFINED TRIDION_CM_HOME (
 xcopy "$(TargetDir)$(TargetName).*" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
-}}}
+)}}}
 
   # Build the solution
 
