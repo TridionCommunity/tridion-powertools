@@ -26,7 +26,8 @@ for details on the PlusOne button.
 {{{
 IF DEFINED TRIDION_CM_HOME (
 xcopy "$(TargetDir)$(TargetName).*" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
-)}}}
+)
+}}}
 
   # Build the solution
 
