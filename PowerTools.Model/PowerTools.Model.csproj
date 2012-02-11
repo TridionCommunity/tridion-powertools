@@ -64,6 +64,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Exceptions\BaseServiceException.cs" />
     <Compile Include="Progress\ServiceProcess.cs" />
@@ -112,6 +117,12 @@
       <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
       <Name>PowerTools.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

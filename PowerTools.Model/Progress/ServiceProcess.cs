@@ -1,47 +1,25 @@
 ﻿using System;
 
-namespace PowerTools.Model.Services.Progress
+namespace PowerTools.Model.Progress
 {
 	public class ServiceProcess
 	{
-		private int _complete = 0;
-		private string _status = "";
-		private string _id = "";
-
-		private readonly object m_Lock = new object();
+		private readonly object _lock = new object();
 
 		public ServiceProcess()
 		{
-			var guid = Guid.NewGuid();
-
-			this._id = guid.ToString();
-
-			SetStatus("Initializing...");
+			Id = Guid.NewGuid().ToString();
+			SetStatus(Resources.ProgressStatusInitializing);
 		}
 
-		public int PercentComplete
-		{
-			get { return _complete; }
-			set { _complete = value; }
-		}
-
-		public string Id
-		{
-			get { return _id; }
-			set { _id = value; }
-		}
-
+        public string Id { get; set; }
+        public string Status { get; protected set; }
+        public int PercentComplete { get; set; }
 		public bool Failed { get; set; }
-
-		public string Status
-		{
-			get { return _status; }
-			set { _status = value; }
-		}
 
 		public void Complete()
 		{
-			Complete("Completed");
+			Complete(Resources.ProgressStatusComplete);
 		}
 
 		public void Complete(string status)
@@ -52,33 +30,33 @@ namespace PowerTools.Model.Services.Progress
 
 		public void SetCompletePercentage(int percent)
 		{
-			lock (m_Lock)
+			lock (_lock)
 			{
-				_complete = percent;
+				PercentComplete = percent;
 			}
 		}
 
 		public void IncrementCompletePercentage()
 		{
-			lock (m_Lock)
+			lock (_lock)
 			{
-				_complete++;
+                PercentComplete++;
 			}
 		}
 
 		public void IncrementCompletePercentageBy(int percent)
 		{
-			lock (m_Lock)
+			lock (_lock)
 			{
-				_complete += percent;
+                PercentComplete += percent;
 			}
 		}
 
 		public void SetStatus(string status)
 		{
-			lock (m_Lock)
+			lock (_lock)
 			{
-				_status = status;
+				Status = status;
 			}
 		}
 	}

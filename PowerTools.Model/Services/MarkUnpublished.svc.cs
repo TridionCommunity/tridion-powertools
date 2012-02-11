@@ -3,7 +3,8 @@ using System.Globalization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
-using PowerTools.Model.Services.Exceptions;
+using PowerTools.Model.Exceptions;
+using PowerTools.Model.Progress;
 using PowerTools.Model.Services.Progress;
 
 
