@@ -5,6 +5,7 @@ using System.DirectoryServices;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Xml.Linq;
 
@@ -22,8 +23,11 @@ namespace PowerTools.Common.Installer
         const string EditorAndModelName = "PowerTools";
         const string VirtualDirectoryName = "PowerTools";
 
-        protected IDictionary state;
+        protected IDictionary State;
+
+        // ReSharper disable InconsistentNaming
         protected XNamespace cfg = "http://www.sdltridion.com/2009/GUI/Configuration";
+        // ReSharper restore InconsistentNaming
 
 
         public CustomActions()
@@ -34,7 +38,7 @@ namespace PowerTools.Common.Installer
         [SecurityPermission(SecurityAction.Demand)]
         public override void Install(IDictionary stateSaver)
         {
-            state = stateSaver;
+            State = stateSaver;
             base.Install(stateSaver);
             CreateVirtualDirectories();
             AddToCmeConfiguration();
@@ -43,14 +47,14 @@ namespace PowerTools.Common.Installer
         [SecurityPermission(SecurityAction.Demand)]
         public override void Commit(IDictionary savedState)
         {
-            state = savedState;
+            State = savedState;
             base.Commit(savedState);
         }
 
         [SecurityPermission(SecurityAction.Demand)]
         public override void Rollback(IDictionary savedState)
         {
-            state = savedState;
+            State = savedState;
             base.Rollback(savedState);
             DeleteVirtualDirectories();
             RemoveFromCmeConfiguration();
@@ -59,7 +63,7 @@ namespace PowerTools.Common.Installer
         [SecurityPermission(SecurityAction.Demand)]
         public override void Uninstall(IDictionary savedState)
         {
-            state = savedState;
+            State = savedState;
             base.Uninstall(savedState);
             DeleteVirtualDirectories();
             RemoveFromCmeConfiguration();
@@ -69,7 +73,7 @@ namespace PowerTools.Common.Installer
 
         protected string GetTargetDir()
         {
-            string result = Context.Parameters["TARGETDIR"] as string;
+            string result = Context.Parameters["TARGETDIR"];
             if (string.IsNullOrEmpty(result))
             {
                 throw new Exception(Resources.ErrorTargetDirNotSet);
@@ -80,7 +84,7 @@ namespace PowerTools.Common.Installer
 
         protected string GetCmeConfigurationFileName()
         {
-            string webRoot = Context.Parameters["CME_WEBROOT"] as string;
+            string webRoot = Context.Parameters["CME_WEBROOT"];
             if (string.IsNullOrEmpty(webRoot))
             {
                 throw new Exception("The WebRoot directory was not passed into the custom action.");
@@ -97,23 +101,65 @@ namespace PowerTools.Common.Installer
         #region Virtual directories
 
         /// <summary>
+        /// Returns the Content Manager Explorer website based on the CME_WEBSITE_ID parameter.
+        /// </summary>
+        /// <param name="iisAdmin">The W3SVC DirectoryEntry.</param>
+        /// <returns>DirectoryEntry for the installed website</returns>
+        protected DirectoryEntry GetWebsite(DirectoryEntry iisAdmin)
+        {
+            string websiteId = Context.Parameters["CME_WEBSITE_ID"];
+            if (string.IsNullOrEmpty(websiteId))
+            {
+                throw new Exception(Resources.ErrorWebsiteIdNotSet);
+            }
+
+            try
+            {
+                return iisAdmin.Children.Find(websiteId, SchemaNameWebsite);
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new Exception(string.Format(CultureInfo.InvariantCulture, Resources.ErrorWebsiteNotFound, websiteId));
+            }
+        }
+
+        /// <summary>
         /// Gets a virtual directory (by name) underneath the given directory.
         /// </summary>
         /// <param name="parent">The parent entry to search.</param>
         /// <param name="childName">The name of the virtual directory to return.</param>
-        /// <returns></returns>
+        /// <returns>A DirectoryEntry for the specified virtual directory, or null if not found.</returns>
         protected DirectoryEntry GetChildVirtualDirectory(DirectoryEntry parent, string childName)
+        {
+            return GetChildVirtualDirectory(parent, childName, null);
+        }
+
+        /// <summary>
+        /// Gets a virtual directory (by name) underneath the given directory.
+        /// </summary>
+        /// <param name="parent">The parent entry to search.</param>
+        /// <param name="childName">The name of the virtual directory to return.</param>
+        /// <param name="errorMessageIfNull">If set, an exception is thrown with the given message if the virtual directory is not found.</param>
+        /// <returns>A DirectoryEntry for the specified virtual directory, or null if not found.</returns>
+        protected DirectoryEntry GetChildVirtualDirectory(DirectoryEntry parent, string childName, string errorMessageIfNull)
         {
             if (parent == null)
             {
                 throw new ArgumentNullException("parent");
             }
 
-            return (from entry in parent.Children.Cast<DirectoryEntry>()
+            var result = (from entry in parent.Children.Cast<DirectoryEntry>()
                     let entryType = entry.SchemaClassName
                     where entry.Name == childName
                     where entryType == SchemaNameVirtualDir || entryType == SchemaNameWebDirectory
                     select entry).FirstOrDefault();
+
+            if (result == null && !string.IsNullOrEmpty(errorMessageIfNull))
+            {
+                throw new Exception(errorMessageIfNull);
+            }
+
+            return result;
         }
 
 
@@ -122,68 +168,38 @@ namespace PowerTools.Common.Installer
         /// </summary>
         protected void CreateVirtualDirectories()
         {
-            const string TargetDirectoryName = "PowerTools";
-
-            string websiteId = Context.Parameters["CME_WEBSITE_ID"] as string;
-            if (string.IsNullOrEmpty(websiteId))
-            {
-                throw new Exception(Resources.ErrorWebsiteIdNotSet);
-            }
+            const string targetDirectoryName = "PowerTools";
 
             string targetDir = GetTargetDir();
 
-            using (DirectoryEntry w3svc1 = new DirectoryEntry("IIS://Localhost/W3SVC"))
+            using (var iisAdmin = new DirectoryEntry("IIS://Localhost/W3SVC"))
             {
-                var site = w3svc1.Children.Find(websiteId, SchemaNameWebsite);
-                if (site == null)
-                {
-                    throw new Exception(string.Format(CultureInfo.InvariantCulture, Resources.ErrorWebsiteNotFound, websiteId));
-                }
-
-                var root = GetChildVirtualDirectory(site, "ROOT");
-                if (root == null)
-                {
-                    throw new Exception(Resources.ErrorWebsiteEmpty);
-                }
-
-                var webUiDir = GetChildVirtualDirectory(root, "WebUI");
-                if (webUiDir == null)
-                {
-                    throw new Exception(Resources.ErrorWebUiNotFound);
-                }
-
-                var editorsDir = GetChildVirtualDirectory(webUiDir, "Editors");
-                if (editorsDir == null)
-                {
-                    throw new Exception(Resources.ErrorEditorsVirtualDirNotFound);
-                }
+                var site = GetWebsite(iisAdmin);
+                var root = GetChildVirtualDirectory(site, "ROOT", Resources.ErrorWebsiteEmpty);
+                var webUiDir = GetChildVirtualDirectory(root, "WebUI", Resources.ErrorWebUiNotFound);
+                var editorsDir = GetChildVirtualDirectory(webUiDir, "Editors", Resources.ErrorEditorsVirtualDirNotFound);
 
                 DirectoryEntry virtualDirectory;
 
-                if (GetChildVirtualDirectory(editorsDir, TargetDirectoryName) == null)
+                if (GetChildVirtualDirectory(editorsDir, targetDirectoryName) == null)
                 {
-                    virtualDirectory = editorsDir.Children.Add(TargetDirectoryName, SchemaNameVirtualDir);
+                    virtualDirectory = editorsDir.Children.Add(targetDirectoryName, SchemaNameVirtualDir);
                     virtualDirectory.Properties["Path"][0] = Path.Combine(targetDir, "Editor");
                     virtualDirectory.CommitChanges();
 
                     // Remember the path to this virtual directory for later uninstallation / rollback
-                    state.Add(KeyEditorVirtualDirectoryPath, virtualDirectory.Path);
+                    State.Add(KeyEditorVirtualDirectoryPath, virtualDirectory.Path);
                 }
 
-                var modelsDir = GetChildVirtualDirectory(webUiDir, "Models");
-                if (modelsDir == null)
+                var modelsDir = GetChildVirtualDirectory(webUiDir, "Models", Resources.ErrorModelsVirtualDirNotFound);
+                if (GetChildVirtualDirectory(modelsDir, targetDirectoryName) == null)
                 {
-                    throw new Exception(Resources.ErrorModelsVirtualDirNotFound);
-                }
-
-                if (GetChildVirtualDirectory(modelsDir, TargetDirectoryName) == null)
-                {
-                    virtualDirectory = modelsDir.Children.Add(TargetDirectoryName, SchemaNameVirtualDir);
+                    virtualDirectory = modelsDir.Children.Add(targetDirectoryName, SchemaNameVirtualDir);
                     virtualDirectory.Properties["Path"][0] = Path.Combine(targetDir, "Model");
                     virtualDirectory.CommitChanges();
 
                     // Remember the path to this virtual directory for later uninstallation / rollback
-                    state.Add(KeyModelVirtualDirectoryPath, virtualDirectory.Path);
+                    State.Add(KeyModelVirtualDirectoryPath, virtualDirectory.Path);
                 }
             }
         }
@@ -193,8 +209,8 @@ namespace PowerTools.Common.Installer
         /// </summary>
         protected void DeleteVirtualDirectories()
         {
-            DeleteVirtualDirectory(state[KeyEditorVirtualDirectoryPath] as string);
-            DeleteVirtualDirectory(state[KeyModelVirtualDirectoryPath] as string);
+            DeleteVirtualDirectory(State[KeyEditorVirtualDirectoryPath] as string);
+            DeleteVirtualDirectory(State[KeyModelVirtualDirectoryPath] as string);
         }
 
         /// <summary>
@@ -208,14 +224,19 @@ namespace PowerTools.Common.Installer
                 return;
             }
 
-            DirectoryEntry virtualDirectory = new DirectoryEntry(metapath);
-            if (virtualDirectory != null)
+            try
             {
-                using (DirectoryEntry parent = virtualDirectory.Parent)
+                var virtualDirectory = new DirectoryEntry(metapath);
+                using (var parent = virtualDirectory.Parent)
                 {
                     parent.Children.Remove(virtualDirectory);
                     parent.CommitChanges();
                 }
+            }
+            catch (COMException)
+            {
+                // This is raised if the virtual directory does not exist. 
+                // In that case, we don't have to do anything.
             }
         }
 
@@ -265,16 +286,16 @@ namespace PowerTools.Common.Installer
         /// </summary>
         protected void RemoveFromCmeConfiguration()
         {
-            XDocument configuration = XDocument.Load(GetCmeConfigurationFileName());
+            var configuration = XDocument.Load(GetCmeConfigurationFileName());
 
             var nodesToRemove = (from node in configuration.Descendants()
                                  let elemName = node.Name
                                  let nameAttr = node.Attribute("name")
                                  where (elemName == cfg + "editor") || (elemName == cfg + "model")
                                  where nameAttr != null && nameAttr.Value == EditorAndModelName
-                                 select node);
+                                 select node).ToList();
 
-            if (nodesToRemove.Count() > 0)
+            if (nodesToRemove.Any())
             {
                 nodesToRemove.Remove();
                 configuration.Save(GetCmeConfigurationFileName());

@@ -88,7 +88,7 @@ namespace PowerTools.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The website is empty..
+        ///   Looks up a localized string similar to The Content Manager Explorer website is empty..
         /// </summary>
         internal static string ErrorWebsiteEmpty {
             get {
@@ -106,7 +106,7 @@ namespace PowerTools.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No website found with the ID &apos;{0}&apos;..
+        ///   Looks up a localized string similar to The SDL Tridion 2011 website could not be found. Searched for a site with ID &apos;{0}&apos;..
         /// </summary>
         internal static string ErrorWebsiteNotFound {
             get {
