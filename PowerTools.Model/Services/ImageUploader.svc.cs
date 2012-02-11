@@ -6,8 +6,6 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using PowerTools.Model.Services.Exceptions;
 using PowerTools.Model.Services.Progress;
-using System.Xml.Linq;
-using System.Linq;
 using Tridion.ContentManager.CoreService.Client;
 using System.Text.RegularExpressions;
 using System.Xml;

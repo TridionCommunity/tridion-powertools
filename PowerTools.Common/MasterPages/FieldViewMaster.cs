@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using Tridion.Web.UI.Core.Controls;
 
 
@@ -11,27 +12,21 @@ namespace PowerTools.Common.MasterPages
         {
             base.OnInit(e);
 
-            TridionManager tm = new TridionManager();
+            var contentPlaceHolder = FindControl("Main");
+            if (contentPlaceHolder == null) return;
 
-            tm.Editor = "PowerTools";
-            System.Web.UI.HtmlControls.HtmlGenericControl dep = new System.Web.UI.HtmlControls.HtmlGenericControl("dependency");
-            dep.InnerText = "Tridion.Web.UI.Editors.CME";
-            tm.dependencies.Add(dep);
+            var manager = new TridionManager { Editor = "PowerTools" };
 
-            System.Web.UI.HtmlControls.HtmlGenericControl dep2 = new System.Web.UI.HtmlControls.HtmlGenericControl("dependency");
-            dep2.InnerText = "Tridion.Web.UI.Editors.CME.commands";
-            tm.dependencies.Add(dep2);
+            var dependency = new HtmlGenericControl("dependency") { InnerText = "Tridion.Web.UI.Editors.CME" };
+            manager.dependencies.Add(dependency);
 
+            dependency = new HtmlGenericControl("dependency") { InnerText = "Tridion.Web.UI.Editors.CME.commands" };
+            manager.dependencies.Add(dependency);
 
-            System.Web.UI.HtmlControls.HtmlGenericControl dep3 = new System.Web.UI.HtmlControls.HtmlGenericControl("dependency");
-            dep3.InnerText = "Tridion.Web.UI.fieldbuilder";
-            tm.dependencies.Add(dep3);
+            dependency = new HtmlGenericControl("dependency") { InnerText = "Tridion.Web.UI.fieldbuilder" };
+            manager.dependencies.Add(dependency);
 
-
-            //Add them to the ContentPlaceHolder
-            this.FindControl("Main").Controls.Add(tm);
-
-
+            contentPlaceHolder.Controls.Add(manager);
         }
     }
 }

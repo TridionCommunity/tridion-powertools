@@ -33,29 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Tridion.ContentManager.CoreService.Client.2010, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
-    </Reference>
     <Reference Include="Tridion.Web.UI.Core">
       <HintPath>..\..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
@@ -230,9 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PowerTools\Client\Shared\Views\PopUp.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PowerTools\Client\Shared\Views\FullPage.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PowerTools.Common\PowerTools.Common.csproj">

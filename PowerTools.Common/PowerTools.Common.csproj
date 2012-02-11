@@ -39,14 +39,10 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Tridion.ContentManager.CoreService.Client.2010">
       <HintPath>CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
@@ -71,19 +67,10 @@
     <Compile Include="MasterPages\FieldViewMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPages\FullPageMaster.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="MasterPages\PopupMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPages\TreeViewMaster.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Pages\PowerToolsPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TreeViewPopupPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

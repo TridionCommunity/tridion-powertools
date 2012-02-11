@@ -12,7 +12,6 @@ namespace PowerTools.Common.MasterPages
 		{
 			base.OnInit(e);
 
-			// Add them to the ContentPlaceHolder
             var contentPlaceHolder = FindControl("Main");
 		    if (contentPlaceHolder == null) return;
 		    
@@ -23,7 +22,6 @@ namespace PowerTools.Common.MasterPages
 
             dependency = new HtmlGenericControl("dependency") { InnerText = "Tridion.Web.UI.Editors.CME.commands" };
             manager.dependencies.Add(dependency);
-		    manager.IsStandAloneView = false;
 
 		    contentPlaceHolder.Controls.Add(manager);
 		}
