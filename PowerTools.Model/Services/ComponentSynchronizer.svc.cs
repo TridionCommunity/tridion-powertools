@@ -6,7 +6,6 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using PowerTools.Model.Exceptions;
 using PowerTools.Model.Progress;
-using PowerTools.Model.Services.Progress;
 
 
 namespace PowerTools.Model.Services

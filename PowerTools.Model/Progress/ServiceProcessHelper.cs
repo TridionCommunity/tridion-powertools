@@ -1,8 +1,6 @@
 ﻿using System.ServiceModel;
-using PowerTools.Model.Progress;
-using PowerTools.Model.Services.Progress;
 
-namespace PowerTools.Model.Services.Progress
+namespace PowerTools.Model.Progress
 {
 	public class ServiceProcessHelper : IExtension<InstanceContext>
 	{

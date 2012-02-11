@@ -4,7 +4,6 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Threading;
 using PowerTools.Model.Progress;
-using PowerTools.Model.Services.Progress;
 
 
 namespace PowerTools.Model.Services
