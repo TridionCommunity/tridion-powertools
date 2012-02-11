@@ -61,6 +61,15 @@ namespace PowerTools.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid TCM URI: &apos;{0}&apos;..
+        /// </summary>
+        internal static string ErrorInvalidTcmUri {
+            get {
+                return ResourceManager.GetString("ErrorInvalidTcmUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Completed..
         /// </summary>
         internal static string ProgressStatusComplete {
