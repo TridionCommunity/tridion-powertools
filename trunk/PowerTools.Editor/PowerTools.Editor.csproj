@@ -227,6 +227,7 @@
     <Content Include="PowerTools\Client\Shared\Views\TreeView.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PowerTools\Client\ShowPublishTasks\ShowPublishTasks.js" />
     <Content Include="PowerTools\Client\ViewInFrontend\ViewInFrontEnd.js" />
     <Content Include="web.config" />
   </ItemGroup>
