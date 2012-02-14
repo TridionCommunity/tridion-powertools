@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Xml.Linq;
+using System.Text;
 
 
 namespace PowerTools.Common.Installer
@@ -33,6 +34,7 @@ namespace PowerTools.Common.Installer
         public CustomActions()
         {
             InitializeComponent();
+            
         }
 
         [SecurityPermission(SecurityAction.Demand)]
@@ -41,7 +43,16 @@ namespace PowerTools.Common.Installer
             State = stateSaver;
             base.Install(stateSaver);
             CreateVirtualDirectories();
-            AddToCmeConfiguration();
+            AddToCmeConfiguration();                     
+            
+            ManageInstalledPowerTools();
+        }
+
+        private void ManageInstalledPowerTools()
+        {            
+            CustomInstallerView.SelectPowerTools frmSelectPowerTools = new CustomInstallerView.SelectPowerTools(this.Context);
+            frmSelectPowerTools.ShowDialog();
+            frmSelectPowerTools.Focus();
         }
 
         [SecurityPermission(SecurityAction.Demand)]
@@ -304,4 +315,6 @@ namespace PowerTools.Common.Installer
 
         #endregion
     }
+
+
 }
