@@ -37,11 +37,15 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="Tridion.Web.UI.Core">
-      <HintPath>..\..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
+    <Reference Include="Tridion.Web.UI.Core, Version=6.0.0.39607, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Configuration\Editor.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.js" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorWorker.js" />
@@ -62,6 +66,19 @@
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemoverCommand.js" />
+    <Content Include="PowerTools\Client\Help\Help.aspx" />
+    <Content Include="PowerTools\Client\Help\Help.css" />
+    <Content Include="PowerTools\Client\Help\Help.js" />
+    <Content Include="PowerTools\Client\Help\Help.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PowerTools\Client\Help\HelpAll.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PowerTools\Client\Help\HelpCommand.js" />
+    <Content Include="PowerTools\Client\Help\HelpIndividual.xslt">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="PowerTools\Client\Help\Help.aspx" />
     <Content Include="PowerTools\Client\Help\Help.css" />
     <Content Include="PowerTools\Client\Help\Help.js" />
@@ -105,6 +122,9 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_64.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\help_16.png" />
