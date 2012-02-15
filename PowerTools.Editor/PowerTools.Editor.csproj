@@ -79,10 +79,6 @@
     <Content Include="PowerTools\Client\Help\HelpIndividual.xslt">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="PowerTools\Client\Help\Help.aspx" />
-    <Content Include="PowerTools\Client\Help\Help.css" />
-    <Content Include="PowerTools\Client\Help\Help.js" />
-    <Content Include="PowerTools\Client\Help\HelpCommand.js" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.css" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.js" />
