@@ -9,6 +9,7 @@ using PowerTools.Common.CoreService;
 using Tridion.ContentManager.CoreService.Client;
 using System.Xml;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 
 namespace PowerTools.Model.Services
@@ -18,6 +19,19 @@ namespace PowerTools.Model.Services
     [ServiceContract(Namespace = "PowerTools.Model.Services")]
     public class PagePublisher : BaseService
     {
+        /// <summary>
+        /// PagePublisherData - keeps a list of all the items that either published or failed
+        /// </summary>
+        [DataContract]
+        public class PagePublisherData
+        {
+            [DataMember]
+            public string SuccessMessage = "";
+
+            [DataMember]
+            public string  FailedMessage = "";
+        }
+        
         class PagePublisherParameters
         {
             public string LocationId { get; set; }
@@ -30,6 +44,8 @@ namespace PowerTools.Model.Services
             public bool IncludeStructureGroups { get; set; }
             public bool IncludeWorkflow { get; set; }
         }
+
+        private PagePublisherData _pagePublisherData = null;
 
         /// <summary>
         /// Service operation that initiates the publishing of individual page items within structure groups
@@ -77,9 +93,11 @@ namespace PowerTools.Model.Services
         {
             PagePublisherParameters parameters = (PagePublisherParameters)arguments;
 			process.SetCompletePercentage(25);
-			process.SetStatus("Initializing");		
+            process.SetStatus("Initializing");
+
             using (var coreService = Client.GetCoreService())
 			{
+                _pagePublisherData = new PagePublisherData();
                 // get a list of the items from the core service
 				ItemsFilterData filter = GetFilter(parameters);
 				XmlElement listXml = coreService.GetListXml(parameters.LocationId, filter);
@@ -91,12 +109,15 @@ namespace PowerTools.Model.Services
                 try
                 {
                     coreService.Publish(pageIds, GetPublishInstructionData(parameters), parameters.TargetUri, parameters.Priority, new ReadOptions());
-                    process.Complete(string.Format("Completed publishing {0} pages", pageIds.Length.ToString()));
+                    _pagePublisherData.SuccessMessage = string.Format("{0} Pages published successfully", pageIds.Length.ToString());
                 }
                 catch (Exception ex)
                 {
-                    process.Complete(string.Format("Failed to publish, reason: {0}", ex.Message));
+                    //process.Complete(string.Format("Failed to publish, reason: {0}", ex.Message));
+                    _pagePublisherData.FailedMessage = string.Format("Page publishing failed, reason {0}", ex.Message);
                 }
+
+                process.Complete(string.Format("Completed publishing {0} pages", _pagePublisherData.PublishedCount.ToString()));
 			}
 		}
 
@@ -170,6 +191,12 @@ namespace PowerTools.Model.Services
             itemTypesList.Add(ItemType.Page);
             filter.ItemTypes = itemTypesList.ToArray();
             return filter;
+        }
+
+        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public PagePublisherData GetPublisherData()
+        {
+            return _pagePublisherData;
         }
     }
 }
