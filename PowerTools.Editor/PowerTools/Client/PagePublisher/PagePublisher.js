@@ -27,6 +27,7 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
     p.locationId = $url.getHashParam("locationId");
     $log.message("Initializing page publisher for item: " + p.locationId);
 
+
     // the tab control
     c.TabControl = $controls.getControl($("#OptionsTabControl"), "Tridion.Controls.TabControl");
 
@@ -86,9 +87,13 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     var p = this.properties;
     var c = p.controls;
     p.SelectedTarget = this._getSelectedTargetTypes();
-    alert(p.locationId);
-    //TODO: if the p.locationId value is a publication id - enable recursing, if you don't it will fail!
-    p.Recursive = $j("#RecursiveChk").attr('checked');
+
+    if ($models.getItemType(p.locationId) == $const.ItemType.PUBLICATION) {
+        p.Recursive = true; // if it's a publication, automatically recurse publish
+    }
+    else {
+        p.Recursive = $j("#RecursiveChk").attr('checked'); // if not check if the checkbox is ticked
+    }
     p.Republish = $j("#RepublishChk").attr('checked');
     p.PublishChildren = $j("#PublishChildrenChk").attr('checked');
     p.IncludeComponentLinks = $j("#includeComponentLinksChk").attr('checked');
@@ -111,73 +116,32 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
 */
 
 PowerTools.Popups.PagePublisher.prototype.afterSuccess = function (processId) {
-    //alert("everything is completed!");
+    if (processId != "") {
+        $log.debug("Retrieving Publishdata for process #" + processId);
+        var onSuccess = Function.getDelegate(this, this._handlePublishingStatus);
+        var onFailure = null;
+        var context = null;
+        PowerTools.Model.Services.PagePublisher.GetPublisherData(onSuccess, onFailure, context, false);
+    }
+    else {
+        // TODO: Log an error that something weird happened!
+    }
 };
 
-///**
-//* When the overlayer close button is clicked the div is faded out
-//*/
-//PowerTools.Popups.PagePublisher.prototype._onCloseButtonClicked = function () {
-//    $j('#mask, .window').hide();
-//    $j('#ProgressStatus').html("");
-//    $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
-//};
+/**
+* When the publishing is completed update the message center 
+*/
 
-///**
-//* Updates the overlayer progress bar with the current percentage of the process
-//* @process - the service process:
-//*/
-//PowerTools.Popups.PagePublisher.prototype._updateProgressBar = function (process) {
+PowerTools.Popups.PagePublisher.prototype._handlePublishingStatus = function (response) {
+    $log.debug("Handling the published items");    
+    if (response.FailedMessage !="") {
+        $messages.registerError(response.FailedMessage, null, null, false, false);
+    }
 
-//    $j('#ProgressStatus').html(process.Status);
-//    $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
-//}
+    $messages.registerNotification(response.SuccessMessage, null, null, false, false);
+    //window.close();
+}
 
-///**
-//* Manages the responses from the status
-//* @result:
-//*/
-
-//PowerTools.Popups.PagePublisher.prototype._handleStatusResponse = function (result) {
-//    var p = this.properties;
-//    p.processId = result.Id;
-//    this._updateProgressBar(result);
-//    if (result.PercentComplete < 100) {
-//        this._pollStatus(p.processId);
-//    }
-//    else {
-//        $j('#ProgressStatus').html(result.Status);
-//        $j('#CloseDialog').show();
-//        p.processId = ""
-//    }
-//}
-
-///**
-//* Gets the process status from the page publisher webservice
-//* @id - the id of the process:
-//*/
-
-//PowerTools.Popups.PagePublisher.prototype._pollStatus = function (id) {
-//    var onFailure = null;
-//    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
-//    var context = null;
-//    var callback = function () {
-//        $log.debug("Checking the status of process #" + id);
-//        PowerTools.Model.Services.PagePublisher.GetProcessStatus(id, onSuccess, onFailure, context, false);
-//    };
-//    setTimeout(callback, this.properties.pollInterval);
-//}
-
-///**
-//* While the tool is processing polls the status
-//* @result - the process 
-//*/
-
-//PowerTools.Popups.PagePublisher.prototype._onExecuteStarted = function (result) {
-//    if (result) {
-//        this._pollStatus(result.Id);
-//    }
-//};
 
 
 /**
