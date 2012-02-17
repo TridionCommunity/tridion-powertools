@@ -14,7 +14,7 @@ Debug JavaScript in Chrome.
  # Re-run the page or pop-up and press CTRL+SHIFT+I to trigger the breakpoint.
 
 = Allow Breakpoints =
- * You can place "debugging;" in your .js to create a breakpoint.
+ * You can also place "debugger;" in your .js to create a breakpoint.
  * You'll need to set the stripdebugstatements attribute to "false" in:
  %TRIDION_HOME%\web\WebUI\WebRoot\Configuration\System.config
 
