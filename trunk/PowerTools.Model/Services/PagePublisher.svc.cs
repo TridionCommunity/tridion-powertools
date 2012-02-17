@@ -117,7 +117,7 @@ namespace PowerTools.Model.Services
                     _pagePublisherData.FailedMessage = string.Format("Page publishing failed, reason {0}", ex.Message);
                 }
 
-                process.Complete(string.Format("Completed publishing {0} pages", _pagePublisherData.PublishedCount.ToString()));
+                process.Complete("done");
 			}
 		}
 
