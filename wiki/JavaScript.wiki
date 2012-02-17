@@ -13,4 +13,9 @@ Debug JavaScript in Chrome.
  # Close the console (CTRL+W to close any Chrome tab/pop-up)
  # Re-run the page or pop-up and press CTRL+SHIFT+I to trigger the breakpoint.
 
+= Allow Breakpoints =
+ * You can place "debugging;" in your .js to create a breakpoint.
+ * You'll need to set the stripdebugstatements attribute to "false" in:
+ %TRIDION_HOME%\web\WebUI\WebRoot\Configuration\System.config
+
 Tip: Tough to read Anguilla's minified code? Check out [DeactivateJSMinifier]!
