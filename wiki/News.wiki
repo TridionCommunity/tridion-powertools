@@ -8,6 +8,8 @@
 
 (18-Dec-2011) As we approach the holidays, we wanted to thank everyone for their work on the PowerTools. Please enjoy any time-off or vacations you have--you definitely deserve it. Feel free to catch us afterwards, or hole yourself away to crank out a tool or two. Either way works! :-)
 
+(17-Dec-2011) FlowDock [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main FlowDock] (collaboration site) grows to 23 participants. Looking to work with other Tridion talent in exchange for some contribution to an (I'm tempted to write "the") open source extensions project? Check us out! (psst, power users, QA, support, and analysts... help, I'm surrounded by technicals! --Alvin) 
+
 (30-Nov-2011) We're researching an IRC-like communication option with [http://flowdock.com FlowDock]. Anyone can [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main join the "flow"] and conversations are saved. The Web-based tool has contemporary social media features including hash tagging (#), /emotes (/me does something...), and Google Account integration. (Thanks Vesa for the suggestion to get a free license. We've valid through May 2012)
 
 (29-Nov-2011) Team is making progress on ComponentSynchronizer (it really is hard, thanks Angel, Jaime, and Hao for sticking with it) and PagePublisher (ready for testing, thanks John!). Great work all!
