@@ -81,6 +81,7 @@
       <DependentUpon>AppDataInspector.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\AppDataInspectorData.cs" />
+    <Compile Include="Services\ExampleData.cs" />
     <Compile Include="Services\CountItems.svc.cs">
       <DependentUpon>CountItems.svc</DependentUpon>
     </Compile>
