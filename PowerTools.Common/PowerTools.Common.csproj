@@ -49,7 +49,7 @@
       <HintPath>CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
     </Reference>
     <Reference Include="Tridion.Web.UI.Core">
-      <HintPath>..\..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
+      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

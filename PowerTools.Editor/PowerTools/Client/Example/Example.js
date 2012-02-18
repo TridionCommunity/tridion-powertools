@@ -1,67 +1,78 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools.Popups.Example = function ()
-{
+PowerTools.Popups.Example = function () {
     Type.enableInterface(this, "PowerTools.Popups.Example");
     this.addInterface("Tridion.Cme.View");
-
+    
     var p = this.properties;
-
     p.processId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
 };
 
-PowerTools.Popups.Example.prototype.initialize = function ()
-{
+PowerTools.Popups.Example.prototype.initialize = function () {
     $log.message("initializing example popup...");
-
     this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
     var c = p.controls;
 
+    c.ContactTabs = $controls.getControl($("#ContactTabs"), "Tridion.Controls.TabControl");
+    c.UserButton = $controls.getControl($("#UserButton"), "Tridion.Controls.Button");
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
     c.SelectButton = $controls.getControl($("#SelectItem"), "Tridion.Controls.Button");
     c.CloseButton = $controls.getControl($("#CloseDialog"), "Tridion.Controls.Button");
     c.PublicationsDropDown = $controls.getControl($("#Publications"), "Tridion.Controls.Dropdown");
 
-
-
+    $evt.addEventHandler(c.UserButton, "click", this.getDelegate(this._onbtnGetUserInfoClicked));
     $evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._onExecuteButtonClicked));
     $evt.addEventHandler(c.SelectButton, "click", this.getDelegate(this._onSelectButtonClicked));
     $evt.addEventHandler(c.CloseButton, "click", this.getDelegate(this._onCloseButtonClicked));
     $evt.addEventHandler(c.PublicationsDropDown, "loadcontent", this.getDelegate(this._onPublicationsDropdownLoad));
     $evt.addEventHandler(c.PublicationsDropDown, "change", this.getDelegate(this._onPublicationsDropdownChange));
 
+    var page = c.TabControl.getPage("ClientTab");
+    if (page) {
+        c.TabControl.showItem(page);
+        c.TabControl.selectItem(page);
+    }
+};
+
+PowerTools.Popups.Example.prototype._onbtnGetUserInfoClicked = function () {
+    var onSuccess = Function.getDelegate(this, this._handleUserInfo);
+    var onFailure = null;
+    var context = null;
+
+    PowerTools.Model.Services.Example.GetUserInfo(onSuccess, onFailure, context, false);
 };
 
 
-PowerTools.Popups.Example.prototype._onPublicationsDropdownChange = function ()
-{
+PowerTools.Popups.Example.prototype._handleUserInfo = function (response) {
+    // var p = this.properties;
+    $j("#UserInfo").text(response.UserName);
+    // $log.message("value set to p.userInfo, did it work?");
+};
+
+
+PowerTools.Popups.Example.prototype._onPublicationsDropdownChange = function () {
     var p = this.properties;
 
     $j("#selectedPublication").text(" You selected: {0}".format(p.controls.PublicationsDropDown.getValue()));
-}
+};
 
-PowerTools.Popups.Example.prototype._onPublicationsDropdownLoad = function ()
-{
+PowerTools.Popups.Example.prototype._onPublicationsDropdownLoad = function () {
     var publicationsList = this.getPublications();
-    if (publicationsList)
-    {
+    if (publicationsList) {
         var dropdown = this.properties.controls.PublicationsDropDown;
 
-        function Component$onPublicationsDropdownLoad$listLoaded()
-        {
+        function Component$onPublicationsDropdownLoad$listLoaded() {
             $evt.removeEventHandler(publicationsList, "load", Component$onPublicationsDropdownLoad$listLoaded);
             dropdown.setContent(publicationsList.getXml());
         }
 
-        if (publicationsList.isLoaded(true))
-        {
+        if (publicationsList.isLoaded(true)) {
             Component$onPublicationsDropdownLoad$listLoaded();
         }
-        else
-        {
+        else {
             $evt.addEventHandler(publicationsList, "load", Component$onPublicationsDropdownLoad$listLoaded);
             publicationsList.load();
         }
@@ -69,8 +80,7 @@ PowerTools.Popups.Example.prototype._onPublicationsDropdownLoad = function ()
 };
 
 //Returns a list with publications
-PowerTools.Popups.Example.prototype.getPublications = function ()
-{
+PowerTools.Popups.Example.prototype.getPublications = function () {
     return $models.getItem($const.TCMROOT).getListPublications();
 };
 
@@ -90,11 +100,9 @@ PowerTools.Popups.Example.prototype._onSelectButtonClicked = function () {
     //Open popup
     $ptUtils.getItemSelector(null, null, filterDefinition, true, false, this._onSelected);
 
+};
 
-}
-
-PowerTools.Popups.Example.prototype._onExecuteButtonClicked = function ()
-{
+PowerTools.Popups.Example.prototype._onExecuteButtonClicked = function () {
     $j('#CloseDialog').hide();
 
     var p = this.properties;
@@ -127,61 +135,50 @@ PowerTools.Popups.Example.prototype._onExecuteButtonClicked = function ()
     }).fadeIn(2000);
 };
 
-PowerTools.Popups.Example.prototype._onCloseButtonClicked = function ()
-{
+PowerTools.Popups.Example.prototype._onCloseButtonClicked = function () {
     $j('#mask, .window').hide();
     $j('#ProgressStatus').html("");
     $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
 
-PowerTools.Popups.Example.prototype._updateProgressBar = function (process)
-{
+PowerTools.Popups.Example.prototype._updateProgressBar = function (process) {
     $j('#ProgressStatus').html(process.Status);
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
-}
+};
 
-PowerTools.Popups.Example.prototype._handleStatusResponse = function (result)
-{
+PowerTools.Popups.Example.prototype._handleStatusResponse = function (result) {
     var p = this.properties;
 
     p.processId = result.Id;
 
     this._updateProgressBar(result);
 
-    if (result.PercentComplete < 100)
-    {
+    if (result.PercentComplete < 100) {
         this._pollStatus(p.processId);
-    }
-    else
-    {
+    } else {
         $j('#ProgressStatus').html(result.Status);
         $j('#CloseDialog').show();
-        p.processId = ""
+        p.processId = "";
     }
-}
+};
 
-PowerTools.Popups.Example.prototype._pollStatus = function (id)
-{
+PowerTools.Popups.Example.prototype._pollStatus = function (id) {
     var onFailure = null;
     var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
     var context = null;
 
-    var callback = function ()
-    {
+    var callback = function () {
         $log.debug("Checking the status of process #" + id);
         PowerTools.Model.Services.Example.GetProcessStatus(id, onSuccess, onFailure, context, false);
     };
 
     setTimeout(callback, this.properties.pollInterval);
-}
+};
 
-PowerTools.Popups.Example.prototype._onExecuteStarted = function (result)
-{
-    if (result)
-    {
+PowerTools.Popups.Example.prototype._onExecuteStarted = function (result) {
+    if (result) {
         this._pollStatus(result.Id);
     }
 };
-
 
 $display.registerView(PowerTools.Popups.Example);
