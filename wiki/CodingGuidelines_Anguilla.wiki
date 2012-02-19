@@ -1,12 +1,10 @@
-#summary Standards - JavaScript. Coding guidelines used during development of Tridion Content Manager Explorer 2011.
+#summary Standards - JavaScript.
 #labels Phase-Implementation
 
 = Introduction =
-
 The following is a modified version of the coding guidelines that were used during development of the (client-side) 2011 CME and its underlying core framework. 
 
-They should also serve as guidelines for development of extensions such as the PowerTools.
-
+Use them to guide your PowerTools and other extension development.
 
 = !JavaScript and HTML guidelines =
 

@@ -1,4 +1,4 @@
-#summary Updates - Links to development info and status updates.
+#summary Updates - Summary
 
 == Code Search ==
 <wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/codesearch/gcSearch.xml" up_projectName="tridion-2011-power-tools" border="0"/>

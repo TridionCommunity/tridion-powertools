@@ -1,6 +1,7 @@
-#summary How-To Guide - The Tridion CME caches pages to improve performance. The trade-off is needing to remember this during development.
+#summary How-To Guide - Clear Browser Cache
 
 = Details =
+The Tridion CME caches pages to improve performance. The trade-off is needing to remember this during development.
 
   # Go to about:blank in your browser
   # Clear Browser Cache for:
@@ -8,15 +9,6 @@
     * Browsing History
     * Cookies
 
-== Browser-specific instructions ==
-* Chrome
-* IE
-* Firefox
-
-
-== Shortcuts and Power Tips ==
-* Chrome: CTRL+SHIFT+Del
-* recycle IIS application pool (if working on a VM that has the CMS installed)
-
-== Questions ==
-* Do we always close the browser?
+== Shortcuts and Tips ==
+ * Chrome: CTRL+SHIFT+Del
+ * Recycle IIS application pool (if working on a VM that has the CMS installed)

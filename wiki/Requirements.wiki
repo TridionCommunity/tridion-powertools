@@ -1,4 +1,4 @@
-#summary PowerTools Requirements - 01 Index for Requirements (active)
+#summary PowerTools Requirements - 01 Index (active)
 
 Add sections for "in testing" and "released" when ready, here or on [Tasks] page.
 

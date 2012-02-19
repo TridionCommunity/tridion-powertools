@@ -1,4 +1,4 @@
-#summary How-To Guide - Code example. How to use the Itempicker in your javascript
+#summary How-To Guide - JavaScript Itempicker
 
 = Introduction =
 
@@ -49,16 +49,15 @@ Function: Tridion.Controls.ItemSelectControl.prototype.setOptions = function Ite
 
 Parameters: 
 
-
- 1 RootUri
+ # RootUri
   The popup opens the treeview with this uri as the rooturi. This should be an organizational-item uri like a Publication, folder, category, etc. 
- 2 Pre-selected uri.
+ # Pre-selected uri.
   This (item)uri is preselected in the dashboard view from the itemselector.
 
- 3 Your filter definition. (Which items to show, et.)
+ # Your filter definition. (Which items to show, et.)
 
- 4 SingleSelectMode. False means multiple items can be selected at once. True means only one item can be selected at once.
+ # SingleSelectMode. False means multiple items can be selected at once. True means only one item can be selected at once.
 
- 5 List thumbnails. Determine if you want to show thumbnails for binaries.
+ # List thumbnails. Determine if you want to show thumbnails for binaries.
 
- 6 onSuccess. Your function to call when the user selected an item.
+ # onSuccess. Your function to call when the user selected an item.

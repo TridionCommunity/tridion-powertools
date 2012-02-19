@@ -1,11 +1,10 @@
-#summary How-To Guide - How to deactivate Javascript minifier for debugging purposes
+#summary How-To Guide -Deactivate JavaScript Minify
 
 = Introduction =
 
-When testing a !PowerTool (or any GUI Extension), if you get an Javascript error, it is difficult to point where it comes from because all the code comes minified.
+When testing a !PowerTool (or any GUI Extension), it is difficult to read JavaScript errors when the code comes minified.
 
 Below you will find how to disable this behaviour. Thanks to [http://code.google.com/u/frank.vanpuffelen/ Frank van Puffelen] for this great tip.
-
 
 = Details =
 

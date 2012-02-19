@@ -33,33 +33,21 @@ Help screen will provide three types of information to the end user:
 All users
 
 *Version #*
-0.0
+1.0
 
 Original release date
 
-TBD
+18-Feb 2012
 
 *Last updated:*
 
-Initial requirements 08-Dec-2011
-
-*Compatibility*
-  * SDL Tridion 2011 SP1
+18-Feb 2012
 
 *Contributor(s)*
-
 Alvin Reyes
 
 *Document Author(s)*
-
 Alvin Reyes
-
-== Installation ==
-See InstallationGuide, this tool will be installed with the rest of the PowerTools.
-
-=== Upgrade ===
-
-Updates will be available through PowerTools upgrade mechanism (currently via source control update and source code compile).
 
 = Functional Requirements =
 || ID || Description || Comments ||
@@ -79,5 +67,4 @@ Updates will be available through PowerTools upgrade mechanism (currently via so
 See https://powertools.flowdock.com/flows/main/files/bdfc25f006a1012f0b94406186bed0a3/PowerTools_Help_Mockup_v2.png
 
 Also:
-
 https://docs.google.com/drawings/d/1yY4d6XU01r_kYW--yCIQ7Dk0LUL-qVKF0Gc15haLptw/edit?pli=1

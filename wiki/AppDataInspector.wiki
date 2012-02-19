@@ -5,8 +5,6 @@ This is a new tool. Original creator Mihai Cadariu.
 
 This is a tool that acts both as popup (accessed from context menu or ribbon button) as well as tab in all views. The tool reads all ApplicationData for the current Tridion item and displays it in a table with following information on each row (AppId, Data, Type).
 
-Difficulty: Easy.
-
 = Details =
 
 ==Description==
@@ -28,11 +26,7 @@ Admins
 1.0
 
 Original release date: 29-Oct-2011
-
 Last updated: 01-Nov-2011
-
-*Compatibility*
-  * SDL Tridion 2011
 
 *Contributor(s)*
 
@@ -46,19 +40,7 @@ Mihai Cadariu
 
 Displays the AppData of the given item for the purpose of inspecting what actually is in there. Note that AppData currently is only available programmatically, so this tool is only for developers for knowing what kind of information is stored as AppData.
 
-== Installation ==
-
-Installed with the whole Powertools package
-
-=== Upgrade ===
-
-N/A.
-
-Removal Instructions - N/A.
-
 = Future Requirements =
 || ID || Description || Scope || Comments ||
 || 1 || Tool should also allow the 'search' of AppData. Either by Tridion item (id, type, publication, etc) or by AppDataId (name) or by AppData Type or some kind of generic search. || TBD || AppData "Search" functionality currently not available through CoreService. ||
-|| 2 || ... || || ||
-|| 3 || ... || || ||
-|| 4 || ... || || ||
+|| ... || ... || ... || ... ||

@@ -1,4 +1,4 @@
-#summary Updates - Latest version and details.
+#summary Updates - Latest Version
 
 == Disclaimer ==
 As a set of extensions without support from a commercial organization, the Tridion PowerTools are released "as is" and user assumes all responsibility for their use.

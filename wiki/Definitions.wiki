@@ -1,5 +1,4 @@
-#summary Help on what means what.
-
+#summary Help - Terminology
 <wiki:toc max_depth="2" />
 
 == Content Management Editor (CME) ==

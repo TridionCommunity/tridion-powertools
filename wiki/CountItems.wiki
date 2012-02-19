@@ -35,9 +35,6 @@ Original release date
 Last updated
 23 Oct 2011
 
-*Compatibility*
-  * SDL Tridion 2011
-
 *Contributor(s)*
 
 Mihai Cadariu
@@ -49,20 +46,3 @@ Mihai Cadariu
 == Purpose ==
 
 Need to be able to give counts on the number of various items in the TCM. The tool allows to specify the scope of the search (Oragnizational Item to count items underneath) and granularity of item types (breaks down the counts for different selectable item types).
-
-== Installation ==
-
-No special installation steps required. Tool is installed together with the othe Power Tools.
-
-=== Upgrade ===
-
-No specific upgrade instructions available.
-
-Removal Instructions: no specific removal instructions.
-
-= Requirements =
-|| ID || Description || Scope || Comments ||
-|| 1 || ... || || ||
-|| 2 || ... || || ||
-|| 3 || ... || || ||
-|| 4 || ... || || ||

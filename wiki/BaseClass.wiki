@@ -1,12 +1,10 @@
-#summary How to use the javascript base-class in your PowerTool
+#summary How- to Guide - JavaScript Base Class
 
-= The !PowerTools Javascript Baseclass and how to use it= 
+= How to Use the !PowerTools JavaScript Base Class = 
 
-Every powertool that opens in a popup, shows an 'Execute' and 'Close' button, does a WCF-call and need to show a progressbar needs to use the !PowerTools baseclass.
+Every powertool that opens in a popup, shows an 'Execute' and 'Close' button, does a WCF-call, and needs to show a progressbar should use the !PowerTools base class.
 
-This baseclass takes care of all the above mentioned functionality.
-
-To build your own !PowerTool the best way to start is to get familiar with the Anquilla framework and to follow the [nononsenseguide]
+Become familiar with the Anquilla framework and follow the [nononsenseguide] to build your own !PowerTool.
 
 == Setting up your !PowerTool== 
 Every !PowerTool that opens in a popup must be in the following namespace: !PowerTools.Popups
@@ -16,9 +14,9 @@ So start your implementation with the following line of code:
 Type.registerNamespace("PowerTools.Popups");
 }}}
 
-This ensures that your !PowerTool is available in the right namespace. 
+This ensures your !PowerTool is available in the right namespace. 
 
-Next create your !PowerTool constructor like this:
+Next create your !PowerTool constructor:
 
 {{{
 PowerTools.Popups.ImageUploader = function ()
@@ -38,7 +36,7 @@ PowerTools.Popups.ImageUploader = function ()
 }}}
 
 The name of your !PowerTool is important. This name (in this case '!ImageUploader') must match the WCF-class name *exactly!*
-So the !ImageUploader WCF class looks like this:
+For example, the !ImageUploader WCF class looks like this:
 
 {{{
 //Attributes...
@@ -56,7 +54,7 @@ As you can see the !PowerTool javascript base-class is initialized by this line 
 this.addInterface("PowerToolsBase", [this]); 
 }}}
 
-'addInterface' is a javascript method from the Anquilla framework that adds all the methods from the (in this case) !PowerToolsBase class to the current class (the !ImageUploader). So that means that the !ImageUploader class can call methods from the !PowerToolsBase class. And that's exactly whats going to happen.
+'addInterface' is an Anguilla framework JavaScript method that adds all the methods from the (in this case) !PowerToolsBase class to the current class (the !ImageUploader). This lets the !ImageUploader class (object) call methods from the !PowerToolsBase class.
 
 Next, your !PowerTool needs to implement the following methods:
 
@@ -73,7 +71,6 @@ PowerTools.Popups.ImageUploader.prototype.initialize = function () {
 
     var p = this.properties;
     var c = p.controls;
-
     
     p.folderId = $url.getHashParam("folderId");
     
@@ -83,8 +80,7 @@ PowerTools.Popups.ImageUploader.prototype.initialize = function () {
 
 }}}
 
-The initialize method is called by the Anguilla framework to initialize (...) your !PowerTool. Typically you add code to set some properties/constants and 
-you wire up the controls.
+The Anguilla framework calls the initial method to initialize (...) your !PowerTool. Typically you add code to set properties/constants then wire up the controls.
 
 ==== Execute- and Close button ===
 The baseclass wires up the Execute-button and the 'Close' button for you. All you have to do is to implement  what should happen when the user clicks on the Execute button.
@@ -103,7 +99,7 @@ PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () 
 };
 }}}
 
-If you want to excute some logic after the user clicked on the the close button, you can implement this using the following method:
+To excute additional logic after the user clicks the close button, use the following method:
 
 {{{
 PowerTools.Popups.ImageUploader.prototype._onCloseButtonClicked = function ()
@@ -111,10 +107,10 @@ PowerTools.Popups.ImageUploader.prototype._onCloseButtonClicked = function ()
    //Do stuff
 };
 }}}
-You don't have to implement this method.
+This even is optional.
 
 ==== afterSuccess ====
-If your WCF services also needs to give some data back to the screen (like the !CountItems !PowerTool) you need to implement the following method:
+To return data back to the screen via your WCF Service (like the !CountItems !PowerTool) optionally implement the following method:
 
 {{{
 PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
@@ -122,11 +118,10 @@ PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (processId) {
 };
 }}}
 
-After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and do whatever you want to do with it. See the !CountItems powertool for an example of this functionality.
-
+After the WCF call finishes, the baseclass calls this method (if it exists). You can implement your logic here to get the data from the server and perform your logic. See the !CountItems powertool for an example of this functionality.
 
 ==== Progress Dialog settings ====
-You can influence the behavior of the progress-dialog by setting some properties in your constructor. You can set the following properties:
+You can influence the behavior of the progress-dialog by setting the following properties in your constructor.
 
   * showAnimation
 Possible values: true or false 
@@ -138,7 +133,7 @@ True means that the progress-dialog automatically closes after the service-call 
 service-call is finished. The user has to click on this button the close the 
 progress-dialog.
 
-The name of the propertie to set is: progressDialog.
+The name of the property to set is: progressDialog.
 
 Example:
 {{{
@@ -146,3 +141,4 @@ var p = this.properties;
 p.progressDialog = { showAnimation: false, closeAfterComplete: true };
 }}}
 
+Use the Base Class if your tool shows in a popup, has an 'Execute' and 'Close' button, and needs a progressbar while interacting with a WCF service. 

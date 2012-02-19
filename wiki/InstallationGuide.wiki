@@ -1,9 +1,11 @@
-#summary How-To Guide - How to install the power tools on your server.
+#summary How-To Guide - Installation
 #labels Featured,Phase-Implementation
 
 ----
 *_To help develop a !PowerTool see [nononsenseguide] instead._*
 ----
+
+*Update: only use the following to build your PowerTools from Visual Studio, otherwise use the installer.*
 
 = Installation guide =
 
@@ -87,3 +89,18 @@ If you have to move an existing setup, be sure to update the following:
  # Update the virtual directories in IIS to point to the new locations for the editor and model folders.
  # Update the System.Config file with the new folder locations.
  # Finally, optionally clean and build the solution in Visual Studio to update old references.
+
+= Uninstall =
+Use Windows Add/Remove programs to remove an installed version of PowerTools. To manually remove PowerTools, do the following:
+
+ # Edit %TRIDION_HOME%\web\WebUI\WebRoot\Configuration\System.config (on default install it's C:\Program Files (x86)\Tridion\web\WebUI\WebRoot\Configuration)
+  * Remove references to <model name="PowerTools"> and <editor> nodes. (This is enough to remove them from the CME)
+ # In IIS, remove the PowerTools folders under the CMS site > WebUI > Editors and Models.
+ # (Do the same for SiteEdit if installed since SiteEdit needs copies of extensions to work)
+ # Optionally remove permission or delete the source folders that IIS pointed to.
+ # Remove the dlls from "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" including:
+  * The built dlls that start with PowerTools, along with...
+  * Tridion.ContentManager.CoreService.Client.2010.dll
+  * DocumentFormat.OpenXml.dll (from Stan's documenting tool)
+
+It's always safer to rename and/or backup files instead of deleting.

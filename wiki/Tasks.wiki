@@ -1,4 +1,4 @@
-#summary Updates - Project volunteers, progress, and next steps.
+#summary Updates - Product Status
 #labels Featured,Phase-Requirements
 
 <wiki:toc max_depth="2" />

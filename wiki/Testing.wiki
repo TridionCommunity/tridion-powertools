@@ -1,4 +1,4 @@
-#summary Standards - Testing approach
+#summary Standards - Testing
 
 = Template =
 Let's formalize testing requirements on a TestingTemplate. It could serve as the necessary steps to release a tool.

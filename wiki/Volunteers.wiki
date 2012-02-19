@@ -1,5 +1,6 @@
-#summary Project - Volunteers. We do this because we want to!
+#summary Project - Volunteers
 
+_We do this because we want to!_
  
 === Volunteer Project Leads ===
 
