@@ -139,7 +139,7 @@ PowerTools.Popups.PagePublisher.prototype._handlePublishingStatus = function (re
     }
 
     $messages.registerNotification(response.SuccessMessage, null, null, false, false);
-    //window.close();
+    window.close();
 }
 
 
