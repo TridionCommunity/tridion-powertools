@@ -1,5 +1,6 @@
 #summary Standards - JavaScript.
 #labels Phase-Implementation
+<wiki:toc max_depth="1" />
 
 = Introduction =
 The following is a modified version of the coding guidelines that were used during development of the (client-side) 2011 CME and its underlying core framework. 
