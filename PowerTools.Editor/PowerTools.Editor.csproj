@@ -61,6 +61,10 @@
     <Content Include="PowerTools\Client\CountItems\CountItems.css" />
     <Content Include="PowerTools\Client\CountItems\CountItems.js" />
     <Content Include="PowerTools\Client\CountItems\CountItemsCommand.js" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.css" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.js" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinariesCommand.js" />
     <Content Include="PowerTools\Client\DocumentItem\DocumentItemCommand.js" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.aspx" />
     <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
@@ -177,6 +181,13 @@
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.designer.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx.cs">
+      <DependentUpon>DuplicateBinaries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx.designer.cs">
+      <DependentUpon>DuplicateBinaries.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
