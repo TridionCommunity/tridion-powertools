@@ -105,6 +105,7 @@ namespace PowerTools.Model.Services
 						Value = ByteArrayToObject(appData).ToString(),
 						Type = appData.TypeId
 					});
+
 					int progressPercentage = (int)(20 + i * progressIncrement); // some more nasty progress calculation
 					process.SetCompletePercentage(progressPercentage);
 					i++;
