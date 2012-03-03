@@ -2,9 +2,15 @@
 
 = Updates =
 
-(22-Jan-2011) Congrats to the 2012 [http://www.sdltridionworld.com/community/mvp_award/mvp-award-2012.aspx SDL Tridion MVPs]! 
+(29-Feb-2012) Alvin here. Demo to almost all of SDL WCMS (Professional Services) went well (whew!). Thanks all for getting code checked in. We'll be merging Component Synchronizer and breaking down the work to meet our Q2 deadline for release 1. Any other ideas or questions? [https://groups.google.com/forum/#!forum/tridion-powertools Let us know].
 
-(01-Jan-2011) New Year new members, but the same plan. We've made sample and working tools as planned. We're working towards a tentative 2012 Q2 release date and need the most help with Core Service work on Component Synchronizer and extending existing functionality.
+(18-Feb-2012) Thanks to Peter and Albert for making an installer and a single-tool install screen. Wow! Get latest to see these and the other new tools.
+
+(02-Feb-2012) Countdown to company-wide internal SDL Web Content Management Services (Professional Services) demo. *Alvin will get latest and test Friday, 24-Feb-2011.* . Working tools only please, otherwise place your button or context-menu option in a separate tab or section as a "sneak peek" of what you're working on.
+
+(22-Jan-2012) Congrats to the 2012 [http://www.sdltridionworld.com/community/mvp_award/mvp-award-2012.aspx SDL Tridion MVPs]! 
+
+(01-Jan-2012) New Year new members, but the same plan. We've made sample and working tools as planned. We're working towards a tentative 2012 Q2 release date and need the most help with Core Service work on Component Synchronizer and extending existing functionality.
 
 (18-Dec-2011) As we approach the holidays, we wanted to thank everyone for their work on the PowerTools. Please enjoy any time-off or vacations you have--you definitely deserve it. Feel free to catch us afterwards, or hole yourself away to crank out a tool or two. Either way works! :-)
 
