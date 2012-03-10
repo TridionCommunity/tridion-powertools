@@ -13,6 +13,8 @@ The implementation of the tool will be complex, and faces multiple challenges in
 ||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
 ||Context Menu on Schema||Willem-Jan van den Bichelaer & Quirijn Slings||Highest priority||Hard||(development approaches being done in parallel||Let's start with the hardest, most useful tool (utility is subjective, but at least two or more have asked for this and PagePublisher)||
 
+This tool synchronizes existing content in the CMS against a schema that has been updated 'after' the content was created. For such a reason, the tool needs to provide with reference content to be added/removed/updated from the 'old' content with the new structure based on the latest version of the Schema the content is based on.
+
 ==Description==
 Synchronize item fields based on a user-selected schema.
 
@@ -27,10 +29,6 @@ TBD
 
 Last updated
 TBD
-
-*Compatibility*
-SDL Tridion 2009 (deprecated)
-SDL Tridion 2011 SP1
 
 *Contributor(s)*
 {list contributors}
@@ -47,13 +45,40 @@ Removal Instructions
 
 = Requirements =
 || ID || Description || Scope || Comments ||
-|| 1 ||Provided a Schema, Component Synchronizer will set default values for its fields in all components based on the schema. Existing values will not be overwritten unless the overwrite checkbox is checked.|| || ||
+|| 1 ||Provided a Schema, Component Synchronizer will set default values for its fields in all components based on the schema. Existing values will not be overwritten unless the overwrite (or override) checkbox is checked.|| || ||
 || 2 ||Provided a Schema, Component Synchronizer should remove (hide) those fields no longer existing from all components using it. || || ||
 || 3 ||There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.|| || Can components save commented-out XML nodes? ||
 || 4 || Component Synchronizer should retrieve all the schema fields, and display them to the user, so the user can enter the default values to be set|| || ||
 || 5 || Permissions and Rights should use the existing user's rights || || Req 5 needs feedback and review ||
 || 6 || Component Synchronizer should {rollback,fail,or do a partial update?} if all found components can not be updated in a single request || || Req 6 needs feedback and review ||
 || 7 || Component Synchronizer should {return an error on, update the parent, ignore, unlocalize (probably not), just report on, edit the localized version of} components that have parent items || || Req 7 needs feedback and review ||
+|| 8  || Component XML should validate against the schema ||  ||  ||
+|| 9 || Differing field order should not matter. Component Synch should/should not re-order fields to the reference component ||  ||  ||
+|| 10 || Richtext-to-text behavior should match the CME behavior (what happens to existing component RTF when schema changes to plain text?)  ||  ||  ||
+|| 11 || Advanced requirement - how to handle min/max and other schema attributes? ||  ||  ||
+|| 12 || See below for behavior on "somewhat-compatible" changes ||  ||  ||
+|| ... || ...  ||  ||  ||
+
+What should the behaviors be for same-named schema changes for the following:
+ * Selection box to drop-down (multiple items to one)
+ * Selection box to radio (multiple items to one, mandatory)
+ * Selection box to check box (multiple items to multiple)
+ * Drop-down to selection box
+ * Drop-down to radio
+ * Drop-down to check box
+ * Radio to selection box
+ * Radio to check box
+ * Radio to drop-down
+ * Check box to selection box
+ * Check box to radio
+ * Check box to radio
+ * Plain text to rich text
+ * Rich text to plain text
+
+Other considerations (update, remove, or move to requirements):
+ * Do we re-validate against XSLT filter?
+ * Do we do anything about changes in allowed RTF options?
+ * Do we do anything about changes in allowed styles?
 
 == Diagrams ==
 
@@ -64,3 +89,44 @@ Add a fake QueryString paramater below to make the generated image show (e.g. &f
 http://www.websequencediagrams.com/cgi-bin/cdraw?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default&faked=fake.png
 
 Update the diagram on [http://www.websequencediagrams.com/?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default WebSequenceDiagrams] (will need to update these links)
+
+== UI ==
+
+= Introduction =
+
+= Approach =
+The "Jaime" branch will be merged into \trunk to address:
+ * RTF fields rely on the Ribbon Tool bar (it's where the RTF tools are shown) and the tool would have to implement it. 
+ * Existing extensions won't be available in the tool, unless they would be implemented.
+ * Re-use existing the Component View that copes with all the requirements for Content Creation
+
+Approach uses the Component View for content creation, meaning that when I want to synchronize content based on a given schema, the Power User will have to create a "reference" component, i.e. a Component based on the schema we want to synchronize providing with the reference data, stuff like default values for missing fields, for example.
+
+The user can create a Reference component without using the tool and then browse it from the tool as well. The tool will provide with an option to launch the New Component (reference) creation, though.
+
+
+= Features =
+
+Built features:
+  * Launch the Component Syncrhonizer from a Schema 
+  * Launch the Component Syncrhonizer from a Component 
+  * Launch the Component Syncrhonizer from a Selection (within a list)
+  * Launch the Component Syncrhonizer from a Search, by selecting the results 
+
+= Screenshots =
+
+Launch from search results:
+
+[https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_1.png]
+
+Launch from schema:
+
+[https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_2.png]
+
+= SVN Branch (to be merged) =
+A separate branch has been created in the SVN repository to store the files used for this approach.
+
+To use this branch, right-click over the Solution within Visual Studio 2010 and select: Subversion --> Switch Solution...
+
+Then select the following branch:
+[https://tridion-2011-power-tools.googlecode.com/svn/branches/jaime/compsync/prototype/trunk/]
