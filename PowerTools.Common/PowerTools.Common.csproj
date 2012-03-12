@@ -39,9 +39,11 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
@@ -55,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreService\Client.cs" />
+    <Compile Include="Handlers\FileTransferHandler.cs" />
     <Compile Include="Handlers\DocumentItemHandler.cs" />
     <Compile Include="Handlers\Model\Schema.cs" />
     <Compile Include="Handlers\Model\SchemaField.cs" />
