@@ -1,0 +1,52 @@
+﻿#fileupload {
+    background: grey;   
+    text-align: center;
+    font-weight: bold;
+    bottom:1px;
+    right:1px;
+    position:absolute;
+    min-height:100px;
+    border:1px solid gray;
+    min-width:10px;
+    display:none;
+}
+#minmax
+{
+    background-image:url({ThemePath}/Icons/imageupload_16.png);
+    width: 16px;
+    height: 16px;
+    
+    text-align: center;
+    font-weight: bold;
+    bottom:1px;
+    right:1px;
+    position:absolute;
+    min-height:16px;
+    min-width:16px;
+}
+#SchemaDropDownForDdu
+{
+    min-width:200px;
+}
+
+#uploadText
+{
+    text-align:center;
+    margin-top:40px;
+}
+
+#schemaDropdown 
+{
+    margin:0 auto;
+}
+#fileupload.in {
+    width: 310px;
+    height: 150px;       
+}
+
+#dropDownText
+{
+    float:left;
+    text-align:left;
+    margin-top:1px;
+}
