@@ -16,7 +16,7 @@ namespace PowerTools.Common.Handlers
     public class FileTransferHandler : IHttpHandler, IDisposable
     {
         private static Tridion.ContentManager.CoreService.Client.SessionAwareCoreService2010Client client = null;
-        private static string StorageRoot = @System.Web.Configuration.WebConfigurationManager.AppSettings["DragDropUploader.TempDirectory"];
+        private static string StorageRoot = string.Format("{0}{1}", HttpContext.Current.Server.MapPath("TemporaryFiles"), "\\");
         private static XmlElement multiMediaTypes = null;
         private static XmlElement MultiMediaTypes
         {
