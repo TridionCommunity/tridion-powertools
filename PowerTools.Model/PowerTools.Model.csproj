@@ -107,7 +107,9 @@
     <Compile Include="Utils\TcmUri.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Configuration\Model.config" />
+    <Content Include="Configuration\Model.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Model.Fragment.config" />
