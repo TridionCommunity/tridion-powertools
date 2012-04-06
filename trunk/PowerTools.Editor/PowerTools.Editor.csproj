@@ -52,6 +52,7 @@
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.js" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorWorker.js" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerWorker.js" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.css" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />
@@ -60,6 +61,7 @@
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.css" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.js" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorCommand.js" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\Xml\SyncList-head.xml" />
     <Content Include="PowerTools\Client\CountItems\CountItems.aspx" />
     <Content Include="PowerTools\Client\CountItems\CountItems.css" />
     <Content Include="PowerTools\Client\CountItems\CountItems.js" />
@@ -140,12 +142,11 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\custom1_bar.gif" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\custom1_box.gif" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
-    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_16.png" />
-    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_32.png" />
-    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_64.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\help_16.png" />
@@ -159,6 +160,12 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\pagepublisher_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\pagepublisher_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\power-tools-logo.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back1.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back2.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back3.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back4.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.16x16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.24x24.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\viewinfrontend_16.png" />
