@@ -17,19 +17,20 @@ for details on the PlusOne button.
 
 =Setup=
 ==Get Solution==
-  # Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
+  1. Get the latest power tools code from https://tridion-2011-power-tools.googlecode.com/svn/trunk/ (or use http:// instead for the read-only version of it)
 
-  # Locate the Reference Assemblies folder and copy the Core dll into it
-  from *TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll 
+  2. Locate the Reference Assemblies folder and copy the Core dll into it from *TRIDION*\Web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll 
 
-  # Confirm the post-build event to !PowerTools.Common, !PowerTools.Editor and !PowerTools.Model (no changes needed if this matches):
+  3. Confirm the post-build event to !PowerTools.Common, !PowerTools.Editor and !PowerTools.Model (no changes needed if this matches):
 {{{
 IF DEFINED TRIDION_CM_HOME (
 xcopy "$(TargetDir)$(TargetName).*" "%TRIDION_CM_HOME%\Web\WebUI\WebRoot\bin" /y
 )
 }}}
 
-  # Build the solution
+  4. Build the CustomInstallerView project first before building the solution the first time.
+
+  5. Build the solution
 
 ==Configure CME==
 ===System.Config===
