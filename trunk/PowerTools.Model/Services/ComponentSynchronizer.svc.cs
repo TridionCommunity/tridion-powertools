@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
-using System.IO;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using PowerTools.Common.CoreService;
 using PowerTools.Model.Exceptions;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
@@ -19,30 +19,30 @@ namespace PowerTools.Model.Services
 	{
         class CompSyncParameters
 		{
-			public string[] SelectedURIs { get; set; }
-			public string ReferenceCompoenntURI { get; set; }
+			public string[] SelectedUrIs { get; set; }
+			public string ReferenceComponentUri { get; set; }
 			
 		}
 
         private IList _processedItems = new ArrayList();
 
 		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-		public ServiceProcess Execute(string selectedURIs, string referenceComponentURI)
+		public ServiceProcess Execute(string selectedUrIs, string referenceComponentUri)
 		{
-            if (string.IsNullOrEmpty(selectedURIs))
+            if (string.IsNullOrEmpty(selectedUrIs))
 			{
-                throw new ArgumentNullException("selectedURIs");
+                throw new ArgumentNullException("selectedUrIs");
 			}
 
-            if (string.IsNullOrEmpty(referenceComponentURI))
+            if (string.IsNullOrEmpty(referenceComponentUri))
 			{
-                throw new ArgumentNullException("referenceComponentURI");
+                throw new ArgumentNullException("referenceComponentUri");
 			}
 
-            selectedURIs = selectedURIs.Replace("[", "");
-            selectedURIs = selectedURIs.Replace("]", "");
-            selectedURIs = selectedURIs.Replace("\"", "");
-            CompSyncParameters arguments = new CompSyncParameters { SelectedURIs = selectedURIs.Split(','), ReferenceCompoenntURI =referenceComponentURI };
+            selectedUrIs = selectedUrIs.Replace("[", "");
+            selectedUrIs = selectedUrIs.Replace("]", "");
+            selectedUrIs = selectedUrIs.Replace("\"", "");
+            CompSyncParameters arguments = new CompSyncParameters { SelectedUrIs = selectedUrIs.Split(','), ReferenceComponentUri =referenceComponentUri };
 			return ExecuteAsync(arguments);
 		}
 
@@ -55,25 +55,25 @@ namespace PowerTools.Model.Services
 		public override void Process(ServiceProcess process, object arguments)
 		{
             CompSyncParameters parameters = (CompSyncParameters)arguments;
-			if (parameters.SelectedURIs == null)
+			if (parameters.SelectedUrIs == null)
 			{
-				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "List '{0}' is null.", parameters.SelectedURIs));
+				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "List '{0}' is null.", parameters.SelectedUrIs));
 			}
 
-			var client = PowerTools.Common.CoreService.Client.GetCoreService();
+			var client = Client.GetCoreService();
 
 			try
 			{
 
 				int i = 0;
-                ComponentData ReferenceComponentData = client.Read(parameters.ReferenceCompoenntURI,new ReadOptions()) as ComponentData;
+                ComponentData ReferenceComponentData = client.Read(parameters.ReferenceComponentUri,new ReadOptions()) as ComponentData;
 				
-                foreach (string uri in parameters.SelectedURIs)
+                foreach (string uri in parameters.SelectedUrIs)
 				{
                     ComponentData currentComponent = client.Read(uri, new ReadOptions()) as ComponentData;
 					process.SetStatus("Synchronizing: " + currentComponent.Title);
                     _processedItems.Add(uri);
-                    process.SetCompletePercentage(++i * 100 / parameters.SelectedURIs.Length);
+                    process.SetCompletePercentage(++i * 100 / parameters.SelectedUrIs.Length);
 					System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
 				}
                 process.SetStatus("Synchronization succesfully finished!");
