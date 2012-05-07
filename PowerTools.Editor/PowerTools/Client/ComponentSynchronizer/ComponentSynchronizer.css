@@ -17,15 +17,6 @@
 	background: url("/WebUI/Editors/CME/Themes/Carbon/Images/Icons/browse-folders.16x16_v6.0.0.39607.0_.png") no-repeat;
 }
 
-.customButton {
-    cursor: pointer;
-    float: right;
-    font-size: 11px;
-    margin-right: 10px;
-    margin-top: 8px;
-}
-
-
 #BtnRemove
 {
 	min-width: 22px;
@@ -89,4 +80,10 @@ div
 .tool-explanation
 {
     margin-bottom: 20px;
+}
+
+#progress
+{
+	display: none;
+	padding-top: 10px;
 }

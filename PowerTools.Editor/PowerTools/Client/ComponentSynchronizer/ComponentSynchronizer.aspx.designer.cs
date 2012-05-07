@@ -11,5 +11,104 @@ namespace PowerTools.Editor.PowerTools.Client.ComponentSynchronizer {
     
     
     public partial class ComponentSynchronizer {
+        
+        /// <summary>
+        /// CreateReferenceButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button CreateReferenceButton;
+        
+        /// <summary>
+        /// BtnBrowse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button BtnBrowse;
+        
+        /// <summary>
+        /// BtnRemove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button BtnRemove;
+        
+        /// <summary>
+        /// TabControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.TabControl TabControl;
+        
+        /// <summary>
+        /// UsedIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.DeckPage UsedIn;
+        
+        /// <summary>
+        /// UsedInList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.List UsedInList;
+        
+        /// <summary>
+        /// ExecuteButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button ExecuteButton;
+        
+        /// <summary>
+        /// BtnUsedInOpen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button BtnUsedInOpen;
+        
+        /// <summary>
+        /// BtnUsedInGoTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button BtnUsedInGoTo;
+        
+        /// <summary>
+        /// BtnUsedInRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button BtnUsedInRefresh;
+        
+        /// <summary>
+        /// CloseButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tridion.Web.UI.Controls.Button CloseButton;
     }
 }
