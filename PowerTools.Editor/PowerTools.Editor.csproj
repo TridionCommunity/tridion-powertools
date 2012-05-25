@@ -52,7 +52,6 @@
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.js" />
     <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorWorker.js" />
-    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerWorker.js" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.css" />
     <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />

@@ -8,6 +8,7 @@ PowerTools.Popups.ComponentSynchronizer = function ()
 {
 	Type.enableInterface(this, "PowerTools.Popups.ComponentSynchronizer");
 	this.addInterface("Tridion.Cme.View");
+    this.addInterface("PowerToolsBase", [this]);
 	var p = this.properties;
 
 	p.processId = null;
@@ -17,7 +18,6 @@ PowerTools.Popups.ComponentSynchronizer = function ()
 
 	PowerTools.Popups.ComponentSynchronizer.USEDIN = 0;
 	PowerTools.Popups.ComponentSynchronizer.USEDINLIST_HEAD_PATH = $config.expandEditorPath("PowerTools/Client/ComponentSynchronizer/Xml/SyncList-head.xml", "PowerTools");
-
 };
 
 /**
@@ -417,6 +417,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 					$dom.setInnerText(c.FieldTitle, "Reference Component: " + itemName + " (" + itemId + ")");
 					p.referenceComponent = itemId;
 					$css.show(c.BtnRemove);
+					c.ExecuteButton.enable();
 				}
 
 			}
@@ -495,12 +496,10 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicke
 PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function ()
 {
 	var p = this.properties;
-	if (true)
-	{ //TODO: ADD SOME CHECKS
-		var worker = new PowerTools.ComponentSynchronizerWorker();
-		worker.execute(p.sel, p.referenceComponent);
-	}
+	var onSuccess = Function.getDelegate(this, this._onExecuteStarted);   
+	var onFailure = null;
 
+    PowerTools.Model.Services.ComponentSynchronizer.Execute(p.sel.getItems(), p.referenceComponent, onSuccess, onFailure);
 };
 
 PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function ()
