@@ -45,14 +45,14 @@ namespace PowerTools.Common.Installer
             CreateVirtualDirectories();
             AddToCmeConfiguration();                     
             
-            ManageInstalledPowerTools();
+            //ManageInstalledPowerTools();
         }
 
         private void ManageInstalledPowerTools()
         {            
-            CustomInstallerView.SelectPowerTools frmSelectPowerTools = new CustomInstallerView.SelectPowerTools(this.Context);
-            frmSelectPowerTools.ShowDialog();
-            frmSelectPowerTools.Focus();
+            //CustomInstallerView.SelectPowerTools frmSelectPowerTools = new CustomInstallerView.SelectPowerTools(this.Context);
+            //frmSelectPowerTools.ShowDialog();
+            //frmSelectPowerTools.Focus();
         }
 
         [SecurityPermission(SecurityAction.Demand)]

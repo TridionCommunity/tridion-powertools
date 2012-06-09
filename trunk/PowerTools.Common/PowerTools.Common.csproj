@@ -93,12 +93,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CustomInstallerView\CustomInstallerView.csproj">
-      <Project>{F7DB7B86-ECC1-4644-911C-D7F3125B170D}</Project>
-      <Name>CustomInstallerView</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF DEFINED TRIDION_CM_HOME (
