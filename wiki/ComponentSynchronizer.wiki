@@ -58,7 +58,6 @@ Tool = Component Synchronizer
 || 10 || Richtext-to-text behavior should match the CME behavior (what happens to existing component RTF when schema changes to plain text?)  ||  ||  ||
 || 11 || Advanced requirement - how to handle min/max and other schema attribute changes? ||  ||  ||
 || 12 || See below for behavior on "somewhat-compatible" changes ||  ||  ||
-|| 13 || Component S  ||  ||  ||
 || ... || ...  ||  ||  ||
 
 
