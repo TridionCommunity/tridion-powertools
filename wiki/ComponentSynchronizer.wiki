@@ -43,13 +43,13 @@ See InstallationGuide.
 {as applicable}
 Removal Instructions
 
-= Requirements =
-Tool = Component Synchronizer
+= Functional Requirements =
+{{{Tool = Component Synchronizer}}}
 || ID || Description || Scope || Comments ||
 || 1 ||Provided a Schema, Tool will set default values for its fields in all components based on the schema. Existing values will not be overwritten unless the overwrite (or override) checkbox is checked.|| || ||
 || 2 ||Provided a Schema, Tool should remove ~~(hide)~~ fields no longer existing from all components using it. This occurs in the CME upon change, save & close. Component Synchronizer needs to do the same. || || ||
 || 3 ||~~There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.~~|| Requirement Dropped || Use rollback to return to or see previous fields. ||
-|| 4 || Component Synchronizer should retrieve all the schema fields, and display them to the user, so the user can enter the default values to be set|| || We'll accomplish using a reference component. ||
+|| 4 || Using a "reference component" Tool will retrieve the schema fields, display them to the user, so the user can enter the default values to be set|| || We'll accomplish using a reference component. ||
 || 5 || The tool should only be available to CMS Administrators || ||  ||
 || 6 || Tool should do a partial update for components that can not be updated in a single request. Tool should log failures with tcm id and problem field(s).  || ||  ||
 || 7 || Tool works in the context of a single publication. It uses the shared schema definition and reference component from selected publication. It will ignore localized children items and parents, but update in-Publication shared and localized items. || || ||
@@ -59,13 +59,17 @@ Tool = Component Synchronizer
 || 11 || Advanced requirement - how to handle min/max and other schema attribute changes? ||  ||  ||
 || 12 || See below for behavior on "somewhat-compatible" changes ||  ||  ||
 || 13 || Tool should prompt and stop if user selects schema with attached workflow. User must manually un-associate workflow before proceeding.  ||  ||  ||
+|| 14 || Tool should run rich text against the schema XSLT filter if possible, mimicking the CME. || || If possible ||
+|| 15 || Changes to allowed formatting or styles will not affect the tool. || || The CME allows manually entered styles or formatting. The tool will match this. ||
+
+
 
 What should the behaviors be for same-named schema changes for the following:
  * Selection box to drop-down (multiple items to one)
  * Selection box to radio (multiple items to one, now mandatory)
- * Selection box to check box (multiple items to multiple)
 
 Non-issue changes--Tool will save existing text (test to be sure).
+ * Selection box to check box (multiple items to multiple)
  * Drop-down to selection box
  * Drop-down to radio
  * Drop-down to check box
@@ -77,11 +81,6 @@ Non-issue changes--Tool will save existing text (test to be sure).
  * Check box to radio
  * Plain text to rich text
  * Rich text to plain text~~
-
-Other considerations (update, remove, or move to requirements):
- * Do we re-validate against XSLT filter? Yes, if possible we should mimic CME behavior for open-edit-save which includes XSLT filter firing.
- * Do we do anything about changes in allowed RTF options? No--CME doesn't update this, defer to any XSLT filtering.
- * Do we do anything about changes in allowed styles? No--CME doesn't update this, difer to any XSLT filtering.
 
 == Diagrams ==
 
@@ -95,13 +94,12 @@ Update the diagram on [http://www.websequencediagrams.com/?lz=ClBhZ2UvVXNlciAtPi
 
 == UI ==
 
-= Introduction =
-
 = Approach =
-The "Jaime" branch will be merged into \trunk to address:
+Peter Kjaer merged Jaime's changes into \trunk. This branch addresses the following.
+
  * RTF fields rely on the Ribbon Tool bar (it's where the RTF tools are shown) and the tool would have to implement it. 
  * Existing extensions won't be available in the tool, unless they would be implemented.
- * Re-use existing the Component View that copes with all the requirements for Content Creation
+ * Re-use existing the Component View that copies with all the requirements for Content Creation
 
 Approach uses the Component View for content creation, meaning that when I want to synchronize content based on a given schema, the Power User will have to create a "reference" component, i.e. a Component based on the schema we want to synchronize providing with the reference data, stuff like default values for missing fields, for example.
 
@@ -110,9 +108,9 @@ The user can create a Reference component without using the tool and then browse
 
 = Features =
 
-Built features:
-  * Launch the Component Synchronizer from a Schema 
-  * Launch the Component Synchronizer from a Component 
+Built UI features:
+  * Launch the Component Synchronizer from a Schema
+  * Launch the Component Synchronizer from a Component (reference component or "to-be-synched" component?)
   * Launch the Component Synchronizer from a Selection (within a list)
   * Launch the Component Synchronizer from a Search, by selecting the results 
 
@@ -125,11 +123,3 @@ Launch from search results:
 Launch from schema:
 
 [https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_2.png]
-
-= SVN Branch (to be merged) =
-A separate branch has been created in the SVN repository to store the files used for this approach.
-
-To use this branch, right-click over the Solution within Visual Studio 2010 and select: Subversion --> Switch Solution...
-
-Then select the following branch:
-[https://tridion-2011-power-tools.googlecode.com/svn/branches/jaime/compsync/prototype/trunk/]
