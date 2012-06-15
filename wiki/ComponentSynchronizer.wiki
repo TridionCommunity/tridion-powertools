@@ -62,8 +62,6 @@ Removal Instructions
 || 14 || Tool should run rich text against the schema XSLT filter if possible, mimicking the CME. || || If possible ||
 || 15 || Changes to allowed formatting or styles will not affect the tool. || || The CME allows manually entered styles or formatting. The tool will match this. ||
 
-
-
 What should the behaviors be for same-named schema changes for the following:
  * Selection box to drop-down (multiple items to one)
  * Selection box to radio (multiple items to one, now mandatory)
@@ -88,9 +86,9 @@ Non-issue changes--Tool will save existing text (test to be sure).
 Add a fake QueryString paramater below to make the generated image show (e.g. &faked=fake.png).
 </wiki:comment>
 
-http://www.websequencediagrams.com/cgi-bin/cdraw?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default&faked=fake.png
+http://www.websequencediagrams.com/cgi-bin/cdraw?lz=UGFnZS9Vc2VyIC0-IEphdmFTY3JpcHQ6cmVxdWVzdAoACQogLT4gV2ViIFNlcnZpY2U6KHNlcmlhbGl6ZWQpIG9iamVjdAphY3RpdmF0ZQAdDAoAKgsANBAgQ29yZS9DTUUACB10cmFuc2Zvcm0gY29tcG9uZW50cwBGEACBMAsAgQUUZGUAgQYVAIFQDkRvbTogbWFuaXB1bGF0ZXMKRG9tIC0-IACCGwk6IHNob3cgcmVzdWx0cyBhbmQgbG9n&s=default&faked=fake.png
 
-Update the diagram on [http://www.websequencediagrams.com/?lz=ClBhZ2UvVXNlciAtPiBKYXZhU2NyaXB0OnJlcXVlc3Q_CgAKCiAtPiBXZWIgU2VydmljZTpvYmplY3Q_CgAJCwATECBDb3JlL0NNRQAVEABfCyAAQgYgcmV0dXJuZWQAYxBEb206IG1hbmlwdWxhdGVzCkRvbSAtPiAAgTEJOiBzaG93IHVwZAAaBQ&s=default WebSequenceDiagrams] (will need to update these links)
+Update the diagram on [http://www.websequencediagrams.com/?lz=UGFnZS9Vc2VyIC0-IEphdmFTY3JpcHQ6cmVxdWVzdAoACQogLT4gV2ViIFNlcnZpY2U6KHNlcmlhbGl6ZWQpIG9iamVjdAphY3RpdmF0ZQAdDAoAKgsANBAgQ29yZS9DTUUACB10cmFuc2Zvcm0gY29tcG9uZW50cwBGEACBMAsAgQUUZGUAgQYVAIFQDkRvbTogbWFuaXB1bGF0ZXMKRG9tIC0-IACCGwk6IHNob3cgcmVzdWx0cyBhbmQgbG9n&s=default WebSequenceDiagrams] (will need to update these links)
 
 == UI ==
 
