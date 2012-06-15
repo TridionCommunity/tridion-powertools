@@ -44,25 +44,30 @@ See InstallationGuide.
 Removal Instructions
 
 = Requirements =
+Tool = Component Synchronizer
 || ID || Description || Scope || Comments ||
-|| 1 ||Provided a Schema, Component Synchronizer will set default values for its fields in all components based on the schema. Existing values will not be overwritten unless the overwrite (or override) checkbox is checked.|| || ||
-|| 2 ||Provided a Schema, Component Synchronizer should remove (hide) those fields no longer existing from all components using it. || || ||
-|| 3 ||There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.|| || Can components save commented-out XML nodes? ||
-|| 4 || Component Synchronizer should retrieve all the schema fields, and display them to the user, so the user can enter the default values to be set|| || ||
-|| 5 || Permissions and Rights should use the existing user's rights || || Req 5 needs feedback and review ||
-|| 6 || Component Synchronizer should {rollback,fail,or do a partial update?} if all found components can not be updated in a single request || || Req 6 needs feedback and review ||
-|| 7 || Component Synchronizer should {return an error on, update the parent, ignore, unlocalize (probably not), just report on, edit the localized version of} components that have parent items || || Req 7 needs feedback and review ||
-|| 8  || Component XML should validate against the schema ||  ||  ||
-|| 9 || Differing field order should not matter. Component Synch should/should not re-order fields to the reference component ||  ||  ||
+|| 1 ||Provided a Schema, Tool will set default values for its fields in all components based on the schema. Existing values will not be overwritten unless the overwrite (or override) checkbox is checked.|| || ||
+|| 2 ||Provided a Schema, Tool should remove ~~(hide)~~ fields no longer existing from all components using it. This occurs in the CME upon change, save & close. Component Synchronizer needs to do the same. || || ||
+|| 3 ||~~There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.~~|| Requirement Dropped || Use rollback to return to or see previous fields. ||
+|| 4 || Component Synchronizer should retrieve all the schema fields, and display them to the user, so the user can enter the default values to be set|| || We'll accomplish using a reference component. ||
+|| 5 || The tool should only be available to CMS Administrators || ||  ||
+|| 6 || Tool should do a partial update for components that can not be updated in a single request. Tool should log failures with tcm id and problem field(s).  || ||  ||
+|| 7 || Tool works in the context of a single publication. It uses the shared schema definition and reference component from selected publication. It will ignore localized children items and parents, but update in-Publication shared and localized items. || || ||
+|| 8  || Tool will save component after it validates against the schema or log issues (see #6). ||  ||  ||
+|| 9 || Tool should detect and fix fields out-of-order, re-ordering fields to the reference component to ensure Req #8. ||  ||  ||
 || 10 || Richtext-to-text behavior should match the CME behavior (what happens to existing component RTF when schema changes to plain text?)  ||  ||  ||
-|| 11 || Advanced requirement - how to handle min/max and other schema attributes? ||  ||  ||
+|| 11 || Advanced requirement - how to handle min/max and other schema attribute changes? ||  ||  ||
 || 12 || See below for behavior on "somewhat-compatible" changes ||  ||  ||
+|| 13 || Component S  ||  ||  ||
 || ... || ...  ||  ||  ||
+
 
 What should the behaviors be for same-named schema changes for the following:
  * Selection box to drop-down (multiple items to one)
- * Selection box to radio (multiple items to one, mandatory)
+ * Selection box to radio (multiple items to one, now mandatory)
  * Selection box to check box (multiple items to multiple)
+
+Non-issue changes--Tool will save existing text (test to be sure).
  * Drop-down to selection box
  * Drop-down to radio
  * Drop-down to check box
@@ -73,12 +78,12 @@ What should the behaviors be for same-named schema changes for the following:
  * Check box to radio
  * Check box to radio
  * Plain text to rich text
- * Rich text to plain text
+ * Rich text to plain text~~
 
 Other considerations (update, remove, or move to requirements):
- * Do we re-validate against XSLT filter?
- * Do we do anything about changes in allowed RTF options?
- * Do we do anything about changes in allowed styles?
+ * Do we re-validate against XSLT filter? Yes, if possible we should mimic CME behavior for open-edit-save which includes XSLT filter firing.
+ * Do we do anything about changes in allowed RTF options? No--CME doesn't update this, defer to any XSLT filtering.
+ * Do we do anything about changes in allowed styles? No--CME doesn't update this, difer to any XSLT filtering.
 
 == Diagrams ==
 
