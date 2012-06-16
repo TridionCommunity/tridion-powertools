@@ -1,98 +1,106 @@
 #summary PowerTools Requirements - ComponentSynchronizer (active)
 #labels Phase-Requirements,Phase-Design,Featured
+= Background = 
+The Component Synchronizer tool helps admins update components to match schema changes.
 
-= Introduction =
-This tool was originally created to solve the problems derived from a schema design change with existing content.
-
-This tools has been requested by multiple contributors and is one of the most important for implementors to have so it as been marked as *High priority*.
-
-The implementation of the tool will be complex, and faces multiple challenges including performance. 
-
-= Details =
-
-||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
-||Context Menu on Schema||Willem-Jan van den Bichelaer & Quirijn Slings||Highest priority||Hard||(development approaches being done in parallel||Let's start with the hardest, most useful tool (utility is subjective, but at least two or more have asked for this and PagePublisher)||
-
-This tool synchronizes existing content in the CMS against a schema that has been updated 'after' the content was created. For such a reason, the tool needs to provide with reference content to be added/removed/updated from the 'old' content with the new structure based on the latest version of the Schema the content is based on.
-
-==Description==
-Synchronize item fields based on a user-selected schema.
-
-== Audience ==
-* Admins and Power Users looking to match components to their schema before Content Port 
+||Suggested implementation||Original Developers||Priority||Status||Notes||
+||Context Menu on Schema||Willem-Jan van den Bichelaer & Quirijn Slings||High priority|| GUI done. Service pending. || Hard.||
 
 *Version #*
 0.1
 
-Original release date
-TBD
+= 1. User Requirements =
 
-Last updated
-TBD
+|| _ID_ || _Description_ ||
+||  UR 1  *Access* || Only admins can run the tool   ||
 
-*Contributor(s)*
-{list contributors}
+= 2. Functional Requirements =
 
-*Document Author(s)*
-{list authors}
+Section 2 organizes functional requirements into the following sections.
+  * Glossary
+  * 2.1 Input
+  * 2.2 Logic
+  * 2.3 UI, Reporting,  and Logs
 
-== Installation ==
-See InstallationGuide.
+_Numbering convention: to reduce "dot" separators document hides the first section number. Prefixes help distinguish sections. So 2.1.3.1  becomes "FR 1.3.1" instead._
 
-=== Upgrade ===
-{as applicable}
-Removal Instructions
+== Glossary ==
 
-= Functional Requirements =
-{{{Tool = Component Synchronizer}}}
-|| ID || Description || Scope || Comments ||
-|| 1 ||Provided a Schema, Tool will set default values for its fields in all components based on the schema. Existing values will not be overwritten unless the overwrite (or override) checkbox is checked.|| || ||
-|| 2 ||Provided a Schema, Tool should remove ~~(hide)~~ fields no longer existing from all components using it. This occurs in the CME upon change, save & close. Component Synchronizer needs to do the same. || || ||
-|| 3 ||~~There should be no data loss. If a field is removed, and the component synchronizer is used to remove a field from a component, the data contained in that field should be able to be retrieved if the same field is added again.~~|| Requirement Dropped || Use rollback to return to or see previous fields. ||
-|| 4 || Using a "reference component" Tool will retrieve the schema fields, display them to the user, so the user can enter the default values to be set|| || We'll accomplish using a reference component. ||
-|| 5 || The tool should only be available to CMS Administrators || ||  ||
-|| 6 || Tool should do a partial update for components that can not be updated in a single request. Tool should log failures with tcm id and problem field(s).  || ||  ||
-|| 7 || Tool works in the context of a single publication. It uses the shared schema definition and reference component from selected publication. It will ignore localized children items and parents, but update in-Publication shared and localized items. || || ||
-|| 8  || Tool will save component after it validates against the schema or log issues (see #6). ||  ||  ||
-|| 9 || Tool should detect and fix fields out-of-order, re-ordering fields to the reference component to ensure Req #8. ||  ||  ||
-|| 10 || Richtext-to-text behavior should match the CME behavior (what happens to existing component RTF when schema changes to plain text?)  ||  ||  ||
-|| 11 || Advanced requirement - how to handle min/max and other schema attribute changes? ||  ||  ||
-|| 12 || See below for behavior on "somewhat-compatible" changes ||  ||  ||
-|| 13 || Tool should prompt and stop if user selects schema with attached workflow. User must manually un-associate workflow before proceeding.  ||  ||  ||
-|| 14 || Tool should run rich text against the schema XSLT filter if possible, mimicking the CME. || || If possible ||
-|| 15 || Changes to allowed formatting or styles will not affect the tool. || || The CME allows manually entered styles or formatting. The tool will match this. ||
+|| _Term_ || _Definition or Details_ ||
+|| *CME* || Content Manager Explorer ||
+|| *FR *|| Functional Requirement ||
+|| *Reference Component* || A user-selected/created Component  with default field values ||
+|| *Synchronization* || Process of confirming, updating, and/or removing (validating) each target component field against its (updated) schema. Non-synchronized components are "out-of-sync." ||
+|| *Target Component(s)* || Content the tool will update. Assumes all matching components in a given publication; however, a more sophisticated tool may allow user ability to search or select smaller set of target components. ||
+|| *"Tool"*  || Term for Component Synchronizer, at least in the requirements below. Similar to "system" (e.g. system will...). ||
+|| *User* || Requirements refer to "User" to avoid confusion with "Content Author." CMS administrator use only. ||
 
-What should the behaviors be for same-named schema changes for the following:
- * Selection box to drop-down (multiple items to one)
- * Selection box to radio (multiple items to one, now mandatory)
+== 2.1. Input ==
+|| _ID_ || _Description_ ||
+|| FR 1.1  *Publication*  || Tool needs publication context (can be implied by item selection) ||
+|| FR 1.2  *Schema* || User selects schema and runs Tool  via context menu in CME. Advanced options include via component context menu, single component, or component search. ||   
+|| FR 1.3 *Default Schema Fields* || User sets default overriding fields. Tool will use a "reference" component. || 
+|| FR 1.3.1 *Override Fields * || User checks which default values override component fields. _Alternative is to assume no override--only use reference component default field values for empty fields._ ||
+|| FR 1.4 *Run-time Requirement* || Fields and schema structure are unknown until tool runs. "Standard" Content XML assumed (namespaces, &lt;content&gt;, etc).* || 
 
-Non-issue changes--Tool will save existing text (test to be sure).
- * Selection box to check box (multiple items to multiple)
- * Drop-down to selection box
- * Drop-down to radio
- * Drop-down to check box
- * Radio to selection box
- * Radio to check box
- * Radio to drop-down
- * Check box to selection box
- * Check box to radio
- * Check box to radio
- * Plain text to rich text
- * Rich text to plain text~~
+_*Developer(s) should investigate any schema differences between R5.3/2009 and 2011_
 
-== Diagrams ==
+== 2.2. Logic ==
 
-<wiki:comment>
-Add a fake QueryString paramater below to make the generated image show (e.g. &faked=fake.png).
-</wiki:comment>
+|| _ID_ || _Description_ ||
+|| FR 2.1 *Single Publication Context*  || Tool will synchronize components in a single publication, using the shared schema definition and reference component in the same context. Tool will ignore parent and child items in other publications. ||
+|| FR 2.2 *Stop for Workflow Association* || Tool will warn user and stop if selected schema has an associated workflow definition. User removes association manually. ||
+|| FR 2.3 *Validate Reference Component* || Tool must synchronize or at least warn user and stop process if reference component is out-of-sync. Reference component's schema must match selected schema (likely implicit--only show appropriate components). ||
+|| FR 2.4 *Preserve Defaults* || Tool will set default field values for its fields in target components based on selected schema. Existing values will not be overwritten unless the overwrite (or override) checkbox is checked.||
+|| FR 2.5 *Remove Old Fields* || Tool will remove invalid nodes and content, mimicking CME update/save/close behavior. Use rollback and history to see old fields. ||
+|| FR 2.6 *Re-order Matched Fields* || If possible, tool will match and fix out-of-order sibling nodes (within same nesting level). For example, tool will fix a "header" field moved up or down in a schema. Tool will ignore "header" fields from different embeddable schema or that are descendents of each other. ||
+|| FR 2.7 *Recover from Single Failure* || Upon individual synchronization failure, tool should do partial update and log failures. ||
+|| FR 2.8 *Ignore Checked-out Target Components* ||  Tool should log but not update checked-out components. ||
+|| FR 2.9 *Warn on Multiple-to-Single Field Changes* || Tool should warn user for multiple-to-single selection changes (e.g. selection box or check box to drop-down or radio button). At the minimum, report which components will be or were affected. ||
+|| FR 2.10 *Match CME Behavior* || When in doubt, tool should match CME behavior when user opens, updates, and saves (& closes) a component. |||
+|| FR 2.10.1 *Run XSLT Filter* || Tool should run rich text against the schema XSLT filter if possible, mimicking the CME.  ||
+|| FR 2.10.2 *No Changes* || Tool should ignore changes to allowed formatting / allowed style. ||
 
+== 2.3. UI, Reporting,  and Logs ==
+
+|| _ID_ || _Description_ ||
+|| FR 3.1 *Report Successes* || Tool should display (aggregated) progress and successful updates (e.g. 90 out of 100 components successfully updated). ||
+|| FR 3.2 *Log Individual Failures* || Tool must capture tcm id and problem field(s)  or error for individual failures.  ||
+|| FR 3.3 *Log Checked-out Items * || Tool must report tcm id for checked-out items either before or after synchronization. ||
+|| FR 3.4 *Log Data Loss* || Tool should remind users which components to revisit due to multiple-to-single field selection data loss (per FR 2.9). ||
+|| FR 3.5 *Prominent Warning* || Text TBD. Tool should warn user about data loss and recommend precautions such as content porting, running only on dev, etc.  ||
+
+== 3. Other Considerations ==
+ * Richtext-to-plain text?
+ * Min/Max and schema attributes?
+
+== 4. Technical Requirements ==
+
+=== 4.1 High-level approach ===
+
+ * Component Synchronizer will use PowerTools (MVC) framework
+  * Client-side code make calls to Component Synchronizer  service
+  * Service
+    * Uses Core Service API for pre-synchronization validations and business logic 
+    * Uses XSLT for bulk of transformation, recursively evaluating schema field definitions against target component fields
+    * Returns updates to client asynchronously
+ * Issues saved to CM log files or presented to user in save-able format
+
+=== 4.2 Diagram ===
 http://www.websequencediagrams.com/cgi-bin/cdraw?lz=UGFnZS9Vc2VyIC0-IEphdmFTY3JpcHQ6cmVxdWVzdAoACQogLT4gV2ViIFNlcnZpY2U6KHNlcmlhbGl6ZWQpIG9iamVjdAphY3RpdmF0ZQAdDAoAKgsANBAgQ29yZS9DTUUACB10cmFuc2Zvcm0gY29tcG9uZW50cwBGEACBMAsAgQUUZGUAgQYVAIFQDkRvbTogbWFuaXB1bGF0ZXMKRG9tIC0-IACCGwk6IHNob3cgcmVzdWx0cyBhbmQgbG9n&s=default&faked=fake.png
 
+
+<wiki:comment>
+Add a fake QueryString paramater above to make the generated image show (e.g. &faked=fake.png).
+
 Update the diagram on [http://www.websequencediagrams.com/?lz=UGFnZS9Vc2VyIC0-IEphdmFTY3JpcHQ6cmVxdWVzdAoACQogLT4gV2ViIFNlcnZpY2U6KHNlcmlhbGl6ZWQpIG9iamVjdAphY3RpdmF0ZQAdDAoAKgsANBAgQ29yZS9DTUUACB10cmFuc2Zvcm0gY29tcG9uZW50cwBGEACBMAsAgQUUZGUAgQYVAIFQDkRvbTogbWFuaXB1bGF0ZXMKRG9tIC0-IACCGwk6IHNob3cgcmVzdWx0cyBhbmQgbG9n&s=default WebSequenceDiagrams] (will need to update these links)
+</wiki:comment>
 
-== UI ==
+=== 4.3 Existing Code ===
+_Please review [http://www.sdltridionworld.com/community/extension_overview/powertools.aspx previous PowerTools] code for sample XSLT code and validations. Update this wiki page with issues and additional requirements._
 
-= Approach =
+== 5. UI  ==
+
 Peter Kjaer merged Jaime's changes into \trunk. This branch addresses the following.
 
  * RTF fields rely on the Ribbon Tool bar (it's where the RTF tools are shown) and the tool would have to implement it. 
@@ -103,8 +111,7 @@ Approach uses the Component View for content creation, meaning that when I want 
 
 The user can create a Reference component without using the tool and then browse it from the tool as well. The tool will provide with an option to launch the New Component (reference) creation, though.
 
-
-= Features =
+=== 5.1 Features ===
 
 Built UI features:
   * Launch the Component Synchronizer from a Schema
@@ -112,7 +119,7 @@ Built UI features:
   * Launch the Component Synchronizer from a Selection (within a list)
   * Launch the Component Synchronizer from a Search, by selecting the results 
 
-= Screenshots =
+=== 5.2 Screenshots ===
 
 Launch from search results:
 
