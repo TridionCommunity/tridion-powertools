@@ -6,6 +6,9 @@ The Component Synchronizer tool helps admins update components to match schema c
 ||Suggested implementation||Original Developers||Priority||Status||Notes||
 ||Context Menu on Schema||Willem-Jan van den Bichelaer & Quirijn Slings||High priority|| GUI done. Service pending. || Hard.||
 
+*Contents*
+<wiki:toc max_depth="2" />
+
 *Version #*
 0.1
 
@@ -70,13 +73,13 @@ _*Developer(s) should investigate any schema differences between R5.3/2009 and 2
 || FR 3.4 *Log Data Loss* || Tool should remind users which components to revisit due to multiple-to-single field selection data loss (per FR 2.9). ||
 || FR 3.5 *Prominent Warning* || Text TBD. Tool should warn user about data loss and recommend precautions such as content porting, running only on dev, etc.  ||
 
-== 3. Other Considerations ==
+= 3. Other Considerations =
  * Richtext-to-plain text?
  * Min/Max and schema attributes?
 
-== 4. Technical Requirements ==
+= 4. Technical Requirements =
 
-=== 4.1 High-level approach ===
+== 4.1 High-level approach ==
 
  * Component Synchronizer will use PowerTools (MVC) framework
   * Client-side code make calls to Component Synchronizer  service
@@ -86,7 +89,7 @@ _*Developer(s) should investigate any schema differences between R5.3/2009 and 2
     * Returns updates to client asynchronously
  * Issues saved to CM log files or presented to user in save-able format
 
-=== 4.2 Diagram ===
+== 4.2 Diagram ==
 http://www.websequencediagrams.com/cgi-bin/cdraw?lz=UGFnZS9Vc2VyIC0-IEphdmFTY3JpcHQ6cmVxdWVzdAoACQogLT4gV2ViIFNlcnZpY2U6KHNlcmlhbGl6ZWQpIG9iamVjdAphY3RpdmF0ZQAdDAoAKgsANBAgQ29yZS9DTUUACB10cmFuc2Zvcm0gY29tcG9uZW50cwBGEACBMAsAgQUUZGUAgQYVAIFQDkRvbTogbWFuaXB1bGF0ZXMKRG9tIC0-IACCGwk6IHNob3cgcmVzdWx0cyBhbmQgbG9n&s=default&faked=fake.png
 
 
@@ -96,10 +99,10 @@ Add a fake QueryString paramater above to make the generated image show (e.g. &f
 Update the diagram on [http://www.websequencediagrams.com/?lz=UGFnZS9Vc2VyIC0-IEphdmFTY3JpcHQ6cmVxdWVzdAoACQogLT4gV2ViIFNlcnZpY2U6KHNlcmlhbGl6ZWQpIG9iamVjdAphY3RpdmF0ZQAdDAoAKgsANBAgQ29yZS9DTUUACB10cmFuc2Zvcm0gY29tcG9uZW50cwBGEACBMAsAgQUUZGUAgQYVAIFQDkRvbTogbWFuaXB1bGF0ZXMKRG9tIC0-IACCGwk6IHNob3cgcmVzdWx0cyBhbmQgbG9n&s=default WebSequenceDiagrams] (will need to update these links)
 </wiki:comment>
 
-=== 4.3 Existing Code ===
+== 4.3 Existing Code ==
 _Please review [http://www.sdltridionworld.com/community/extension_overview/powertools.aspx previous PowerTools] code for sample XSLT code and validations. Update this wiki page with issues and additional requirements._
 
-== 5. UI  ==
+= 5. UI  =
 
 Peter Kjaer merged Jaime's changes into \trunk. This branch addresses the following.
 
