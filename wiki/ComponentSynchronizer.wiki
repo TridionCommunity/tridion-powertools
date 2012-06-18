@@ -44,7 +44,7 @@ _Numbering convention: to reduce "dot" separators document hides the first secti
 || FR 1.2  *Schema* || User selects schema and runs Tool  via context menu in CME. Advanced options include via component context menu, single component, or component search. ||   
 || FR 1.3 *Default Schema Fields* || User sets default overriding fields. Tool will use a "reference" component. || 
 || FR 1.3.1 *Override Fields * || User checks which default values override component fields. _Alternative is to assume no override--only use reference component default field values for empty fields._ ||
-|| FR 1.4 *Run-time Requirement* || Fields and schema structure are unknown until tool runs. "Standard" Content XML assumed (namespaces, &lt;content&gt;, etc).* || 
+|| FR 1.4 *Run-time Requirement* || Fields and schema structure are unknown until tool runs. "Standard" Content XML assumed (namespaces, `<content>`, etc).* || 
 
 _*Developer(s) should investigate any schema differences between R5.3/2009 and 2011_
 
@@ -60,7 +60,7 @@ _*Developer(s) should investigate any schema differences between R5.3/2009 and 2
 || FR 2.7 *Recover from Single Failure* || Upon individual synchronization failure, tool should do partial update and log failures. ||
 || FR 2.8 *Ignore Checked-out Target Components* ||  Tool should log but not update checked-out components. ||
 || FR 2.9 *Warn on Multiple-to-Single Field Changes* || Tool should warn user for multiple-to-single selection changes (e.g. selection box or check box to drop-down or radio button). At the minimum, report which components will be or were affected. ||
-|| FR 2.10 *Match CME Behavior* || When in doubt, tool should match CME behavior when user opens, updates, and saves (& closes) a component. |||
+|| FR 2.10 *Match CME Behavior* || When in doubt, tool should match CME behavior when user opens, updates, and saves (& closes) a component. ||
 || FR 2.10.1 *Run XSLT Filter* || Tool should run rich text against the schema XSLT filter if possible, mimicking the CME.  ||
 || FR 2.10.2 *No Changes* || Tool should ignore changes to allowed formatting / allowed style. ||
 
@@ -116,18 +116,22 @@ The user can create a Reference component without using the tool and then browse
 
 === 5.1 Features ===
 
-Built UI features:
+These UI features are programmed, but only on the UI side. Program the service code next.
+
+First priority:
   * Launch the Component Synchronizer from a Schema
-  * Launch the Component Synchronizer from a Component (reference component or "to-be-synched" component?)
+
+Available, but program in a future release:
+  * Launch the Component Synchronizer from a Component (context TBD: either reference component or "to-be-synched" component.)
   * Launch the Component Synchronizer from a Selection (within a list)
   * Launch the Component Synchronizer from a Search, by selecting the results 
 
 === 5.2 Screenshots ===
 
-Launch from search results:
-
-[https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_1.png]
-
-Launch from schema:
+Launch from schema (first priority):
 
 [https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_2.png]
+
+Launch from search results (optional):
+
+[https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/compsync_1.png]
