@@ -49,7 +49,7 @@
             <p>
                 Join the "flow" at the <a href="https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main"
                     target="_blank">Flow Dock site</a> (FlowDock site active until at least May
-                27, 2012).</p>
+                27, 2013).</p>
             <p>
                 Account required but can be connected to your Google account.</p>
         </c:DeckPage>
