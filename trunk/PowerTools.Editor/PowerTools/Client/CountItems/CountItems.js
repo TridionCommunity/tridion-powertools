@@ -88,16 +88,16 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function ()
 {
 
     var p = this.properties;
-    p.countFolders = $j('#FolderChk').attr('checked');
-    p.countComponents = $j('#ComponentChk').attr('checked');
-    p.countSchemas = $j('#SchemaChk').attr('checked');
-    p.countComponentTemplates = $j('#ComponentTemplateChk').attr('checked');
-    p.countPageTemplates = $j('#PageTemplateChk').attr('checked');
-    p.countTemplateBuildingBlocks = $j('#TemplateBuildingBlockChk').attr('checked');
-    p.countStructureGroups = $j('#StructureGroupChk').attr('checked');
-    p.countPages = $j('#PageChk').attr('checked');
-    p.countCategories = $j('#CategoryChk').attr('checked');
-    p.countKeywords = $j('#KeywordChk').attr('checked');
+    p.countFolders = $j('#FolderChk').attr('checked') == "checked";
+    p.countComponents = $j('#ComponentChk').attr('checked') == "checked";
+    p.countSchemas = $j('#SchemaChk').attr('checked') == "checked";
+    p.countComponentTemplates = $j('#ComponentTemplateChk').attr('checked')  == "checked";
+    p.countPageTemplates = $j('#PageTemplateChk').attr('checked')  == "checked";
+    p.countTemplateBuildingBlocks = $j('#TemplateBuildingBlockChk').attr('checked')  == "checked";
+    p.countStructureGroups = $j('#StructureGroupChk').attr('checked')  == "checked";
+    p.countPages = $j('#PageChk').attr('checked')  == "checked";
+    p.countCategories = $j('#CategoryChk').attr('checked')  == "checked";
+    p.countKeywords = $j('#KeywordChk').attr('checked')  == "checked";
 
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);   
     var onFailure = null;
