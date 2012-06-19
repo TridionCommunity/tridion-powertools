@@ -262,6 +262,15 @@
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PowerTools\Client\Shared\Views\FieldViewMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\Shared\Views\PopupMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\Shared\Views\PowerToolsPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <!--<ItemGroup>
@@ -284,15 +293,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PowerTools\Client\Shared\Views\TreeView.Master" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="PowerTools\Client\ShowPublishTasks\ShowPublishTasks.js" />
     <Content Include="PowerTools\Client\ViewInFrontend\ViewInFrontEnd.js" />
     <Content Include="web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PowerTools\Client\Shared\Views\FieldView.Master" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PowerTools\Client\DocumentItem\schema.docx" />
@@ -300,6 +303,7 @@
     <Content Include="PowerTools\Client\DragDropUploader\web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="PowerTools\Client\Shared\Views\FieldView.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PowerTools\Client\DragDropUploader\TemporaryFiles\" />

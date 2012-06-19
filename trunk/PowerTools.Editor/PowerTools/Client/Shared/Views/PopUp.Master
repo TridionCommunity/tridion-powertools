@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools.Common.MasterPages.PopupMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools.Editor.PowerTools.Client.Shared.Views.PopupMaster" %>
 <%@ Import Namespace="Tridion.Web.UI.Core" %>
 <%@ Import Namespace="Tridion.Web.UI" %>
 <%@ Import Namespace="System.Web" %>

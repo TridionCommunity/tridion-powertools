@@ -1,7 +1,6 @@
 ﻿using Tridion.Web.UI.Controls;
 
-
-namespace PowerTools.Common.Pages
+namespace PowerTools.Editor.PowerTools.Client.Shared.Views
 {
 	public abstract class PowerToolsPageBase : TridionPage
 	{

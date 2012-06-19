@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PowerTools.Common.Pages;
 using Tridion.Web.UI.Core.Controls;
 using Tridion.Web.UI.Controls;
 
