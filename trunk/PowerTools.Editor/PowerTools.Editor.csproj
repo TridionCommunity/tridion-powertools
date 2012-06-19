@@ -170,7 +170,6 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\viewinfrontend_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\viewinfrontend_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
-    <Content Include="PowerTools\Client\Shared\Views\ProgressDialog.htm" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.css" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_16.png" />
