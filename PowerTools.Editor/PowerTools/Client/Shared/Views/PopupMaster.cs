@@ -3,8 +3,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using Tridion.Web.UI.Core.Controls;
 
-
-namespace PowerTools.Common.MasterPages
+namespace PowerTools.Editor.PowerTools.Client.Shared.Views
 {
 	public class PopupMaster : MasterPage
 	{

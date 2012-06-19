@@ -68,15 +68,6 @@
     <Compile Include="Installer\CustomActions.Designer.cs">
       <DependentUpon>CustomActions.cs</DependentUpon>
     </Compile>
-    <Compile Include="MasterPages\FieldViewMaster.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MasterPages\PopupMaster.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\PowerToolsPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>

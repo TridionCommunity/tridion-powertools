@@ -1,4 +1,4 @@
-﻿using PowerTools.Common.Pages;
+﻿using PowerTools.Editor.PowerTools.Client.Shared.Views;
 using Tridion.Web.UI.Controls;
 using Tridion.Web.UI.Core.Controls;
 
