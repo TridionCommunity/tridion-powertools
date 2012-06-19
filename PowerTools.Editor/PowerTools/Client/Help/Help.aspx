@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="HelpContent" ContentPlaceHolderID="Main" runat="server">
-    <h2>Contact Us</h2>
+    <h2>PowerTools Help</h2>
     <p>
 		Most of the following require a valid Google <em>Account</em>. This is typically
         a @gmail.com address, but could be another Google-related account (e.g. Blogger).
