@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
@@ -35,67 +36,46 @@ namespace PowerTools.Model.Services
 			public bool CountKeywords { get; set; }
 		}
 
-		private CountItemsData _countItemsData = null;
+		protected CountItemsData _countItemsData;
+		protected XmlNamespaceManager _namespaceManager;
+
+		public CountItems()
+		{
+			_namespaceManager = new XmlNamespaceManager(new NameTable());
+			_namespaceManager.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
+		}
+
 
 		/// <summary>
 		/// Service operation that initiates the retrieval of item counts asynchronously.
 		/// Reads input parameters into a CountItemsParameters object.
-		/// Does basic validation on the itemUri - throws argument exception if not valid Publication, Folder or Structure Group TcmUri
+		/// Does basic validation on the <paramref name="orgItemId"/> - throws argument exception if not valid Publication, Folder or Structure Group TcmUri.
 		/// </summary>
-		/// <param name="itemUri">TcmUri of the parent item to retrieve counts for items underneath it</param>
-		/// <param name="countFolders">bool flag to count Folder items</param>
-		/// <param name="countComponents">bool flag to count Component items</param>
-		/// <param name="countStructureGroups">bool flag to count Structure Group items</param>
-		/// <param name="countPages">bool flag to count Page items</param>
+		/// <param name="orgItemId">The ID of the parent item to count items within.</param>
+		/// <param name="countFolders">Set to <code>true</code> to count the number of Folders.</param>
+		/// <param name="countComponents">Set to <code>true</code> to count the number of Components.</param>
+		/// <param name="countTemplateBuildingBlocks">Set to <code>true</code> to count the number of Template Building Blocks.</param>
+		/// <param name="countStructureGroups">Set to <code>true</code> to count the number of Structure Groups.</param>
+		/// <param name="countPages">Set to <code>true</code> to count the number of Pages.</param>
+		/// <param name="countSchemas">Set to <code>true</code> to count the number of Schemas.</param>
+		/// <param name="countComponentTemplates">Set to <code>true</code> to count the number of Component Templates.</param>
+		/// <param name="countPageTemplates">Set to <code>true</code> to count the number of Page Templates</param>
+		/// <param name="countCategories">Set to <code>true</code> to count the number of Categories.</param>
+		/// <param name="countKeywords">Set to <code>true</code> to count the number of Keywords.</param>
 		/// <returns>the newly created async ServiceProcess</returns>
 		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-		public ServiceProcess Execute(string orgItemUri, bool countFolders, bool countComponents, bool countSchemas,
+		public ServiceProcess Execute(string orgItemId, bool countFolders, bool countComponents, bool countSchemas,
 				bool countComponentTemplates, bool countPageTemplates, bool countTemplateBuildingBlocks,
 				bool countStructureGroups, bool countPages, bool countCategories, bool countKeywords)
 		{
-			if (string.IsNullOrEmpty(orgItemUri))
+			if (string.IsNullOrEmpty(orgItemId))
 			{
-				throw new ArgumentNullException("orgItemId has to be a valid Publication, Folder or Structure Group TCMURI");
-			}
-
-			if (orgItemUri.EndsWith("-2")) // is Folder
-			{
-				countStructureGroups = false;
-				countPages = false;
-				countCategories = false;
-				countKeywords = false;
-			}
-			else if (orgItemUri.EndsWith("-4")) // is Structure Group
-			{
-				countFolders = false;
-				countComponents = false;
-				countSchemas = false;
-				countComponentTemplates = false;
-				countPageTemplates = false;
-				countTemplateBuildingBlocks = false;
-				countCategories = false;
-				countKeywords = false;
-			}
-			else if (orgItemUri.EndsWith("-512") || orgItemUri.StartsWith("catman-")) // is Category
-			{
-				orgItemUri = orgItemUri.StartsWith("catman-") ? orgItemUri.Substring(7) : orgItemUri;
-				countFolders = false;
-				countComponents = false;
-				countSchemas = false;
-				countComponentTemplates = false;
-				countPageTemplates = false;
-				countTemplateBuildingBlocks = false;
-				countStructureGroups = false;
-				countPages = false;
-			}
-			else if (!orgItemUri.EndsWith("-1")) // is not Publicaation
-			{
-				throw new ArgumentException("orgItemId has to be a valid Publication, Folder or Structure Group TCMURI");
+				throw new ArgumentNullException("orgItemId");
 			}
 
 			CountItemsParameters arguments = new CountItemsParameters
 			{
-				OrgItemUri = orgItemUri,
+				OrgItemUri = orgItemId,
 				CountFolders = countFolders,
 				CountComponents = countComponents,
 				CountSchemas = countSchemas,
@@ -155,44 +135,52 @@ namespace PowerTools.Model.Services
 				process.SetCompletePercentage(75);
 				process.SetStatus("Extracting item counts");
 
-				ProcessCounts(parameters, listXml);
+				ProcessCounts(listXml);
 				process.Complete("Done");
 			}
 		}
 
 		/// <summary>
+		/// Helper method to get the count of items of a specific type from the response XML.
+		/// </summary>
+		/// <param name="listXml">The response XML from GetListXml.</param>
+		/// <param name="itemType">The item type to look for.</param>
+		/// <returns>The number of items of the given type present in the response.</returns>
+		private int CountItemsOfType(XmlNode listXml, int itemType)
+		{
+			if (listXml == null)
+			{
+				throw new ArgumentNullException("listXml");
+			}
+
+			var xpath = string.Format(CultureInfo.InvariantCulture, "/tcm:Item[@Type='{0}']", itemType);
+			var nodes = listXml.SelectNodes(xpath, _namespaceManager);
+			return nodes != null ? nodes.Count : 0;
+		}
+
+		/// <summary>
 		/// Extract the actual counts from the XML.
-		/// Only read the counts for the item types that were requested to improve performance.
 		/// Set the response _countItemsData object.
 		/// </summary>
-		private void ProcessCounts(CountItemsParameters parameters, XmlElement listXml)
+		private void ProcessCounts(XmlNode listXml)
 		{
-			XmlNamespaceManager nsMgr = new XmlNamespaceManager(listXml.OwnerDocument.NameTable);
-			nsMgr.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
-
-			int folderCount = parameters.CountFolders ? listXml.SelectNodes("/tcm:Item[@Type='2']", nsMgr).Count : 0;
-			int componentCount = parameters.CountComponents ? listXml.SelectNodes("/tcm:Item[@Type='16']", nsMgr).Count : 0;
-			int schemaCount = parameters.CountSchemas ? listXml.SelectNodes("/tcm:Item[@Type='8']", nsMgr).Count : 0;
-			int componentTemplateCount = parameters.CountComponentTemplates ? listXml.SelectNodes("/tcm:Item[@Type='32']", nsMgr).Count : 0;
-			int pageTemplateCount = parameters.CountPageTemplates ? listXml.SelectNodes("/tcm:Item[@Type='128']", nsMgr).Count : 0;
-			int templateBuildingBlockCount = parameters.CountTemplateBuildingBlocks ? listXml.SelectNodes("/tcm:Item[@Type='2048']", nsMgr).Count : 0;
-			int structureGroupCount = parameters.CountStructureGroups ? listXml.SelectNodes("/tcm:Item[@Type='4']", nsMgr).Count : 0;
-			int pageCount = parameters.CountPages ? listXml.SelectNodes("/tcm:Item[@Type='64']", nsMgr).Count : 0;
-			int categoryCount = parameters.CountCategories ? listXml.SelectNodes("/tcm:Item[@Type='512']", nsMgr).Count : 0;
-			int keywordCount = parameters.CountKeywords ? listXml.SelectNodes("/tcm:Item[@Type='1024']", nsMgr).Count : 0;
-
-			_countItemsData = new CountItemsData()
+			if (listXml == null)
 			{
-				Folders = folderCount,
-				Components = componentCount,
-				Schemas = schemaCount,
-				ComponentTemplates = componentTemplateCount,
-				PageTemplates = pageTemplateCount,
-				TemplateBuildingBlocks = templateBuildingBlockCount,
-				StructureGroups = structureGroupCount,
-				Pages = pageCount,
-				Categories = categoryCount,
-				Keywords = keywordCount
+				throw new ArgumentNullException("listXml");
+			}
+
+			_countItemsData = new CountItemsData
+			{
+				Folders = CountItemsOfType(listXml, 2),
+				Components = CountItemsOfType(listXml, 16),
+				Schemas = CountItemsOfType(listXml, 8),
+				ComponentTemplates = CountItemsOfType(listXml, 32),
+				PageTemplates = CountItemsOfType(listXml, 128),
+				TemplateBuildingBlocks = CountItemsOfType(listXml, 2048),
+				StructureGroups = CountItemsOfType(listXml, 4),
+				Pages = CountItemsOfType(listXml, 64),
+				Categories = CountItemsOfType(listXml, 512),
+				Keywords = CountItemsOfType(listXml, 1024)
 			};
 		}
 
@@ -201,9 +189,9 @@ namespace PowerTools.Model.Services
 		/// RepositoryItemsFilterData (for Publication) or OrganizationalItemItemsFilterData (for Folder or SG).
 		/// Populates the ItemTypes property with only the types that were requested to improve performance.
 		/// </summary>
-		private ItemsFilterData GetFilter(CountItemsParameters parameters)
+		private static ItemsFilterData GetFilter(CountItemsParameters parameters)
 		{
-			ItemsFilterData filter = null;
+			ItemsFilterData filter;
 			if (parameters.OrgItemUri.EndsWith("-1")) // is Publication
 			{
 				filter = new RepositoryItemsFilterData();
