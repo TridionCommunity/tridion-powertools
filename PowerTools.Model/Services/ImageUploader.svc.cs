@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using System.Xml.Linq;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
 using System.Text.RegularExpressions;
@@ -16,35 +18,20 @@ namespace PowerTools.Model.Services
 	[ServiceContract(Namespace = "PowerTools.Model.Services")]
 	public class ImageUploader : BaseService
 	{
-		private static Tridion.ContentManager.CoreService.Client.SessionAwareCoreService2010Client client = null;
-		//XLinq variant
-		//private static XElement multiMediaTypes = null;
-		//private static XElement MultiMediaTypes
-		//{
-		//    get
-		//    {
-		//        if (multiMediaTypes == null)
-		//        {
-		//            multiMediaTypes = coreService.GetSystemWideListXml(new MultimediaTypesFilterData());
-		//        }
+		private static SessionAwareCoreServiceClient _client;
 
-		//        return multiMediaTypes;
-		//    }
-
-		//}
-
-		private static XmlElement multiMediaTypes = null;
-		private static XmlElement MultiMediaTypes
+		private static XElement _multiMediaTypes;
+		private static XElement MultiMediaTypes
 		{
-			get
-			{
-				if (multiMediaTypes == null)
-				{
-					multiMediaTypes = client.GetSystemWideListXml(new MultimediaTypesFilterData());
-				}
+		    get
+		    {
+		        if (_multiMediaTypes == null)
+		        {
+		            _multiMediaTypes = _client.GetSystemWideListXml(new MultimediaTypesFilterData());
+		        }
 
-				return multiMediaTypes;
-			}
+		        return _multiMediaTypes;
+		    }
 
 		}
 
@@ -98,7 +85,7 @@ namespace PowerTools.Model.Services
                 }
                 string[] files = Directory.GetFiles(directory);
 				int i = 0;
-                client = PowerTools.Common.CoreService.Client.GetCoreService();
+                _client = PowerTools.Common.CoreService.Client.GetCoreService();
 
 				foreach (string file in files)
 				{
@@ -146,7 +133,7 @@ namespace PowerTools.Model.Services
 								BinaryContent = bcd
 							};
 
-							ComponentData comp = (ComponentData)client.Create(compData, new ReadOptions());							
+							ComponentData comp = (ComponentData)_client.Create(compData, new ReadOptions());							
 						}
 					}
 				}
@@ -155,41 +142,29 @@ namespace PowerTools.Model.Services
 			}
 			finally
 			{
-				if (client != null)
+				if (_client != null)
 				{
-					client.Close();
+					_client.Close();
 				}
 			}
 		}
-
-		//XLinq variant
-		//private static string GetMultiMediaType(string extension)
-		//{
-		//    //Strip of leading . from extension
-		//    string ext = extension.StartsWith(".") ? extension.Substring(1) : extension;
-
-		//    return MultiMediaTypes.Elements().Where(el => el.Attribute("FileExtensions").Value.Contains(ext))
-		//        .Where(el => el != null)
-		//        .Select(el => el.Attribute("ID").Value).FirstOrDefault();
-		//}
 
         private static string GetMultiMediaType(string extension)
         {
             //Strip of leading . from extension
             string ext = extension.StartsWith(".") ? extension.Substring(1) : extension;
 
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(MultiMediaTypes.OuterXml);
+			XNamespace tcm = "http://www.tridion.com/ContentManager/5.0";
 
-            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable); ns.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
-            var mmTypeId = MultiMediaTypes.SelectSingleNode("//tcm:Item[contains(@FileExtensions, '" + ext + "')]/@ID", ns);
-            if (mmTypeId != null)
-            {
-                return mmTypeId.Value;
-            }
+			var result = from item in MultiMediaTypes.Descendants(tcm + "Item")
+						 let fileExtensions = item.Attribute("FileExtensions")
+						 let typeId = item.Attribute("ID")
+						 where fileExtensions != null && fileExtensions.Value.Contains(ext)
+						 where typeId != null
+						 select typeId.Value;
 
-            return null;
-        }
+			return result.FirstOrDefault();
+		}
 
 		private static string MakeValidFileName(string name)
 		{

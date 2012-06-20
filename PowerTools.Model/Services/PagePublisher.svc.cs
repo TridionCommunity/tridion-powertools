@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using System.Xml.Linq;
 using PowerTools.Model.Progress;
 using PowerTools.Common.CoreService;
 using Tridion.ContentManager.CoreService.Client;
@@ -100,7 +102,7 @@ namespace PowerTools.Model.Services
                 _pagePublisherData = new PagePublisherData();
                 // get a list of the items from the core service
 				ItemsFilterData filter = GetFilter(parameters);
-				XmlElement listXml = coreService.GetListXml(parameters.LocationId, filter);
+				XElement listXml = coreService.GetListXml(parameters.LocationId, filter);
 
                 // Get the page id's that will be published
                 string[] pageIds = GetPageIds(listXml);
@@ -126,21 +128,18 @@ namespace PowerTools.Model.Services
         /// </summary>
         /// <param name="listXml"></param>
         /// <returns>A string[] array of TCM ID values</returns>
-        private string[] GetPageIds(XmlElement listXml)
+        private static string[] GetPageIds(XElement listXml)
         {
-            XmlNamespaceManager nsMgr = new XmlNamespaceManager(listXml.OwnerDocument.NameTable);
-            nsMgr.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
-            XmlNodeList pageNodes = listXml.SelectNodes("/tcm:Item[@Type='64']", nsMgr);
+			XNamespace tcm = "http://www.tridion.com/ContentManager/5.0";
 
-            List<string> pageIds = new List<string>();
-            if (pageNodes != null)
-            {
-                foreach (XmlNode pageNode in pageNodes)
-                {
-                    pageIds.Add(pageNode.Attributes["ID"].Value);
-                }
-            }
-            return pageIds.ToArray();
+			var result = from item in listXml.Descendants(tcm + "Item")
+						 let itemType = item.Attribute("Type")
+						 let itemId = item.Attribute("ID")
+						 where itemType != null && itemType.Value.Equals("64")
+						 where itemId != null
+						 select itemId.Value;
+
+			return result.ToArray();
         }
 
         /// <summary>
