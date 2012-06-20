@@ -88,17 +88,19 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     var c = p.controls;
     p.SelectedTarget = this._getSelectedTargetTypes();
 
-    if ($models.getItemType(p.locationId) == $const.ItemType.PUBLICATION) {
+    if ($models.getItemType(p.locationId) == $const.ItemType.PUBLICATION) 
+	{
         p.Recursive = true; // if it's a publication, automatically recurse publish
     }
-    else {
-        p.Recursive = $j("#RecursiveChk").attr('checked'); // if not check if the checkbox is ticked
+    else 
+	{
+        p.Recursive = $("#RecursiveChk").checked; // if not check if the checkbox is ticked
     }
-    p.Republish = $j("#RepublishChk").attr('checked');
-    p.PublishChildren = $j("#PublishChildrenChk").attr('checked');
-    p.IncludeComponentLinks = $j("#includeComponentLinksChk").attr('checked');
-    p.PublishStructureGroupInfo = $j("#resolveStructureGroupInfoChk").attr('checked');
-    p.IncludeWorkflow = $j("#includeWorkFlowChk").attr('checked');
+    p.Republish = $("#RepublishChk").checked;
+    p.PublishChildren = $("#PublishChildrenChk").checked;
+    p.IncludeComponentLinks = $("#includeComponentLinksChk").checked;
+    p.PublishStructureGroupInfo = $("#resolveStructureGroupInfoChk").checked;
+    p.IncludeWorkflow = $("#includeWorkFlowChk").checked;
     p.Priority = parseInt($j("#Priority").val());
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
