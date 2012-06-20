@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Web;
+using System.Xml.Linq;
 using PowerTools.Common.CoreService;
 using PowerTools.Common.Handlers.Model;
 using Tridion.ContentManager.CoreService.Client;
@@ -15,10 +16,10 @@ namespace PowerTools.Common.Handlers
 {
     public class FileTransferHandler : IHttpHandler, IDisposable
     {
-        private static Tridion.ContentManager.CoreService.Client.SessionAwareCoreService2010Client client = null;
+        private static SessionAwareCoreServiceClient client = null;
         private static string StorageRoot = string.Format("{0}{1}", HttpContext.Current.Server.MapPath("TemporaryFiles"), "\\");
-        private static XmlElement multiMediaTypes = null;
-        private static XmlElement MultiMediaTypes
+        private static XElement multiMediaTypes = null;
+        private static XElement MultiMediaTypes
         {
             get
             {
@@ -216,17 +217,16 @@ namespace PowerTools.Common.Handlers
             //Strip of leading . from extension
             string ext = extension.StartsWith(".") ? extension.Substring(1) : extension;
 
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(MultiMediaTypes.OuterXml);
+			XNamespace tcm = "http://www.tridion.com/ContentManager/5.0";
 
-            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable); ns.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
-            var mmTypeId = MultiMediaTypes.SelectSingleNode("//tcm:Item[contains(@FileExtensions, '" + ext + "')]/@ID", ns);
-            if (mmTypeId != null)
-            {
-                return mmTypeId.Value;
-            }
+			var result = from item in MultiMediaTypes.Descendants(tcm + "Item")
+						   let fileExtensions = item.Attribute("FileExtensions")
+						   let typeId = item.Attribute("ID")
+						   where fileExtensions != null && fileExtensions.Value.Contains(ext)
+						   where typeId != null
+						   select typeId.Value;
 
-            return null;
+            return result.FirstOrDefault();
         }
 
         private static string MakeValidFileName(string name)

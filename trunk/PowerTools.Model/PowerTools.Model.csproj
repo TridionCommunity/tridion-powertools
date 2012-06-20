@@ -39,9 +39,10 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tridion.ContentManager.CoreService.Client.2010, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Tridion.ContentManager.CoreService.Client, Version=6.1.0.996, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PowerTools.Common\CoreService\Tridion.ContentManager.CoreService.Client.2010.dll</HintPath>
+      <HintPath>..\Reference Assemblies\Tridion.ContentManager.CoreService.Client.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

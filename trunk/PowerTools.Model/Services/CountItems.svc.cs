@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Xml;
+using System.Xml.Linq;
 using PowerTools.Common.CoreService;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
@@ -37,13 +38,6 @@ namespace PowerTools.Model.Services
 		}
 
 		protected CountItemsData _countItemsData;
-		protected XmlNamespaceManager _namespaceManager;
-
-		public CountItems()
-		{
-			_namespaceManager = new XmlNamespaceManager(new NameTable());
-			_namespaceManager.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
-		}
 
 
 		/// <summary>
@@ -131,7 +125,7 @@ namespace PowerTools.Model.Services
 				process.SetCompletePercentage(50);
 				process.SetStatus("Retrieving count data");
 
-				XmlElement listXml = coreService.GetListXml(parameters.OrgItemUri, filter);
+				XElement listXml = coreService.GetListXml(parameters.OrgItemUri, filter);
 				process.SetCompletePercentage(75);
 				process.SetStatus("Extracting item counts");
 
@@ -146,23 +140,27 @@ namespace PowerTools.Model.Services
 		/// <param name="listXml">The response XML from GetListXml.</param>
 		/// <param name="itemType">The item type to look for.</param>
 		/// <returns>The number of items of the given type present in the response.</returns>
-		private int CountItemsOfType(XmlNode listXml, int itemType)
+		private static int CountItemsOfType(XElement listXml, int itemType)
 		{
 			if (listXml == null)
 			{
 				throw new ArgumentNullException("listXml");
 			}
 
-			var xpath = string.Format(CultureInfo.InvariantCulture, "/tcm:Item[@Type='{0}']", itemType);
-			var nodes = listXml.SelectNodes(xpath, _namespaceManager);
-			return nodes != null ? nodes.Count : 0;
+			XNamespace tcm = "http://www.tridion.com/ContentManager/5.0";
+			var nodes = from item in listXml.Descendants(tcm + "Item")
+						let itemTypeAttr = item.Attribute("Type")
+						where itemTypeAttr != null && itemTypeAttr.Value.Equals(itemType.ToString())
+						select item;
+
+			return nodes.Count();
 		}
 
 		/// <summary>
 		/// Extract the actual counts from the XML.
 		/// Set the response _countItemsData object.
 		/// </summary>
-		private void ProcessCounts(XmlNode listXml)
+		private void ProcessCounts(XElement listXml)
 		{
 			if (listXml == null)
 			{
