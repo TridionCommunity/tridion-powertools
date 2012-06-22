@@ -12,7 +12,7 @@ PowerTools.Popups.PagePublisher = function () {
     p.locationId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process
     p.targetTypesListId; // Target types domain list
-    p.progressDialog = { showAnimation: false, closeAfterComplete: true }; // turn off the dialog after complete
+    p.progressDialogSettings.closeAfterComplete = true;
 };
 
 PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/TargetTypeList-head.xml", $const.CMEEditorName);

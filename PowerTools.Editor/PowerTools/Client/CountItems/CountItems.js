@@ -13,8 +13,8 @@ PowerTools.Popups.CountItems = function()
     p.folderId = null;
     p.pollInterval = 500; // Milliseconds between each call to check the status of a process  
     
-    //Optional: set properties for the progressbar/modal dialog
-    p.progressDialog = { showAnimation: false, closeAfterComplete: true };
+    // Optional: set properties for the progressbar/modal dialog
+	p.progressDialogSettings.closeAfterComplete = true;
 };
 
 // Read parameters and assign callbacks for buttons in the GUI

@@ -3,18 +3,7 @@
 PowerTools.Commands.DuplicateBinaries = function ()
 {
     Type.enableInterface(this, "PowerTools.Commands.DuplicateBinaries");
-    this.addInterface("Tridion.Cme.Command", ["DuplicateBinaries"]);
-    this.addInterface("PowerTools.ToolBase", ["DuplicateBinaries"]);
-};
-
-PowerTools.Commands.DuplicateBinaries.prototype.isAvailable = function (selection)
-{
-    return this._defineEnabled(selection);
-};
-
-PowerTools.Commands.DuplicateBinaries.prototype.isEnabled = function (selection)
-{
-    return this._defineEnabled(selection);
+    this.addInterface("PowerTools.BaseCommand", ["DuplicateBinaries"]);
 };
 
 PowerTools.Commands.DuplicateBinaries.prototype._execute = function (selection) {
@@ -51,7 +40,7 @@ PowerTools.Commands.DuplicateBinaries.prototype._selectedItem = function (select
     }
 }
 
-PowerTools.Commands.DuplicateBinaries.prototype._defineEnabled = function (selection)
+PowerTools.Commands.DuplicateBinaries.prototype.isValidSelection = function (selection)
 {
     var item = this._selectedItem(selection);
     if (item != null)
