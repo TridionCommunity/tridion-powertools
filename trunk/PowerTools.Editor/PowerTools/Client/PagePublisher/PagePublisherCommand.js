@@ -1,63 +1,44 @@
 ﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools.Commands.PagePublisher = function ()
+PowerTools.Commands.PagePublisher = function()
 {
     Type.enableInterface(this, "PowerTools.Commands.PagePublisher");
-    this.addInterface("Tridion.Cme.Command", ["PagePublisher"]);
-    this.addInterface("PowerTools.ToolBase", ["PagePublisher"]);
+    this.addInterface("PowerTools.BaseCommand", ["PagePublisher"]);
 };
 
-PowerTools.Commands.PagePublisher.prototype.isAvailable = function (selection)
+PowerTools.Commands.PagePublisher.prototype._execute = function(selection) 
 {
-    return this._defineEnabled(selection);
+    // Get the ID of the selected item
+    var uriSelection = this._getSelectedItemId(selection);
+
+    // Build the pop up url for the publish dialog and open it
+    var url = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#locationId=" + uriSelection;
+    var popup = $popup.create(url, "toolbar=no,width=750px,height=510px,resizable=false,scrollbars=false", null);
+    if (popup) popup.open();
 };
 
-PowerTools.Commands.PagePublisher.prototype.isEnabled = function (selection)
+PowerTools.Commands.PagePublisher.prototype._getSelectedItemId = function(selection) 
 {
-    return this._defineEnabled(selection);
-};
-
-
-PowerTools.Commands.PagePublisher.prototype._execute = function (selection) {
-
-    // get the id of the selected item
-    var uriSelection = this._selectedItem(selection); //$url.getHashParam("locationId");  //selection.getItem(0);
-
-    // build the pop up url for the publish dialog and open it
-    var PopUpUrl = $ptUtils.expandPath("/PowerTools/Client/PagePublisher/PagePublisher.aspx") + "#locationId=" + uriSelection;
-    var popup = $popup.create(PopUpUrl, "toolbar=no,width=750px,height=510px,resizable=false,scrollbars=false", null);
-    popup.open();
-};
-
-PowerTools.Commands.PagePublisher.prototype._selectedItem = function (selection) {
-    switch (selection.getCount()) {
-        case 0: // check the Tree selection
+    switch (selection.getCount()) 
+	{
+        case 0:
             var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
             return treeView.getSelection().getItem(0);
-            break;
-
-        case 1: // multiple items selected in the main list
+        case 1:
             return selection.getItem(0);
-            break;
-
-        default:
-            return null;
-            break;
     }
+
+    return null;
 }
 
-PowerTools.Commands.PagePublisher.prototype._defineEnabled = function (selection) {
-
-    var item = this._selectedItem(selection);
-    if (item != null)
+PowerTools.Commands.PagePublisher.prototype.isValidSelection = function(selection)
+{
+    var itemId = this._getSelectedItemId(selection);
+    if (itemId != null)
     {
-        switch ($models.getItemType(item))
-        {
-            case $const.ItemType.PUBLICATION:
-            case $const.ItemType.STRUCTURE_GROUP:
-                return true;
-                break;
-        }
+		var itemType = $models.getItemType(itemId);
+		return (itemType == $const.ItemType.PUBLICATION || itemType == $const.ItemType.STRUCTURE_GROUP);
     }
+
     return false;
 }

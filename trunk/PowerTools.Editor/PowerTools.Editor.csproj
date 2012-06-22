@@ -34,8 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -108,7 +106,6 @@
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.css" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploader.js" />
     <Content Include="PowerTools\Client\ImageUploader\ImageUploaderCommand.js" />
-    <Content Include="PowerTools\Client\IndexPageCommand.js" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisher.css" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisher.js" />
     <Content Include="PowerTools\Client\PagePublisher\PagePublisherCommand.js" />
@@ -126,13 +123,12 @@
     <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_454545_256x240.png" />
     <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_888888_256x240.png" />
     <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="PowerTools\Client\Shared\Scripts\BaseCommand.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\BasePowerTool.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
-    <Content Include="PowerTools\Client\Shared\Scripts\PowerToolsRegisty.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\ProgressDialog\ProgressDialog.js" />
-    <Content Include="PowerTools\Client\Shared\Scripts\ToolBase.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\Types.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_16.png" />

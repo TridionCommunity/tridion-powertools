@@ -3,18 +3,7 @@
 PowerTools.Commands.CountItems = function ()
 {
     Type.enableInterface(this, "PowerTools.Commands.CountItems");
-    this.addInterface("Tridion.Cme.Command", ["CountItems"]);
-    this.addInterface("PowerTools.ToolBase", ["CountItems"]);
-};
-
-PowerTools.Commands.CountItems.prototype.isAvailable = function (selection)
-{
-    return this._defineEnabled(selection);
-};
-
-PowerTools.Commands.CountItems.prototype.isEnabled = function (selection)
-{
-    return this._defineEnabled(selection);
+    this.addInterface("PowerTools.BaseCommand", ["CountItems"]);
 };
 
 PowerTools.Commands.CountItems.prototype._execute = function (selection)
@@ -44,7 +33,7 @@ PowerTools.Commands.CountItems.prototype._selectedItem = function (selection)
     }
 }
 
-PowerTools.Commands.CountItems.prototype._defineEnabled = function (selection)
+PowerTools.Commands.CountItems.prototype.isValidSelection = function(selection)
 {
     var item = this._selectedItem(selection);
     if (item != null)

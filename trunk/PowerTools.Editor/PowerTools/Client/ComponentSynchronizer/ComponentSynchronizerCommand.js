@@ -7,31 +7,13 @@
 PowerTools.Commands.ComponentSynchronizer = function ()
 {
 	Type.enableInterface(this, "PowerTools.Commands.ComponentSynchronizer");
-	this.addInterface("Tridion.Cme.Command", ["ComponentSynchronizer"]);
-	this.addInterface("PowerTools.ToolBase", ["ComponentSynchronizer"]);
+	this.addInterface("PowerTools.BaseCommand", ["ComponentSynchronizer"]);
+
 	this._isPopupOpen = false;
 	this._currentSchema = null;
 	this._currentPublication = null;
 };
 
-
-/**
-* Checks wether a command is available or not.
-* @param {Tridion.Cme.Selection] selection. The selected items in the list
-*/
-PowerTools.Commands.ComponentSynchronizer.prototype.isAvailable = function (selection)
-{
-	return this._defineEnabled(selection);
-};
-
-/**
-* Checks wether a command is enabled or not.
-* @param {Tridion.Cme.Selection] selection. The selected items in the list
-*/
-PowerTools.Commands.ComponentSynchronizer.prototype.isEnabled = function (selection)
-{
-	return this._defineEnabled(selection);
-};
 
 /**
 * Executes the command.
@@ -128,7 +110,7 @@ PowerTools.Commands.ComponentSynchronizer.prototype.isValidSelection = function 
 * Checks wether the Command is Enabled/Available or not
 * @param {Tridion.Cme.Selection] selection. The selected items in the list
 */
-PowerTools.Commands.ComponentSynchronizer.prototype._defineEnabled = function (selection)
+PowerTools.Commands.ComponentSynchronizer.prototype.isValidSelection = function (selection)
 {
 	if (!selection)
 	{

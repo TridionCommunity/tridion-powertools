@@ -11,10 +11,6 @@ PowerTools.Popups.DuplicateBinaries = function () {
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process  
-    
-    //Optional: set properties for the progressbar/modal dialog
-    p.progressDialog = { showAnimation: true, closeAfterComplete: false };
-
 };
 
 // Read parameters and assign callbacks for buttons in the GUI
