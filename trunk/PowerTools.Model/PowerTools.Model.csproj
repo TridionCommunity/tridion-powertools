@@ -106,6 +106,7 @@
     <Compile Include="Services\StatusServiceResponse.cs" />
     <Compile Include="Utils\Serializer.cs" />
     <Compile Include="Utils\TcmUri.cs" />
+    <Compile Include="Utils\TridionNamespaceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Model.config">
