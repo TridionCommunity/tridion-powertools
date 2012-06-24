@@ -36,7 +36,7 @@ namespace PowerTools.Model.Services
 
 		}
 
-        private static Dictionary<string, string> _componentTitles;
+        private static HashSet<string> _componentTitles;
 
 		class ImageUploadParameters
 		{
@@ -170,18 +170,18 @@ namespace PowerTools.Model.Services
 			return result.FirstOrDefault();
 		}
 
-        public Dictionary<string, string> getComponentTitles(string folderUri)
+        public HashSet<string> getComponentTitles(string folderUri)
         {
             OrganizationalItemItemsFilterData filterData = new OrganizationalItemItemsFilterData();
             filterData.ItemTypes = new[] { ItemType.Component };
             filterData.BaseColumns = ListBaseColumns.IdAndTitle;
             var result = _client.GetListXml(folderUri, filterData);
 
-            if(result != null && result.Descendants(TridionNamespaceManager.Tcm + "Item").Count() > 0)
+            if (result != null && result.Descendants(TridionNamespaceManager.Tcm + "Item").Count() > 0)
                 return result.Descendants(TridionNamespaceManager.Tcm + "Item")
-                             .ToDictionary(r => r.Attribute("Title").Value, l => l.Attribute("ID").Value);
+                             .Select(item => item.Attribute("Title").Value).ToHashSet();
 
-            return new Dictionary<string, string>();
+            return new HashSet<string>();
 
         }
 
@@ -192,14 +192,14 @@ namespace PowerTools.Model.Services
 
             var componentTitle = Regex.Replace(name, invalidReStr, "_");
 
-            if (_componentTitles.ContainsKey(componentTitle))
+            if (_componentTitles.Contains(componentTitle))
             {
                 for (int i = 1; i < 1000; i++)
                 {
                     var componentTitleAdjusted = string.Format("{0} [{1}]", componentTitle, i.ToString());
-                    if (!_componentTitles.ContainsKey(componentTitleAdjusted))
+                    if (!_componentTitles.Contains(componentTitleAdjusted))
                     {
-                        _componentTitles.Add(componentTitleAdjusted, componentTitleAdjusted);
+                        _componentTitles.Add(componentTitleAdjusted);
                         return componentTitleAdjusted;
                     }
                 }

@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Services\ServiceResponseBase.cs" />
     <Compile Include="Services\StatusServiceResponse.cs" />
+    <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\Serializer.cs" />
     <Compile Include="Utils\TcmUri.cs" />
     <Compile Include="Utils\TridionNamespaceManager.cs" />
