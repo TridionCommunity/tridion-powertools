@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using PowerTools.Model.Progress;
+using PowerTools.Model.Utils;
 using Tridion.ContentManager.CoreService.Client;
-using System.Text.RegularExpressions;
-using System.Xml;
 
 namespace PowerTools.Model.Services
 {
@@ -34,6 +35,8 @@ namespace PowerTools.Model.Services
 		    }
 
 		}
+
+        private static Dictionary<string, string> _componentTitles;
 
 		class ImageUploadParameters
 		{
@@ -87,6 +90,9 @@ namespace PowerTools.Model.Services
 				int i = 0;
                 _client = PowerTools.Common.CoreService.Client.GetCoreService();
 
+                //Get all component titles in the target folder           
+                _componentTitles = getComponentTitles(parameters.FolderUri);
+
 				foreach (string file in files)
 				{
 					process.SetStatus("Importing image: " + Path.GetFileName(file));
@@ -133,7 +139,7 @@ namespace PowerTools.Model.Services
 								BinaryContent = bcd
 							};
 
-							ComponentData comp = (ComponentData)_client.Create(compData, new ReadOptions());							
+							ComponentData comp = (ComponentData)_client.Create(compData, new ReadOptions());
 						}
 					}
 				}
@@ -154,9 +160,7 @@ namespace PowerTools.Model.Services
             //Strip of leading . from extension
             string ext = extension.StartsWith(".") ? extension.Substring(1) : extension;
 
-			XNamespace tcm = "http://www.tridion.com/ContentManager/5.0";
-
-			var result = from item in MultiMediaTypes.Descendants(tcm + "Item")
+			var result = from item in MultiMediaTypes.Descendants(TridionNamespaceManager.Tcm + "Item")
 						 let fileExtensions = item.Attribute("FileExtensions")
 						 let typeId = item.Attribute("ID")
 						 where fileExtensions != null && fileExtensions.Value.Contains(ext)
@@ -166,13 +170,47 @@ namespace PowerTools.Model.Services
 			return result.FirstOrDefault();
 		}
 
+        public Dictionary<string, string> getComponentTitles(string folderUri)
+        {
+            OrganizationalItemItemsFilterData filterData = new OrganizationalItemItemsFilterData();
+            filterData.ItemTypes = new[] { ItemType.Component };
+            filterData.BaseColumns = ListBaseColumns.IdAndTitle;
+            var result = _client.GetListXml(folderUri, filterData);
+
+            if(result != null && result.Descendants(TridionNamespaceManager.Tcm + "Item").Count() > 0)
+                return result.Descendants(TridionNamespaceManager.Tcm + "Item")
+                             .ToDictionary(r => r.Attribute("Title").Value, l => l.Attribute("ID").Value);
+
+            return new Dictionary<string, string>();
+
+        }
+
 		private static string MakeValidFileName(string name)
 		{
 			string invalidChars = Regex.Escape(new string(Path.GetInvalidFileNameChars()));
 			string invalidReStr = string.Format(@"[{0}]+", invalidChars);
-			return Regex.Replace(name, invalidReStr, "_");
+
+            var componentTitle = Regex.Replace(name, invalidReStr, "_");
+
+            if (_componentTitles.ContainsKey(componentTitle))
+            {
+                for (int i = 1; i < 1000; i++)
+                {
+                    var componentTitleAdjusted = string.Format("{0} [{1}]", componentTitle, i.ToString());
+                    if (!_componentTitles.ContainsKey(componentTitleAdjusted))
+                    {
+                        _componentTitles.Add(componentTitleAdjusted, componentTitleAdjusted);
+                        return componentTitleAdjusted;
+                    }
+                }
+            }
+
+            return componentTitle;
+            
 		}
 	}
+
+    
 }
 
 
