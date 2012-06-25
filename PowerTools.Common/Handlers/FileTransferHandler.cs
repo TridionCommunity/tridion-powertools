@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Web;
-using System.Xml.Linq;
-using PowerTools.Common.CoreService;
-using PowerTools.Common.Handlers.Model;
-using Tridion.ContentManager.CoreService.Client;
-using System.Web.Script.Serialization;
 using System.Linq;
-using System.Xml;
 using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Script.Serialization;
+using System.Xml.Linq;
+using PowerTools.Common.Utils;
+using Tridion.ContentManager.CoreService.Client;
 
 namespace PowerTools.Common.Handlers
 {
@@ -32,6 +29,8 @@ namespace PowerTools.Common.Handlers
             }
 
         }
+
+        private static HashSet<string> _componentTitles;
 
         private readonly JavaScriptSerializer js = new JavaScriptSerializer();        
 
@@ -83,6 +82,8 @@ namespace PowerTools.Common.Handlers
         // Upload entire file
         private void UploadWholeFile(HttpContext context, List<FilesStatus> statuses)
         {
+            client = PowerTools.Common.CoreService.Client.GetCoreService();
+            _componentTitles = getAllComponentTitles(orgItemUri);            
             for (int i = 0; i < context.Request.Files.Count; i++)
             {
                 var file = context.Request.Files[i];
@@ -176,11 +177,11 @@ namespace PowerTools.Common.Handlers
                             },
                         },
                         ComponentType = ComponentType.Multimedia,
-                        Title = Path.GetFileNameWithoutExtension(fileName),
+                        Title = MakeValidFileName(Path.GetFileNameWithoutExtension(fileName)),
 
                         Schema = new LinkToSchemaData
                         {
-                            IdRef = schemaUri    
+                            IdRef = schemaUri 
                         },
 
                         IsBasedOnMandatorySchema = false,
@@ -229,11 +230,63 @@ namespace PowerTools.Common.Handlers
             return result.FirstOrDefault();
         }
 
+        public HashSet<string> getAllComponentTitles(string folderUri)
+        {
+            var titles = getComponentTitles(folderUri);
+
+
+            //Also load titles from components in lower folders 
+            BluePrintFilterData filter = new BluePrintFilterData();
+            filter.ForItem = new LinkToRepositoryLocalObjectData { IdRef = folderUri };
+            var bluePrintData = client.GetSystemWideListXml(filter);
+
+            var allRelevantFolders = bluePrintData.Descendants(TridionNamespaceManager.Tcm + "Item").Where(item => item.Attribute("IsShared").Value == "True");
+
+            allRelevantFolders.ToList().ForEach(folder => getComponentTitles(folder.Attribute("ID").Value).ToList().ForEach(component => titles.Add(component)));
+
+
+            return titles;
+
+
+
+        }
+
+        public HashSet<string> getComponentTitles(string folderUri)
+        {
+            OrganizationalItemItemsFilterData filterData = new OrganizationalItemItemsFilterData();
+            filterData.ItemTypes = new[] { ItemType.Component };
+            filterData.BaseColumns = ListBaseColumns.IdAndTitle;
+            var result = client.GetListXml(folderUri, filterData);
+
+            if (result != null && result.Descendants(TridionNamespaceManager.Tcm + "Item").Count() > 0)
+                return result.Descendants(TridionNamespaceManager.Tcm + "Item")
+                             .Select(item => item.Attribute("Title").Value).ToHashSet();
+
+            return new HashSet<string>();
+
+        }
+
+
         private static string MakeValidFileName(string name)
         {
             string invalidChars = Regex.Escape(new string(Path.GetInvalidFileNameChars()));
             string invalidReStr = string.Format(@"[{0}]+", invalidChars);
-            return Regex.Replace(name, invalidReStr, "_");
+            var componentTitle = Regex.Replace(name, invalidReStr, "_");
+
+            if (_componentTitles.Contains(componentTitle))
+            {
+                for (int i = 1; i < 1000; i++)
+                {
+                    var componentTitleAdjusted = string.Format("{0} [{1}]", componentTitle, i.ToString());
+                    if (!_componentTitles.Contains(componentTitleAdjusted))
+                    {
+                        _componentTitles.Add(componentTitleAdjusted);
+                        return componentTitleAdjusted;
+                    }
+                }
+            }
+
+            return componentTitle;
         }
         public void Dispose()
         {

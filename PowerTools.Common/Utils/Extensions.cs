@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PowerTools.Model.Utils
+namespace PowerTools.Common.Utils
 {
     public static class Extensions
     {

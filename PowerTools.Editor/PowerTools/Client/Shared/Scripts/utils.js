@@ -553,7 +553,14 @@ PowerTools.Utilities.prototype.wbr = function (str, num)
     });
 };
 
-
+//Shameless stolen from the SiteEdit install...
+PowerTools.Utilities.prototype.getPublicationIdFromTcmUri = function (itemId) {
+    var m = itemId && itemId.match(/^tcm:(\d+)-/);
+    if (m && m.length > 1) {
+        return Tridion.Utils.String.format("tcm:0-{0}-1", m[1]);
+    }
+    return null;
+};
 
 var $ptUtils = new PowerTools.Utilities();
 

@@ -7,9 +7,10 @@ function onDisplayStarted() {
     if ($dom.isIE) {
         return;
     }
-
+   
     var toolbar = $controls.getControl($("#DashboardToolbar"), "Tridion.Controls.RibbonToolbar");
     var page = toolbar.getPage("DashboardPage");
+    
     //Initialize the DragAndDropUploader after the frame has loaded
     $evt.addEventHandler(page, "frameloaded", _onTridionDashboardFrameLoaded);
 }
@@ -21,13 +22,13 @@ function _onTridionDashboardFrameLoaded() {
 
 Type.registerNamespace("PowerTools.AddOns.DragDropUploader");
 PowerTools.AddOns.DragDropUploader.Base = function () {
-    
-    console.log("Initializing DragDropUploader...");    
+
+    console.log("Initializing DragDropUploader...");
     Type.enableInterface(this, "PowerTools.AddOns.DragDropUploader");
-    
+
     //var filteredList = $controls.getControl($("#FilteredDashboardList"), "Tridion.Controls.FilteredList");
-    
-    
+
+
     this._strings =
     {
         UrlCss: $ptUtils.expandPath("PowerTools/Client/DragDropUploader/style/style.css"),
@@ -48,7 +49,7 @@ PowerTools.AddOns.DragDropUploader.Base = function () {
     {
         SchemaControl: null
     };
-   
+
     this.initialize = function () {
         var context = this;
 
@@ -66,6 +67,20 @@ PowerTools.AddOns.DragDropUploader.Base = function () {
         context._initUploadArea();
         context._initMinMaxButton();
 
+        //Bind 'refresh' event
+        var tree = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree")
+        $evt.addEventHandler(tree, "select", function () {
+            var tree = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
+            var selection = tree.getSelection().getItem(0);
+
+            //If selected item is in a different publication than the currenty loaded schema, refresh it
+            if ($ptUtils.getPublicationIdFromTcmUri(selection) != $ptUtils.getPublicationIdFromTcmUri(context._controls.SchemaControl.getValue())) {
+                context._controls.SchemaControl.unload(false);
+                context._controls.SchemaControl.reset();
+            }
+
+        });
+
     };
 
     this._appendUploadTemplate = function () {
@@ -76,7 +91,6 @@ PowerTools.AddOns.DragDropUploader.Base = function () {
     };
 
     this._initSchemaDropDown = function () {
-
         var context = this;
         this._controls.SchemaControl = $controls.getControl($("#SchemaDropDownForDdu"), "Tridion.Controls.Dropdown");
 
@@ -103,14 +117,12 @@ PowerTools.AddOns.DragDropUploader.Base = function () {
             }
         });
 
-
-
     };
 
     this._initUploadArea = function () {
 
         var context = this;
-        var postUrl = this._strings.UrlUploadHandler;      
+        var postUrl = this._strings.UrlUploadHandler;
         $j(function () {
             var msg = null;
             $j('#fileupload').fileupload({

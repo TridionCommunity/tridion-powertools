@@ -8,8 +8,8 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using PowerTools.Common.Utils;
 using PowerTools.Model.Progress;
-using PowerTools.Model.Utils;
 using Tridion.ContentManager.CoreService.Client;
 
 namespace PowerTools.Model.Services
@@ -91,7 +91,7 @@ namespace PowerTools.Model.Services
                 _client = PowerTools.Common.CoreService.Client.GetCoreService();
 
                 //Get all component titles in the target folder           
-                _componentTitles = getComponentTitles(parameters.FolderUri);
+                _componentTitles = getAllComponentTitles(parameters.FolderUri);
 
 				foreach (string file in files)
 				{
@@ -169,6 +169,23 @@ namespace PowerTools.Model.Services
 
 			return result.FirstOrDefault();
 		}
+
+        public HashSet<string> getAllComponentTitles(string folderUri)
+        {
+            var titles = getComponentTitles(folderUri);
+            
+            //Also load titles from components in lower folders 
+            BluePrintFilterData filter = new BluePrintFilterData();
+            filter.ForItem = new LinkToRepositoryLocalObjectData { IdRef = folderUri };
+            var bluePrintData = _client.GetSystemWideListXml(filter);
+
+            var allRelevantFolders = bluePrintData.Descendants(TridionNamespaceManager.Tcm + "Item").Where(item => item.Attribute("IsShared").Value == "True");
+
+            allRelevantFolders.ToList().ForEach(folder => getComponentTitles(folder.Attribute("ID").Value).ToList().ForEach(component => titles.Add(component)));
+
+            return titles;
+            
+        }
 
         public HashSet<string> getComponentTitles(string folderUri)
         {
