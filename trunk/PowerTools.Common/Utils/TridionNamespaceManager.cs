@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace PowerTools.Model.Utils
+namespace PowerTools.Common.Utils
 {
     public static class TridionNamespaceManager
     {
