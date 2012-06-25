@@ -1,4 +1,4 @@
-#summary PowerTools Requirements - QuickSearchAndReplace
+#summary PowerTools Requirements - [inactive] QuickSearchAndReplace
 
 = Introduction =
 This tool is not in progress. Update the wiki and start development if interested in the QuickSearchAndReplace tool.

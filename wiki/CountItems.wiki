@@ -1,4 +1,4 @@
-#summary PowerTools Requirements - CountItems (active)
+#summary PowerTools Requirements - CountItems [active]
 
 = Introduction =
 This tool was originally created by Quirijn Slings (back in R5.2? times). For T2011, it was written originally by Mihai Cadariu (Oct 2011).

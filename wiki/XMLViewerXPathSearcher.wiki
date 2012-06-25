@@ -1,11 +1,4 @@
-#summary PowerTools Requirements - XMLViewerXPathSearcher
-
-= Introduction =
-This tool was originally created...
-
-{add additional info}
-
-{difficulty}
+#summary PowerTools Requirements - [inactive] XMLViewerXPathSearcher
 
 = Details =
 ||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
@@ -17,15 +10,9 @@ Shows the xml of a Tridion item, and allows you to search it using xpath
 == Audience ==
 Developer
 
-
 *Version #*
 0.1
 
-Original release date
-TBD
-
-Last updated
-TBD
 
 *Contributor(s)*
 {list contributors}

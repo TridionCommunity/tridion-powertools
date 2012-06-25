@@ -1,11 +1,7 @@
-#summary PowerTools Requirements - ComponentUnpublisher
+#summary PowerTools Requirements - [inactive] ComponentUnpublisher
 
 = Introduction =
-This tool is in progress.
-
-{add additional info}
-
-{difficulty}
+This tool was in progress as of ~2011.
 
 = Details =
 
@@ -37,4 +33,3 @@ TBD
 || ID || Description || Scope || Comments ||
 || 1 || ... || ... || ... ||
 || 2 || ... || ... || ... ||
-|| 3 || ... || ... || ... ||

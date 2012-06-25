@@ -1,6 +1,6 @@
 #summary Project - Logo
 
-_This address issue 1._
+_This addressed issue 1._ See the banner for the final logo.
 
 = History =
 

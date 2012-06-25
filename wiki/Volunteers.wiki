@@ -1,15 +1,11 @@
 #summary Project - Volunteers
-
-_We do this because we want to!_
  
-=== Volunteer Project Leads ===
+== Volunteer Project Leads ==
 
-|| Role || Name || Organization || Twitter || Blog ||
-|| Technical Lead || Peter Kjaer || SDL || [http://twitter.com/pkjaer_sdl pkjaer_sdl] || [http://pkjaer.wordpress.com/ Peter Kjaer] ||
+|| Role || Name || Organization || Twitter || Blogs ||
+|| Technical Lead || Peter Kjaer || SDL || [http://twitter.com/pkjaer_sdl pkjaer_sdl] || [http://pkjaer.wordpress.com/ Peter Kjaer] |  [http://www.tridiondeveloper.com TridionDeveloper] ||
 || Technical Lead || Dominic Cronin || Indivirtual || [http://twitter.com/DominicCronin DominicCronin] || [http://www.dominic.cronin.nl/weblog Dominic Cronin] ||
-|| Technical Lead || Chris Summers || !UrbanCherry ||  || ||
-|| Functional Lead || Alvin Reyes || SDL || [http://twitter.com/nivlong Nivlong]  || [http://createandbreak.net CreateAndBreak]||
+|| Technical Lead || Chris Summers || !UrbanCherry || [https://twitter.com/#!/UrbanCherry UrbanCherry] || [http://urbancherry.net/chris/ UrbanCherry] | [http://www.tridiondeveloper.com TridionDeveloper] ||
+|| Functional Lead || Alvin Reyes || SDL || [http://twitter.com/nivlong Nivlong]  || [http://createandbreak.net CreateAndBreak] |  [http://www.tridiondeveloper.com TridionDeveloper]||
 
-=== Members ===
-  * The [http://code.google.com/p/tridion-2011-power-tools/people/list full list]
-  * [Tasks Tasks and organization]
+See all members on the [http://code.google.com/p/tridion-2011-power-tools/people/list full list].

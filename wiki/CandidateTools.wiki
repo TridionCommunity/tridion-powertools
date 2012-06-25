@@ -1,6 +1,6 @@
 #summary PowerTools Requirements - 00 Candidates and Suggestions
 
-Not all SDL Tridion GUI extensions are PowerTools.
+"Not all SDL Tridion GUI extensions are PowerTools." -- SDL Buddy
 
 = Introduction =
 
@@ -13,16 +13,16 @@ To clarify what tools are "done," we collect thoughts and plans on potential too
   * FieldContentCopier
   * UnlocalizeChildren (based on URI)
   * [XMLFieldRenamer] (see [http://groups.google.com/group/tridion-powertools/browse_thread/thread/b641aa78f181da63 discussion])
-  * Copy WebDAVUrl to clipboard (this is what Dominic is currently hacking on privately in an attempt to grok anguilla before moving on to more ambitious functionality) Could also form part of a "Developer toolbar". (Further suggestions for developer toolbar, anyone?)
+  * Copy WebDAVUrl to clipboard (this is what Dominic is currently hacking on privately in an attempt to grok anguilla before moving on to more ambitious functionality) Could also form part of a "Developer toolbar". (Further suggestions for developer toolbar, anyone? -- Get XPath!)
   * ReportGenerator to be able to output the results of CME functionality. (e.g. output a "where used" or search results to .csv or show in copy-friendly HTML view)
 
 Not all extensions are PowerTools, but with other extension work needing similar setups (and being developed by the same community), it makes sense to collect "PowerTool candidates" here. Feel free to add and update suggestions here.
 
   * Chris Summers brainstormed an idea with the Skype group for a micro-site publisher functionality that would take a zip file possibly from a third-party and publish it out to a site. This could be done via variants, treating the zip as a multimedia component but alternatives exist.
-   * Note from Julian. I demo'ed this to HP using Dreamweaver as the entry point. Works quite OK but is a technical person's way of getting a microsite imported and published. If the DW import API could be utilized :)
+  * Julian demo'ed this to a client using Dreamweaver as the entry point. The scenario works well as a technical way of getting a microsite imported and published. If the DW import API could be utilized :)
 
 == Old List ==
-This is the list of planned tools for SDL Tridion 2011; each item links to its requirements doc. For the full list, see the [http://code.google.com/p/tridion-2011-power-tools/downloads/detail?name=PowerTools2011Matrix_Prioritized_v01.xlsx&can=4&q=#makechanges deprecated Spreadsheet] and unhide all rows.
+In October 2011, the SDL Tridion MVPs planned the following for the PowerTools reboot. Each item links to its requirements page. For the full list, see the [http://code.google.com/p/tridion-2011-power-tools/downloads/detail?name=PowerTools2011Matrix_Prioritized_v01.xlsx&can=4&q=#makechanges deprecated Spreadsheet] and unhide all rows.
 
 See [Requirements] for the official list or the PowerTools wiki page for links to the original source code (you'll need an R5.3 or 2009 environment to try the old versions).
 

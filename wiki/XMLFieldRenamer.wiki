@@ -1,4 +1,4 @@
-#summary PowerTools Requirements - XMLFieldRenamer
+#summary PowerTools Requirements - [inactive] XMLFieldRenamer
 
 Mihai mentions...
 

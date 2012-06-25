@@ -1,7 +1,7 @@
-#summary PowerTools Requirements - AddUser
+#summary PowerTools Requirements - [inactive] AddUser
 
 = Introduction =
-The tool is available in the current PowerTools release.
+The tool is not available in the current PowerTools release.
 
 = Details =
 ||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||

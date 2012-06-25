@@ -1,9 +1,9 @@
-#summary PowerTools Requirements - AppDataInspector (active)
+#summary PowerTools Requirements - AppDataInspector [active]
 
 = Introduction =
 This is a new tool. Original creator Mihai Cadariu.
 
-This is a tool that acts both as popup (accessed from context menu or ribbon button) as well as tab in all views. The tool reads all ApplicationData for the current Tridion item and displays it in a table with following information on each row (AppId, Data, Type).
+This tool offers a popup (accessed from context menu or ribbon button) or a tab in all views to display AppData for the selected Tridion item. AppId, Data, and Type and type show in table format.
 
 = Details =
 
@@ -32,15 +32,11 @@ Last updated: 01-Nov-2011
 
 Mihai Cadariu
 
-*Document Author(s)*
-
-Mihai Cadariu
-
 == Purpose ==
 
 Displays the AppData of the given item for the purpose of inspecting what actually is in there. Note that AppData currently is only available programmatically, so this tool is only for developers for knowing what kind of information is stored as AppData.
 
 = Future Requirements =
-|| ID || Description || Scope || Comments ||
-|| 1 || Tool should also allow the 'search' of AppData. Either by Tridion item (id, type, publication, etc) or by AppDataId (name) or by AppData Type or some kind of generic search. || TBD || AppData "Search" functionality currently not available through CoreService. ||
+|| ID || Description || Comments ||
+|| 1 || Tool should also allow the 'search' of AppData. Either by Tridion item (id, type, publication, etc) or by AppDataId (name) or by AppData Type or some kind of generic search. ||  AppData "Search" functionality currently not available through CoreService. ||
 || ... || ... || ... || ... ||

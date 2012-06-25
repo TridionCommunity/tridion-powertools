@@ -1,4 +1,4 @@
-#summary PowerTools Requirements - 00 {ToolName} (Template)
+#summary PowerTools Requirements - 00 {ToolName} (Template) {[active]}
 #labels Phase-Requirements
 
 = Introduction =

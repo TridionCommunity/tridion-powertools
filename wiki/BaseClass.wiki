@@ -2,21 +2,23 @@
 
 = How to Use the !PowerTools JavaScript Base Class = 
 
-Every powertool that opens in a popup, shows an 'Execute' and 'Close' button, does a WCF-call, and needs to show a progressbar should use the !PowerTools base class.
+Every popup extension has shared functionality including:
+
+ * 'Execute' and 'Close' buttons
+ * WCF-call
+ * Progressbar via the !PowerTools base class.
 
 Become familiar with the Anquilla framework and follow the [nononsenseguide] to build your own !PowerTool.
 
 == Setting up your !PowerTool== 
-Every !PowerTool that opens in a popup must be in the following namespace: !PowerTools.Popups
+To ensure your popup PowerTools extension is available in the right namespace, use `PowerTools.Popups`.
 
-So start your implementation with the following line of code:
+Start your  code with:
 {{{
 Type.registerNamespace("PowerTools.Popups");
 }}}
 
-This ensures your !PowerTool is available in the right namespace. 
-
-Next create your !PowerTool constructor:
+Next create your constructor:
 
 {{{
 PowerTools.Popups.ImageUploader = function ()
@@ -35,28 +37,28 @@ PowerTools.Popups.ImageUploader = function ()
 };
 }}}
 
-The name of your !PowerTool is important. This name (in this case '!ImageUploader') must match the WCF-class name *exactly!*
+Name your PowerTools extension correctly. This name (in this case '!ImageUploader') must match the WCF-class name *exactly!*
 For example, the !ImageUploader WCF class looks like this:
 
 {{{
 //Attributes...
 public class ImageUploader : BaseService
 {
-      ....implementation
+      // ....implementation
 }                         
 }}}
 
-The base-class calls this service-class to retrieve the state so it can show and update the progressbar. That's why the name of your !PowerTool as you use it in your javascript-constructor and the WCF-classname must be the same.
+The base class calls this service class to show and update the progressbar. That's why the name of your !PowerTools extension must match in your javascript-constructor and WCF-classname.
 
-As you can see the !PowerTool javascript base-class is initialized by this line of code in your constructor:
+Initialize the !PowerToosl javascript base-class with the following code in your constructor:
 
 {{{
 this.addInterface("PowerToolsBase", [this]); 
 }}}
 
-'addInterface' is an Anguilla framework JavaScript method that adds all the methods from the (in this case) !PowerToolsBase class to the current class (the !ImageUploader). This lets the !ImageUploader class (object) call methods from the !PowerToolsBase class.
+`addInterface` is an Anguilla framework JavaScript method that adds all the methods from the (in this case) !PowerToolsBase class to the current class (the !ImageUploader). This lets the !ImageUploader class (object) call methods from the !PowerToolsBase class.
 
-Next, your !PowerTool needs to implement the following methods:
+Next, your !PowerTools extension must implement the following methods:
 
 ====initialize====
 
@@ -82,10 +84,10 @@ PowerTools.Popups.ImageUploader.prototype.initialize = function () {
 
 The Anguilla framework calls the initial method to initialize (...) your !PowerTool. Typically you add code to set properties/constants then wire up the controls.
 
-==== Execute- and Close button ===
-The baseclass wires up the Execute-button and the 'Close' button for you. All you have to do is to implement  what should happen when the user clicks on the Execute button.
+==== Execute and Close button ===
+The baseclass wires up the "Execute" and "Close" buttons for you. Simply implement  the following method to determine your extension's actions when the user clicks on the Execute button.
 
-This is achieved by implementing the following method:
+This is achieved by implementing
 
 {{{
 PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {   
@@ -107,7 +109,7 @@ PowerTools.Popups.ImageUploader.prototype._onCloseButtonClicked = function ()
    //Do stuff
 };
 }}}
-This even is optional.
+This event is optional.
 
 ==== afterSuccess ====
 To return data back to the screen via your WCF Service (like the !CountItems !PowerTool) optionally implement the following method:

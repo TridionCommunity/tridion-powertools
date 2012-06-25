@@ -1,4 +1,4 @@
-#summary PowerTools Requirements - AccessExplorer
+#summary PowerTools Requirements - [inactive] AccessExplorer
 
 = Introduction =
 This tool is currently _not_ in progress. Update the wiki and start development if interested in the AccessExplorer.

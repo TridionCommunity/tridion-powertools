@@ -1,7 +1,7 @@
 #summary How-To Guide - Clear Browser Cache
 
 = Details =
-The Tridion CME caches pages to improve performance. The trade-off is needing to remember this during development.
+Browsers cache the Tridion CME to improve performance. The trade-off is needing to remember this during development.
 
   # Go to about:blank in your browser
   # Clear Browser Cache for:

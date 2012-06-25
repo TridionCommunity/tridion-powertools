@@ -1,4 +1,4 @@
-#summary PowerTools Requirements - BatchImageUploader (active)
+#summary PowerTools Requirements - BatchImageUploader [active]
 
 = Introduction =
 The batch image uploader allows a user to select a local directory and load the multimedia components into SDL Tridion.
@@ -21,14 +21,9 @@ Last updated
 TBD
 
 *Contributor(s)*
-{list contributors}
-
-*Document Author(s)*
-{list authors}
+Albert Romkes
 
 = Requirements =
 || ID || Description || Scope || Comments ||
-|| 1 || Allow power user the ability to select a folder of multimedia for uploading into the CMS. || || ||
+|| 1 || Allow power user the ability to select a _server-side_ folder of multimedia for uploading into the CMS. || || ||
 || 2 || ... || || ||
-|| 3 || ... || || ||
-|| 4 || ... || || ||
