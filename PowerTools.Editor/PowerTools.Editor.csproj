@@ -129,7 +129,6 @@
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\ProgressDialog\ProgressDialog.js" />
-    <Content Include="PowerTools\Client\Shared\Scripts\Types.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_32.png" />
@@ -175,7 +174,6 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_64.png" />
-    <Content Include="PowerTools\Client\Shared\Scripts\Main.js" />
     <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
   </ItemGroup>
   <ItemGroup>
