@@ -3,18 +3,20 @@
 Add sections for "in testing" and "released" when ready, here or on [Tasks] page.
 
 == Working Tools ==
- * CountItems
  * AppDataInspector
  * BatchImageUploader
+ * CountItems
  * ExamplePowerTool
+ * PagePublisher (GUI work in progress)
+ * PowerTools Help
+ * Schema Documenter
 
 == Potential Tools  ==
 (please update status)
- * ComponentSynchronizer
+ * ComponentSynchronizer (commented out for now)
  * ComponentSynchronizer2 (see [http://code.google.com/p/tridion-2011-power-tools/source/browse/#svn%2Fbranches%2Fjaime%2Fcompsync%2Fprototype%2Ftrunk prototype source])
- * PagePublisher (GUI work in progress)
- * SchemaFieldRemover (added icon)
- * AddUser ?
+ * SchemaFieldRemover (commented out for now)
+ * AddUser
 
 = Candidates =
 See CandidateTools.
