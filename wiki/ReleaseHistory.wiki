@@ -10,6 +10,26 @@ The current PowerTools version requires Tridion Content Management System config
 
 Since the PowerTools is a collection of tools, we can update specific tool updates here as well.
 
+
+= RC 1 =
+(30-Jun-2012) The PowerTools extensions are ready for testing. Please test in a developer or test environment.
+
+== Known issues and recommendations == 
+
+ * Remove any manually-installed PowerTools before running the installer. Remove or comment-out your Model and Editor nodes in `%TRIDION_CM_HOME%\Web\WebUI\WebRoot\Configuration\System.config`.
+ * Image uploader may delete source binaries in some cases. See issue 35.
+ * Item XML display spaces incorrectly. See issue 32.
+ * Clear browser cache or manually increment System.config "modification" setting. See issue 25.
+ * Count item results browser title sometimes shows "untitled." See issue 29.
+ * Progress bar doesn't work in Internet Explorer per issue 6.
+ * [http://code.google.com/p/tridion-2011-power-tools/issues/list See or report additional issues].
+
+If you have any problems, contact the PowerTools group:
+
+ * In near real-time [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main on the FlowDock]
+ * In the [groups.google.com/forum/#!forum/tridion-powertools discussion group]
+ * On Twitter #TridionPowerTools
+
 (24-Oct-2011) CountItems released as version 1.1. No installer just yet, but functionality is intact.
 
 ----
