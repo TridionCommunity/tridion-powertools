@@ -1,15 +1,12 @@
 #summary Updates - Latest Version
 
+Build from [http://code.google.com/p/tridion-2011-power-tools/source/checkout Source] or use the installer available under [http://code.google.com/p/tridion-2011-power-tools/downloads/list downloads].
+
 == Disclaimer ==
-As a set of extensions without support from a commercial organization, the Tridion PowerTools are released "as is" and user assumes all responsibility for their use.
+As a set of extensions without support from a commercial organization, the Tridion PowerTools extensions are released "as is" and user assumes all responsibility for their use.
 
 === Open Source Project ===
-The source code is open and  developed, supported, and updated by a community open to Tridion developers, consultants, partners, and customers.
-
-The current PowerTools version requires Tridion Content Management System configuration and a manual installation of library files. An installer may follow shortly. 
-
-Since the PowerTools is a collection of tools, we can update specific tool updates here as well.
-
+The source code is open and developed, supported, and updated by a community of Tridion developers, consultants, partners, and customers.
 
 = RC 1 =
 (30-Jun-2012) The PowerTools extensions are ready for testing. Please test in a developer or test environment.
@@ -30,10 +27,5 @@ If you have any problems, contact the PowerTools group:
  * In the [http://groups.google.com/forum/#!forum/tridion-powertools discussion group]
  * On Twitter #TridionPowerTools
 
-(24-Oct-2011) CountItems released as version 1.1. No installer just yet, but functionality is intact.
-
 ----
-
-Latest version: 0.8. Release date: October 15, 2011.
-
-We continuing work on the 0.9 release, the working draft can be downloaded from the trunk. Follow the discussion on http://groups.google.com/group/tridion-powertools.
+(24-Oct-2011) CountItems v1.1 released.
