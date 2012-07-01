@@ -2,6 +2,12 @@
 
 = Updates =
 
+(16-June-2012) Two weeks to first release.
+
+(02-Mar-2012) Great news, FlowDock's CEO, [https://twitter.com/#!/mutru Otto Hilska], gave us a one-year extension. See you on our [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main FlowDock collaboration site].
+
+(18-Feb-2012) Thanks to Peter and Albert for making an installer and a single-tool install screen. Wow! Get latest to see these and the other new tools.
+
 (29-Feb-2012) Alvin here. Demo to almost all of SDL WCMS (Professional Services) went well (whew!). Thanks all for getting code checked in. We'll be merging Component Synchronizer and breaking down the work to meet our Q2 deadline for release 1. Any other ideas or questions? [https://groups.google.com/forum/#!forum/tridion-powertools Let us know].
 
 (18-Feb-2012) Thanks to Peter and Albert for making an installer and a single-tool install screen. Wow! Get latest to see these and the other new tools.
