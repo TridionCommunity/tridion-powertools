@@ -27,7 +27,7 @@ Since the PowerTools is a collection of tools, we can update specific tool updat
 If you have any problems, contact the PowerTools group:
 
  * In near real-time [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main on the FlowDock]
- * In the [groups.google.com/forum/#!forum/tridion-powertools discussion group]
+ * In the [http://groups.google.com/forum/#!forum/tridion-powertools discussion group]
  * On Twitter #TridionPowerTools
 
 (24-Oct-2011) CountItems released as version 1.1. No installer just yet, but functionality is intact.
