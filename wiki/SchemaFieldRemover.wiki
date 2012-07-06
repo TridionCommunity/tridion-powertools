@@ -30,10 +30,10 @@ TBD
   * SDL Tridion 2011 SP1
 
 *Contributor(s)*
-{list contributors}
+Mark Williams
 
 *Document Author(s)*
-{list authors}
+Mark Williams
 
 == Purpose ==
 Describe purpose, objectives, and requirements
