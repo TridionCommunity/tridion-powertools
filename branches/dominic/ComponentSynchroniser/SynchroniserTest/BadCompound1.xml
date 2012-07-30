@@ -1,0 +1,53 @@
+﻿<Compound>
+  <tcm:Component ID='tcm:21-523' xmlns:tcm='http://www.tridion.com/ContentManager/5.0'>
+    <tcm:Info>
+      <tcm:LocationInfo>
+        <tcm:WebDAVURL>/webdav/Synchroniser%20tests/Building%20Blocks/TestSchemaOne/EmbeddingTest.xml</tcm:WebDAVURL>
+      </tcm:LocationInfo>
+    </tcm:Info>
+    <tcm:Data>
+      <tcm:Content>
+        <Content xmlns='embeddingSchema'>
+          <embedded1>
+            <plainText>some plain text in embedded 1</plainText>
+            <embedded2>
+              <plainText>and some plain text in embedded 2</plainText>
+              <coloursFromCategory>Red</coloursFromCategory>
+            </embedded2>
+            <embedded2>
+              <plainText>and some plain text in second embedded 2</plainText>
+              <coloursFromCategory>Mauve</coloursFromCategory>
+            </embedded2>
+          </embedded1>
+        </Content>
+      </tcm:Content>
+    </tcm:Data>
+  </tcm:Component>
+  <SchemaContainer>
+    <xsd:schema elementFormDefault='qualified' targetNamespace='embeddingSchema' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns='embeddingSchema' xmlns:tcmi='http://www.tridion.com/ContentManager/5.0/Instance' RootElementName='Content'>
+      <xsd:import namespace='http://www.tridion.com/ContentManager/5.0/Instance' schemaLocation='cm_xml_inst.xsd' />
+      <xsd:include schemaLocation='tcm:21-519-8' />
+      <xsd:annotation>
+        <xsd:appinfo>
+          <tcm:Labels xmlns:tcm='http://www.tridion.com/ContentManager/5.0'>
+            <tcm:Label ElementName='embedded1' Metadata='false'>embedded1</tcm:Label>
+          </tcm:Labels>
+        </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:element name='Content'>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name='embedded1' minOccurs='1' maxOccurs='1' type='Embed1Root'>
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <tcm:ExtensionXml xmlns:tcm='http://www.tridion.com/ContentManager/5.0' />
+                  <tcm:EmbeddedSchema xlink:href='tcm:21-519-8' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:tcm='http://www.tridion.com/ContentManager/5.0' xlink:title='embed1' />
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </SchemaContainer>
+</Compound>
