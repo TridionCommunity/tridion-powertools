@@ -1,0 +1,24 @@
+﻿<tcm:Component ID="tcm:21-523" xmlns:tcm="http://www.tridion.com/ContentManager/5.0">
+  <tcm:Info>
+    <tcm:LocationInfo>
+      <tcm:WebDAVURL>/webdav/Synchroniser%20tests/Building%20Blocks/TestSchemaOne/EmbeddingTest.xml</tcm:WebDAVURL>
+    </tcm:LocationInfo>
+  </tcm:Info>
+  <tcm:Data>
+    <tcm:Content>
+      <Content xmlns="embeddingSchema">
+        <embedded1>
+          <plainText>some plain text in embedded 1</plainText>
+          <embedded2>
+            <plainText>and some plain text in embedded 2</plainText>
+            <coloursFromCategory>Red</coloursFromCategory>
+          </embedded2>
+          <embedded2>
+            <plainText>and some plain text in second embedded 2</plainText>
+            <coloursFromCategory>Mauve</coloursFromCategory>
+          </embedded2>
+        </embedded1>
+      </Content>
+    </tcm:Content>
+  </tcm:Data>
+</tcm:Component>

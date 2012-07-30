@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SchemaContainer>
+  <xsd:schema elementFormDefault="qualified" targetNamespace="embeddingSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="embeddingSchema" xmlns:tcmi="http://www.tridion.com/ContentManager/5.0/Instance" RootElementName="Content">
+    <xsd:import namespace="http://www.tridion.com/ContentManager/5.0/Instance" schemaLocation="cm_xml_inst.xsd" />
+    <xsd:include schemaLocation="tcm:21-519-8" />
+    <xsd:annotation>
+      <xsd:appinfo>
+        <tcm:Labels xmlns:tcm="http://www.tridion.com/ContentManager/5.0">
+          <tcm:Label ElementName="embedded1" Metadata="false">embedded1</tcm:Label>
+        </tcm:Labels>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:element name="Content">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element name="embedded1" minOccurs="1" maxOccurs="1" type="Embed1Root">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <tcm:ExtensionXml xmlns:tcm="http://www.tridion.com/ContentManager/5.0" />
+                <tcm:EmbeddedSchema xlink:href="tcm:21-519-8" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:tcm="http://www.tridion.com/ContentManager/5.0" xlink:title="embed1" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+</SchemaContainer>
