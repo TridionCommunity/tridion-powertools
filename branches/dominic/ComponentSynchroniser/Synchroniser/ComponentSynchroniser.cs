@@ -18,7 +18,7 @@ namespace PowerTools
         
         public ComponentSynchroniser(ISessionAwareCoreService coreService){
             this.coreService = coreService;
-            this.schemaFactory = new SchemaFactory(this.coreService);
+            this.schemaFactory = new CachingSchemaFactory(this.coreService);
             this.componentFactory = new ComponentFactory(this.coreService);
         }
 

@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachingSchemaFactory.cs" />
     <Compile Include="ComponentFactory.cs" />
     <Compile Include="IComponentFactory.cs" />
     <Compile Include="ISchemaFactory.cs" />
