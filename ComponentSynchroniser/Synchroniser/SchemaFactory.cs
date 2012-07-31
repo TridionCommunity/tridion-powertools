@@ -15,13 +15,13 @@ namespace PowerTools
             this.coreService = coreService;
         }
 
-        public XDocument GetSchema(string schemaID)
+        public virtual XDocument GetSchema(string schemaID)
         {
             var schemaData = (SchemaData)this.coreService.Read(schemaID, new ReadOptions());
             return GetSchema(schemaData);
         }
 
-        public XDocument GetSchema(SchemaData schemaData)
+        public virtual XDocument GetSchema(SchemaData schemaData)
         {
             var schemaDoc = XDocument.Parse("<SchemaContainer/>");
             schemaDoc.Root.Add(XDocument.Parse(schemaData.Xsd).Root);
