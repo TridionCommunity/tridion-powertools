@@ -30,18 +30,19 @@ namespace PowerTools
                 throw new ArgumentException("Only TCM Uris are supported.", "absoluteUri");
             }
 
-            object returned = this.coreService.Read(absoluteUri.ToString(), new ReadOptions());
-            var schemaData = returned as SchemaData;
-            if (schemaData != null)
+            var tcmuri = new Tridion.ContentManager.TcmUri(absoluteUri.AbsoluteUri);
+            if (tcmuri.ItemType == Tridion.ContentManager.ItemType.Schema)
             {
-                SchemaFactory schemaFactory = new SchemaFactory(this.coreService);
-                XDocument schemaDoc = schemaFactory.GetSchema(schemaData);
+                ISchemaFactory schemaFactory = new CachingSchemaFactory(this.coreService);
+                XDocument schemaDoc = schemaFactory.GetSchema(absoluteUri.AbsoluteUri);
                 // Discovered by chance that you can hand back IXPathNavigable instead of having to mash it into a stream.
                 // Much neater - especially when CreateNavigator comes as an extension method with the XPath namespace! :-) 
                 return schemaDoc.CreateNavigator();
             }
-
-            throw new NotSupportedException("As and when we need to support something else (like categories?), his would be a great place to do it.");
+            else
+            {
+                throw new ArgumentException("Please do not feed TcmUris to the TcmResolver unless they are schemas.");
+            }
         }
     }
 }
