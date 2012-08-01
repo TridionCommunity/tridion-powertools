@@ -21,7 +21,7 @@ namespace PowerTools
             return GetSchema(schemaData);
         }
 
-        public virtual XDocument GetSchema(SchemaData schemaData)
+        public XDocument GetSchema(SchemaData schemaData)
         {
             var schemaDoc = XDocument.Parse("<SchemaContainer/>");
             schemaDoc.Root.Add(XDocument.Parse(schemaData.Xsd).Root);

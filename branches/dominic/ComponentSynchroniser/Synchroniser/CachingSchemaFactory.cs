@@ -12,34 +12,24 @@ namespace PowerTools
     {
         public CachingSchemaFactory(ISessionAwareCoreService coreService) : base(coreService) { }
 
-        protected Dictionary<string, XDocument> cache;
+        protected Dictionary<string, XDocument> cache = new Dictionary<string, XDocument>();
+
         public override XDocument GetSchema(string schemaID)
         {
-            if (this.cache.ContainsKey(schemaID))
+            lock (cache)
             {
-                return this.cache[schemaID];
-            }
-            else
-            {
-                XDocument schema = base.GetSchema(schemaID);
-                this.cache.Add(schemaID, schema);
-                return schema;
+                if (this.cache.ContainsKey(schemaID))
+                {
+                    return this.cache[schemaID];
+                }
+                else
+                {
+                    XDocument schema = base.GetSchema(schemaID);
+                    this.cache.Add(schemaID, schema);
+                    return schema;
+                }
             }
         }
 
-        public override XDocument GetSchema(SchemaData schemaData) 
-        {
-            string id = schemaData.Id;
-            if (this.cache.ContainsKey(id))
-            {
-                return this.cache[id];
-            }
-            else
-            {
-                XDocument schema = base.GetSchema(schemaData);
-                this.cache.Add(id, schema);
-                return schema;
-            }            
-        }
     }
 }
