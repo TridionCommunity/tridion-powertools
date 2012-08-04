@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Tridion.ContentManager.CoreService.Client">
-      <HintPath>..\..\..\Program Files (x86)\Tridion\bin\client\Tridion.ContentManager.CoreService.Client.dll</HintPath>
+      <HintPath>..\ReferenceAssemblies\Tridion.ContentManager.CoreService.Client.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +69,7 @@
     <Compile Include="TextInputSchemaFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Synchroniser\Synchroniser.csproj">
+    <ProjectReference Include="..\PowerTools.ComponentSynchroniser\Synchroniser.csproj">
       <Project>{ED53A1A7-1287-4FED-A0AB-4657733F1D11}</Project>
       <Name>Synchroniser</Name>
     </ProjectReference>
