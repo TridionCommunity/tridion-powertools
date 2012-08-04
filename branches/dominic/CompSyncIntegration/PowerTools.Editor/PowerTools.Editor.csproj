@@ -179,79 +179,66 @@
   <ItemGroup>
     <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx.cs">
       <DependentUpon>AppDataInspectorTab.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
       <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.cs">
       <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.designer.cs">
       <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.designer.cs">
       <DependentUpon>CountItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\DragDropUploader\UploadTemplate.aspx.cs">
       <DependentUpon>UploadTemplate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\DragDropUploader\UploadTemplate.aspx.designer.cs">
       <DependentUpon>UploadTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx.cs">
       <DependentUpon>DuplicateBinaries.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx.designer.cs">
       <DependentUpon>DuplicateBinaries.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
       <DependentUpon>FieldRemover.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\Help\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.cs">
       <DependentUpon>ItemXmlTab.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.designer.cs">
       <DependentUpon>MarkUnpublished.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.designer.cs">
       <DependentUpon>ImageUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
@@ -262,9 +249,7 @@
     <Compile Include="PowerTools\Client\Shared\Views\PopupMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PowerTools\Client\Shared\Views\PowerToolsPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="PowerTools\Client\Shared\Views\PowerToolsPageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <!--<ItemGroup>
