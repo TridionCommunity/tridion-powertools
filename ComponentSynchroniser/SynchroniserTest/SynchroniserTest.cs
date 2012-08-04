@@ -1,4 +1,4 @@
-﻿using PowerTools;
+﻿using PowerTools.ComponentSynchroniser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Tridion.ContentManager.CoreService.Client;
@@ -8,7 +8,7 @@ using System.Xml.Xsl;
 using System.Xml;
 using System.Diagnostics;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
     
     
@@ -191,7 +191,7 @@ namespace SynchroniserTest
             XDocument component = componentFactory.GetComponent(@"SynchroniserTestData.schemaCompliantEmbedded.xml");
             // Yes - this is horrible and I know it, but until I stub everything out, I have a dependency on the core to get embedded stuff, and as soon as you stub the resolver.... 
             // WTF - still deciding if this test makes sense at all (as the core is most accurate and test data is quickly  out of date)... so the quickest way is just to use the core
-            PowerTools.SchemaFactory ptSF = new PowerTools.SchemaFactory(coreService);
+            SchemaFactory ptSF = new SchemaFactory(coreService);
             stubTcmResolver.Add("tcm:21-519-8", ptSF.GetSchema("tcm:21-519-8"));
             stubTcmResolver.Add("tcm:21-520-8", ptSF.GetSchema("tcm:21-520-8"));
 
@@ -238,7 +238,7 @@ namespace SynchroniserTest
             XDocument component = componentFactory.GetComponent(@"SynchroniserTestData.schemaCompliantEmbedded.xml");
             // Yes - this is horrible and I know it, but until I stub everything out, I have a dependency on the core to get embedded stuff, and as soon as you stub the resolver.... 
             // WTF - still deciding if this test makes sense at all (as the core is most accurate and test data is quickly  out of date)... so the quickest way is just to use the core
-            PowerTools.SchemaFactory ptSF = new PowerTools.SchemaFactory(coreService);
+            SchemaFactory ptSF = new SchemaFactory(coreService);
             stubTcmResolver.Add("tcm:21-519-8", ptSF.GetSchema("tcm:21-519-8"));
             stubTcmResolver.Add("tcm:21-520-8", ptSF.GetSchema("tcm:21-520-8"));
 

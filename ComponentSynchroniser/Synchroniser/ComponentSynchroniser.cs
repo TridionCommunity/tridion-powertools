@@ -7,7 +7,7 @@ using System.Xml.XPath;
 using Tridion.ContentManager.CoreService.Client;
 using System.Text;
 
-namespace PowerTools
+namespace PowerTools.ComponentSynchroniser
 {
     
     public class ComponentSynchroniser

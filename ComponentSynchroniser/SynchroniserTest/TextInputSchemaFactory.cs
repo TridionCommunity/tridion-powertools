@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using PowerTools.ComponentSynchroniser;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
-    class TextInputSchemaFactory: PowerTools.ISchemaFactory
+    class TextInputSchemaFactory: ISchemaFactory
     {
         public TextInputSchemaFactory()
         {

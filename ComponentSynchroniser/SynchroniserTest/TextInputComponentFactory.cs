@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Tridion.ContentManager.CoreService.Client;
+using PowerTools.ComponentSynchroniser;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
-    class TextInputComponentFactory: PowerTools.IComponentFactory
+    class TextInputComponentFactory: IComponentFactory
     {
         public TextInputComponentFactory()
         {

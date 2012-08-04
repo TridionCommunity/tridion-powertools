@@ -1,9 +1,9 @@
 ﻿using System.Xml.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerTools;
+using PowerTools.ComponentSynchroniser;
 using Tridion.ContentManager.CoreService.Client;
 using System.Xml.XPath;
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
     
     

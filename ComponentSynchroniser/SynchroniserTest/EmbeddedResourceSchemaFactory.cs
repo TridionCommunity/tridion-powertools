@@ -5,10 +5,11 @@ using System.Text;
 using System.Xml.Linq;
 using System.Reflection;
 using System.IO;
+using PowerTools.ComponentSynchroniser;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
-    class EmbeddedResourceSchemaFactory: EmbeddedResourceItemFactory, PowerTools.ISchemaFactory
+    class EmbeddedResourceSchemaFactory: EmbeddedResourceItemFactory, ISchemaFactory
     {
         public EmbeddedResourceSchemaFactory()
         {

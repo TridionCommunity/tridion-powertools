@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using System.Reflection;
 using System.IO;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
     abstract class EmbeddedResourceItemFactory
     {

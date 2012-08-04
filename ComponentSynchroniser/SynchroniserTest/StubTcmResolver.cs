@@ -8,7 +8,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
     public class StubTcmResolver: XmlResolver
     {

@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using Tridion.ContentManager.CoreService.Client;
 
 
-namespace PowerTools
+namespace PowerTools.ComponentSynchroniser
 {
     class CachingSchemaFactory : SchemaFactory
     {

@@ -1,10 +1,10 @@
-﻿using PowerTools;
+﻿using PowerTools.ComponentSynchroniser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Xml.Linq;
 using Tridion.ContentManager.CoreService.Client;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
     
     

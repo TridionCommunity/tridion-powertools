@@ -55,7 +55,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BadStuff.cs" />
     <Compile Include="ComponentFactoryTest.cs" />
     <Compile Include="EmbeddedResourceItemFactory.cs" />
     <Compile Include="EmbeddedResourceComponentFactory.cs" />
@@ -100,10 +99,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BadCompound1.xml" />
-    <Content Include="BadXSLTFile1.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

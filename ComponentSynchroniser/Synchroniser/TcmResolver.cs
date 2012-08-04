@@ -8,7 +8,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-namespace PowerTools
+namespace PowerTools.ComponentSynchroniser
 {
     public class TcmResolver: XmlResolver
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using System.Xml;
 
-namespace PowerTools
+namespace PowerTools.ComponentSynchroniser
 {
     class Ns
     {

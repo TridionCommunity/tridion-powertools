@@ -5,7 +5,7 @@ using System.Text;
 using Tridion.ContentManager.CoreService.Client;
 using System.Xml.Linq;
 
-namespace PowerTools
+namespace PowerTools.ComponentSynchroniser
 {
     class SchemaFactory : ISchemaFactory
     {
