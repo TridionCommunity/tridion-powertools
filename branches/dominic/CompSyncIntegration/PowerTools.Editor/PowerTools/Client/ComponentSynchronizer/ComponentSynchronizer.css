@@ -1,0 +1,89 @@
+/* Progress Bar */
+
+
+
+
+/* End of Progress Bar */
+
+
+/* Buttons */
+#BtnBrowse,  #BtnOpenURL.btnBrowse
+{
+	min-width: 22px;
+}
+
+#BtnBrowse span, .btnBrowse
+{
+	background: url("/WebUI/Editors/CME/Themes/Carbon/Images/Icons/browse-folders.16x16_v6.0.0.39607.0_.png") no-repeat;
+}
+
+#BtnRemove
+{
+	min-width: 22px;
+}
+#BtnRemove span,
+#BtnRemoveDisclaimer span
+{
+	background: url("/WebUI/Editors/CME/Themes/Carbon/Images/Icons/delete.16x16_v6.0.0.39607.0_.png") no-repeat 2px center;
+}
+#BtnRemove.disabled span
+{
+	background-image: url("/WebUI/Editors/CME/Themes/Carbon/Images/Icons/delete.16x16.gray_v6.0.0.39607.0_.png");
+}
+
+/* End of Buttons */
+
+body{
+    font-family: Arial;
+    font-size:12px;
+}
+
+/* Z-index of #mask must lower than #boxes .window */
+#mask
+{
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 9000;
+    background-color: #000;
+    display: none;
+}
+        
+#ModalDialog .window
+{
+    position: absolute;
+    width: 440px;
+    height: 200px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+}
+        
+        
+/* Customize your modal window here, you can add background image too */
+#boxes #dialog
+{
+    width: 375px;
+    height: 203px;
+}
+
+.Sample
+{
+    background-color: Red;
+}
+
+div
+{
+    
+}
+
+.tool-explanation
+{
+    margin-bottom: 20px;
+}
+
+#progress
+{
+	display: none;
+	padding-top: 10px;
+}
