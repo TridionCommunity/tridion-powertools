@@ -6,10 +6,11 @@ using System.Xml.Linq;
 using System.IO;
 using System.Reflection;
 using Tridion.ContentManager.CoreService.Client;
+using PowerTools.ComponentSynchroniser;
 
-namespace SynchroniserTest
+namespace PowerTools.ComponentSynchroniser.Test
 {
-    class EmbeddedResourceComponentFactory: EmbeddedResourceItemFactory, PowerTools.IComponentFactory
+    class EmbeddedResourceComponentFactory: EmbeddedResourceItemFactory, IComponentFactory
     {
         public EmbeddedResourceComponentFactory()
         {
