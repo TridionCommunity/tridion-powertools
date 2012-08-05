@@ -1,0 +1,55 @@
+﻿<SchemaContainer>
+   <xsd:schema elementFormDefault="qualified" targetNamespace="uuid:f14d60ed-0f7c-4d1f-a2e3-97d1dfeb1a1f" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="uuid:f14d60ed-0f7c-4d1f-a2e3-97d1dfeb1a1f" xmlns:tcmi="http://www.tridion.com/ContentManager/5.0/Instance" xmlns:category="tcm:0-21-1/Categories.xsd" RootElementName="Content">
+    <xsd:import namespace="http://www.tridion.com/ContentManager/5.0/Instance" schemaLocation="cm_xml_inst.xsd" />
+    <xsd:import namespace="tcm:0-21-1/Categories.xsd" schemaLocation="tcm:0-21-1/Categories.xsd" />
+     <xsd:annotation>
+       <xsd:appinfo>
+         <tcm:Labels xmlns:tcm="http://www.tridion.com/ContentManager/5.0">
+          <tcm:Label ElementName="ColoursOne" Metadata="false">ColoursOne</tcm:Label>
+          <tcm:Label ElementName="Animals" Metadata="false">Test field with locally declared list</tcm:Label>
+        </tcm:Labels>
+      </xsd:appinfo>
+    </xsd:annotation>
+     <xsd:element name="Content">
+       <xsd:complexType>
+         <xsd:sequence>
+           <xsd:element name="ColoursOne" minOccurs="1" maxOccurs="unbounded" type="category:Colours">
+             <xsd:annotation>
+               <xsd:appinfo>
+                <tcm:ExtensionXml xmlns:tcm="http://www.tridion.com/ContentManager/5.0" />
+                <tcm:Size xmlns:tcm="http://www.tridion.com/ContentManager/5.0">1</tcm:Size>
+                <tcm:listtype xmlns:tcm="http://www.tridion.com/ContentManager/5.0">tree</tcm:listtype>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+           <xsd:element name="Animals" minOccurs="1" maxOccurs="1">
+             <xsd:annotation>
+               <xsd:appinfo>
+                <tcm:ExtensionXml xmlns:tcm="http://www.tridion.com/ContentManager/5.0" />
+                <tcm:Size xmlns:tcm="http://www.tridion.com/ContentManager/5.0">1</tcm:Size>
+                <tcm:listtype xmlns:tcm="http://www.tridion.com/ContentManager/5.0">select</tcm:listtype>
+              </xsd:appinfo>
+            </xsd:annotation>
+             <xsd:simpleType>
+               <xsd:restriction base="xsd:normalizedString">
+                <xsd:enumeration value="Horse" />
+                <xsd:enumeration value="Haddock" />
+                <xsd:enumeration value="Weasel" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+   <CategoryFieldsEnums>
+     <tcm:ListKeywords Managed="1024" xmlns:tcm="http://www.tridion.com/ContentManager/5.0" FieldName="ColoursOne">
+      <tcm:Item ID="tcm:21-513-1024" Type="1024" Title="Green" Lock="0" IsRoot="true" Modified="2012-07-07T18:31:16" Key="" IsAbstract="false" CategoryTitle="Colours" CategoryID="tcm:21-59-512" Icon="T1024L0P0" Allow="268560384" Deny="96" IsNew="false" />
+      <tcm:Item ID="tcm:21-512-1024" Type="1024" Title="Mauve" Lock="0" IsRoot="true" Modified="2012-07-07T18:31:09" Key="" IsAbstract="false" CategoryTitle="Colours" CategoryID="tcm:21-59-512" Icon="T1024L0P0" Allow="268560384" Deny="96" IsNew="false" />
+      <tcm:Item ID="tcm:21-515-1024" Type="1024" Title="Pink" Lock="0" IsRoot="true" Modified="2012-07-07T18:31:32" Key="" IsAbstract="false" CategoryTitle="Colours" CategoryID="tcm:21-59-512" Icon="T1024L0P0" Allow="268560384" Deny="96" IsNew="false" />
+      <tcm:Item ID="tcm:21-511-1024" Type="1024" Title="Red" Lock="0" IsRoot="true" Modified="2012-07-07T18:31:01" Key="" IsAbstract="false" CategoryTitle="Colours" CategoryID="tcm:21-59-512" Icon="T1024L0P0" Allow="268560384" Deny="96" IsNew="false" />
+      <tcm:Item ID="tcm:21-517-1024" Type="1024" Title="Scarlet" Lock="0" IsRoot="false" Modified="2012-07-07T18:32:08" Key="" IsAbstract="false" CategoryTitle="Colours" CategoryID="tcm:21-59-512" Icon="T1024L0P0" Allow="268560384" Deny="96" IsNew="false" />
+      <tcm:Item ID="tcm:21-514-1024" Type="1024" Title="Yellow" Lock="0" IsRoot="true" Modified="2012-07-07T18:31:23" Key="" IsAbstract="false" CategoryTitle="Colours" CategoryID="tcm:21-59-512" Icon="T1024L0P0" Allow="268560384" Deny="96" IsNew="false" />
+    </tcm:ListKeywords>
+  </CategoryFieldsEnums>
+</SchemaContainer>
