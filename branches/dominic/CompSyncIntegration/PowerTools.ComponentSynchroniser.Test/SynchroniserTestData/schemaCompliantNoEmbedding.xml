@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tcm:Component ID='tcm:21-471' xmlns:tcm='http://www.tridion.com/ContentManager/5.0'>
+  <tcm:Info>
+    <tcm:LocationInfo>
+      <tcm:WebDAVURL>/webdav/Synchroniser%20tests/Building%20Blocks/TestSchemaOne/01-01.xml</tcm:WebDAVURL>
+    </tcm:LocationInfo>
+  </tcm:Info>
+  <tcm:Data>
+    <tcm:Content>
+      <Content xmlns='testSchemaOne'>
+        <plainTextOneLineMandatory>Some plain text</plainTextOneLineMandatory>
+        <plainTextOneLineLineMandatoryMultiple>And some more</plainTextOneLineLineMandatoryMultiple>
+        <plainTextOneLineLineMandatoryMultiple>this time with some extra</plainTextOneLineLineMandatoryMultiple>
+        <plainTextOneLineLineMandatoryMultiple>lines to make it multiple</plainTextOneLineLineMandatoryMultiple>
+        <plainTextOneLineEnumCheckbox>foo</plainTextOneLineEnumCheckbox>
+        <plainTextOneLineEnumCheckbox>wibble</plainTextOneLineEnumCheckbox>
+      </Content>
+    </tcm:Content>
+  </tcm:Data>
+</tcm:Component>

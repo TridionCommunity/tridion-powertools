@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SchemaContainer>
+<xsd:schema elementFormDefault='qualified' targetNamespace='testSchemaOne' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns='testSchemaOne' xmlns:tcmi='http://www.tridion.com/ContentManager/5.0/Instance' RootElementName='Content'>
+  <xsd:import namespace='http://www.tridion.com/ContentManager/5.0/Instance' schemaLocation='cm_xml_inst.xsd' />
+  <xsd:annotation>
+    <xsd:appinfo>
+      <tcm:Labels xmlns:tcm='http://www.tridion.com/ContentManager/5.0'>
+        <tcm:Label ElementName='plainTextOneLineMandatory' Metadata='false'>plainTextOneLineMandatory</tcm:Label>
+        <tcm:Label ElementName='plainTextOneLineLineMandatoryMultiple' Metadata='false'>plainTextOneLineMandatoryMultiple</tcm:Label>
+        <tcm:Label ElementName='plainTextOneLineEnumCheckbox' Metadata='false'>plainTextOneLineEnumCheckbox</tcm:Label>
+        <tcm:Label ElementName='metadataPlainTextMulti' Metadata='true'>metadataPlainTextMulti</tcm:Label>
+      </tcm:Labels>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:element name='Content'>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name='plainTextOneLineMandatory' minOccurs='1' maxOccurs='1' type='xsd:normalizedString'>
+          <xsd:annotation>
+            <xsd:appinfo>
+              <tcm:ExtensionXml xmlns:tcm='http://www.tridion.com/ContentManager/5.0' />
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name='plainTextOneLineLineMandatoryMultiple' minOccurs='1' maxOccurs='unbounded' type='xsd:normalizedString'>
+          <xsd:annotation>
+            <xsd:appinfo>
+              <tcm:ExtensionXml xmlns:tcm='http://www.tridion.com/ContentManager/5.0' />
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name='plainTextOneLineEnumCheckbox' minOccurs='1' maxOccurs='unbounded'>
+          <xsd:annotation>
+            <xsd:appinfo>
+              <tcm:ExtensionXml xmlns:tcm='http://www.tridion.com/ContentManager/5.0' />
+              <tcm:Size xmlns:tcm='http://www.tridion.com/ContentManager/5.0'>1</tcm:Size>
+              <tcm:listtype xmlns:tcm='http://www.tridion.com/ContentManager/5.0'>checkbox</tcm:listtype>
+            </xsd:appinfo>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base='xsd:normalizedString'>
+              <xsd:enumeration value='foo' />
+              <xsd:enumeration value='bar' />
+              <xsd:enumeration value='wibble' />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name='Metadata'>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name='metadataPlainTextMulti' minOccurs='0' maxOccurs='unbounded' type='xsd:normalizedString'>
+          <xsd:annotation>
+            <xsd:appinfo>
+              <tcm:ExtensionXml xmlns:tcm='http://www.tridion.com/ContentManager/5.0' />
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+</SchemaContainer>
