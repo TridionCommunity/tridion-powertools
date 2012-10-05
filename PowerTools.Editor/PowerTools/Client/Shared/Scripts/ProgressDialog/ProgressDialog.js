@@ -1,4 +1,4 @@
-﻿Type.registerNamespace("PowerToolsBase");
+﻿Type.registerNamespace("PowerTools");
 
 PowerTools.ProgressDialog = function()
 {
