@@ -38,6 +38,7 @@
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Tridion.ContentManager.CoreService.Client, Version=6.1.0.996, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
@@ -48,12 +49,14 @@
   <ItemGroup>
     <Content Include="Services\ComponentSynchronizer.svc" />
     <Content Include="Services\AppDataInspector.svc" />
+    <Content Include="Services\AppDataServices.svc" />
     <Content Include="Services\CountItems.svc" />
     <Content Include="Services\PagePublisher.svc" />
     <Content Include="Services\FieldRemover.svc" />
     <Content Include="Services\MarkUnpublished.svc" />
     <Content Include="Services\Example.svc" />
     <Content Include="Services\ImageUploader.svc" />
+    <Content Include="Services\TransformChangeHistoryData.xslt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -82,6 +85,9 @@
       <DependentUpon>AppDataInspector.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\AppDataInspectorData.cs" />
+    <Compile Include="Services\AppDataServices.svc.cs">
+      <DependentUpon>AppDataServices.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\ExampleData.cs" />
     <Compile Include="Services\CountItems.svc.cs">
       <DependentUpon>CountItems.svc</DependentUpon>
