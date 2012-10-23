@@ -38,9 +38,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tridion.Web.UI.Core, Version=6.0.0.39607, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Reference Assemblies\Tridion.Web.UI.Core.dll</HintPath>
+    <Reference Include="Tridion.Web.UI.Core">
+      <HintPath>..\..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +89,12 @@
     <Content Include="PowerTools\Client\Help\HelpIndividual.xslt">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingMenuCommand.js" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.css" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.js" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.ascx" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommenting.js" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingCommand.js" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.css" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.js" />
@@ -129,6 +134,7 @@
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\ProgressDialog\ProgressDialog.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\tabloader.js" />
     <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_32.png" />
@@ -225,6 +231,10 @@
     </Compile>
     <Compile Include="PowerTools\Client\Help\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.ascx.cs">
+      <DependentUpon>ItemCommentingTab.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.cs">
