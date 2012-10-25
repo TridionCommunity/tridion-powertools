@@ -16,7 +16,7 @@
 
 .PT_ItemCommenting .image {background-image:url({ThemePath}/icons/itemcommenting.16x16.png);}
 .ribbontoolbar .button.PT_ItemCommenting .image {background-image: url({ThemePath}/Icons/itemcommenting.32x32.png);}
-.ribbontoolbar.minimized .button.PT_ItemCommenting .image {background-image: url({ThemePath}/Icons/itemcommenting_16.png);}
+.ribbontoolbar.minimized .button.PT_ItemCommenting .image {background-image: url({ThemePath}/Icons/itemcommenting.16x16.png);}
 
 .PT_Overview .image {background-image:url({ThemePath}/icons/overview_16.png);}
 .ribbontoolbar .button.PT_Overview .image {background-image: url({ThemePath}/Icons/overview_32.png);}
