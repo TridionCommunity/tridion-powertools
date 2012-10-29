@@ -12,84 +12,84 @@ using System.Collections;
 
 namespace PowerTools.Model.Services
 {
-	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
-	[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-	[ServiceContract(Namespace = "PowerTools.Model.Services")]
-	public class ComponentSynchronizer : BaseService
-	{
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
+    [ServiceContract(Namespace = "PowerTools.Model.Services")]
+    public class ComponentSynchronizer : BaseService
+    {
         class CompSyncParameters
-		{
-			public string[] SelectedUrIs { get; set; }
-			public string ReferenceComponentUri { get; set; }
-			
-		}
+        {
+            public string[] SelectedUrIs { get; set; }
+            public string ReferenceComponentUri { get; set; }
+            
+        }
 
         private IList _processedItems = new ArrayList();
 
-		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-		public ServiceProcess Execute(string selectedUrIs, string referenceComponentUri)
-		{
+        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public ServiceProcess Execute(string selectedUrIs, string referenceComponentUri)
+        {
             if (string.IsNullOrEmpty(selectedUrIs))
-			{
+            {
                 throw new ArgumentNullException("selectedUrIs");
-			}
+            }
 
             if (string.IsNullOrEmpty(referenceComponentUri))
-			{
+            {
                 throw new ArgumentNullException("referenceComponentUri");
-			}
+            }
 
             selectedUrIs = selectedUrIs.Replace("[", "");
             selectedUrIs = selectedUrIs.Replace("]", "");
             selectedUrIs = selectedUrIs.Replace("\"", "");
             CompSyncParameters arguments = new CompSyncParameters { SelectedUrIs = selectedUrIs.Split(','), ReferenceComponentUri =referenceComponentUri };
-			return ExecuteAsync(arguments);
-		}
+            return ExecuteAsync(arguments);
+        }
 
-		[OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-		public override ServiceProcess GetProcessStatus(string Id)
-		{
-			return base.GetProcessStatus(Id);
-		}
+        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public override ServiceProcess GetProcessStatus(string Id)
+        {
+            return base.GetProcessStatus(Id);
+        }
 
-		public override void Process(ServiceProcess process, object arguments)
-		{
+        public override void Process(ServiceProcess process, object arguments)
+        {
             CompSyncParameters parameters = (CompSyncParameters)arguments;
-			if (parameters.SelectedUrIs == null)
-			{
-				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "List '{0}' is null.", parameters.SelectedUrIs));
-			}
+            if (parameters.SelectedUrIs == null)
+            {
+                throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "List '{0}' is null.", parameters.SelectedUrIs));
+            }
 
-			var client = Client.GetCoreService();
+            var client = Client.GetCoreService();
 
-			try
-			{
+            try
+            {
 
-				int i = 0;
+                int i = 0;
                 ComponentData ReferenceComponentData = client.Read(parameters.ReferenceComponentUri,new ReadOptions()) as ComponentData;
-				
+                
                 foreach (string uri in parameters.SelectedUrIs)
-				{
+                {
                     ComponentData currentComponent = client.Read(uri, new ReadOptions()) as ComponentData;
-					process.SetStatus("Synchronizing: " + currentComponent.Title);
+                    process.SetStatus("Synchronizing: " + currentComponent.Title);
                     _processedItems.Add(uri);
                     process.SetCompletePercentage(++i * 100 / parameters.SelectedUrIs.Length);
-					System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
-				}
+                    System.Threading.Thread.Sleep(500); // Temp, until it actually does something :)
+                }
                 process.SetStatus("Synchronization succesfully finished!");
                 process.Complete();
                 _processedItems = new ArrayList();
 
-			}
-			finally
-			{
-				if (client != null)
-				{
-					client.Close();
-				}
-			}
-		}
-	}
+            }
+            finally
+            {
+                if (client != null)
+                {
+                    client.Close();
+                }
+            }
+        }
+    }
 }
 
 
