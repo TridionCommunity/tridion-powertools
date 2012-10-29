@@ -8,9 +8,9 @@ function ViewInFrontEnd(settings)
     var FIELD_NAME = "Publishing URL";
     
     var classToBeReturned =  function() 
-	{
+    {
         Type.enableInterface(this, settings.fullQName);
-		this.addInterface("PowerTools.BaseCommand", [settings.className]);
+        this.addInterface("PowerTools.BaseCommand", [settings.className]);
 
         this.settings = settings;
         
@@ -32,10 +32,10 @@ function ViewInFrontEnd(settings)
                     var itemXml = item.getStaticXmlDocument();
                     
                     $ptUtils.getStaticItem(publicationId, function(publication) {
-			var pubLocationUrl =  _getPublishLocationUrl(itemXml);
-			if($this.settings.rewriteFileExtension) {
-				pubLocationUrl = pubLocationUrl.replace(new RegExp("\.[^.]*$","i"),$this.settings.rewriteFileExtension);
-			}
+            var pubLocationUrl =  _getPublishLocationUrl(itemXml);
+            if($this.settings.rewriteFileExtension) {
+                pubLocationUrl = pubLocationUrl.replace(new RegExp("\.[^.]*$","i"),$this.settings.rewriteFileExtension);
+            }
                         window.open(frontEndUrl + pubLocationUrl);
                     });
                 }, null, false);
@@ -58,11 +58,11 @@ function ViewInFrontEnd(settings)
     }
     
     classToBeReturned.prototype.isValidSelection = function(selection, pipeline) 
-	{
+    {
         var items = selection.getItems();
 
         if (items.length != 1) 
-		{
+        {
             return false;
         }
 
@@ -70,28 +70,28 @@ function ViewInFrontEnd(settings)
         var item = $models.getItem(itemId);
 
         if (!item || item.getItemType() != $const.ItemType.PAGE)
-		{
+        {
             return false;
         }
 
         if (pipeline) 
-		{
+        {
             pipeline.stop = false;
         }
         return true;
     };
 
     classToBeReturned.prototype._execute = function(selection, pipeline) 
-	{
+    {
         var itemId = selection.getItem(0);
 
         if (itemId)
-		{
+        {
             this._getUrlAndViewInFrontEnd(itemId)
         }
 
         if (pipeline) 
-		{
+        {
             pipeline.stop = false;
         }
     };
@@ -100,7 +100,7 @@ function ViewInFrontEnd(settings)
      * Finds URL value in the configuration component XML.
      */
     function _getPreviewUrlFromConfiguration($cfg, publication, target) 
-	{
+    {
         return $cfg
             .find('publications:has(name:contains(' + publication + '))')
             .find('targets:has(name:contains(' + target + '))')
