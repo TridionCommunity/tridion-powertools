@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 
+//TODO - anyone know why this is here?
 
 namespace PowerTools.Model.Utils
 {
