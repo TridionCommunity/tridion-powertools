@@ -2,6 +2,18 @@
 
 = Updates =
 
+(31-July-2012) Check out Dominic's branch and [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main join the flow] for progress on Component Synchronizer.
+
+(30-June-2012) 
+We're "live" with:
+ * Application Data Inspector
+ * Count Items
+ * Image Uploader
+ * ItemXML
+ * Page Publisher
+ * PowerTools Help
+ * Schema Documentation (context menu)
+
 (16-June-2012) Two weeks to first release.
 
 (02-Mar-2012) Great news, FlowDock's CEO, [https://twitter.com/#!/mutru Otto Hilska], gave us a one-year extension. See you on our [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main FlowDock collaboration site].
