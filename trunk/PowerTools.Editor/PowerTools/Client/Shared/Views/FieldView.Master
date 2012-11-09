@@ -19,8 +19,7 @@ class="tridion popup">
 	</asp:ScriptManager>
 	<div id="PowerToolIcon">
 	</div>
-	<h1>
-		<%=Page.Title %></h1>
+	<h1><%=Page.Title %></h1>
 	<div id="container" style="padding: 10px">
 		<asp:ContentPlaceHolder ID="Main" runat="server">
 		</asp:ContentPlaceHolder>
