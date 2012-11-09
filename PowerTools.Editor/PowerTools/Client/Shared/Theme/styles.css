@@ -18,6 +18,10 @@
 .ribbontoolbar .button.PT_ItemCommenting .image {background-image: url({ThemePath}/Icons/itemcommenting.32x32.png);}
 .ribbontoolbar.minimized .button.PT_ItemCommenting .image {background-image: url({ThemePath}/Icons/itemcommenting.16x16.png);}
 
+.PT_WorkflowNotificationSettings .image {background-image:url({ThemePath}/icons/workflownotificationsettings.16x16.png);}
+.ribbontoolbar .button.PT_WorkflowNotificationSettings .image {background-image: url({ThemePath}/Icons/workflownotificationsettings.32x32.png);}
+.ribbontoolbar.minimized .button.PT_WorkflowNotificationSettings .image {background-image: url({ThemePath}/Icons/workflownotificationsettings.16x16.png);}
+
 .PT_Overview .image {background-image:url({ThemePath}/icons/overview_16.png);}
 .ribbontoolbar .button.PT_Overview .image {background-image: url({ThemePath}/Icons/overview_32.png);}
 .ribbontoolbar.minimized .button.PT_Overview .image {background-image: url({ThemePath}/Icons/overview_16.png);}
