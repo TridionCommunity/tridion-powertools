@@ -85,18 +85,14 @@ namespace PowerTools.Model.Services
         {
             _client = Client.GetCoreService();
             ApplicationData appdata = _client.ReadApplicationData(itemID, applicationID);
-            String response = ASCIIEncoding.ASCII.GetString(appdata.Data);
-            _client.Close();
-            //XDocument appDataXml = XDocument.Parse("<AppData>" + response + "</AppData>");
-            //XslCompiledTransform transformer = new XslCompiledTransform();
-            //String pathXSLT = HostingEnvironment.MapPath("~/Services/TransformChangeHistoryData.xslt");
-            //transformer.Load(pathXSLT);
-            //StringBuilder sb = new StringBuilder();
-            //StringWriter sw = new StringWriter(sb);
+            String response = "";
 
-            //XmlWriter writer = new XmlTextWriter(sw);
-            //transformer.Transform(appDataXml.CreateReader(), writer);
-            String result = "<AppData>" + response + "</AppData>";
+            if (appdata != null)
+            {
+                response = ASCIIEncoding.ASCII.GetString(appdata.Data);
+            }
+            _client.Close();
+            String result = "<AppData ApplicationID=\"" + applicationID + "\" ItemID=\"" + itemID + "\">" + response + "</AppData>";
             return result;
         }
 
