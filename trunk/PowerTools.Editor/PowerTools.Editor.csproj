@@ -275,6 +275,13 @@
     <Compile Include="PowerTools\Client\Shared\Views\PowerToolsPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.aspx.cs">
+      <DependentUpon>WorkflowNotificationSettingsPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.aspx.designer.cs">
+      <DependentUpon>WorkflowNotificationSettingsPopup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <!--<ItemGroup>
@@ -299,6 +306,9 @@
   <ItemGroup>
     <Content Include="PowerTools\Client\ShowPublishTasks\ShowPublishTasks.js" />
     <Content Include="PowerTools\Client\ViewInFrontend\ViewInFrontEnd.js" />
+    <Content Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.js" />
+    <Content Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.aspx" />
+    <Content Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsCommand.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
