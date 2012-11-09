@@ -7,7 +7,10 @@ namespace PowerTools.Model.Services
 	{
 		[DataMember]
 		public string UserName;
-
+        [DataMember]
+        public string UserDescription;
+        [DataMember]
+        public string UserID;
         // add additional serialized data members as needed
 	}
 }
