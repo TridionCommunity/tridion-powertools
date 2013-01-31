@@ -5,6 +5,15 @@
     * [News]
       * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
       * [ReleaseHistory Releases]
+  * [WorkingTools Working Tools]
+      * AppDataInspector
+      * BatchImageUploader
+      * CountItems
+      * ExamplePowerTool
+      * PagePublisher (GUI work in progress)
+      * PowerTools Help
+      * Schema Documenter
+      * ItemCommenting
   * [Requirements]
     * [ComponentSynchronizer]
     * [PagePublisher]
