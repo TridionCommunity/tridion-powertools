@@ -1,4 +1,5 @@
 #summary Active tools.
+#labels Featured
 
 == Working Tools ==
  * AppDataInspector
