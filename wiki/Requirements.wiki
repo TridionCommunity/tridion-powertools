@@ -10,6 +10,7 @@ Add sections for "in testing" and "released" when ready, here or on [Tasks] page
  * PagePublisher (GUI work in progress)
  * PowerTools Help
  * Schema Documenter
+ * ItemCommenting
 
 == Potential Tools  ==
 (please update status)
