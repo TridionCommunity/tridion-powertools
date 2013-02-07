@@ -1,6 +1,6 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
 
- * [PowerTools SDL Tridion PowerTools]
+ * [PowerTools Project Information]
   * *[GetInvolved Get Involved]*
   * About the Project
    * [Volunteers Project Leads]
