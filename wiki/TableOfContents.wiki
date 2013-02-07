@@ -29,8 +29,8 @@
     * PublishToChildren
     * QuickSearchReplace   
     * ShowLists
-    * XMLFieldRenamer
-    * XMLViewerXPathSearcher   
+    * [XMLFieldRenamer]
+    * [XMLViewerXPathSearcher]   
   * [ReleaseHistory Releases]
  * *[Development For Developers]*
   * [News Latest News]
