@@ -22,6 +22,7 @@
     * [PowerPreview]
    * Tool Ideas
     * [CandidateTools T2009 PT Matrix]
+    * AccessExplorer
     * AccessPermissionsManager
     * AccessRightsManager
     * AddUser
@@ -48,6 +49,7 @@
     * [Utils Item picker]
     * [BaseClass Javascript Base Class]
     * [DeactivateJSMinifier Deactivate JS Minifier]
+    * ClearBrowserCache
   * [Testing]
   * Documentation
    * [RequirementsTemplate Wiki Template]
