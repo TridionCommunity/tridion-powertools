@@ -40,5 +40,5 @@
   * Documentation
    * [RequirementsTemplate]
   * Community Resources
-   * [http://groups.google.com/group/tridion-powertools Discussion 
+   * [http://groups.google.com/group/tridion-powertools Discussion] 
  * *[Help Wiki Help]*
