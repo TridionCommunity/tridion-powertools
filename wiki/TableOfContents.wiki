@@ -1,6 +1,6 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
 
-* [PowerTools SDL Tridion PowerTools]
+ * [PowerTools SDL Tridion PowerTools]
   * [WorkingTools Completed Tools]
           * AppDataInspector
           * BatchImageUploader
@@ -18,24 +18,22 @@
     * [AppDataInspector]
   * [Tasks How you can help] 
   * [News]
-      * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
       * [ReleaseHistory Releases]
-
-
+      * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
+ * [Help]
  * [Development]
-   * [nononsenseguide Getting Started "No Nonsense" Guide]
+  * [nononsenseguide Getting Started "No Nonsense" Guide]
   * [DesignGuidelines]
    * [Standards]
-    * [CodingStandards Code]
-      * [CodingGuidelines_Anguilla JavaScript]
-   * [Testing]
-   * [BaseClass Javascript Base Class]
-   * [Utils]
-    *[ItemPicker Item picker]
-   * [DevelopmentTools Developer Tools]
-    * [DeactivateJSMinifier Deactivate JS Minifier]
-   * [SkypeLog Skype Discussions]
-    * [SkypeDiscussionLogWeek0 Week 0 Discussion on Skype]
+   * [CodingStandards Code]
+   * [CodingGuidelines_Anguilla JavaScript]
+  * [Testing]
+  * [BaseClass Javascript Base Class]
+  * [Utils]
+   *[ItemPicker Item picker]
+  * [DevelopmentTools Developer Tools]
+   * [DeactivateJSMinifier Deactivate JS Minifier]
+  * [SkypeLog Skype Discussions]
+   * [SkypeDiscussionLogWeek0 Week 0 Discussion on Skype]
   * Documentation
-   * [RequirementsTemplate [Wiki Template]]
-  * [Help]
+   * [RequirementsTemplate]
