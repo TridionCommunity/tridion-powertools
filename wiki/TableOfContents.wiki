@@ -3,18 +3,17 @@
  * [PowerTools SDL Tridion PowerTools]
   * *[GetInvolved Get Involved]*
   * The Tools
-   * [WorkingTools Completed Tools]
-          * AppDataInspector
-          * BatchImageUploader
-          * CountItems
-          * ExamplePowerTool
-          * PagePublisher (GUI work in progress)
-          * [HelpTool PowerTools Help]
-          * Schema Documenter
-          * ItemCommenting
-   * [Requirements Tools in Development]
+   * Completed Tools
+    * AppDataInspector
+    * BatchImageUploader
+    * CountItems
+    * ExamplePowerTool
+    * PagePublisher (GUI work in progress)
+    * [HelpTool PowerTools Help]
+    * Schema Documenter
+    * ItemCommenting
+   * Tools in Development
     * [ComponentSynchronizer]
-    * [SchemaFieldRemover]
    * Tool Ideas
     * [CandidateTools T2009 PT Matrix]
     * SchemaFieldRemover
