@@ -2,7 +2,8 @@
 
  * [PowerTools SDL Tridion PowerTools]
   * *[GetInvolved Get Involved]*
-  * [WorkingTools Completed Tools]
+  * Tools
+   * [WorkingTools Completed Tools]
           * AppDataInspector
           * BatchImageUploader
           * CountItems
@@ -11,9 +12,9 @@
           * [HelpTool PowerTools Help]
           * Schema Documenter
           * ItemCommenting
-  * [Requirements Tools in Development]
+   * [Requirements Tools in Development]
     * [ComponentSynchronizer]
-  * [CandidateTools Tool Ideas]
+   * [CandidateTools Tool Ideas]
   * [ReleaseHistory Releases]
       (leaves Google Code)]
  * *[Development For Developers]*
