@@ -1,0 +1,10 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+The Item Commenting tool is an additional save button which allows editors of any item to "Save and Comment" on the changes they have made. The comments are saved in the AppData of the object, and visible through a new tab on the item window.
+
+
+= Details =
+
+The tool is currently configured for Components and Pages, but can be extended to support any  item type by modifying the configuration
