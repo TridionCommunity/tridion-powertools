@@ -2,7 +2,7 @@
 
  * [PowerTools SDL Tridion PowerTools]
   * *[GetInvolved Get Involved]*
-  * Tools
+  * The Tools
    * [WorkingTools Completed Tools]
           * AppDataInspector
           * BatchImageUploader
