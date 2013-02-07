@@ -23,7 +23,7 @@
 
 
   * [Development]
-   * *[nononsenseguide Getting Started "No Nonsense" Guide]*
+   * [nononsenseguide Getting Started "No Nonsense" Guide]
   * [DesignGuidelines]
    * [Standards]
     * [CodingStandards Code]
