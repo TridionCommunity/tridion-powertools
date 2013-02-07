@@ -24,7 +24,7 @@
 
   * [Development]
    * *[nononsenseguide Getting Started "No Nonsense" Guide]*
-   * [DesignGuidelines]
+  * [DesignGuidelines]
    * [Standards]
     * [CodingStandards Code]
       * [CodingGuidelines_Anguilla JavaScript]
