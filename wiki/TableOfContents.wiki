@@ -4,7 +4,7 @@
   * *[GetInvolved Get Involved]*
   * About the Project
    * [Volunteers Project Leads]
-   * [Governance Project Governance]
+   * [Governance Governance]
    * [Logo]
   * The Tools
    * Completed Tools
