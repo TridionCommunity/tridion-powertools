@@ -40,5 +40,7 @@
   * Documentation
    * [RequirementsTemplate]
   * Community Resources
-   * [http://groups.google.com/group/tridion-powertools Discussion] 
+   * [http://groups.google.com/group/tridion-powertools PowerTools Group]
+   * [https://groups.google.com/forum/?fromgroups#!forum/tridion-community-announcements  Community Announcements]
+
  * *[Help Wiki Help]*
