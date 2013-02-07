@@ -14,10 +14,10 @@
   * [Requirements Tools in Development]
     * [ComponentSynchronizer]
   * [CandidateTools Tool Ideas]
-  * [News Latest News]
-      * [ReleaseHistory Releases]
-      * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
+  * [ReleaseHistory Releases]
+      (leaves Google Code)]
  * *[Development For Developers]*
+  * [News Latest News]
   * [InstallationGuide Installation Guide]
   * [nononsenseguide Getting Started "No Nonsense" Guide]
   * [DesignGuidelines]
@@ -34,4 +34,5 @@
    * [SkypeDiscussionLogWeek0 Week 0 Discussion on Skype]
   * Documentation
    * [RequirementsTemplate]
+  * [http://groups.google.com/group/tridion-powertools Discussion 
  * *[Help Wiki Help]*
