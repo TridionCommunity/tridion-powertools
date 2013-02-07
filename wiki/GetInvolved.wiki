@@ -1,4 +1,5 @@
 #summary How can you get involved with the SDL Tridion PowerTools project?
+#labels Featured
 
 = Introduction =
 
