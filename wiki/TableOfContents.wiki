@@ -11,7 +11,7 @@
     * AppDataInspector
     * BatchImageUploader
     * CountItems
-    * ExamplePowerTool
+    * ExampleTool
     * PagePublisher (GUI work in progress)
     * [HelpTool PowerTools Help]
     * Schema Documenter
