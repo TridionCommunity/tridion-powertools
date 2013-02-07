@@ -4,7 +4,8 @@
   * *[GetInvolved Get Involved]*
   * About the Project
    * [Volunteers Project Leads]
-   * Governance
+   * [Governance Project Governance]
+   * Logo
   * The Tools
    * Completed Tools
     * AppDataInspector
