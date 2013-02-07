@@ -1,20 +1,6 @@
 #summary Updates - Product Status
 #labels Phase-Requirements
 
-<wiki:toc max_depth="2" />
-----
-*See [Requirements] for individual tool progress and the wishlist for new tools.*
-----
-
-= Release 1 ETA June 30, 2012 =
-_Please discussion and offer suggestions on the [https://groups.google.com/forum/#!topic/tridion-powertools/fTsk1Yx5aWk group post on version 1.0]._
-  # *Done.* Create installer (Mihai volunteered, but we can help gather examples and info)
-  # *Started (50%).* Change [Nononsenseguide] into a "Developer Toolkit"
-  # *Started (50%).* Alpha in progress ("internal" testing)
-  # *Planned for June 30*. Beta Release late Q4 2012
-  # Release Candidate (RC) Q3 2012
-  # PowerTools version 0.9 or 1.0 based on progress mid-2012
-
 = We Need Your Help =
 
 Consider which part of development you're interested/comfortable with:
@@ -22,3 +8,6 @@ Consider which part of development you're interested/comfortable with:
  * *Webservice* back-end (Webservices, Core API, etc)
  * *Client-side UI* (JavaScript, CSS, and XHTML)
  * *Client-side Logic* (JQuery/JavaScript by implication)
+
+= Specific Tasks =
+ * TBD
