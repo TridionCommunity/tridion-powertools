@@ -14,6 +14,7 @@
           * ItemCommenting
    * [Requirements Tools in Development]
     * [ComponentSynchronizer]
+    * [SchemaFieldRemover]
    * Tool Ideas
     * [CandidateTools T2009 PT Matrix]
     * SchemaFieldRemover
