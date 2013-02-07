@@ -13,7 +13,7 @@
   * [Requirements Tool in Progress]
     * [ComponentSynchronizer]
   * Tool Ideas
-  * [Tasks How you can help] 
+  * [GetInvolved Get Involved] 
   * [News]
       * [ReleaseHistory Releases]
       * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
