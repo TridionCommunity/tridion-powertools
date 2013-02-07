@@ -1,38 +1,46 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
 
-  * Project
-    * [Tasks] 
-    * [News]
-      * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
-      * [ReleaseHistory Releases]
-  * [WorkingTools Working Tools]
-      * AppDataInspector
-      * BatchImageUploader
-      * CountItems
-      * ExamplePowerTool
-      * PagePublisher (GUI work in progress)
-      * PowerTools Help
-      * Schema Documenter
-      * ItemCommenting
-  * [Requirements]
+ * PowerTools Wiki
+  * [WorkingTools Completed Tools]
+          * AppDataInspector
+          * BatchImageUploader
+          * CountItems
+          * ExamplePowerTool
+          * PagePublisher (GUI work in progress)
+          * PowerTools Help
+          * Schema Documenter
+          * ItemCommenting
+  * Tool in Progress
     * [ComponentSynchronizer]
     * [PagePublisher]
     * [BatchImageUploader]
     * [CountItems]
     * [AppDataInspector]
-    * [RequirementsTemplate [Wiki Template]]
-  * [Standards]
+  * [Tasks] 
+  * [News]
+      * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
+      * [ReleaseHistory Releases]
+
+  * [Requirements]
+
+    
+
+    
+
+  * [Development Developers ]
+   * *[nononsenseguide Getting Started "No Nonsense" Guide]*
+   * DesignGuidelines
+   * [Standards]
     * [CodingStandards Code]
       * [CodingGuidelines_Anguilla JavaScript]
-    * DesignGuidelines
-  * [Testing]
-  * [Development]
-    * *[nononsenseguide Getting Started "No Nonsense" Guide]*
-    * [BaseClass Javascript Base Class]
-    * [Utils]
-      *[ItemPicker Item picker]
-    * [DevelopmentTools Developer Tools]
-      * [DeactivateJSMinifier Deactivate JS Minifier]
-    * [SkypeLog Skype Discussions]
-      * [SkypeDiscussionLogWeek0 Week 0 Discussion on Skype]
+   * [Testing]
+   * [BaseClass Javascript Base Class]
+   * [Utils]
+    *[ItemPicker Item picker]
+   * [DevelopmentTools Developer Tools]
+    * [DeactivateJSMinifier Deactivate JS Minifier]
+   * [SkypeLog Skype Discussions]
+    * [SkypeDiscussionLogWeek0 Week 0 Discussion on Skype]
+  * Documentation
+   * [RequirementsTemplate [Wiki Template]]
   * [Help]
