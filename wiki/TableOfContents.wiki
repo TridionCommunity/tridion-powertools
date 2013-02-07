@@ -32,9 +32,9 @@
     * [JavaScript JavaScript]
     * [CodingGuidelines_Anguilla Anguilla]
    * [Testing]
-   * [BaseClass Javascript Base Class]
-   * [Utils]
-    *[ItemPicker Item picker]
+   * Reusable Code
+    *[Utils Item picker]
+    * [BaseClass Javascript Base Class]
    * [DevelopmentTools Developer Tools]
    * [DeactivateJSMinifier Deactivate JS Minifier]
   * Documentation
