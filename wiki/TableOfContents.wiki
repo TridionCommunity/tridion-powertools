@@ -15,7 +15,7 @@
    * [Requirements Tools in Development]
     * [ComponentSynchronizer]
    * Tool Ideas
-    * [CandidateTools Tridion 2009 PT Matrix]
+    * [CandidateTools T2009 PT Matrix]
     * SchemaFieldRemover
     * AddUser
     * ComponentSynchronizer2
