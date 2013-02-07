@@ -26,8 +26,8 @@
   * [Tasks What needs doing?]
   * [InstallationGuide Installation Guide]
   * [nononsenseguide Development Guide]
-  * [DesignGuidelines]
-   * [Standards]
+  * Design Guidelines
+   * [DesignGuidelines]
    * [CodingStandards Code]
    * [CodingGuidelines_Anguilla JavaScript]
    * [Testing]
