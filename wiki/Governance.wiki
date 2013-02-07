@@ -1,6 +1,5 @@
-#summary Standards - Project
+#summary How we run the project
 #labels Phase-Requirements
-
 #sidebar TableOfContents
 
 <wiki:toc max_depth="1" />
