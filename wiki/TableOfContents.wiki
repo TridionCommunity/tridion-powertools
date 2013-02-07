@@ -30,7 +30,7 @@
     * QuickSearchReplace   
     * ShowLists
     * [XMLFieldRenamer]
-    * [XMLViewerXPathSearcher]   
+    * [XMLViewerXPathSearcher XML/XPathViewer]   
   * [ReleaseHistory Releases]
  * *[Development For Developers]*
   * [News Latest News]
