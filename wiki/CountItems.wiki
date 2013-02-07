@@ -5,6 +5,8 @@ This tool was originally created by Quirijn Slings (back in R5.2? times). For T2
 
 A great little tool to learn the T2011 GUI Extension mechanism, .NET WCF service contepts, JQuery, web-methods, PowerTools framework project.
 
+https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/CountItems.png
+
 *Difficulty:* easy/medium depending on skills.
 
 = Details =
