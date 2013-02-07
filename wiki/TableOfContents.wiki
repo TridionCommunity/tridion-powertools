@@ -1,6 +1,6 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
 
- * PowerTools Wiki
+ * [PowerTools SDL Tridion PowerTools]
   * [WorkingTools Completed Tools]
           * AppDataInspector
           * BatchImageUploader
@@ -16,12 +16,10 @@
     * [BatchImageUploader]
     * [CountItems]
     * [AppDataInspector]
-  * [Tasks] 
+  * [Tasks How you can help] 
   * [News]
       * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
       * [ReleaseHistory Releases]
-
-  * 
 
     
 
