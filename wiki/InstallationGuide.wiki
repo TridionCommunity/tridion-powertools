@@ -1,11 +1,11 @@
 #summary How-To Guide - Installation
-#labels Featured,Phase-Implementation
+#labels Phase-Implementation
 
 ----
 *_To help develop a !PowerTool see [nononsenseguide] instead._*
 ----
 
-*Update: only use the following to build your PowerTools from Visual Studio, otherwise use the [http://code.google.com/p/tridion-2011-power-tools/downloads/detail?name=PowerTools%202011%20RC1_1.msi installer].*
+*Update: only use the following to build your PowerTools from Visual Studio, otherwise use the [http://code.google.com/p/tridion-2011-power-tools/downloads/detail?name=PowerTools%202011%20RC1_1.msi RC1 installer].*
 
 = Installation guide =
 
