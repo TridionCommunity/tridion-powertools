@@ -10,7 +10,7 @@
           * PowerTools Help
           * Schema Documenter
           * ItemCommenting
-  * Tool in Progress
+  * [Requirements Tool in Progress]
     * [ComponentSynchronizer]
     * [PagePublisher]
     * [BatchImageUploader]
@@ -21,7 +21,7 @@
       * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
       * [ReleaseHistory Releases]
 
-  * [Requirements]
+  * 
 
     
 
