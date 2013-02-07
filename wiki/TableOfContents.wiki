@@ -28,7 +28,7 @@
   * [nononsenseguide Development Guide]
   * Design Guidelines
    * [DesignGuidelines Introduction]
-   * [CodingStandards Code]
+   * [CodingStandards Coding Standards ]
     * [JavaScript JavaScript]
     * [CodingGuidelines_Anguilla Anguilla]
    * [Testing]
