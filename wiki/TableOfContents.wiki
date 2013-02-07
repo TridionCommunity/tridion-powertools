@@ -4,6 +4,7 @@
   * *[GetInvolved Get Involved]*
   * About the Project
    * [Volunteers Project Leads]
+   * Governance
   * The Tools
    * Completed Tools
     * AppDataInspector
@@ -47,8 +48,8 @@
     * [DeactivateJSMinifier Deactivate JS Minifier]
    * [DevelopmentTools Developer Tools]
 
-  * Documentation
-   * [RequirementsTemplate Tool Template]
+   * Documentation
+    * [RequirementsTemplate Tool Template]
   * Community Resources
    * [http://groups.google.com/group/tridion-powertools PowerTools Group]
    * [https://groups.google.com/forum/?fromgroups#!forum/tridion-community-announcements  Community Announcements]
