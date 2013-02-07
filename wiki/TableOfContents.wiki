@@ -40,6 +40,7 @@
  * *[Development For Developers]*
   * [News Latest News]
   * [Tasks What needs doing?]
+  * [http://code.google.com/p/tridion-2011-power-tools/issues/list Issue List]
   * [Definitions Terminology]
   * [InstallationGuide Installation Guide]
   * [nononsenseguide Development Guide]
@@ -63,3 +64,4 @@
   * [https://groups.google.com/forum/?fromgroups#!forum/tridion-community-announcements  Community Announcements]
   * [https://plus.google.com/u/0/communities/106444984308684362269 Google+ Community]
  * *[Help Wiki Help]*
+ * *[http://code.google.com/p/tridion-2011-power-tools/w/list Wiki Index]
