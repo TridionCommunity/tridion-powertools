@@ -1,7 +1,8 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
+#labels Featured
 
  * [PowerTools SDL Tridion PowerTools]
-  * *[GetInvolved Get Involved]*
+  * [GetInvolved Get Involved]
   * [WorkingTools Completed Tools]
           * AppDataInspector
           * BatchImageUploader
