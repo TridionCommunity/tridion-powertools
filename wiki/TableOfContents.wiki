@@ -1,5 +1,4 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
-#labels Featured
 
  * [PowerTools SDL Tridion PowerTools]
   * [GetInvolved Get Involved]
