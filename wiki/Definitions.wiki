@@ -1,4 +1,7 @@
-#summary Help - Terminology
+#summary SDL Tridion Terminology
+
+=SDL Tridion Terminology=
+
 <wiki:toc max_depth="2" />
 
 == Content Management Editor (CME) ==
