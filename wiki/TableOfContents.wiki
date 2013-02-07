@@ -15,7 +15,7 @@
     * [ComponentSynchronizer]
   * Tool Ideas
  
-  * [News]
+  * [News Latest News]
       * [ReleaseHistory Releases]
       * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
  * [Help]
