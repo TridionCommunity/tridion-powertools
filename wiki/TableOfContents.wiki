@@ -1,6 +1,6 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
 
- * [PowerTools SDL Tridion PowerTools]
+* [PowerTools SDL Tridion PowerTools]
   * [WorkingTools Completed Tools]
           * AppDataInspector
           * BatchImageUploader
@@ -22,7 +22,7 @@
       * [ReleaseHistory Releases]
 
 
-  * [Development]
+ * [Development]
    * [nononsenseguide Getting Started "No Nonsense" Guide]
   * [DesignGuidelines]
    * [Standards]
