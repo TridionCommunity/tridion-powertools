@@ -27,9 +27,13 @@
     * AccessRightsManager
     * AddUser
     * ComponentSynchronizer2
+    * ComponentUnpublisher
+    * PageUnpublisher
     * PublishToChildren
-    * QuickSearchReplace   
+    * QuickSearchReplace
+    * SchemaTemplateRelationships   
     * ShowLists
+    * [Overview System Overview]
     * [XMLFieldRenamer]
     * [XMLViewerXPathSearcher XML/XPathViewer]   
   * [ReleaseHistory Releases]
@@ -40,6 +44,7 @@
   * [InstallationGuide Installation Guide]
   * [nononsenseguide Development Guide]
   * [DevelopmentTools Tools/Software]
+   * [SourceControl SVN Primer]
   * Design Guidelines
    * [DesignGuidelines Introduction]
    * [CodingStandards Coding Standards ]
