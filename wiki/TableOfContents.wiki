@@ -8,7 +8,7 @@
           * CountItems
           * ExamplePowerTool
           * PagePublisher (GUI work in progress)
-          * [Help PowerTools Help]
+          * [HelpTool PowerTools Help]
           * Schema Documenter
           * ItemCommenting
   * [Requirements Tool in Progress]
