@@ -23,6 +23,7 @@
   * [ReleaseHistory Releases]
  * *[Development For Developers]*
   * [News Latest News]
+  * [Tasks What needs doing?]
   * [InstallationGuide Installation Guide]
   * [nononsenseguide Development Guide]
   * [DesignGuidelines]
