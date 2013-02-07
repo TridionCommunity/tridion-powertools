@@ -1,6 +1,7 @@
 #summary Wiki - Table of Contents (used for the sidebar nav)
 
  * [PowerTools SDL Tridion PowerTools]
+  * *[GetInvolved Get Involved]*
   * [WorkingTools Completed Tools]
           * AppDataInspector
           * BatchImageUploader
@@ -13,7 +14,7 @@
   * [Requirements Tool in Progress]
     * [ComponentSynchronizer]
   * Tool Ideas
-  * [GetInvolved Get Involved] 
+ 
   * [News]
       * [ReleaseHistory Releases]
       * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
