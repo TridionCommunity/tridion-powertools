@@ -2,6 +2,8 @@
 
  * [PowerTools SDL Tridion PowerTools]
   * *[GetInvolved Get Involved]*
+  * About the Project
+   * [Volunteers Project Leads]
   * The Tools
    * Completed Tools
     * AppDataInspector
@@ -21,10 +23,16 @@
     * AddUser
     * ComponentSynchronizer2
     * PublishToChildren
+    * AccessRightsManager
+    * AccessPermissionsManager
+    * ShowLists
+    * XMLFieldRenamer
+    * XMLViewerXPathSearcher   
   * [ReleaseHistory Releases]
  * *[Development For Developers]*
   * [News Latest News]
   * [Tasks What needs doing?]
+  * [Definitions Terminology]
   * [InstallationGuide Installation Guide]
   * [nononsenseguide Development Guide]
   * Design Guidelines
