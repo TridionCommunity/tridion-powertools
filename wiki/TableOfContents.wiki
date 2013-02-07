@@ -22,7 +22,7 @@
       * [ReleaseHistory Releases]
 
 
-  * [Development Developer Guides ]
+  * [Development Developer Guides]
    * *[nononsenseguide Getting Started "No Nonsense" Guide]*
    * DesignGuidelines
    * [Standards]
