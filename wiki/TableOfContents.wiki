@@ -5,7 +5,7 @@
   * About the Project
    * [Volunteers Project Leads]
    * [Governance Project Governance]
-   * Logo
+   * [Logo]
   * The Tools
    * Completed Tools
     * AppDataInspector
