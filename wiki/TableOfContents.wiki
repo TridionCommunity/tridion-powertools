@@ -15,7 +15,7 @@
     * [PagePublisher]
     * [BatchImageUploader]
     * [CountItems]
-    * [AppDataInspector]
+  * Tool Ideas
   * [Tasks How you can help] 
   * [News]
       * [ReleaseHistory Releases]
