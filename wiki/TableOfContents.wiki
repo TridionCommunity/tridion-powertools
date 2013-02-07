@@ -36,20 +36,19 @@
   * [Definitions Terminology]
   * [InstallationGuide Installation Guide]
   * [nononsenseguide Development Guide]
+  * [DevelopmentTools Developer Tools]
   * Design Guidelines
    * [DesignGuidelines Introduction]
    * [CodingStandards Coding Standards ]
     * [JavaScript JavaScript]
     * [CodingGuidelines_Anguilla Anguilla]
-   * [Testing]
-   * Reusable Code & Tips
-    * [Utils Item picker]
-    * [BaseClass Javascript Base Class]
-    * [DeactivateJSMinifier Deactivate JS Minifier]
-   * [DevelopmentTools Developer Tools]
-
-   * Documentation
-    * [RequirementsTemplate Tool Template]
+  * [Testing]
+  * Reusable Code & Tips
+   * [Utils Item picker]
+   * [BaseClass Javascript Base Class]
+   * [DeactivateJSMinifier Deactivate JS Minifier]
+  * Documentation
+   * [RequirementsTemplate Tool Template]
   * Community Resources
    * [http://groups.google.com/group/tridion-powertools PowerTools Group]
    * [https://groups.google.com/forum/?fromgroups#!forum/tridion-community-announcements  Community Announcements]
