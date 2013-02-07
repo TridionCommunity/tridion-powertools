@@ -29,7 +29,8 @@
   * Design Guidelines
    * [DesignGuidelines Introduction]
    * [CodingStandards Code]
-   * [CodingGuidelines_Anguilla JavaScript]
+    * [JavaScript JavaScript]
+    * [CodingGuidelines_Anguilla Anguilla]
    * [Testing]
    * [BaseClass Javascript Base Class]
    * [Utils]
