@@ -12,9 +12,6 @@
           * ItemCommenting
   * [Requirements Tool in Progress]
     * [ComponentSynchronizer]
-    * [PagePublisher]
-    * [BatchImageUploader]
-    * [CountItems]
   * Tool Ideas
   * [Tasks How you can help] 
   * [News]
