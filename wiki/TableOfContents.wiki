@@ -42,15 +42,15 @@
    * [CodingStandards Coding Standards ]
     * [JavaScript JavaScript]
     * [CodingGuidelines_Anguilla Anguilla]
+   * Reusable Code & Tips
+    * [Utils Item picker]
+    * [BaseClass Javascript Base Class]
+    * [DeactivateJSMinifier Deactivate JS Minifier]
   * [Testing]
-  * Reusable Code & Tips
-   * [Utils Item picker]
-   * [BaseClass Javascript Base Class]
-   * [DeactivateJSMinifier Deactivate JS Minifier]
   * Documentation
-   * [RequirementsTemplate Tool Template]
-  * Community Resources
-   * [http://groups.google.com/group/tridion-powertools PowerTools Group]
-   * [https://groups.google.com/forum/?fromgroups#!forum/tridion-community-announcements  Community Announcements]
-   * [https://plus.google.com/u/0/communities/106444984308684362269 Google+ Community]
+   * [RequirementsTemplate Wiki Template]
+ * Community Resources
+  * [http://groups.google.com/group/tridion-powertools PowerTools Group]
+  * [https://groups.google.com/forum/?fromgroups#!forum/tridion-community-announcements  Community Announcements]
+  * [https://plus.google.com/u/0/communities/106444984308684362269 Google+ Community]
  * *[Help Wiki Help]*
