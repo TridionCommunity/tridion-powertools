@@ -11,6 +11,8 @@ This tool offers a popup (accessed from context menu or ribbon button) or a tab 
 
 It performs a very simplistic deserialization of the data byte array (which can be improved greatly, although for the sole purpose of visualizing the data the current implementation might be enough --- you can check the service AppDataInspector.svc for details).
 
+https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/AppDataInspector.png
+
 Things to note:
 
  * tool uses a popup and a tab GUI extensions, which both make use of a common worker class (which does the actual job)... so I can reuse the AJAX code
