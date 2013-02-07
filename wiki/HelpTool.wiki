@@ -12,6 +12,8 @@ This will be a simple tool as a collection of information, though a more sophist
 ||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
 ||Button on PowerTools dashboard tab||N/A / new suggestion by Alvin Reyes||Medium||Low||In requirements||Good learning experience, but should aim to actually be helpful to end users. Could eventaully incorporate, include, or explain the "example" PowerTool (which can eventually be hidden from regular users) ||
 
+https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/help.png
+
 ==Description==
 Help screen will provide three types of information to the end user:
  # Basic "how-to" information for the released PowerTools
