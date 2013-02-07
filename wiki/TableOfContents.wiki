@@ -11,7 +11,7 @@
           * [HelpTool PowerTools Help]
           * Schema Documenter
           * ItemCommenting
-  * [Requirements Tool in Progress]
+  * [Requirements Tools in Development]
     * [ComponentSynchronizer]
   * [CandidateTools Tool Ideas]
   * [News Latest News]
