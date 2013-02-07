@@ -32,11 +32,12 @@
     * [JavaScript JavaScript]
     * [CodingGuidelines_Anguilla Anguilla]
    * [Testing]
-   * Reusable Code
-    *[Utils Item picker]
+   * Reusable Code & Tips
+    * [Utils Item picker]
     * [BaseClass Javascript Base Class]
+    * [DeactivateJSMinifier Deactivate JS Minifier]
    * [DevelopmentTools Developer Tools]
-   * [DeactivateJSMinifier Deactivate JS Minifier]
+
   * Documentation
    * [RequirementsTemplate Tool Template]
   * Community Resources
