@@ -15,6 +15,7 @@
    * Tools in Development
     * [ComponentSynchronizer]
     * [SchemaFieldRemover]
+    * [PowerPreview]
    * Tool Ideas
     * [CandidateTools T2009 PT Matrix]
     * AddUser
