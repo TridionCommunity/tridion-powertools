@@ -1,4 +1,5 @@
 #summary Project - PowerTools
+#labels Featured
 
 The PowerTools extend the functionality of the Tridion Web Content Management (WCM) system, specifically as a Content Manager Explorer (CME) or GUI extension.
 
