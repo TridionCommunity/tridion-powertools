@@ -15,6 +15,10 @@
    * [Requirements Tools in Development]
     * [ComponentSynchronizer]
    * [CandidateTools Tool Ideas]
+    * SchemaFieldRemover
+    * AddUser
+    * ComponentSynchronizer2
+    * PublishToChildren
   * [ReleaseHistory Releases]
  * *[Development For Developers]*
   * [News Latest News]
