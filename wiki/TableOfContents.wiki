@@ -16,7 +16,6 @@
     * [ComponentSynchronizer]
    * [CandidateTools Tool Ideas]
   * [ReleaseHistory Releases]
-      (leaves Google Code)]
  * *[Development For Developers]*
   * [News Latest News]
   * [InstallationGuide Installation Guide]
