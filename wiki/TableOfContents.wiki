@@ -17,9 +17,9 @@
   * [News Latest News]
       * [ReleaseHistory Releases]
       * [http://groups.google.com/group/tridion-powertools Discussion (leaves Google Code)]
- * [Help]
+  * [Help]
  * [Development]
-  * [nononsenseguide Getting Started "No Nonsense" Guide]
+  * *[nononsenseguide Getting Started "No Nonsense" Guide]*
   * [DesignGuidelines]
    * [Standards]
    * [CodingStandards Code]
