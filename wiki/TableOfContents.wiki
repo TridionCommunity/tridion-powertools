@@ -24,7 +24,7 @@
  * *[Development For Developers]*
   * [News Latest News]
   * [InstallationGuide Installation Guide]
-  * [nononsenseguide Getting Started "No Nonsense" Guide]
+  * [nononsenseguide Development Guide]
   * [DesignGuidelines]
    * [Standards]
    * [CodingStandards Code]
