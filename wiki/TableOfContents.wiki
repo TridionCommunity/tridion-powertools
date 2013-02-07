@@ -37,7 +37,7 @@
     * [XMLFieldRenamer]
     * [XMLViewerXPathSearcher XML/XPathViewer]   
   * [ReleaseHistory Releases]
- * *[Development For Developers]*
+ * For Developers
   * [News Latest News]
   * [Tasks What needs doing?]
   * [http://code.google.com/p/tridion-2011-power-tools/issues/list Issue List]
