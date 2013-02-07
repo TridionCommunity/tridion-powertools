@@ -22,11 +22,12 @@
     * [PowerPreview]
    * Tool Ideas
     * [CandidateTools T2009 PT Matrix]
+    * AccessPermissionsManager
+    * AccessRightsManager
     * AddUser
     * ComponentSynchronizer2
     * PublishToChildren
-    * AccessRightsManager
-    * AccessPermissionsManager
+    * QuickSearchReplace   
     * ShowLists
     * XMLFieldRenamer
     * XMLViewerXPathSearcher   
