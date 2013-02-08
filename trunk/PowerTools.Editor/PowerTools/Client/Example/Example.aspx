@@ -2,7 +2,7 @@
     MasterPageFile="../Shared/Views/PopUp.Master" %>
 
 <asp:Content ID="ExampleContent" ContentPlaceHolderID="Main" runat="server">
-    <div id="container" style="padding: 10px">
+        <h2>PowerTools Help</h2>
         <p>
             This example PowerTool demonstrates the status bar using Client (JavaScript) and
             Server (Core Service) code:</p>
@@ -115,5 +115,4 @@
                 &#160;
             </div>
         </div>
-    </div>
 </asp:Content>
