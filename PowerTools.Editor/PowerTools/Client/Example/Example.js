@@ -10,7 +10,7 @@ PowerTools.Popups.Example = function () {
 };
 
 PowerTools.Popups.Example.prototype.initialize = function () {
-    $log.message("initializing example popup...");
+    $log.message("Initializing example popup...");
     this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
