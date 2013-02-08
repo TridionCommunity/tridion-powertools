@@ -12,3 +12,32 @@ The goal of this extension is to solve that by adding a Context Menu item that w
 = Details =
 
 Still in Definition stage.
+
+||Audience||Suggested implementation||Original Developer||Priority||Difficulty||Status||Notes||
+|| Admin/Content Editor || Context menu on folder/keyword/category||N/A||High||Medium|| ||Useful for checking if test content is used||
+
+==Description==
+Shows a summary list of any items used within the target folder. Could have a "recursive" option to search a full tree structure.
+
+== Audience ==
+Developers, Admins and Power Users
+
+*Version #*
+0.1
+
+Original release date
+TBD
+
+Last updated
+TBD
+
+*Contributor(s)*
+{list contributors}
+
+*Document Author(s)*
+{list authors}
+
+= Requirements =
+|| ID || Description || Scope || Comments ||
+|| 1 || ... || ... || ... ||
+|| 2 || ... || ... || ... ||
