@@ -15,6 +15,7 @@ To clarify what tools are "done," we collect thoughts and plans on potential too
   * [XMLFieldRenamer] (see [http://groups.google.com/group/tridion-powertools/browse_thread/thread/b641aa78f181da63 discussion])
   * Copy WebDAVUrl to clipboard (This is more difficult than for old-skool GUI extensions, as we can no longer assume IE as the browser, and security restrictions on access to the clipboard pretty much make every design a kludge) Could also form part of a "Developer toolbar". (Further suggestions for developer toolbar, anyone? -- Get XPath!)
   * ReportGenerator to be able to output the results of CME functionality. (e.g. output a "where used" or search results to .csv or show in copy-friendly HTML view)
+ * MultiItemWhereUsed - Checks Where Used for all items in a specific folder or keywords in a category(maybe). Would need to be used with care or paged, could have a recursive option to check sub folders or not)
 
 Not all extensions are PowerTools, but with other extension work needing similar setups (and being developed by the same community), it makes sense to collect "PowerTool candidates" here. Feel free to add and update suggestions here.
 
