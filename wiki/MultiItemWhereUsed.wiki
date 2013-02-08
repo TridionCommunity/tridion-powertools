@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Idea from MultiItemWhereUsed
+Idea from Robert Stevenson-Leggett
 
 
 = Details =
