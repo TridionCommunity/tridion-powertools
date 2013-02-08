@@ -1,6 +1,8 @@
 #summary A tool for finding out if any items in a folder are actually used
 
 = Introduction =
+A tool for finding out if any items in a folder are actually used
+
 The requirement came from having a Test Content folder on a UAT environment, Components within this folder were used during development to populate pages as examples for the Editors to follow. These should have been replaced by items in a real Content folder. 
 
 When it came to move to live (UAT had been used to enter content for various reasons) it was hard to tell if items were being used in that folder and if so where. It took a long time to dig through the pages (and we had relatively few pages) and make a list which the Content Editors could then use to either move the component into the "real" Content folder. This would have been a much larger job if we had more pages.
@@ -9,7 +11,4 @@ The goal of this extension is to solve that by adding a Context Menu item that w
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Still in Definition stage.
