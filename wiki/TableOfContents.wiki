@@ -28,6 +28,7 @@
     * AddUser
     * ComponentSynchronizer2
     * ComponentUnpublisher
+    * MultiItemWhereUsed
     * PageUnpublisher
     * PublishToChildren
     * QuickSearchReplace
