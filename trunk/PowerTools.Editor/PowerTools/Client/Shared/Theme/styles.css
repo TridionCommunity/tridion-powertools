@@ -63,6 +63,9 @@
 .ribbontoolbar .button.PT_Help  .image {background-image: url({ThemePath}/Icons/help_32.png);}
 .ribbontoolbar.minimized .button.PT_Help .image {background-image: url({ThemePath}/Icons/help_16.png);}
 
+.PT_AddUser .image {background-image:url({ThemePath}/Icons/new-user.16x16.png);}
+
+
 div#PowerToolIcon
 {
 	width: 64px;
