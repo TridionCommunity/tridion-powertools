@@ -16,7 +16,7 @@ PowerTools.Popups.Example.prototype.initialize = function () {
     var p = this.properties;
     var c = p.controls;
 
-    c.ContactTabs = $controls.getControl($("#ContactTabs"), "Tridion.Controls.TabControl");
+    c.TabControl = $controls.getControl($("#ContactTabs"), "Tridion.Controls.TabControl");
     c.UserButton = $controls.getControl($("#UserButton"), "Tridion.Controls.Button");
     c.ExecuteButton = $controls.getControl($("#ExecuteButton"), "Tridion.Controls.Button");
     c.SelectButton = $controls.getControl($("#SelectItem"), "Tridion.Controls.Button");
@@ -30,11 +30,14 @@ PowerTools.Popups.Example.prototype.initialize = function () {
     $evt.addEventHandler(c.PublicationsDropDown, "loadcontent", this.getDelegate(this._onPublicationsDropdownLoad));
     $evt.addEventHandler(c.PublicationsDropDown, "change", this.getDelegate(this._onPublicationsDropdownChange));
 
+
+    /*
     var page = c.TabControl.getPage("ClientTab");
     if (page) {
         c.TabControl.showItem(page);
         c.TabControl.selectItem(page);
     }
+    */
 };
 
 PowerTools.Popups.Example.prototype._onbtnGetUserInfoClicked = function () {
@@ -47,9 +50,7 @@ PowerTools.Popups.Example.prototype._onbtnGetUserInfoClicked = function () {
 
 
 PowerTools.Popups.Example.prototype._handleUserInfo = function (response) {
-    // var p = this.properties;
-    $j("#UserInfo").text(response.UserName);
-    // $log.message("value set to p.userInfo, did it work?");
+    alert("Your username is: " + response.UserName);
 };
 
 
@@ -88,7 +89,7 @@ PowerTools.Popups.Example.prototype.getPublications = function () {
 //Callback for itemselector. After the item is selected, this method is called.
 PowerTools.Popups.Example.prototype._onSelected = function (event) {
     var selectedItems = event.data.items;
-    $j("#SelectedItem").text(" You selected: {0}".format(selectedItems[0]));
+    alert(" You selected item: {0}".format(selectedItems[0]));
 };
 
 PowerTools.Popups.Example.prototype._onSelectButtonClicked = function () {
