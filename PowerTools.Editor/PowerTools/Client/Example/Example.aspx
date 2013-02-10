@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="PowerTools.Editor.PowerTools.Client.Example.ExamplePage"
+﻿<%@ Page Language="C#" Title="Example: PowerTool" AutoEventWireup="true" Inherits="PowerTools.Editor.PowerTools.Client.Example.ExamplePage"
     MasterPageFile="../Shared/Views/PopUp.Master" %>
 
 <asp:Content ID="ExampleContent" ContentPlaceHolderID="Main" runat="server">
-        <h2>PowerTools Help</h2>
+        <h2>Getting Started Examples</h2>
         <p>
             This example PowerTool demonstrates the status bar using Client (JavaScript) and
             Server (Core Service) code:</p>
@@ -76,29 +76,35 @@
                     <li><em>PowerTools.Model/Services/Example.svc:</em> the back-end web service</li>
                 </ul>
                 <hr />
-                <div class="">
-                    <div class="stack-elem box-spacer-5">
-                        <c:button id="UserButton" runat="server" label="Get User Info" class="customButton" />
-                        <c:button id="SelectItem" runat="server" label="Open Item Selector" class="customButton" />
-                        <c:button id="ExecuteButton" runat="server" label="Execute" class="customButton" />
-                        </div>
-                        <div class="stack-elem box-spacer-5 clearfix">
-                        <div class="dt-box">
-                        <label id="UserInfo">
-                            User Info</label>
-                        <label id="SelectedItem">
-                            Item</label>
-                    
-                        <label>
-                            Dropdown with publications:</label>
-                        <c:dropdown id="Publications" runat="server" nullable="false" />
-                        <label id="selectedPublication">
-                        </label>
-                    
-                    </div>
-                </div>
+            </c:deckpage>
+
+
+            <c:deckpage runat="server" id="ExampleTab" label="Examples">
+                <div>
+                    <em>Get the current user</em>
+                    <c:button id="UserButton" runat="server" label="Get User Info" class="customButton" />
+               </div>
+                <hr  class="clearline"/>
+               <div>
+                    <em>Select anItem from the Building Blocks Folder</em>
+                    <c:button id="SelectItem" runat="server" label="Open Item Selector" class="customButton" />
+               </div>
+               <hr  class="clearline"/>
+               <div>
+                    <em>Execute a background task</em>
+                    <c:button id="ExecuteButton" runat="server" label="Execute" class="customButton" />
+               </div>
+               <hr  class="clearline"/>
+               <div>
+                    <em>Populate publications list</em>
+                    <c:dropdown id="Publications" runat="server" nullable="false" />
+                    <label id="selectedPublication"> </label>
+               </div>
+            
             </c:deckpage>
         </c:tabcontrol>
+
+
         <!--Progress bar stuff-->
         <div id="ModalDialog">
             <div id="dialog" class="window" style="border: 2px solid black; width: 300px; height: 100px;
