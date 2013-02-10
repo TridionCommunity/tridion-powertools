@@ -30,11 +30,13 @@ PowerTools.Popups.Help.prototype._setupControls = function _setupControls() {
     var p = this.properties;
     var c = p.controls;
 
+    /*
     var page = c.TabControl.getPage("dpgContactUs");
     if (page) {
         c.TabControl.showItem(page);
         c.TabControl.selectItem(page);
     }
+    */
 };
 
 $display.registerView(PowerTools.Popups.Help);
