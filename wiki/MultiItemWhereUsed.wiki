@@ -19,6 +19,9 @@ Still in Definition stage.
 ==Description==
 Shows a summary list of any items used within the target folder. Could have a "recursive" option to search a full tree structure.
 
+== Mock up ==
+http://i.imgur.com/XDmplQO.png
+
 == Audience ==
 Developers, Admins and Power Users
 
