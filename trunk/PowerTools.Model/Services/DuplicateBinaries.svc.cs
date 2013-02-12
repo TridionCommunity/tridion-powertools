@@ -4,6 +4,8 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Xml;
+using System.Xml.Linq;
+using System.Xml.XPath;
 using PowerTools.Common.CoreService;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
@@ -73,14 +75,14 @@ namespace PowerTools.Model.Services
                     filter.ItemTypes = new[] { ItemType.Component };
                     filter.ComponentTypes = new[] { ComponentType.Multimedia };
 
-                    XmlElement mmComponentsListXml = coreService.GetListXml(parameters.PublicationId, filter);
+                    XElement mmComponentsListXml = coreService.GetListXml(parameters.PublicationId, filter);
 
-                    XmlNamespaceManager nsMgr = new XmlNamespaceManager(mmComponentsListXml.OwnerDocument.NameTable);
+                    XmlNamespaceManager nsMgr = new XmlNamespaceManager(new NameTable());
                     nsMgr.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
 
-                    foreach (XmlNode itemElem in mmComponentsListXml.SelectNodes("/tcm:item", nsMgr))
+                    foreach (XElement itemElem in mmComponentsListXml.XPathSelectElements("/tcm:item", nsMgr))
                     {
-                        string itemId = itemElem.Attributes["ID"].InnerText;
+                        string itemId = itemElem.Attribute("ID").Value;
                         string binaryFileName = GetFileNameFromComponent(coreService, itemId);
                         if (!fileNames.ContainsKey(binaryFileName))
                         {
@@ -109,7 +111,7 @@ namespace PowerTools.Model.Services
 
         }
 
-        private string GetFileNameFromComponent(SessionAwareCoreService2010Client client, string componentId)
+        private string GetFileNameFromComponent(SessionAwareCoreServiceClient client, string componentId)
         {
             ComponentData compData = (ComponentData)client.Read(componentId, new ReadOptions());
             return "comp data = " + compData.BinaryContent.Filename;
