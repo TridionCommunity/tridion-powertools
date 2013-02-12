@@ -1,0 +1,11 @@
+#summary A tool for locating Multimedia Components with duplicate filenames
+
+= Introduction =
+
+If developers are not careful, they can run into issues with multimedia components with duplicate file names colliding at deployment time resulting in publish transactions failing. This tool provides a way to recursively search multimedia components in a publication's folder structure to locate binaries with the same file name.
+
+
+= Details =
+
+Started by John Winter
+Contributed by Chris Summers
