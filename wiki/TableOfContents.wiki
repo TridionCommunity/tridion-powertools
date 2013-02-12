@@ -19,6 +19,7 @@
     * ItemCommenting
    * Tools in Development
     * [ComponentSynchronizer]
+    * [DuplicateBinaries]
     * [SchemaFieldRemover]
     * [PowerPreview]
    * Tool Ideas
