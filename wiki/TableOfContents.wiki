@@ -13,7 +13,7 @@
     * BatchImageUploader
     * CountItems
     * ExampleTool
-    * PagePublisher (GUI work in progress)
+    * PagePublisher (WIP)
     * [HelpTool PowerTools Help]
     * [SchemaDocumentation Schema Documenter]
     * ItemCommenting
