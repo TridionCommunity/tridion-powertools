@@ -32,6 +32,7 @@
     * MultiItemWhereUsed
     * PageUnpublisher
     * PowerPublish
+    * PowerPaste
     * PublishToChildren
     * QuickSearchReplace
     * SchemaTemplateRelationships   
