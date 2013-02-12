@@ -1,13 +1,15 @@
-#summary A working paste special solution
+#summary A better "paste special" button for SDL Tridion
 
 = Introduction =
 
-Idea by Lord Linhares.
+The out-of-the-box Paste Special button does not work with Chrome due to browser restrictions on accessing the clipboard from Javascript, and it seems that a future Firefox version might also remove access to the clipboard.
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+A better way to deal with cleaning up the content (the whole point of "Paste Special" would be to:
+
+ # "Power Paste" Button. Clicking on it opens a modal dialog with a resizable textbox, user is asked to use CTRL-V to paste the content in this textbox
+ # A couple of buttons in the dialog allow to modify the text inside it – remove markup, remove css, etc (same features as today)
+ # OK or Finished button takes this manipulated/cleaned up text and inserts it in the original field & cursor position
+ # Similar approach to work with Experience Manager (most of the dialog code should be the same)
