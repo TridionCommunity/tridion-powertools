@@ -8,6 +8,7 @@
    * [Logo]
   * The Tools
    * Working Tools
+    * AddUser
     * AppDataInspector
     * BatchImageUploader
     * CountItems
@@ -25,7 +26,6 @@
     * AccessExplorer
     * AccessPermissionsManager
     * AccessRightsManager
-    * AddUser
     * ComponentSynchronizer2
     * ComponentUnpublisher
     * MultiItemWhereUsed
