@@ -14,7 +14,6 @@ namespace PowerTools.Model.Services
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     [ServiceContract(Namespace = "PowerTools.Model.Services")]
-    
     public class AddUser : BaseService
     {
         private NewUserReturnData _newUserReturnData = null;
@@ -22,18 +21,26 @@ namespace PowerTools.Model.Services
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
         public NewUserReturnData CreateUser(String userName)
         {
-            var coreService = Client.GetCoreService();
-            UserData userData = new UserData();
-            userData.Description = "New Power Tool User";
-            userData.Title = userName;
+            SessionAwareCoreServiceClient coreService = Client.GetCoreService();
+
+
+
+
+            
 
             try
             {
+                UserData userData = (UserData)coreService.GetDefaultData(ItemType.User, null);
+                userData.Title = userName;
+                userData.Description = "New Power Tool User";
+
                 userData = (UserData)coreService.Create(userData, new ReadOptions());
+
                 _newUserReturnData = new NewUserReturnData();
                 _newUserReturnData.UserDescription = userData.Description;
                 _newUserReturnData.UserName = userData.Title;
                 _newUserReturnData.UserID = userData.Id;
+                _newUserReturnData.ErrorMessage = null;
             }
             catch(Exception e)
             {
@@ -69,7 +76,7 @@ namespace PowerTools.Model.Services
         public string UserDescription;
         [DataMember]
         public string UserID;
-        // add additional serialized data members as needed
+        [DataMember]
         public string ErrorMessage;
 	}
 }
