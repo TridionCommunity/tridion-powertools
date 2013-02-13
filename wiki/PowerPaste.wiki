@@ -7,6 +7,8 @@ This tool is currently _not_ in progress.
 The out-of-the-box Paste Special button does not work with Chrome due to browser restrictions on accessing the clipboard from Javascript, and it seems that a future Firefox version might also remove access to the clipboard.
 
 
+https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/PowerPaste.png
+
 = Details =
 
 A better way to deal with cleaning up the content (the whole point of "Paste Special" would be to:
