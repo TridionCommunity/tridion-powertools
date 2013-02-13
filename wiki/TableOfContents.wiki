@@ -12,6 +12,7 @@
     * AppDataInspector
     * BatchImageUploader
     * CountItems
+    * DragDropUploader
     * ExampleTool
     * [ItemXML Item XML Viewer]
     * PagePublisher (WIP)
