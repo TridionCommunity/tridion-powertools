@@ -88,7 +88,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF DEFINED TRIDION_CM_HOME (
-xcopy "$(TargetDir)$(TargetName).*" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /y
+xcopy "$(TargetDir)$(TargetName).*" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /yi
 )</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
