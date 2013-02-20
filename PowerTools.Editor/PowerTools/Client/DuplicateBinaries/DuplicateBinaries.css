@@ -84,3 +84,34 @@ td span
 	margin-bottom: 10px;
 }
 
+/* The results table */
+
+#resultsTable
+{
+    width: 696px;
+}
+
+#resultsTable th
+{
+    text-align: left;
+    border-color: #E0E0E0;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding: 0 5px 5px 5px;
+}
+#resultsTable td
+{
+    border-color: #E0E0E0;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding: 0 5px 5px 5px;
+}
+
+.tabImgIcon
+{
+    background-image:url({ThemePath}/Icons/image_icon_16.gif);
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
