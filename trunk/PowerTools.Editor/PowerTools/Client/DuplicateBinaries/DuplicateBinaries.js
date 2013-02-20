@@ -50,7 +50,6 @@ PowerTools.Popups.DuplicateBinaries.prototype._handleDuplicateBinaryData = funct
     var content = "";
     var i = 0;
 
-    //alert(response);
     response.each(function (elem) {
         content += "<tr><td width=\"16\"><div class=\"tabImgIcon\"></div></td>" +
         "<td>" + elem.ItemTcmId + "</td><td>" + elem.ItemFileName + "</td</tr>";
@@ -61,7 +60,6 @@ PowerTools.Popups.DuplicateBinaries.prototype._handleDuplicateBinaryData = funct
         content = "<tr id=\"noResults\"><td colspan=\"3\">There are no duplicate items in this publication.</td></tr>";
     }
 
-    alert(content);
 
     $j("#tbody").html(content);
 };
