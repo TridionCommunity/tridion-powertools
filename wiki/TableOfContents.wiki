@@ -16,12 +16,12 @@
     * ExampleTool
     * [ItemXML Item XML Viewer]
     * PagePublisher (WIP)
+    * [DuplicateBinaries]
     * [HelpTool PowerTools Help]
     * [SchemaDocumentation Schema Documenter]
     * ItemCommenting
    * Tools in Development
     * [ComponentSynchronizer]
-    * [DuplicateBinaries]
     * [SchemaFieldRemover]
     * [PowerPreview]
    * Tool Ideas
