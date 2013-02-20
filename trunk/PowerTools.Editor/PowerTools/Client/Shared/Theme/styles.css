@@ -1,3 +1,8 @@
+.PT_DuplicateBinaries .image {background-image:url({ThemePath}/Icons/duplicate-binaries_16.png);}
+.ribbontoolbar .button.PT_DuplicateBinaries .image {background-image: url({ThemePath}/Icons/duplicate-binaries_32.png);}
+.ribbontoolbar.minimized .button.PT_DuplicateBinaries .image {background-image: url({ThemePath}/Icons/duplicate-binaries_16.png);}
+
+
 .PT_PagePublisher .image {background-image:url({ThemePath}/Icons/pagepublisher_16.png);}
 .ribbontoolbar .button.PT_PagePublisher .image {background-image: url({ThemePath}/Icons/pagepublisher_32.png);}
 .ribbontoolbar.minimized .button.PT_PagePublisher .image {background-image: url({ThemePath}/Icons/pagepublisher_16.png);}
