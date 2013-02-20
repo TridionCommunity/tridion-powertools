@@ -13,4 +13,18 @@
 	<div>
 		<c:button id="ExecuteButton" runat="server" label="Find" class="customButton" />
 	</div>
+
+
+    <table ID="resultsTable" cellspacing="0" cellpadding="0"">
+        <thead>
+            <tr id="resultsHeader">
+                <th></th>
+                <th>Tcm Id</th>
+                <th>File name</th>  
+            </tr>
+        </thead>
+		<tbody id="tbody">
+		</tbody>
+    </table>
+
 </asp:Content>
