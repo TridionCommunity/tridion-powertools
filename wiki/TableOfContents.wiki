@@ -29,7 +29,7 @@
     * AccessExplorer
     * AccessPermissionsManager
     * AccessRightsManager
-    * CMEPageTypes
+    * [CMEPageTypes]
     * ComponentSynchronizer2
     * ComponentUnpublisher
     * MultiItemWhereUsed
