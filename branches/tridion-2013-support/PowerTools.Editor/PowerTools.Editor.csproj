@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5174043-975A-4AE9-855C-4A8DB6313DB6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PowerTools.Editor</RootNamespace>
+    <AssemblyName>PowerTools.Editor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tridion.Web.UI.Core">
+      <HintPath>..\..\..\Program Files (x86)\Tridion\web\WebUI\WebRoot\bin\Tridion.Web.UI.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\Editor.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.js" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorWorker.js" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.css" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.js" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizerCommand.js" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspector.css" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.js" />
+    <Content Include="PowerTools\Client\AppDataInspector\AppDataInspectorCommand.js" />
+    <Content Include="PowerTools\Client\ComponentSynchronizer\Xml\SyncList-head.xml" />
+    <Content Include="PowerTools\Client\CountItems\CountItems.aspx" />
+    <Content Include="PowerTools\Client\CountItems\CountItems.css" />
+    <Content Include="PowerTools\Client\CountItems\CountItems.js" />
+    <Content Include="PowerTools\Client\CountItems\CountItemsCommand.js" />
+    <Content Include="PowerTools\Client\DragDropUploader\DragDropUploader.js" />
+    <Content Include="PowerTools\Client\DragDropUploader\style\style.css" />
+    <Content Include="PowerTools\Client\DragDropUploader\scripts\jquery.fileupload.js" />
+    <Content Include="PowerTools\Client\DragDropUploader\scripts\jquery.iframe-transport.js" />
+    <Content Include="PowerTools\Client\DragDropUploader\UploadTemplate.aspx" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.css" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.js" />
+    <Content Include="PowerTools\Client\DuplicateBinaries\DuplicateBinariesCommand.js" />
+    <Content Include="PowerTools\Client\DocumentItem\DocumentItemCommand.js" />
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemover.aspx" />
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemover.css" />
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemover.js" />
+    <Content Include="PowerTools\Client\FieldRemover\FieldRemoverCommand.js" />
+    <Content Include="PowerTools\Client\Help\Help.aspx" />
+    <Content Include="PowerTools\Client\Help\Help.css" />
+    <Content Include="PowerTools\Client\Help\Help.js" />
+    <Content Include="PowerTools\Client\Help\Help.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PowerTools\Client\Help\HelpAll.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PowerTools\Client\Help\HelpCommand.js" />
+    <Content Include="PowerTools\Client\Help\HelpIndividual.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingMenuCommand.js" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.css" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.js" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.ascx" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommenting.js" />
+    <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingCommand.js" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.css" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.js" />
+    <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.xslt" />
+    <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx" />
+    <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.css" />
+    <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.js" />
+    <Content Include="PowerTools\Client\MarkUnpublished\MarkUnpublishedCommand.js" />
+    <Content Include="PowerTools\Client\Example\Example.aspx" />
+    <Content Include="PowerTools\Client\Example\Example.css" />
+    <Content Include="PowerTools\Client\Example\Example.js" />
+    <Content Include="PowerTools\Client\Example\ExampleCommand.js" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploader.aspx" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploader.css" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploader.js" />
+    <Content Include="PowerTools\Client\ImageUploader\ImageUploaderCommand.js" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisher.css" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisher.js" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisherCommand.js" />
+    <Content Include="PowerTools\Client\PagePublisher\PagePublisher.aspx" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_222222_256x240.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_2e83ff_256x240.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_454545_256x240.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_888888_256x240.png" />
+    <Content Include="PowerTools\Client\Shared\dependencies\styles\icons\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="PowerTools\Client\Shared\Scripts\BaseCommand.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\BasePowerTool.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\jquery-ui.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\jquery.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\jquery.tmpl.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\ProgressDialog\ProgressDialog.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\tabloader.js" />
+    <Content Include="PowerTools\Client\Shared\Scripts\utils.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\appdatainspector_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\componentsynchronizer_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\countitems_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\custom1_bar.gif" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\custom1_box.gif" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\help_64.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\markunpublished_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\markunpublished_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\markunpublished_64.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\overview_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\pagepublisher_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\pagepublisher_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\power-tools-logo.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back1.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back2.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back3.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\percentImage_back4.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.16x16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.24x24.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\viewinfrontend_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\viewinfrontend_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
+    <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.css" />
+    <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.js" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\imageupload_64.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\example_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\terminal_64.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\styles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorTab.ascx.cs">
+      <DependentUpon>AppDataInspectorTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.cs">
+      <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ComponentSynchronizer\ComponentSynchronizer.aspx.designer.cs">
+      <DependentUpon>ComponentSynchronizer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.cs">
+      <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\AppDataInspector\AppDataInspectorPopup.aspx.designer.cs">
+      <DependentUpon>AppDataInspectorPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.cs">
+      <DependentUpon>CountItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\CountItems\CountItems.aspx.designer.cs">
+      <DependentUpon>CountItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\DragDropUploader\UploadTemplate.aspx.cs">
+      <DependentUpon>UploadTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\DragDropUploader\UploadTemplate.aspx.designer.cs">
+      <DependentUpon>UploadTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx.cs">
+      <DependentUpon>DuplicateBinaries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\DuplicateBinaries\DuplicateBinaries.aspx.designer.cs">
+      <DependentUpon>DuplicateBinaries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.cs">
+      <DependentUpon>FieldRemover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\FieldRemover\FieldRemover.aspx.designer.cs">
+      <DependentUpon>FieldRemover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\Help\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.ascx.cs">
+      <DependentUpon>ItemCommentingTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx.cs">
+      <DependentUpon>ItemXmlTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.cs">
+      <DependentUpon>MarkUnpublished.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\MarkUnpublished\MarkUnpublished.aspx.designer.cs">
+      <DependentUpon>MarkUnpublished.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\Example\Example.aspx.cs">
+      <DependentUpon>Example.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.cs">
+      <DependentUpon>ImageUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\ImageUploader\ImageUploader.aspx.designer.cs">
+      <DependentUpon>ImageUploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.cs">
+      <DependentUpon>PagePublisher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
+      <DependentUpon>PagePublisher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools\Client\Shared\Views\FieldViewMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\Shared\Views\PopupMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\Shared\Views\PowerToolsPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.aspx.cs">
+      <DependentUpon>WorkflowNotificationSettingsPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.aspx.designer.cs">
+      <DependentUpon>WorkflowNotificationSettingsPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <!--<ItemGroup>
+    <Content Include="Configuration\Editor.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>-->
+  <ItemGroup>
+    <Content Include="PowerTools\Client\Shared\Views\PopUp.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerTools.Common\PowerTools.Common.csproj">
+      <Project>{B0EF0918-58E9-4439-BF26-76895E3BE66B}</Project>
+      <Name>PowerTools.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\Editor.Fragment.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PowerTools\Client\ShowPublishTasks\ShowPublishTasks.js" />
+    <Content Include="PowerTools\Client\ViewInFrontend\ViewInFrontEnd.js" />
+    <Content Include="PowerTools\Client\WorkflowNotificationSettings\SampleAppData.xml" />
+    <Content Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.js" />
+    <Content Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsPopup.aspx" />
+    <Content Include="PowerTools\Client\WorkflowNotificationSettings\WorkflowNotificationSettingsCommand.js" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PowerTools\Client\DocumentItem\schema.docx" />
+    <Content Include="PowerTools\Client\DocumentItem\web.config" />
+    <Content Include="PowerTools\Client\DragDropUploader\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PowerTools\Client\Shared\Views\FieldView.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PowerTools\Client\DragDropUploader\TemporaryFiles\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49308</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>IF DEFINED TRIDION_CM_HOME (
+xcopy "$(TargetDir)$(TargetName).*" "%25TRIDION_CM_HOME%25\Web\WebUI\WebRoot\bin" /yi
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
