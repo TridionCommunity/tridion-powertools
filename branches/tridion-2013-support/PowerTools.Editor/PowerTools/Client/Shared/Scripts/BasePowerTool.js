@@ -10,8 +10,8 @@ PowerToolsBase = function ()
 
     var p = this.properties;
 
-    // Initialize messagecenter
-    $controls.getControl($("#MessageCenter"), "Tridion.Controls.ActiveMessageCenter");
+	// Initialize User Info Bar
+	$controls.getControl($("#UserNotification"), "Tridion.Controls.UserInfoBar");
 
     // Initialize Execute- and Close button
     this._initializeExecuteButton();
