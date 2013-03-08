@@ -8,7 +8,7 @@ namespace PowerTools.Common.CoreService
 	{
 		public static SessionAwareCoreServiceClient GetCoreService()
 		{
-			var result = new SessionAwareCoreServiceClient();
+			var result = new SessionAwareCoreServiceClient("netTcp_2012");
 			result.Impersonate(Tridion.Web.UI.Core.Utils.GetUserName());
 			return result;
 		}
