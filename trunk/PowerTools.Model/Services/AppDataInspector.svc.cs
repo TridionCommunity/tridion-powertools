@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
@@ -30,7 +30,7 @@ namespace PowerTools.Model.Services
 		/// <summary>
 		/// Response data object cotaining all retrieved ApplicationData objects
 		/// </summary>
-		private List<AppDataInspectorData> _data = null;
+		private List<AppDataInspectorData> _data;
 
 		/// <summary>
 		/// Operation contract method that initiates asynch execution for a given item TcmUri.
@@ -42,7 +42,7 @@ namespace PowerTools.Model.Services
 		{
 			if (string.IsNullOrEmpty(itemUri))
 			{
-				throw new ArgumentNullException("itemUri has to be a valid Tridion item Uri");
+				throw new ArgumentNullException("itemUri");
 			}
 
 			AppDataInspectorParameters arguments = new AppDataInspectorParameters
@@ -86,12 +86,12 @@ namespace PowerTools.Model.Services
 
 			AppDataInspectorParameters parameters = (AppDataInspectorParameters)arguments;
 			process.SetCompletePercentage(10);
-			process.SetStatus("Initializing");
+			process.SetStatus(Resources.ProgressStatusInitializing);
 
 			using (var coreService = Client.GetCoreService())
 			{
 				process.SetCompletePercentage(20);
-				process.SetStatus("Retrieving data");
+				process.SetStatus(Resources.AppDataInspectorRetrievingData);
 
 				ApplicationData[] appDataList = coreService.ReadAllApplicationData(parameters.ItemUri);
 				double progressIncrement = appDataList.Length == 0 ? 0 : 80 / appDataList.Length; //nasty progress calculation
@@ -111,7 +111,7 @@ namespace PowerTools.Model.Services
 					i++;
 				}
 
-				process.Complete("Done");
+				process.Complete(Resources.ProgressStatusComplete);
 			}
 		}
 
@@ -133,11 +133,9 @@ namespace PowerTools.Model.Services
 				// it has been observer (though not confirmed) that c:XmlDocument is Unicode encodeed
 				return Encoding.Unicode.GetString(arrBytes);
 			}
-			else
-			{
-				// ... and the rest of types are just UTF8 encoded
-				return Encoding.UTF8.GetString(arrBytes);
-			}
+			
+			// ... and the rest of types are just UTF8 encoded
+			return Encoding.UTF8.GetString(arrBytes);
 		}
 	}
 }

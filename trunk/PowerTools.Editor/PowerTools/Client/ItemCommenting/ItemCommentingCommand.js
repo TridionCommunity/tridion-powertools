@@ -34,7 +34,7 @@ PowerTools.Commands.ItemCommenting.prototype._onItemSaved = function (eventitem)
     var commentversion = eventitem.source.getVersion();
 
     //Call the service to update 
-    PowerTools.Model.Services.AppDataServices.Append("ext:ItemCommenting", commentitemid, "<comment><user>" + commenterdescription + "</user><message>" + comment + "</message><datetime>" + commentdate + "</datetime><version>" + commentversion + "</version></comment>", null, null, null, false);
+    PowerTools.Model.Services.AppDataServices.Append("ext:ItemCommenting", commentitemid, "<comment><user>" + commenterdescription + "</user><message>" + comment + "</message><datetime>" + commentdate + "</datetime><version>" + commentversion + "</version></comment>");
 
 };
 

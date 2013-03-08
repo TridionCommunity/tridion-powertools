@@ -78,20 +78,15 @@ PowerTools.Popups.WorkflowNotificationSettings.prototype._saveAppData = function
     var data = $('#UserSettings').value;
 
     //Call the Save() method in the AppData Services Model
-    PowerTools.Model.Services.AppDataServices.Save("code.google.com/p/tridion-notification-framework", uriCurrentUser, data, onSuccess, null, null, false);
+    PowerTools.Model.Services.AppDataServices.Save("code.google.com/p/tridion-notification-framework", uriCurrentUser, data, onSuccess);
 };
 
 //Handles the Save reponse
 PowerTools.Popups.WorkflowNotificationSettings.prototype._handleSave = function (result) {
 
-    if (result == "true") {
     //Updates the message center and closes the window
-        $messages.registerGoal("workflow notification settings saved...")
-        window.close();
-    } else {
-    //Notifies the user of an error
-        $messages.registerError("workflow notification settings could not be saved")
-    }
+    $messages.registerGoal("workflow notification settings saved...")
+    window.close();
 }
 
 // Register this popup with the framework

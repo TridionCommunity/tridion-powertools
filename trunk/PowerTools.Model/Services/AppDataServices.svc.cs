@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using System.Xml.Xsl;
-using System.Xml;
-using System.Web.Hosting;
-using PowerTools.Common.Utils;
 using PowerTools.Model.Progress;
 using PowerTools.Common.CoreService;
 using Tridion.ContentManager.CoreService.Client;
@@ -24,85 +14,59 @@ namespace PowerTools.Model.Services
     [ServiceContract(Namespace = "PowerTools.Model.Services")]
     public class AppDataServices : BaseService
     {
-        private static SessionAwareCoreServiceClient _client;
-
-        class SaveAppDataParameters
+	    [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public void Save(string applicationId, string itemId, string data)
         {
-            public string ApplicationID { get; set; }
-            public string ItemID { get; set; }
-            public string Data { get; set; }
+	        using (var client = Client.GetCoreService())
+	        {
+		        //Save the appdata here
+		        var appdata = new ApplicationData { ApplicationId = applicationId, Data = new ASCIIEncoding().GetBytes(data) };
+		        client.SaveApplicationData(itemId, new[] {appdata});
+	        }
         }
 
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public String Save(string applicationID, string itemID, string data)
+		public void Append(string applicationId, string itemId, string data)
         {
-            try
-            {
-                _client = Client.GetCoreService();
-                //Save the appdata here
-                ApplicationData appdata = new ApplicationData();
-                appdata.ApplicationId = applicationID;
-                appdata.Data = new ASCIIEncoding().GetBytes(data);
-                _client.SaveApplicationData(itemID, new ApplicationData[] { appdata });
-                _client.Close();
-                return "true";
-            }
-            catch (Exception e)
-            {
-                return "false";
-            }
+	        using (var client = Client.GetCoreService())
+	        {
+		        ApplicationData appdata = client.ReadApplicationData(itemId, applicationId);
+		        if (appdata != null)
+		        {
+			        appdata.Data = appdata.Data.Concat(new ASCIIEncoding().GetBytes(data)).ToArray();
+		        }
+		        else
+		        {
+			        appdata = new ApplicationData {ApplicationId = applicationId, Data = new ASCIIEncoding().GetBytes(data)};
+		        }
+		        client.SaveApplicationData(itemId, new[] {appdata});
+	        }
         }
 
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public Boolean Append(string applicationID, string itemID, string data)
+        public string Read(string applicationId, string itemId)
         {
-            try
-            {
-                _client = Client.GetCoreService();
-                ApplicationData appdata = _client.ReadApplicationData(itemID, applicationID);
-                if (appdata != null)
-                {
-                    appdata.Data = appdata.Data.Concat(new ASCIIEncoding().GetBytes(data)).ToArray();
-                }
-                else
-                {
-                    appdata = new ApplicationData();
-                    appdata.ApplicationId = applicationID;
-                    appdata.Data = new ASCIIEncoding().GetBytes(data);
-                }
-                _client.SaveApplicationData(itemID, new[] { appdata });
-                _client.Close();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+	        using (var client = Client.GetCoreService())
+	        {
+		        ApplicationData appdata = client.ReadApplicationData(itemId, applicationId);
+		        string response = "";
+
+		        if (appdata != null)
+		        {
+			        response = Encoding.ASCII.GetString(appdata.Data);
+		        }
+		        
+		        return "<AppData ApplicationID=\"" + applicationId + "\" ItemID=\"" + itemId + "\">" + response + "</AppData>";
+			}
         }
 
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public String Read(string applicationID, string itemID)
+        public void Delete(string applicationId, string itemId)
         {
-            _client = Client.GetCoreService();
-            ApplicationData appdata = _client.ReadApplicationData(itemID, applicationID);
-            String response = "";
-
-            if (appdata != null)
-            {
-                response = ASCIIEncoding.ASCII.GetString(appdata.Data);
-            }
-            _client.Close();
-            String result = "<AppData ApplicationID=\"" + applicationID + "\" ItemID=\"" + itemID + "\">" + response + "</AppData>";
-            return result;
-        }
-
-        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public Boolean Delete(string applicationID, string itemID)
-        {
-            _client = Client.GetCoreService();
-            _client.DeleteApplicationData(itemID, applicationID);
-            _client.Close();
-            return true;
+	        using (var client = Client.GetCoreService())
+	        {
+		        client.DeleteApplicationData(itemId, applicationId);
+	        }
         }
 
         public override void Process(ServiceProcess process, object arguments)
