@@ -3,8 +3,11 @@
 = Background = 
 The Component Synchronizer tool helps admins update components to match schema changes.
 
-||Suggested implementation||Original Developers||Priority||Status||Notes||
-||Context Menu on Schema||Willem-Jan van den Bichelaer & Quirijn Slings||High priority|| GUI done. Service pending. || Hard.||
+||Original Developers||Priority||Status||Notes||
+||Willem-Jan van den Bichelaer & Quirijn Slings||High priority|| GUI done. Service pending. || Hard.||
+
+||Follow-up Research and Implementation(s)||Additional Developers||Status||
+||Context Menu on Schema||Jaime Santos Alcon, Dominic Cronin|| GUI approach with prototype component created (Jaime). Service in command-line script done (Dominic). || 
 
 *Contents*
 <wiki:toc max_depth="2" />
