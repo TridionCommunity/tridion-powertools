@@ -2,6 +2,18 @@
 
 = Updates =
 
+(23-May 2013) Thanks much to Otto and the Flowdock team for extending our license. Go, be productive with some of the best tools available.
+
+(22-May 2013) FYI: In case you have any issues with the FlowDock account, we're looking to renew our FlowDock license. We'll post updates.
+
+(21-May 2013) For fun...
+
+http://t0.gstatic.com/images?q=tbn:ANd9GcQ6at9nw6kPD2Cu8WcqUSNv7ZrfuhJ5eYHttR7x-_Lcf0qOZi0L&type=.png
+
+(30-November 2012) We have a new community Resharper license. Ping a team member on the Flowdock, via email, or by Skype for an update. For PowerTools development only. Much thanks to the JetBrains team!
+
+(30-October-2012) Thanks Chris Summers for adding "Save & Comment" as a new PowerTools extension.
+
 (31-July-2012) Check out Dominic's branch and [https://powertools.flowdock.com/invitations/95cbb928d8bd132a537357de32d028f80722aa8a-main join the flow] for progress on Component Synchronizer.
 
 (30-June-2012) 
