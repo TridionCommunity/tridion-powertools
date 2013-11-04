@@ -84,7 +84,6 @@ namespace PowerTools.Model.Services
             };
             return ExecuteAsync(arguments);
         }
-
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
         public override ServiceProcess GetProcessStatus(string Id)
         {
@@ -94,7 +93,7 @@ namespace PowerTools.Model.Services
         public override void Process(ServiceProcess process, object arguments)
         {
             PagePublisherParameters parameters = (PagePublisherParameters)arguments;
-			process.SetCompletePercentage(25);
+			process.SetCompletePercentage(0);
             process.SetStatus("Initializing");
 
             using (var coreService = Client.GetCoreService())
@@ -106,11 +105,28 @@ namespace PowerTools.Model.Services
 
                 // Get the page id's that will be published
                 string[] pageIds = GetPageIds(listXml);
-
+                int batchSize = 5;
+                int currentBatch = 0;
+              
                 // Publish pages
                 try
                 {
-                    coreService.Publish(pageIds, GetPublishInstructionData(parameters), parameters.TargetUri, parameters.Priority, new ReadOptions());
+                    double ratio = pageIds.Count() /batchSize;
+                    double percentage = 100/ratio;
+                    double currperc = 0;
+                    while (currentBatch * batchSize < pageIds.Count())
+                    {
+                        string[] nextBatch = pageIds.Skip(currentBatch * batchSize)
+                            .Take(batchSize).ToArray();
+                        coreService.Publish(nextBatch, GetPublishInstructionData(parameters), parameters.TargetUri, parameters.Priority, new ReadOptions());
+                        currentBatch++;
+                        currperc += percentage;
+                        if (currperc >= 1)
+                        {
+                            process.IncrementCompletePercentage();
+                            currperc = 0;
+                        }
+                    }
                     _pagePublisherData.SuccessMessage = string.Format("{0} Pages published successfully", pageIds.Length.ToString());
                 }
                 catch (Exception ex)
