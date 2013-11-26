@@ -13,6 +13,6 @@ https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/DocumentItem.png
 
 https://tridion-2011-power-tools.googlecode.com/svn/wiki/images/DocumentItem2.png
 
-Created by Stan Kroshchenk
+Created by Stan Kroshchenko
 
 Contributors: CHris Summers and Peter K
