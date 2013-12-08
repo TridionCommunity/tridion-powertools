@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,7 +56,6 @@
     <Content Include="Services\MarkUnpublished.svc" />
     <Content Include="Services\Example.svc" />
     <Content Include="Services\ImageUploader.svc" />
-    <Content Include="Services\TransformChangeHistoryData.xslt" />
     <Content Include="Services\DuplicateBinaries.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
