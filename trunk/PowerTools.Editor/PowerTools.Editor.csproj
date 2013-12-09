@@ -336,7 +336,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PowerTools\Client\DocumentItem\schema.docx" />
+    <Content Include="PowerTools\Client\DocumentItem\schema.docx" />
     <Content Include="PowerTools\Client\DocumentItem\web.config" />
     <Content Include="PowerTools\Client\DragDropUploader\web.config">
       <SubType>Designer</SubType>
