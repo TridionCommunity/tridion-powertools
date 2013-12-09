@@ -7,11 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://www.sdltridion.com/web/ui/controls"
 class="tridion popup">
 <head runat="server">
-	<title>PowerTools:
-		<%=Page.Title%></title>
-	<asp:ContentPlaceHolder ID="TridionDependencies" runat="server">
-		<%--Place holder for including Tridion dependencies specific for a powertool--%>
-	</asp:ContentPlaceHolder>
+	<title>PowerTools - <%=Page.Title%></title>
 </head>
 <body id="StackElement" class="stack popupview">
 	<form id="form1" runat="server">

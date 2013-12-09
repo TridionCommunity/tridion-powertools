@@ -23,14 +23,13 @@ namespace PowerTools.Model.Services
         {
             SessionAwareCoreServiceClient coreService = Client.GetCoreService();
 
-
-
-
-            
-
             try
             {
+#if TRIDION2013
+				UserData userData = (UserData)coreService.GetDefaultData(ItemType.User, null, new ReadOptions());
+#else
                 UserData userData = (UserData)coreService.GetDefaultData(ItemType.User, null);
+#endif
                 userData.Title = userName;
                 userData.Description = "New Power Tool User";
 
