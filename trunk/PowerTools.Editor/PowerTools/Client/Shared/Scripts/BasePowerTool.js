@@ -10,10 +10,18 @@ PowerToolsBase = function ()
 
     var p = this.properties;
 
-    // Initialize messagecenter
-    $controls.getControl($("#MessageCenter"), "Tridion.Controls.ActiveMessageCenter");
+	if ($("#UserNotification"))
+	{
+		// Initialize User Info Bar (2013+)
+		$controls.getControl($("#UserNotification"), "Tridion.Controls.UserInfoBar");
+	} 
+	else
+	{
+		// Initialize messagecenter (2011)
+		$controls.getControl($("#MessageCenter"), "Tridion.Controls.ActiveMessageCenter");
+	}
 
-    // Initialize Execute- and Close button
+	// Initialize Execute- and Close button
     this._initializeExecuteButton();
 };
 
