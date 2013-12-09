@@ -9,7 +9,7 @@ namespace PowerTools.Common.CoreService
 		public static SessionAwareCoreServiceClient GetCoreService()
 		{
 #if TRIDION2013
-			var result = new SessionAwareCoreServiceClient("netTcp_2012");
+			var result = new SessionAwareCoreServiceClient("netTcp_2013");
 #else
 			var result = new SessionAwareCoreServiceClient();
 #endif
