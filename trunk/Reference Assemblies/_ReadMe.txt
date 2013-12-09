@@ -5,9 +5,10 @@ the file in the folder. Perhaps also add the file in question to the svn ignore 
 
 Current contents of this folder (needed by projects, and added to svn ignore list):
 
-- Tridion.Web.UI.Core.dll
 - DocumentFormat.OpenXml.dll
-- Tridion.ContentManager.CoreService.Client.dll (2011 SP1 version)
+- Tridion.ContentManager.CoreService.Client.dll
+- Tridion.Web.UI.Core.dll
+- Tridion.Web.UI.Editors.CME.dll
 
 On a vanilla installation of the Content Manager, these DLLs can be found in the following locations:
 

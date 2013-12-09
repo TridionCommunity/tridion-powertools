@@ -1,8 +1,10 @@
 ﻿///DragDropUploader version 0.1
 
-$evt.addEventHandler($display, "start", onDisplayStarted);
+$evt.addEventHandler($display, "start", DragDropUploader$onDisplayStarted);
 
-function onDisplayStarted() {
+function DragDropUploader$onDisplayStarted() {
+    $evt.removeEventHandler($display, "start", DragDropUploader$onDisplayStarted);
+
     //IE does not support drag and drop and multiple file selection (yet)     
     if ($dom.isIE) {
         return;

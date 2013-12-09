@@ -1,8 +1,8 @@
-﻿$evt.addEventHandler($display, "start", onDisplayStarted);
+﻿$evt.addEventHandler($display, "start", ShowPublishTask$onDisplayStarted);
 
-function onDisplayStarted() 
+function ShowPublishTask$onDisplayStarted() 
 {
-    $evt.removeEventHandler($display, "start", onDisplayStarted);
+    $evt.removeEventHandler($display, "start", ShowPublishTask$onDisplayStarted);
 
     if ($display.getView().getId() == "PublishQueueView") 
 	{

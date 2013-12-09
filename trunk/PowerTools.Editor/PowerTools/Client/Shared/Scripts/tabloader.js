@@ -1,14 +1,17 @@
 ﻿
 //If you only want your code to affect certain screens/views, you should listen to Anguilla events like this:
-$evt.addEventHandler($display, "start", onDisplayStarted);
+$evt.addEventHandler($display, "start", tabloader$onDisplayStarted);
 
 // This callback is called when any view has finished loading
-function onDisplayStarted() {
+function tabloader$onDisplayStarted() 
+{
+    $evt.removeEventHandler($display, "start", tabloader$onDisplayStarted);
+    var tabName = $url.getHashParam("tab");
+	var tabContainer = $("#MasterTabControl");
 
-    $evt.removeEventHandler($display, "start", onDisplayStarted);
-    var tabname = $url.getHashParam("tab");
-    if (tabname != '') {
-        var tabControl = $controls.getControl($("#MasterTabControl"), "Tridion.Controls.TabControl");
-        tabControl.selectItem(tabname);        
+    if (tabName && tabContainer) 
+	{
+        var tabControl = $controls.getControl(tabContainer, "Tridion.Controls.TabControl");
+        tabControl.selectItem(tabName);        
     }
 }

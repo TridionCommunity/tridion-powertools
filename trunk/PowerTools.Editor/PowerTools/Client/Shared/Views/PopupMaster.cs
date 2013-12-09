@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using Tridion.Web.UI.Core.Controls;
 
 namespace PowerTools.Editor.PowerTools.Client.Shared.Views
 {
@@ -11,18 +9,14 @@ namespace PowerTools.Editor.PowerTools.Client.Shared.Views
 		{
 			base.OnInit(e);
 
-            var contentPlaceHolder = FindControl("Main");
-		    if (contentPlaceHolder == null) return;
-		    
-            var manager = new TridionManager { Editor = "PowerTools" };
+			var notificationsPlaceHolder = FindControl("NotificationsPlaceHolder");
+			if (notificationsPlaceHolder == null) return;
 
-		    var dependency = new HtmlGenericControl("dependency") { InnerText = "Tridion.Web.UI.Editors.CME" };
-            manager.dependencies.Add(dependency);
-
-            dependency = new HtmlGenericControl("dependency") { InnerText = "Tridion.Web.UI.Editors.CME.commands" };
-            manager.dependencies.Add(dependency);
-
-		    contentPlaceHolder.Controls.Add(manager);
+#if TRIDION2013
+			notificationsPlaceHolder.Controls.Add(new Tridion.Web.UI.Editors.CME.Controls.UserInfoBar { ID = "UserNotification", SourceEditor = "CME" });
+#else
+			notificationsPlaceHolder.Controls.Add(new Tridion.Web.UI.Controls.ActiveMessageCenter { ID = "MessageCenter" });
+#endif
 		}
 	}
 }

@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\AddUser.svc" />
     <Content Include="Services\ComponentSynchronizer.svc" />
     <Content Include="Services\AppDataInspector.svc" />
     <Content Include="Services\AppDataServices.svc" />
@@ -72,6 +73,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AddUser.svc.cs">
+      <DependentUpon>AddUser.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Exceptions\BaseServiceException.cs" />

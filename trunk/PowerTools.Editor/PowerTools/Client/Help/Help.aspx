@@ -2,9 +2,6 @@
     AutoEventWireup="true" CodeBehind="Help.aspx.cs" Inherits="PowerTools.Editor.PowerTools.Client.Help.HelpPage" %>
 <%@ Register TagPrefix="c" Namespace="Tridion.Web.UI.Controls" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="TridionDependencies" runat="server">
-</asp:Content>
-
 <asp:Content ID="HelpContent" ContentPlaceHolderID="Main" runat="server">
     <h2>PowerTools Help</h2>
     <p>
