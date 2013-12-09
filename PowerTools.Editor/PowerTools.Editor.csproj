@@ -161,12 +161,18 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\custom1_box.gif" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\documentitem_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\duplicate-binaries_16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\duplicate-binaries_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\example_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\fieldremover_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\help_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\help_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\help_64.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\itemcommenting.16x16.gray.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\itemcommenting.16x16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\itemcommenting.32x32.gray.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\itemcommenting.32x32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\markunpublished_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\markunpublished_32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\markunpublished_64.png" />
@@ -185,6 +191,8 @@
     <Content Include="PowerTools\Client\Shared\Theme\Icons\section.content-management.24x24.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\viewinfrontend_16.png" />
     <Content Include="PowerTools\Client\Shared\Theme\Icons\viewinfrontend_32.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\workflownotificationsettings.16x16.png" />
+    <Content Include="PowerTools\Client\Shared\Theme\Icons\workflownotificationsettings.32x32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.css" />
     <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.js" />
