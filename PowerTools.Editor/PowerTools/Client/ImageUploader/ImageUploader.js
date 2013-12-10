@@ -1,73 +1,68 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools.Popups.ImageUploader = function () {
+PowerTools.Popups.ImageUploader = function ImageUploader$constructor() 
+{
     Type.enableInterface(this, "PowerTools.Popups.ImageUploader");
     this.addInterface("Tridion.Cme.View");
-
-    //Base class for initializing execute-,close button, and progressbar.
     this.addInterface("PowerToolsBase", [this]);
 
     var p = this.properties;
-
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500; //Milliseconds between each call to check the status of a process   
 };
 
 
-PowerTools.Popups.ImageUploader.prototype.initialize = function () {
-
-    $log.message("initializing example popup...");
-
+PowerTools.Popups.ImageUploader.prototype.initialize = function ImageUploader$initialize() 
+{
     this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
     var c = p.controls;
-
     
     p.folderId = $url.getHashParam("folderId");
+	p.sourceFolder = $("#SourceFolder");
     
     c.SchemaControl = $controls.getControl($("#Schema"), "Tridion.Controls.Dropdown");
     $evt.addEventHandler(c.SchemaControl, "loadcontent", this.getDelegate(this.onSchemaLoadContent));
 };
-PowerTools.Popups.ImageUploader.prototype.validateInput = function () {
-    var p = this.properties;
-    
-    var localDirectory = $j("#Main_SourceFolder").val();    
-    if (localDirectory == "") {
-        $messages.registerError("Please fill in a folder.", null, null, true, true);
-        return false;
-    }
-    
-    var schemaUri = p.controls.SchemaControl.getValue() || "";
-    if (schemaUri == "") {
-        $messages.registerError("No schema selected! Please selected a valid schema.", null, null, true, true);
-        return false;
-    }
 
-    return true;
-}
+PowerTools.Popups.ImageUploader.prototype.validateInput = function ImageUploader$validateInput()
+{
+	var p = this.properties;
 
-PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function () {
+	var localDirectory = p.sourceFolder.value;
+	if (!localDirectory)
+	{
+		$messages.registerError("Please fill in a folder.", null, null, true, true);
+		return false;
+	}
+
+	var schemaUri = p.controls.SchemaControl.getValue();
+	if (!schemaUri)
+	{
+		$messages.registerError("No schema selected! Please selected a valid schema.", null, null, true, true);
+		return false;
+	}
+
+	return true;
+};
+
+PowerTools.Popups.ImageUploader.prototype._onExecuteButtonClicked = function ImageUploader$_onExecuteButtonClicked() 
+{
     var p = this.properties;
 
     //-Schema Uri (ItemSelector)
-    var schemaUri = p.controls.SchemaControl.getValue() || "";    
+    var schemaUri = p.controls.SchemaControl.getValue();    
     //-Local directory on the server
-    var localDirectory = $j("#Main_SourceFolder").val();
+    var localDirectory = p.sourceFolder.value;
 
-    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
-    var onFailure = null;
-    var context = null;
-   
-    PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.folderId, schemaUri, onSuccess, onFailure, context, false);
-
-
+    var onSuccess = this.getDelegate(this._onExecuteStarted);
+    PowerTools.Model.Services.ImageUploader.Execute(localDirectory, p.folderId, schemaUri, onSuccess, this.getErrorHandler());
 };
 
-PowerTools.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e)
+PowerTools.Popups.ImageUploader.prototype.onSchemaLoadContent = function ImageUploader$onSchemaLoadContent(e)
 {
-
     var schemaList = this.getListFieldsSchemas($const.SchemaPurpose.MULTIMEDIA);
 
     if (schemaList)
@@ -91,7 +86,8 @@ PowerTools.Popups.ImageUploader.prototype.onSchemaLoadContent = function (e)
     }
 };
 
-PowerTools.Popups.ImageUploader.prototype.getListFieldsSchemas = function (purpose) {
+PowerTools.Popups.ImageUploader.prototype.getListFieldsSchemas = function ImageUploader$getListFieldsSchemas(purpose) 
+{
     var p = this.properties;
     var folder = $models.getItem(p.folderId);
     var publication = folder.getPublication();
@@ -99,16 +95,15 @@ PowerTools.Popups.ImageUploader.prototype.getListFieldsSchemas = function (purpo
     return list;
 };
 
-PowerTools.Popups.ImageUploader.prototype.afterSuccess = function (event) {
-    //Optional method: called after the service-call was finished (100%). Useful for getting data that was gathered/stored by the service-call  
-
+PowerTools.Popups.ImageUploader.prototype.afterSuccess = function ImageUploader$afterSuccess()
+{
     //Only refresh if dashboardview shows the folder where you want to upload the images
     var contextUri = window.opener.$display.getView().properties.contextUri;   
     var targetUri = $url.getHashParam("folderId");
-    if (contextUri == targetUri) {
+    if (contextUri == targetUri) 
+	{
         window.opener.$display.getView().refreshList();
     }
-
 };
 
 $display.registerView(PowerTools.Popups.ImageUploader);

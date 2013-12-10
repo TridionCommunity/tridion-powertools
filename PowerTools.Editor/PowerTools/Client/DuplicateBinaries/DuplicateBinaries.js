@@ -1,78 +1,68 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools.Popups.DuplicateBinaries = function () {
+PowerTools.Popups.DuplicateBinaries = function DuplicateBinaries$constructor() 
+{
     Type.enableInterface(this, "PowerTools.Popups.DuplicateBinaries");
     this.addInterface("Tridion.Cme.View");
     this.addInterface("PowerToolsBase", [this]);
+
     var p = this.properties;
     p.processId = null;
     p.folderId = null;
     p.pollInterval = 500;
+
     // Optional: set properties for the progressbar/modal dialog
     p.progressDialogSettings.closeAfterComplete = true; 
 };
 
 // Read parameters and assign callbacks for buttons in the GUI
-PowerTools.Popups.DuplicateBinaries.prototype.initialize = function () {
-    $log.message("Initializing DuplicateBinaries popup...");
+PowerTools.Popups.DuplicateBinaries.prototype.initialize = function DuplicateBinaries$initialize() 
+{
     this.callBase("Tridion.Cme.View", "initialize");
-    var p = this.properties;
-    var c = p.controls;
-    p.orgItemId = $url.getHashParam("orgItemId");
+    this.properties.orgItemId = $url.getHashParam("orgItemId");
 
     // hide the results table
-    $j("#resultsTable").hide();
+    $css.undisplay($("#resultsTable"));
 };
 
 
 // Performs a service call on the publication id to find any duplicate file names
-PowerTools.Popups.DuplicateBinaries.prototype._onExecuteButtonClicked = function () {
+PowerTools.Popups.DuplicateBinaries.prototype._onExecuteButtonClicked = function DuplicateBinaries$_onExecuteButtonClicked() 
+{
     var p = this.properties;
-    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
-    var onFailure = null;
-    var context = null;
     var publicationId = p.orgItemId;
-
-    $log.message("Duplicate binaryready to execute process for Publication : " + publicationId);
-    PowerTools.Model.Services.DuplicateBinaries.Execute(publicationId, onSuccess, onFailure, context, false);
-    $log.message("Duplicate binary searching within : " + publicationId);
+    var onSuccess = this.getDelegate(this._onExecuteStarted);
+    PowerTools.Model.Services.DuplicateBinaries.Execute(publicationId, onSuccess, this.getErrorHandler());
 };
 
 
-// todo
-PowerTools.Popups.DuplicateBinaries.prototype._handleDuplicateBinaryData = function (response) {
-
+PowerTools.Popups.DuplicateBinaries.prototype._handleDuplicateBinaryData = function DuplicateBinaries$_handleDuplicateBinaryData(response) 
+{
     // let the user know something is happening
-    $j("#resultsTable").show();
-    $j("#tbody").html("<tr><td colspan=\"5\">Loading...</td></tr>");
-
+	var tableBody = $("#tbody");
+    $css.display($("#resultsTable"));
 
     var content = "";
-    var i = 0;
 
     response.each(function (elem) {
-        content += "<tr><td width=\"16\"><div class=\"tabImgIcon\"></div></td>" +
+        content += "<tr><div class=\"tabImgIcon\"></div></td>" +
         "<td>" + elem.ItemTcmId + "</td><td>" + elem.ItemFileName + "</td</tr>";
-        i++;
     });
 
     if (!content) {
-        content = "<tr id=\"noResults\"><td colspan=\"3\">There are no duplicate items in this publication.</td></tr>";
+        content = "<tr id=\"noResults\"><td colspan=\"2\">There are no duplicate binaries in this Publication.</td></tr>";
     }
 
-
-    $j("#tbody").html(content);
+    tableBody.innerHTML = content;
 };
 
-// todo
-PowerTools.Popups.DuplicateBinaries.prototype.afterSuccess = function (processId) {
-    if (processId != "") {
-        $log.debug("Retrieving Duplicate File Names for process #" + processId);
-        var onSuccess = Function.getDelegate(this, this._handleDuplicateBinaryData);
-        var onFailure = null;
-        var context = null;
-        PowerTools.Model.Services.DuplicateBinaries.GetDuplicateBinaryData(onSuccess, onFailure, context, false);
-    }
-}
+PowerTools.Popups.DuplicateBinaries.prototype.afterSuccess = function DuplicateBinaries$afterSuccess(processId)
+{
+	if (processId != "")
+	{
+		var onSuccess = this.getDelegate(this._handleDuplicateBinaryData);
+		PowerTools.Model.Services.DuplicateBinaries.GetDuplicateBinaryData(onSuccess, this.getErrorHandler());
+	}
+};
 
 $display.registerView(PowerTools.Popups.DuplicateBinaries);

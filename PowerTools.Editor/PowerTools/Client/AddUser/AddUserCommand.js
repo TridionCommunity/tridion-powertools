@@ -1,27 +1,25 @@
 ﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools.Commands.AddUser = function() 
+PowerTools.Commands.AddUser = function AddUserCommand$constructor() 
 {
     Type.enableInterface(this, "PowerTools.Commands.AddUser");
     this.addInterface("PowerTools.BaseCommand", ["AddUser"]);
 };
 
-PowerTools.Commands.AddUser.prototype.isValidSelection = function(selection) 
+PowerTools.Commands.AddUser.prototype.isValidSelection = function AddUserCommand$isValidSelection(selection) 
 {
     return Tridion.Cme.Commands.New.prototype._canCreateUser(selection);
 }
 
-PowerTools.Commands.AddUser.prototype._execute = function(selection) 
+PowerTools.Commands.AddUser.prototype._execute = function AddUserCommand$_execute(selection) 
 {
     var userName = prompt("Please enter a username e.g. 'DOMAIN\\USER'", "");
-    var onFailure = Function.getDelegate(this, this._handleFailure);
-    var onSuccess = Function.getDelegate(this, this._handleSuccess);
-    var context = null;
-    $messages.registerNotification("AddUser Powertool: Attempting to create new user '" + userName + "'");
-    PowerTools.Model.Services.AddUser.CreateUser(userName, onSuccess, onFailure, context, false);
+    var onSuccess = this.getDelegate(this._handleSuccess);
+    $messages.registerProgress("Adding user...", userName, false);
+    PowerTools.Model.Services.AddUser.CreateUser(userName, onSuccess, this.getErrorHandler());
 };
 
-PowerTools.Commands.AddUser.prototype._handleSuccess = function(result) 
+PowerTools.Commands.AddUser.prototype._handleSuccess = function AddUserCommand$_handleSuccess(result) 
 {
     if (result.ErrorMessage == undefined) 
 	{
@@ -36,7 +34,7 @@ PowerTools.Commands.AddUser.prototype._handleSuccess = function(result)
     }
 };
 
-PowerTools.Commands.AddUser.prototype._handleFailure = function (result) 
+PowerTools.Commands.AddUser.prototype._handleFailure = function AddUserCommand$_handleFailure(result) 
 {
     $messages.registerError("AddUser Powertool: " + result.ErrorMessage);
 };

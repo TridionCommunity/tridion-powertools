@@ -95,7 +95,7 @@ PowerTools.AddOns.DragDropUploader.Base = function ()
 	{
         //Load and append the upload-html to the FilteredDashboardList       
         var urlToUploadHtml = this._strings.UrlUploadTemplate;
-        var template = PowerTools.Utilities.prototype.getTemplate(urlToUploadHtml);
+        var template = $ptUtils.getTemplate(urlToUploadHtml);
         $j("#FilteredDashboardList").append(template);
     };
 

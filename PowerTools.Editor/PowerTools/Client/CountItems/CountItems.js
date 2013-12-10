@@ -1,6 +1,6 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools.Popups.CountItems = function()
+PowerTools.Popups.CountItems = function CountItems$constructor()
 {
     Type.enableInterface(this, "PowerTools.Popups.CountItems");
     this.addInterface("Tridion.Cme.View");
@@ -18,12 +18,11 @@ PowerTools.Popups.CountItems = function()
 };
 
 // Read parameters and assign callbacks for buttons in the GUI
-PowerTools.Popups.CountItems.prototype.initialize = function() 
+PowerTools.Popups.CountItems.prototype.initialize = function CountItems$initialize() 
 {
     var p = this.properties;
     var c = p.controls;
 
-    $log.message("Initializing CountItems popup...");
     this.callBase("Tridion.Cme.View", "initialize");
 
     p.orgItemId = $url.getHashParam("orgItemId");   
@@ -42,10 +41,8 @@ PowerTools.Popups.CountItems.prototype.initialize = function()
 };
 
 // Set the enabled status of the Checkboxes depending on the type of the given parent OrgItem
-PowerTools.Popups.CountItems.prototype.enableDefaultCheckboxes = function()
+PowerTools.Popups.CountItems.prototype.enableDefaultCheckboxes = function CountItems$enableDefaultCheckboxes()
 {
-    $log.message("Setting checkboxes default enabled status");
-
 	var p = this.properties;
 	var c = p.controls;
 
@@ -95,10 +92,10 @@ PowerTools.Popups.CountItems.prototype.enableDefaultCheckboxes = function()
             c.countKeywords.checked = true;
             break;
     }
-}
+};
 
 // Reads the checkboxes values and initiates a service call to get the item counts
-PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function()
+PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function CountItems$_onExecuteButtonClicked()
 {
     var p = this.properties;
 	var c = p.controls;
@@ -114,42 +111,37 @@ PowerTools.Popups.CountItems.prototype._onExecuteButtonClicked = function()
     p.countCategories = c.countCategories.checked;
     p.countKeywords = c.countKeywords.checked;
 
-    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);   
-    var onFailure = null;
-    var context = null;
+    var onSuccess = this.getDelegate(this._onExecuteStarted);   
 
     PowerTools.Model.Services.CountItems.Execute(p.orgItemId, p.countFolders, p.countComponents, p.countSchemas,
             p.countComponentTemplates, p.countPageTemplates, p.countTemplateBuildingBlocks, p.countStructureGroups,
-            p.countPages, p.countCategories, p.countKeywords, onSuccess, onFailure, context, false);
+            p.countPages, p.countCategories, p.countKeywords, onSuccess, this.getErrorHandler());
 };
 
 // We have a response with data. Fill in the values and visibility for each item type counts.
-PowerTools.Popups.CountItems.prototype._handleCountItems = function(response)
+PowerTools.Popups.CountItems.prototype._handleCountItems = function CountItems$_handleCountItems(response)
 {
     var p = this.properties;
-	$dom.setInnerText($("#FolderChk ~ span"), p.countFolders ? response.Folders : "")
-	$dom.setInnerText($("#ComponentChk ~ span"), p.countComponents ? response.Components : "")
-	$dom.setInnerText($("#SchemaChk ~ span"), p.countSchemas ? response.Schemas : "")
-	$dom.setInnerText($("#ComponentTemplateChk ~ span"), p.countComponentTemplates ? response.ComponentTemplates : "")
-	$dom.setInnerText($("#PageTemplateChk ~ span"), p.countPageTemplates ? response.PageTemplates : "")
-	$dom.setInnerText($("#TemplateBuildingBlockChk ~ span"), p.countTemplateBuildingBlocks ? response.TemplateBuildingBlocks : "")
-	$dom.setInnerText($("#StructureGroupChk ~ span"), p.countStructureGroups ? response.StructureGroups : "")
-	$dom.setInnerText($("#PageChk ~ span"), p.countPages ? response.Pages : "")
-	$dom.setInnerText($("#CategoryChk ~ span"), p.countCategories ? response.Categories : "")
-	$dom.setInnerText($("#KeywordChk ~ span"), p.countKeywords ? response.Keywords : "")
+	$dom.setInnerText($("#FolderChk ~ span"), p.countFolders ? response.Folders : "");
+	$dom.setInnerText($("#ComponentChk ~ span"), p.countComponents ? response.Components : "");
+	$dom.setInnerText($("#SchemaChk ~ span"), p.countSchemas ? response.Schemas : "");
+	$dom.setInnerText($("#ComponentTemplateChk ~ span"), p.countComponentTemplates ? response.ComponentTemplates : "");
+	$dom.setInnerText($("#PageTemplateChk ~ span"), p.countPageTemplates ? response.PageTemplates : "");
+	$dom.setInnerText($("#TemplateBuildingBlockChk ~ span"), p.countTemplateBuildingBlocks ? response.TemplateBuildingBlocks : "");
+	$dom.setInnerText($("#StructureGroupChk ~ span"), p.countStructureGroups ? response.StructureGroups : "");
+	$dom.setInnerText($("#PageChk ~ span"), p.countPages ? response.Pages : "");
+	$dom.setInnerText($("#CategoryChk ~ span"), p.countCategories ? response.Categories : "");
+	$dom.setInnerText($("#KeywordChk ~ span"), p.countKeywords ? response.Keywords : "");
 };
 
-PowerTools.Popups.CountItems.prototype.afterSuccess = function(processId) 
+PowerTools.Popups.CountItems.prototype.afterSuccess = function CountItems$afterSuccess(processId)
 {
-    if (processId != "") 
+	if (processId)
 	{
-        $log.debug("Retrieving CountItemsData for process #" + processId);
-        var onSuccess = Function.getDelegate(this, this._handleCountItems);
-        var onFailure = null;
-        var context = null;
-        PowerTools.Model.Services.CountItems.GetCountItemsData(onSuccess, onFailure, context, false);
-    }
-}
+		var onSuccess = this.getDelegate(this._handleCountItems);
+		PowerTools.Model.Services.CountItems.GetCountItemsData(onSuccess, this.getErrorHandler());
+	}
+};
 
 
 $display.registerView(PowerTools.Popups.CountItems);

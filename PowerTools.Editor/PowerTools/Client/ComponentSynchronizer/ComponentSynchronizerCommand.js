@@ -4,7 +4,7 @@
 * Implements Component Synchronizer command.
 * @constructor
 */
-PowerTools.Commands.ComponentSynchronizer = function ()
+PowerTools.Commands.ComponentSynchronizer = function ComponentSynchronizerCommand$constructor()
 {
 	Type.enableInterface(this, "PowerTools.Commands.ComponentSynchronizer");
 	this.addInterface("PowerTools.BaseCommand", ["ComponentSynchronizer"]);
@@ -14,12 +14,11 @@ PowerTools.Commands.ComponentSynchronizer = function ()
 	this._currentPublication = null;
 };
 
-
 /**
 * Executes the command.
 * @param {Tridion.Cme.Selection] selection. The selected items in the list
 */
-PowerTools.Commands.ComponentSynchronizer.prototype._execute = function (selection)
+PowerTools.Commands.ComponentSynchronizer.prototype._execute = function ComponentSynchronizerCommand$_execute(selection)
 {
 	if (this._isPopupOpen)
 	{
@@ -51,66 +50,22 @@ PowerTools.Commands.ComponentSynchronizer.prototype._execute = function (selecti
 	this._isPopupOpen = true;
 };
 
-
 /**
 * On Popup Canceled Event. 
 * @param {Tridion.Core.Event}. The cancel/unload event.
 */
-PowerTools.Commands.ComponentSynchronizer.prototype._onPopupCanceled = function (event)
+PowerTools.Commands.ComponentSynchronizer.prototype._onPopupCanceled = function ComponentSynchronizerCommand$_onPopupCanceled(event)
 {
 	this._popup.dispose();
 	this._popup = null;
 	this._isPopupOpen = false;
-}
-
-
-/**
-* On Refresh Button Click. 
-* @param {Tridion.Core.Event}. The click event.
-*/
-PowerTools.Commands.ComponentSynchronizer.prototype.isValidSelection = function (sel)
-{
-	var items = sel.getItems();
-	if (items.length > 1)
-	{
-		var firstSchema = '';
-		var currentPub = '';
-		for (var i = 0, len = items.length; i < len; i++)
-		{
-			var itemId = sel.getItem(i);
-			var item = $models.getItem(itemId);
-
-			if (item)
-			{
-				if (item.getItemType() != $const.ItemType.COMPONENT)
-				{
-					return false;
-				}
-				if (i == 0)
-				{
-					firstSchema = item.getSchema().getId();
-					currentPub = item.getPublicationId();
-				}
-				if (i > 0 && item.getSchema().getId() != firstSchema)
-				{
-					return false;
-				}
-			}
-		}
-
-		this._currentSchema = firstSchema;
-		this._currentPublication = currentPub;
-	}
-
-	return true;
-}
-
+};
 
 /**
 * Checks wether the Command is Enabled/Available or not
 * @param {Tridion.Cme.Selection] selection. The selected items in the list
 */
-PowerTools.Commands.ComponentSynchronizer.prototype.isValidSelection = function (selection)
+PowerTools.Commands.ComponentSynchronizer.prototype.isValidSelection = function ComponentSynchronizerCommand$isValidSelection(selection)
 {
 	if (!selection)
 	{

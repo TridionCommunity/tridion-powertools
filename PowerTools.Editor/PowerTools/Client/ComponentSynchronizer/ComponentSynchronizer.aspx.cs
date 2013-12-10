@@ -5,8 +5,7 @@ using Tridion.Web.UI.Core.Controls;
 
 namespace PowerTools.Editor.PowerTools.Client.ComponentSynchronizer
 {
-
-	[ControlResourcesDependency(new Type[] { typeof(Popup), typeof(Tridion.Web.UI.Controls.Button), typeof(Stack), typeof(Dropdown), typeof(List) })]
+	[ControlResourcesDependency(new[] { typeof(Popup), typeof(Button), typeof(Stack), typeof(Dropdown), typeof(List) })]
 	[ControlResources("PowerTools.ComponentSynchronizer")]
 	public partial class ComponentSynchronizer : PowerToolsPageBase
 	{
