@@ -1,7 +1,7 @@
 ﻿Type.registerNamespace("PowerTools");
 
 // Constructs a new worker. Reads item TcmUri from URL.
-PowerTools.AppDataInspectorWorker = function ()
+PowerTools.AppDataInspectorWorker = function()
 {
     this.properties = [];
     var p = this.properties;
@@ -11,9 +11,10 @@ PowerTools.AppDataInspectorWorker = function ()
 };
 
 // Initiate the call to the service to retrieve all Application Data for the given item
-PowerTools.AppDataInspectorWorker.prototype.execute = function ()
+PowerTools.AppDataInspectorWorker.prototype.execute = function()
 {
-    $log.message("Executing AppDataInspectorWorker...");
+    var p = this.properties;
+	if (!p.itemId) return;
 
     // prepare UI
     $j('#tbody').html("<tr class=\"row0\"><td colspan=\"3\">Loading...</td></tr>");
@@ -34,7 +35,6 @@ PowerTools.AppDataInspectorWorker.prototype.execute = function ()
     }).fadeIn(400);
 
     // initiate service call
-    var p = this.properties;
     var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
     var onFailure = null;
     var context = null;
@@ -45,7 +45,7 @@ PowerTools.AppDataInspectorWorker.prototype.execute = function ()
 // Once the call for app data has been initialised, this call back will start polling for progress status updates
 PowerTools.AppDataInspectorWorker.prototype._onExecuteStarted = function (result)
 {
-    if (result)
+    if (result && result.Id)
     {
         this._pollStatus(result.Id);
     }
@@ -55,9 +55,8 @@ PowerTools.AppDataInspectorWorker.prototype._onExecuteStarted = function (result
 // and data is ready on the service to be picked up.
 PowerTools.AppDataInspectorWorker.prototype._getData = function (id)
 {
-    if (id != "")
+    if (id)
     {
-        $log.debug("Retrieving AppDataInspectorData for process #" + id);
         var onSuccess = Function.getDelegate(this, this._handleDataResponse);
         var onFailure = null;
         var context = null;
@@ -102,7 +101,6 @@ PowerTools.AppDataInspectorWorker.prototype._pollStatus = function (id)
 
     var callback = function ()
     {
-        $log.debug("Checking the status of process #" + id);
         PowerTools.Model.Services.AppDataInspector.GetProcessStatus(id, onSuccess, onFailure, context, false);
     };
 
@@ -112,7 +110,6 @@ PowerTools.AppDataInspectorWorker.prototype._pollStatus = function (id)
 // Call back that handles progress status reponses. If process completed, call _getData to retrieve the data. Update UI.
 PowerTools.AppDataInspectorWorker.prototype._handleStatusResponse = function (result)
 {
-    $log.message("Handle Status Response...");
     var p = this.properties;
     p.processId = result.Id;
     $j('#ProgressStatus').html(result.Status);
