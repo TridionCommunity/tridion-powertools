@@ -13,15 +13,9 @@
 		<table>
 			<thead>
 				<tr>
-					<th width="25%">
-						Application Id
-					</th>
-					<th width="50%">
-						Data
-					</th>
-					<th width="25%">
-						Type
-					</th>
+					<th width="25%">Application Id</th>
+					<th width="50%">Data</th>
+					<th width="25%">Type</th>
 				</tr>
 			</thead>
 			<tbody id="tbody">

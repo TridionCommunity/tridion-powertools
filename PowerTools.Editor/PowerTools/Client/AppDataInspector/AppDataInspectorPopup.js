@@ -1,16 +1,15 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
 // Construct new instance of this popup
-PowerTools.Popups.AppDataInspector = function (element)
+PowerTools.Popups.AppDataInspector = function(element)
 {
     Type.enableInterface(this, "PowerTools.Popups.AppDataInspector");
     this.addInterface("Tridion.Cme.View");
 };
 
 // Attach event handling for Refresh button and initiate execution
-PowerTools.Popups.AppDataInspector.prototype.initialize = function ()
+PowerTools.Popups.AppDataInspector.prototype.initialize = function()
 {
-    $log.message("Initializing AppDataInspector popup...");
     this.callBase("Tridion.Cme.View", "initialize");
 
     var p = this.properties;
@@ -24,7 +23,7 @@ PowerTools.Popups.AppDataInspector.prototype.initialize = function ()
 
 // Call method AppDataInspectorWorkder.execute() in order to kickoff AppData retrieval in this popup
 // The same worker is also used from the Tab JS handler (AppDataInspectorTab.js).
-PowerTools.Popups.AppDataInspector.prototype._execute = function ()
+PowerTools.Popups.AppDataInspector.prototype._execute = function()
 {
     var worker = new PowerTools.AppDataInspectorWorker();
     worker.execute();
