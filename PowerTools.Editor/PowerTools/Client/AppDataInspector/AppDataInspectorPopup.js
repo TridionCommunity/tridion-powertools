@@ -5,6 +5,7 @@ PowerTools.Popups.AppDataInspector = function(element)
 {
     Type.enableInterface(this, "PowerTools.Popups.AppDataInspector");
     this.addInterface("Tridion.Cme.View");
+    this.addInterface("PowerToolsBase", [this]);
 };
 
 // Attach event handling for Refresh button and initiate execution
