@@ -1,6 +1,6 @@
 ﻿Type.registerNamespace("ItemXmlTab");
 
-ItemXmlTab.ItemXmlTab = function ItemXmlTab$ItemXmlTab(element)
+ItemXmlTab.ItemXmlTab = function ItemXmlTab$constructor(element)
 {
     if ($ptUtils.isCurrentUserAdmin()) 
     {
@@ -9,7 +9,7 @@ ItemXmlTab.ItemXmlTab = function ItemXmlTab$ItemXmlTab(element)
     }
     else
     {
-        $j("#ItemXmlTab_switch").hide();
+        $css.undisplay($("#ItemXmlTab_switch"));
     }
 };
 

@@ -46,7 +46,7 @@ PowerTools.Popups.FieldRemover.prototype._onExecuteButtonClicked = function ()
     /*
     var localDirectory = $j("#Main_SourceFolder").val();
 
-    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
+    var onSuccess = this.getDelegate(this._onExecuteStarted);
     var onFailure = null;
     var context = null;
     */
@@ -145,7 +145,7 @@ PowerTools.Popups.FieldRemover.prototype._handleStatusResponse = function (resul
 PowerTools.Popups.FieldRemover.prototype._pollStatus = function (id)
 {
     var onFailure = null;
-    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
+    var onSuccess = this.getDelegate(this._handleStatusResponse);
     var context = null;
 
     var callback = function ()

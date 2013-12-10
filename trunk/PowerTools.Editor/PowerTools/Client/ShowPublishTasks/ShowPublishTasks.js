@@ -6,10 +6,13 @@ function ShowPublishTask$onDisplayStarted()
 
     if ($display.getView().getId() == "PublishQueueView") 
 	{
-        var btnShowTask = $controls.getControl($("#BtnShowTasks"), "Tridion.Controls.Button");
-        if (btnShowTask) 
-		{
-            btnShowTask.fireEvent("click");
-        }
-    }
+	    if ($("#BtnShowTasks"))
+	    {
+		    var btnShowTask = $controls.getControl($("#BtnShowTasks"), "Tridion.Controls.Button");
+		    if (btnShowTask)
+		    {
+			    btnShowTask.fireEvent("click");
+		    }
+	    }
+	}
 }

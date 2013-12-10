@@ -1,17 +1,17 @@
 ﻿Type.registerNamespace("PowerTools");
 
-PowerTools.BaseCommand = function(id)
+PowerTools.BaseCommand = function BaseCommand$constructor(id)
 {
-    Tridion.OO.enableInterface(this, "PowerTools.BaseCommand");
+	Tridion.OO.enableInterface(this, "PowerTools.BaseCommand");
 	this.addInterface("Tridion.Cme.Command", [id]);
 
 	var p = this.properties;
 	p.id = id;
 	p.initialized = false;
 	p.isConfigured;
-}
+};
 
-PowerTools.BaseCommand.prototype.initialize = function()
+PowerTools.BaseCommand.prototype.initialize = function BaseCommand$initialize()
 {
 	var p = this.properties;
 	
@@ -25,7 +25,7 @@ PowerTools.BaseCommand.prototype.initialize = function()
 
 // If the Power Tool isn't in the configuration, hide the associated toolbar button
 // This probably shouldn't be necessary but the CME isn't hiding the buttons automatically based on the .isAvailable method.
-PowerTools.BaseCommand.prototype.hideToolbarButton = function()
+PowerTools.BaseCommand.prototype.hideToolbarButton = function BaseCommand$hideToolbarButton()
 {
 	var p = this.properties;
 	
@@ -53,12 +53,12 @@ PowerTools.BaseCommand.prototype.hideToolbarButton = function()
 	$log.warn("No toolbar button found for Power Tool '{0}'. Cannot hide it.".format(p.id));
 };
 
-PowerTools.BaseCommand.prototype.isAvailable = function(selection, pipeline)
+PowerTools.BaseCommand.prototype.isAvailable = function BaseCommand$isAvailable(selection, pipeline)
 {
 	return this.isEnabled(selection, pipeline);
 };
 
-PowerTools.BaseCommand.prototype.isToolConfigured = function() 
+PowerTools.BaseCommand.prototype.isToolConfigured = function BaseCommand$isToolConfigured() 
 {
 	var p = this.properties;
 
@@ -79,7 +79,7 @@ PowerTools.BaseCommand.prototype.isToolConfigured = function()
 	return p.isConfigured;
 };
 
-PowerTools.BaseCommand.prototype.isEnabled = function(selection, pipeline)
+PowerTools.BaseCommand.prototype.isEnabled = function BaseCommand$isEnabled(selection, pipeline)
 {
 	var p = this.properties;
 

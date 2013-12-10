@@ -1,12 +1,12 @@
 ﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools.Commands.MarkUnpublished = function ()
+PowerTools.Commands.MarkUnpublished = function MarkUnpublishedCommand$constructor()
 {
     Type.enableInterface(this, "PowerTools.Commands.MarkUnpublished");
     this.addInterface("PowerTools.BaseCommand", ["MarkUnpublished"]);
 };
 
-PowerTools.Commands.MarkUnpublished.prototype._execute = function(selection)
+PowerTools.Commands.MarkUnpublished.prototype._execute = function MarkUnpublishedCommand$_execute(selection)
 {
     var uriSelection = selection.getItem(0);
     var url = $ptUtils.expandPath("/PowerTools/Client/MarkUnpublished/MarkUnpublished.aspx") + "#folderId=" + uriSelection;
@@ -14,10 +14,9 @@ PowerTools.Commands.MarkUnpublished.prototype._execute = function(selection)
     if (popup) popup.open();
 };
 
-PowerTools.Commands.MarkUnpublished.prototype.isValidSelection = function(selection)
+PowerTools.Commands.MarkUnpublished.prototype.isValidSelection = function MarkUnpublishedCommand$isValidSelection(selection)
 {
-    var treeView = $controls.getControl($("#DashboardTree"), "Tridion.Controls.FilteredTree");
-    var selectedItem = treeView.getSelection().getItem(0);
+    var selectedItem = selection.getItem(0);
     var itemType = $models.getItemType(selectedItem);
     return (itemType == $const.ItemType.FOLDER || itemType == $const.ItemType.STRUCTURE_GROUP);
 }

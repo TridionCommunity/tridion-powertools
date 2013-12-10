@@ -2,47 +2,34 @@
     MasterPageFile="../Shared/Views/PopUp.Master" %>
 
 <asp:Content ID="ExampleContent" ContentPlaceHolderID="Main" runat="server">
-        <h2>Getting Started Examples</h2>
-        <p>
-            This example PowerTool demonstrates the status bar using Client (JavaScript) and
-            Server (Core Service) code:</p>
+	<div id="Example">
+		<div class="tool-explanation">
+	        <p>This example PowerTool demonstrates the status bar using Client (JavaScript) and Server (Core Service) code:</p>
+		</div>
+
         <c:tabcontrol runat="server" id="ContactTabs" activepage="ClientTab" class="vertical">
             <c:deckpage runat="server" id="ClientTab" label="Client">
                 <table summary="Paths and descriptions of the client and server parts of a PowerTool.">
                     <thead>
                         <tr>
-                            <th>
-                                Path
-                            </th>
-                            <th>
-                                Purpose
-                            </th>
+                            <th>Path</th>
+                            <th>Purpose</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                /PowerTools/Client/Example/Example.aspx<br />
+                            <td>/PowerTools/Client/Example/Example.aspx<br />
                                 (this pop-up)
                             </td>
-                            <td>
-                                displays content and controls layout
-                            </td>
+                            <td>Displays content and controls layout</td>
                         </tr>
                         <tr>
-                            <td>
-                                /PowerTools/Client/Example/Example.js:
-                            </td>
-                            <td>
-                                JavaScript functions for this popup
-                            </td>
+                            <td>/PowerTools/Client/Example/Example.js:</td>
+                            <td>JavaScript functions for this popup</td>
                         </tr>
                         <tr>
-                            <td>
-                                /PowerTools/Client/Example/ExampleCommand.js:
-                            </td>
-                            <td>
-                                JavaScript commands to add buttons to the GUI, for example:
+                            <td>/PowerTools/Client/Example/ExampleCommand.js:</td>
+                            <td>JavaScript commands to add buttons to the GUI, for example:
                                 <ul>
                                     <li>isAvailable</li>
                                     <li>isEnabled</li>
@@ -51,20 +38,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                /PowerTools/Client/Example/Example.css
-                            </td>
-                            <td>
-                                Cascading Style Sheet (CSS) controls look and feel of page (pop-up) elements
-                            </td>
+                            <td>/PowerTools/Client/Example/Example.css</td>
+                            <td>Cascading Style Sheet (CSS) controls look and feel of page (pop-up) elements</td>
                         </tr>
                         <tr>
-                            <td>
-                                /PowerTools/Client/Shared/Theme/styles.css
-                            </td>
-                            <td>
-                                CSS controls look and feel of the buttons
-                            </td>
+                            <td>/Themes/Carbon/General.css</td>
+                            <td>CSS controls look and feel of the buttons</td>
                         </tr>
                     </tbody>
                 </table>
@@ -81,44 +60,27 @@
 
             <c:deckpage runat="server" id="ExampleTab" label="Examples">
                 <div>
-                    <em>Get the current user</em>
+                    <label class="exampleLabel">Get the current user</label>
                     <c:button id="UserButton" runat="server" label="Get User Info" class="customButton" />
                </div>
-                <hr  class="clearline"/>
+                <hr class="clearline"/>
                <div>
-                    <em>Select anItem from the Building Blocks Folder</em>
+                    <label class="exampleLabel">Select an item from the Building Blocks Folder</label>
                     <c:button id="SelectItem" runat="server" label="Open Item Selector" class="customButton" />
                </div>
                <hr  class="clearline"/>
                <div>
-                    <em>Execute a background task</em>
-                    <c:button id="ExecuteButton" runat="server" label="Execute" class="customButton" />
+                    <label class="exampleLabel">Execute a background task</label>
+                    <c:button id="ExampleExecuteButton" runat="server" label="Execute" class="customButton" />
                </div>
                <hr  class="clearline"/>
                <div>
-                    <em>Populate publications list</em>
-                    <c:dropdown id="Publications" runat="server" nullable="false" />
+                    <label class="exampleLabel">Populate publications list</label><br/>
+                    <c:dropdown id="Publications" runat="server" nullable="false" /><br/>
                     <label id="selectedPublication"> </label>
                </div>
             
             </c:deckpage>
         </c:tabcontrol>
-
-
-        <!--Progress bar stuff-->
-        <div id="ModalDialog">
-            <div id="dialog" class="window" style="border: 2px solid black; width: 300px; height: 100px;
-                background-color: white; text-align: center">
-                <div style="border: 1px solid black; background-color: white; width: 100%">
-                    <div id="ProgressBar" style="height: 15px; width: 1px; background-color: navy;">
-                        &nbsp;</div>
-                </div>
-                <div id="ProgressStatus" style="width: 100%; text-align: center">
-                    Progress</div>
-                <c:button id="CloseDialog" runat="server" label="Close" class="customButton" />
-            </div>
-            <div id="mask">
-                &#160;
-            </div>
-        </div>
+	</div>
 </asp:Content>

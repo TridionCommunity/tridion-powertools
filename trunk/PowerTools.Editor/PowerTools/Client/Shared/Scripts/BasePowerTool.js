@@ -1,14 +1,12 @@
 ﻿Type.registerNamespace("PowerToolsBase");
 
-PowerToolsBase = function()
+PowerToolsBase = function PowerToolsBase$constructor()
 {
 	// Initialize base-class by adding some default Tridion properties/methods like 'getDelegate', 'getInterface', 'addInterface', etc. 
 	Tridion.OO.enableInterface(this, "PowerToolsBase.BaseClass");
 
 	// Add progressDialog methods
 	this.addInterface("PowerTools.ProgressDialog");
-
-	var p = this.properties;
 
 	if ($("#UserNotification"))
 	{
@@ -26,7 +24,7 @@ PowerToolsBase = function()
 };
 
 //Initializes excecutebutton. Initializes/shows progressbar and after that it calls the _onExecuteButtonClicked method from the powertool itself.
-PowerToolsBase.prototype._initializeExecuteButton = function()
+PowerToolsBase.prototype._initializeExecuteButton = function PowerToolsBase$_initializeExecuteButton()
 {
 	var p = this.properties;
 	var c = p.controls;
@@ -39,7 +37,7 @@ PowerToolsBase.prototype._initializeExecuteButton = function()
 	}
 };
 
-PowerToolsBase.prototype._validateInput = function()
+PowerToolsBase.prototype._validateInput = function PowerToolsBase$_validateInput()
 {
 	if (this.validateInput)
 	{
@@ -55,7 +53,7 @@ PowerToolsBase.prototype._validateInput = function()
 	}
 };
 
-PowerToolsBase.prototype._execute = function()
+PowerToolsBase.prototype._execute = function PowerToolsBase$_execute()
 {
 	if (this._onExecuteButtonClicked)
 	{
@@ -68,9 +66,20 @@ PowerToolsBase.prototype._execute = function()
 	}
 };
 
+PowerToolsBase.prototype.onError = function PowerToolsBase$onError(result)
+{
+	var errorMessage = result.ErrorMessage || result;
+	$messages.registerError(null, errorMessage, errorMessage, true, false);
+};
+
+PowerToolsBase.prototype.getErrorHandler = function PowerToolsBase$getErrorHandler()
+{
+	return this.getDelegate(this.onError);
+};
+
 // Find the powertool name from the namespace.
 // Currently it's convention over configuration. 
-PowerToolsBase.prototype.getPowerToolId = function()
+PowerToolsBase.prototype.getPowerToolId = function PowerToolsBase$getPowerToolId()
 {
 	var typeName = this.getTypeName();
 

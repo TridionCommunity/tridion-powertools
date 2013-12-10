@@ -1,6 +1,6 @@
 ﻿Type.registerNamespace("PowerTools");
 
-PowerTools.ProgressDialog = function()
+PowerTools.ProgressDialog = function ProgressDialog$constructor()
 {
     Tridion.OO.enableInterface(this, "PowerTools.ProgressDialog");
 
@@ -13,7 +13,7 @@ PowerTools.ProgressDialog = function()
     this._initializeCloseButton();
 };
 
-PowerTools.ProgressDialog.prototype._initializeProgressWindow = function() 
+PowerTools.ProgressDialog.prototype._initializeProgressWindow = function ProgressDialog$_initializeProgressWindow() 
 {
 	var p = this.properties;
     var dialog = $j("#dialog");
@@ -47,7 +47,7 @@ PowerTools.ProgressDialog.prototype._initializeProgressWindow = function()
 };
 
 // Initializes close button. (Close dialog) and after that it calls the _onCloseButtonClicked from the powertool
-PowerTools.ProgressDialog.prototype._initializeCloseButton = function() 
+PowerTools.ProgressDialog.prototype._initializeCloseButton = function ProgressDialog$_initializeCloseButton() 
 {
 	var p = this.properties;
     var c = p.controls;
@@ -60,7 +60,7 @@ PowerTools.ProgressDialog.prototype._initializeCloseButton = function()
     }
 };
 
-PowerTools.ProgressDialog.prototype._onDialogCloseButtonClicked = function() 
+PowerTools.ProgressDialog.prototype._onDialogCloseButtonClicked = function ProgressDialog$_onDialogCloseButtonClicked() 
 {
     // Close progress-dialog
     $j('#mask, .window').hide();
@@ -68,10 +68,10 @@ PowerTools.ProgressDialog.prototype._onDialogCloseButtonClicked = function()
     $j('#ProgressBar').css({ 'width': 0 + '%', 'display': 'none' });
 };
 
-PowerTools.ProgressDialog.prototype._pollStatus = function(id) 
+PowerTools.ProgressDialog.prototype._pollStatus = function ProgressDialog$_pollStatus(id) 
 {
     var p = this.properties;
-    var onSuccess = Function.getDelegate(this, this._handleStatusResponse);
+    var onSuccess = this.getDelegate(this._handleStatusResponse);
     var onFailure = null;
     var context = this;
 
@@ -88,7 +88,7 @@ PowerTools.ProgressDialog.prototype._pollStatus = function(id)
     setTimeout(callback, p.pollInterval);
 };
 
-PowerTools.ProgressDialog.prototype._handleStatusResponse = function(result)
+PowerTools.ProgressDialog.prototype._handleStatusResponse = function ProgressDialog$_handleStatusResponse(result)
 {
     var p = this.properties;
 	var c = p.controls;
@@ -130,13 +130,13 @@ PowerTools.ProgressDialog.prototype._handleStatusResponse = function(result)
     p.processId = "";
 };
 
-PowerTools.ProgressDialog.prototype._updateProgressBar = function(process)
+PowerTools.ProgressDialog.prototype._updateProgressBar = function ProgressDialog$_updateProgressBar(process)
 {
     $j('#ProgressStatus').html(process.Status);
     $j('#ProgressBar').css({ 'width': process.PercentComplete + '%', 'display': 'block' });
 };
 
-PowerTools.ProgressDialog.prototype._onExecuteStarted = function(result)
+PowerTools.ProgressDialog.prototype._onExecuteStarted = function ProgressDialog$_onExecuteStarted(result)
 {    
     if (result) 
 	{

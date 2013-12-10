@@ -1,10 +1,10 @@
 ﻿Type.registerNamespace("PowerTools.Popups");
 
-PowerTools.Popups.PagePublisher = function () {
-
+PowerTools.Popups.PagePublisher = function PagePublisher$constructor() 
+{
     Type.enableInterface(this, "PowerTools.Popups.PagePublisher");
     this.addInterface("Tridion.Cme.View");
-    this.addInterface("PowerToolsBase", [this]);     //Base class for initializing execute-,close button, and progressbar.
+    this.addInterface("PowerToolsBase", [this]);
 
     var p = this.properties;
 
@@ -17,7 +17,7 @@ PowerTools.Popups.PagePublisher = function () {
 
 PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH = $config.expandEditorPath("/Xml/ListDefinitions/TargetTypeList-head.xml", $const.CMEEditorName);
 
-PowerTools.Popups.PagePublisher.prototype.initialize = function ()
+PowerTools.Popups.PagePublisher.prototype.initialize = function PagePublisher$initialize()
 {
     this.callBase("Tridion.Cme.View", "initialize");
 
@@ -80,9 +80,8 @@ PowerTools.Popups.PagePublisher.prototype.initialize = function ()
 * When the publish button is clicked the form values are checked and sent to publishpage service
 */
 
-PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () {
-
-    $log.message("Page publisher execute button clicked");
+PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function PagePublisher$_onExecuteButtonClicked() 
+{
     var p = this.properties;
     var c = p.controls;
     p.SelectedTarget = this._getSelectedTargetTypes();
@@ -101,31 +100,21 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function () 
     p.PublishStructureGroupInfo = $("#resolveStructureGroupInfoChk").checked;
     p.IncludeWorkflow = $("#includeWorkFlowChk").checked;
     p.Priority = parseInt($j("#Priority").val());
-    var onSuccess = Function.getDelegate(this, this._onExecuteStarted);
-    var onFailure = null;
-    var context = null;
+    
+	var onSuccess = this.getDelegate(this._onExecuteStarted);
 
     // pass in structure uri, publishing target uri
-    $log.message("Page publisher publish : Recursive = [" + p.Recursive + "] | Republish in children = [" + p.PublishChildren + "] | Republish only = [" + p.Republish + "] |  Priority = [" + p.Priority + "]");
     PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority,
         p.PublishChildren, p.IncludeComponentLinks, p.PublishStructureGroupInfo,
-        p.IncludeWorkflow, onSuccess, onFailure, context, false);
+        p.IncludeWorkflow, onSuccess, this.getErrorHandler());
 };
 
-/**
-* TODO: When the publishing is completed, close the dialog and update the message center 
-*/
-
-PowerTools.Popups.PagePublisher.prototype.afterSuccess = function (processId) {
-    if (processId != "") {
-        $log.debug("Retrieving Publishdata for process #" + processId);
-        var onSuccess = Function.getDelegate(this, this._handlePublishingStatus);
-        var onFailure = null;
-        var context = null;
-        PowerTools.Model.Services.PagePublisher.GetPublisherData(onSuccess, onFailure, context, false);
-    }
-    else {
-        // TODO: Log an error that something weird happened!
+PowerTools.Popups.PagePublisher.prototype.afterSuccess = function PagePublisher$afterSuccess(processId) 
+{
+    if (processId) 
+	{
+        var onSuccess = this.getDelegate(this._handlePublishingStatus);
+        PowerTools.Model.Services.PagePublisher.GetPublisherData(onSuccess, this.getErrorHandler());
     }
 };
 
@@ -133,15 +122,16 @@ PowerTools.Popups.PagePublisher.prototype.afterSuccess = function (processId) {
 * When the publishing is completed update the message center 
 */
 
-PowerTools.Popups.PagePublisher.prototype._handlePublishingStatus = function (response) {
-    $log.debug("Handling the published items");    
-    if (response.FailedMessage !="") {
-        $messages.registerError(response.FailedMessage, null, null, false, false);
-    }
+PowerTools.Popups.PagePublisher.prototype._handlePublishingStatus = function PagePublisher$_handlePublishingStatus(response)
+{
+	if (response.FailedMessage)
+	{
+		$messages.registerError(response.FailedMessage, null, null, false, false);
+	}
 
-    $messages.registerNotification(response.SuccessMessage, null, null, false, false);
-    window.close();
-}
+	$messages.registerNotification(response.SuccessMessage, null, null, false, false);
+	window.close();
+};
 
 
 
@@ -149,28 +139,26 @@ PowerTools.Popups.PagePublisher.prototype._handlePublishingStatus = function (re
 * Sets the publish button to disabled and loads the drop down header xml
 */
 
-PowerTools.Popups.PagePublisher.prototype._setupControls = function _setupControls() {
-    $log.message("Page publisher setting up controls");
+PowerTools.Popups.PagePublisher.prototype._setupControls = function PagePublisher$_setupControls()
+{
+	var p = this.properties;
+	var c = p.controls;
 
-    var p = this.properties;
-    var c = p.controls;
+	// Disable the execute button
+	c.ExecuteButton.disable();
 
-    // Disable the execute button
-    c.ExecuteButton.disable();
+	var publishLabel = $localization.getEditorResource("Publish");
+	document.title = publishLabel;
+	c.ExecuteButton.setText(publishLabel);
 
-    var publishLabel = $localization.getEditorResource("Publish");
-    document.title = publishLabel;
-    c.ExecuteButton.setText(publishLabel);
-
-    // set the PublishTab to visible
-    var page = c.TabControl.getPage("PublishTab");
-    if (page) {
-        c.TabControl.showItem(page);
-        c.TabControl.selectItem(page);
-    }
-
-
-}
+	// set the PublishTab to visible
+	var page = c.TabControl.getPage("PublishTab");
+	if (page)
+	{
+		c.TabControl.showItem(page);
+		c.TabControl.selectItem(page);
+	}
+};
 
 
 /* ============================================
@@ -182,27 +170,30 @@ PowerTools.Popups.PagePublisher.prototype._setupControls = function _setupContro
 * @param {Tridion.Core.Event} event. The event is the event fired from the list.
 * @private
 */
-PowerTools.Popups.PagePublisher.prototype._onTargetTypeListSelectionChanged = function _onTargetTypeListSelectionChanged(e) {
+PowerTools.Popups.PagePublisher.prototype._onTargetTypeListSelectionChanged = function PagePublisher$_onTargetTypeListSelectionChanged(e) 
+{
     var p = this.properties;
     var c = p.controls;
-    var eventName = e.name;
-    var selection = (e && e.data) ? e.data.items : null;
     var enable = false;
 
     // Update selected tt array	
     var checkBoxes = p.checkBoxView.getSelection();
-    for (var checkboxKey in checkBoxes) {
+    for (var checkboxKey in checkBoxes) 
+	{
         var tcmId = checkBoxes[checkboxKey];
-        if (tcmId) {
+        if (tcmId) 
+		{
             enable = true;
             break;
         }
     }
 
-    if (enable) {
+    if (enable) 
+	{
         c.ExecuteButton.enable();
     }
-    else {
+    else 
+	{
         c.ExecuteButton.disable();
     }
 };
@@ -212,7 +203,8 @@ PowerTools.Popups.PagePublisher.prototype._onTargetTypeListSelectionChanged = fu
 * Handles the definitions XML document load event.
 * @param {XMLDocument} headXml Definitions XML document.
 */
-PowerTools.Popups.PagePublisher.prototype._ttListHeadLoaded = function _ttListHeadLoaded(headXml) {
+PowerTools.Popups.PagePublisher.prototype._ttListHeadLoaded = function PagePublisher$_ttListHeadLoaded(headXml) 
+{
     // Save target type list header
     this.properties.ttListHeadXml = headXml;
     // Load target type list
@@ -221,30 +213,23 @@ PowerTools.Popups.PagePublisher.prototype._ttListHeadLoaded = function _ttListHe
 
 
 /**
-* Handles the definitions XML document load faild event.
-*/
-PowerTools.Popups.PagePublisher.prototype._ttListHeadLoadFailed = function _ttListHeadLoadFailed() {
-    $log.message("PowerTools.Popups.PagePublisher._ttListHeadLoadFailed");
-};
-
-
-
-/**
 * Asynchronously load Target types list header.
 */
-PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeListHeader = function _asyncLoadTargetTypeListHeader() {
+PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeListHeader = function PagePublisher$_asyncLoadTargetTypeListHeader() 
+{
     var p = this.properties;
     // Continue loading target types list header
     var ttListHeadPath = $config.expandBasePath(PowerTools.Popups.PagePublisher.TARGETTYPE_HEAD_PATH + "?forView=" + Tridion.Core.Configuration.CurrentView + "&forControl=" + this.properties.controls.TargetTypeList.getId());
     // Async load
-    $xml.loadXmlDocument(ttListHeadPath, this.getDelegate(this._ttListHeadLoaded), this.getDelegate(this._ttListHeadLoadFailed));
+    $xml.loadXmlDocument(ttListHeadPath, this.getDelegate(this._ttListHeadLoaded), this.getErrorHandler());
 };
 
 
 /**
 * Asynchronously load target types list header.
 */
-PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _asyncLoadTargetTypeList() {
+PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function PagePublisher$_asyncLoadTargetTypeList() 
+{
     var p = this.properties;
     var c = p.controls;
 
@@ -254,7 +239,8 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
     // Async handler
     var self = this;
 
-    var populateList = function _asyncLoadTargetTypeList$listLoaded(event) {
+    var populateList = function _asyncLoadTargetTypeList$listLoaded(event) 
+	{
         var ttList = self.getListTargetTypes();
         $evt.removeEventHandler(ttList, "load", populateList);
         // Get a local threaded xml document
@@ -262,12 +248,16 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
 
         // Add Icon attribute if it's not there
         var nodes = $xml.selectNodes(xml, "/tcm:*/tcm:Item");
-        if (nodes) {
-            for (var i = 0, cnt = nodes.length; i < cnt; i++) {
-                if (!nodes[i].getAttribute("Icon")) {
+        if (nodes) 
+		{
+            for (var i = 0, cnt = nodes.length; i < cnt; i++) 
+			{
+                if (!nodes[i].getAttribute("Icon")) 
+				{
                     nodes[i].setAttribute("Icon", $const.ItemType.TARGET_TYPE.replace(/tcm:/i, "T"));
                 }
-                else {
+                else 
+				{
                     // If one is there most probably all of them are there
                     break;
                 }
@@ -281,17 +271,19 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
 
         // Stop showing loading
         c.TargetTypeList.setLoading(false);
-
     };
 
 
     // Try load target type list from model
     var ttList = this.getListTargetTypes();
-    if (ttList) {
-        if (ttList.isLoaded(true)) {
+    if (ttList) 
+	{
+        if (ttList.isLoaded(true)) 
+		{
             populateList();
         }
-        else {
+        else 
+		{
             $evt.addEventHandler(ttList, "load", populateList);
             ttList.load();
         }
@@ -303,18 +295,21 @@ PowerTools.Popups.PagePublisher.prototype._asyncLoadTargetTypeList = function _a
 * Gets Target Types List. 
 * @returns {Object} Target Types  List. 
 */
-PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListTargetTypes() {
-
+PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function PagePublisher$getListTargetTypes() 
+{
     var p = this.properties;
-    if (!p.targetTypesListId) {
+    if (!p.targetTypesListId) 
+	{
         var publication = this._getPublicationFromParams();
-        if (publication) {
+        if (publication) 
+		{
             var list = publication.getListTargetTypes($const.ColumnFilter.ID);
             p.targetTypesListId = list.getId();
             return list;
         }
     }
-    else {
+    else 
+	{
         return $models.getItem(p.targetTypesListId);
     }
 };
@@ -324,7 +319,8 @@ PowerTools.Popups.PagePublisher.prototype.getListTargetTypes = function getListT
 * @returns {Object} Target Types  List. 
 */
 
-PowerTools.Popups.PagePublisher.prototype._getSelectedTargetTypes = function _getSelectedTargetTypes() {
+PowerTools.Popups.PagePublisher.prototype._getSelectedTargetTypes = function PagePublisher$_getSelectedTargetTypes() 
+{
     var p = this.properties;
     var selection = p.checkBoxView.getSelection();
     return selection.getItems();
@@ -336,12 +332,15 @@ PowerTools.Popups.PagePublisher.prototype._getSelectedTargetTypes = function _ge
 * @returns {Tridion.ContentManager.Publication} Using item <c>Tridion.ContentManager.Publication</c>.
 * @private 
 */
-PowerTools.Popups.PagePublisher.prototype._getPublicationFromParams = function _getPublicationFromParams() {
+PowerTools.Popups.PagePublisher.prototype._getPublicationFromParams = function _getPublicationFromParams() 
+{
     var p = this.properties;
     var itemId = p.locationId;
-    if (itemId) {
+    if (itemId) 
+	{
         var item = $models.getItem(itemId);
-        if (item) {
+        if (item) 
+		{
             return item.getPublication();
         }
     }
@@ -353,11 +352,13 @@ PowerTools.Popups.PagePublisher.prototype._getPublicationFromParams = function _
 * Manages what happens when a user clicks on Publish now, later or schedule
 * @private 
 */
-PowerTools.Popups.PagePublisher.prototype._onPublishRadioChanged = function _onPublishRadioChanged(e) {
+PowerTools.Popups.PagePublisher.prototype._onPublishRadioChanged = function PagePublisher$_onPublishRadioChanged(e) 
+{
     var p = this.properties;
     var c = p.controls;
     var source = e.source || $e.srcElement(e);
-    switch (source) {
+    switch (source) 
+	{
         case c.publishLater:
             $css.undisplay(c.setSchedulePublish);
             $css.display(c.setPublishLater);
@@ -387,11 +388,13 @@ PowerTools.Popups.PagePublisher.prototype._onPublishRadioChanged = function _onP
 * Manages what happens when a user clicks on generate content now
 * @private 
 */
-PowerTools.Popups.PagePublisher.prototype._onGenerateContentRadioChanged = function _onGenerateContentRadioChanged(e) {
+PowerTools.Popups.PagePublisher.prototype._onGenerateContentRadioChanged = function PagePublisher$_onGenerateContentRadioChanged(e) 
+{
     var p = this.properties;
     var c = p.controls;
     var source = e.source || $e.srcElement(e);
-    switch (source) {
+    switch (source) 
+	{
         case c.generateContentLater:
             $css.display(c.setGenerateContentLater);
             c.GenerateContentDate.setDate(p.today);
@@ -413,11 +416,13 @@ PowerTools.Popups.PagePublisher.prototype._onGenerateContentRadioChanged = funct
 * Manages what happens when a user clicks place content now
 * @private 
 */
-PowerTools.Popups.PagePublisher.prototype._onPlaceContentRadioChanged = function _onPlaceContentRadioChanged(e) {
+PowerTools.Popups.PagePublisher.prototype._onPlaceContentRadioChanged = function PagePublisher$_onPlaceContentRadioChanged(e) 
+{
     var p = this.properties;
     var c = p.controls;
     var source = e.source || $e.srcElement(e);
-    switch (source) {
+    switch (source) 
+	{
         case c.placeContentLater:
             $css.display(c.setPlaceContentLater);
             c.PlaceContentDate.setDate(p.today);
@@ -437,7 +442,8 @@ PowerTools.Popups.PagePublisher.prototype._onPlaceContentRadioChanged = function
 * Reacts to the DOM click event.
 * @private
 */
-PowerTools.Popups.PagePublisher.prototype._onBtnCancelClicked = function Publish$_onBtnCancelClicked() {
+PowerTools.Popups.PagePublisher.prototype._onBtnCancelClicked = function PagePublisher$_onBtnCancelClicked() 
+{
     window.close();
 };
 
@@ -445,7 +451,8 @@ PowerTools.Popups.PagePublisher.prototype._onBtnCancelClicked = function Publish
 * Gets today.
 * @returns {Date} Today.
 */
-PowerTools.Popups.PagePublisher.prototype._getToday = function _getToday() {
+PowerTools.Popups.PagePublisher.prototype._getToday = function PagePublisher$_getToday() 
+{
     var now = Tridion.UI.ServerTime.getInstance().getDate();
     return new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
 };

@@ -1,12 +1,12 @@
 ﻿Type.registerNamespace("PowerTools.Commands");
 
-PowerTools.Commands.ImageUploader = function()
+PowerTools.Commands.ImageUploader = function ImageUploaderCommand$constructor()
 {
     Type.enableInterface(this, "PowerTools.Commands.ImageUploader");
     this.addInterface("PowerTools.BaseCommand", ["ImageUploader"]);
 };
 
-PowerTools.Commands.ImageUploader.prototype._execute = function(selection)
+PowerTools.Commands.ImageUploader.prototype._execute = function ImageUploaderCommand$_execute(selection)
 {
     var uriSelection = $url.getHashParam("locationId");
     var url = $ptUtils.expandPath("/PowerTools/Client/ImageUploader/ImageUploader.aspx") + "#folderId=" + uriSelection;
@@ -14,8 +14,8 @@ PowerTools.Commands.ImageUploader.prototype._execute = function(selection)
     if (popup) popup.open();
 };
 
-PowerTools.Commands.ImageUploader.prototype.isValidSelection = function ()
+PowerTools.Commands.ImageUploader.prototype.isValidSelection = function ImageUploaderCommand$isValidSelection()
 {
-    var itemType = $models.getItemType($url.getHashParam("locationId"));
-    return (itemType == $const.ItemType.FOLDER);
-}
+	var itemType = $models.getItemType($url.getHashParam("locationId"));
+	return (itemType == $const.ItemType.FOLDER);
+};

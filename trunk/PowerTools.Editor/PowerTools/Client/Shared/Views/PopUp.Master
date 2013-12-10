@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="PowerTools.Editor.PowerTools.Client.Shared.Views.PopupMaster" %>
-
+<%@ Register TagPrefix="cc" Namespace="Tridion.Web.UI.Core.Controls" Assembly="Tridion.Web.UI.Core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://www.sdltridion.com/web/ui/controls" class="tridion popup">
 	<head runat="server">
@@ -13,7 +13,7 @@
 		</cc:TridionManager>
 	</head>
 	
-	<body class="popupview stack horizontal">
+	<body class="popupview stack horizontal powertool">
 		<div class="header stack-elem">
 			<asp:PlaceHolder ID="NotificationsPlaceHolder" runat="server"></asp:PlaceHolder>
 		</div>
@@ -23,14 +23,16 @@
 
 				<h1><%=Page.Title %></h1>
 
-				<div id="container" style="padding: 10px">
+				<div id="container">
 					<asp:ContentPlaceHolder ID="Main" runat="server"></asp:ContentPlaceHolder>
+
+					<!-- Progress Window -->
 					<div id="ModalDialog">
-						<div id="dialog" class="window" style="border: 2px solid black; width: 300px; height: 100px; background-color: white; text-align: center">
-							<div style="border: 1px solid black; background-color: white; width: 100%">
-								<div id="ProgressBar" style="height: 15px; width: 1px; background-color: navy;">&nbsp;</div>
+						<div id="dialog" class="window">
+							<div class="progressBorder">
+								<div id="ProgressBar" class="progressBar">&nbsp;</div>
 							</div>
-							<div id="ProgressStatus" style="width: 100%; text-align: center">Loading...</div>
+							<div id="ProgressStatus" class="progressStatus">Loading...</div>
 							<c:button id="CloseDialog" runat="server" label="Close" class="customButton" />
 						</div>
 						<div id="mask">

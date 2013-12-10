@@ -1,37 +1,34 @@
 ﻿Type.registerNamespace("PowerTools.Tabs");
 
-// Constructs a new tab for Chang eHistory. Adds itself to the current tabs deck
-PowerTools.Tabs.ItemCommentingTab = function (element) {
-
+// Constructs a new tab for Change History. Adds itself to the current tabs deck
+PowerTools.Tabs.ItemCommentingTab = function ItemCommentingTab$constructor(element) 
+{
     Tridion.OO.enableInterface(this, PowerTools.Tabs.ItemCommentingTab);
     this.addInterface("Tridion.Controls.DeckPage", [element]);
 };
 
-// Initialization called by Anguilla. Deffers execution to base.initialize()
-PowerTools.Tabs.ItemCommentingTab.prototype.initialize = function () {
-    $log.message("Initializing Chage History tab...");
+// Initialization called by Anguilla. Defers execution to base.initialize()
+PowerTools.Tabs.ItemCommentingTab.prototype.initialize = function ItemCommentingTab$initialize() 
+{
     this.callBase("Tridion.Controls.DeckPage", "initialize");
 };
 
 // Upon selection of the tab, calls the updateView()
-PowerTools.Tabs.ItemCommentingTab.prototype.select = function ()
+PowerTools.Tabs.ItemCommentingTab.prototype.select = function ItemCommentingTab$select()
 {
     this.callBase("Tridion.Controls.DeckPage", "select");
     this.updateView();
 };
 
-// Main method. Entry point for the actual functionality. Calls AppDataInspectorWorker.execute().
-// Same class is called from AppDataInspectorPopup.js as well.
-PowerTools.Tabs.ItemCommentingTab.prototype.updateView = function ()
+PowerTools.Tabs.ItemCommentingTab.prototype.updateView = function ItemCommentingTab$updateView()
 {
-    var onSuccess = Function.getDelegate(this, this.showChangeHistory);
-    //$j('#itemCommentingTabDiv').html('hello world');
-
-    PowerTools.Model.Services.AppDataServices.Read("ext:ItemCommenting", $url.getHashParam("id"), onSuccess, null, null, false);
-   
+    var onSuccess = this.getDelegate(this.showChangeHistory);
+    var onFailure = this.getDelegate(this.onError);
+    PowerTools.Model.Services.AppDataServices.Read("ext:ItemCommenting", $url.getHashParam("id"), onSuccess, onFailure);
 };
 
-PowerTools.Tabs.ItemCommentingTab.prototype.showChangeHistory = function (result) {
+PowerTools.Tabs.ItemCommentingTab.prototype.showChangeHistory = function ItemCommentingTab$showChangeHistory(result)
+{
     var xml = $j(result);
 
     var output = "";
@@ -51,6 +48,10 @@ PowerTools.Tabs.ItemCommentingTab.prototype.showChangeHistory = function (result
     $j('#itemcommentingbody').html(output);
 };
 
-// Register itself with the Tridion.Controls.Deck namespace
+PowerTools.Tabs.ItemCommentingTab.prototype.onError = function ItemCommentingTab$onError(error)
+{
+	$messages.registerError(error);
+};
 
+// Register itself with the Tridion.Controls.Deck namespace
 Tridion.Controls.Deck.registerPageType(PowerTools.Tabs.ItemCommentingTab, "ItemCommentingTab");

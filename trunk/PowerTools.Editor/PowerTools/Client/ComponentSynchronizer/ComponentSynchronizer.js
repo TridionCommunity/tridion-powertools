@@ -4,7 +4,7 @@
 * Implements Component Synchronizer popup view.
 * @constructor
 */
-PowerTools.Popups.ComponentSynchronizer = function ()
+PowerTools.Popups.ComponentSynchronizer = function ComponentSynchronizer$constructor()
 {
 	Type.enableInterface(this, "PowerTools.Popups.ComponentSynchronizer");
 	this.addInterface("Tridion.Cme.View");
@@ -24,10 +24,8 @@ PowerTools.Popups.ComponentSynchronizer = function ()
 * Initializes Component Synchronizer popup view.
 * @private
 */
-PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function ()
+PowerTools.Popups.ComponentSynchronizer.prototype.initialize = function ComponentSynchronizer$initialize()
 {
-	$log.message("initializing Component Synchronizer popup...");
-
 	this.callBase("Tridion.Cme.View", "initialize");
 
 	var p = this.properties;
@@ -433,7 +431,7 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onBrowseClicked = function _o
 * On Reference Component Browse. 
 * @param {Tridion.Core.Event}. The click event.
 */
-PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicked = function ()
+PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicked = function ComponentSynchronizer$_oncreateReferenceButtonClicked()
 {
 	var p = this.properties;
 
@@ -493,16 +491,16 @@ PowerTools.Popups.ComponentSynchronizer.prototype._onCreateReferenceButtonClicke
 	return item;
 };
 
-PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function ()
+PowerTools.Popups.ComponentSynchronizer.prototype._onExecuteButtonClicked = function ComponentSynchronizer$_onExecuteButtonClicked()
 {
 	var p = this.properties;
-	var onSuccess = Function.getDelegate(this, this._onExecuteStarted);   
+	var onSuccess = this.getDelegate(this._onExecuteStarted);   
 	var onFailure = null;
 
     PowerTools.Model.Services.ComponentSynchronizer.Execute(p.sel.getItems(), p.referenceComponent, onSuccess, onFailure);
 };
 
-PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function ()
+PowerTools.Popups.ComponentSynchronizer.prototype._onCloseButtonClicked = function ComponentSynchronizer$_onCloseButtonClicked()
 {
 	this.fireEvent("cancel");
 	window.close();
