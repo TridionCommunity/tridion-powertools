@@ -34,7 +34,7 @@ PowerToolsBase.prototype._initializeExecuteButton = function()
 	var button = $("#ExecuteButton");
 	if (button)
 	{
-		c.ExecuteButton = $controls.getControl($(controlSelector), "Tridion.Controls.Button");
+		c.ExecuteButton = $controls.getControl(button, "Tridion.Controls.Button");
 		$evt.addEventHandler(c.ExecuteButton, "click", this.getDelegate(this._validateInput));
 	}
 };
