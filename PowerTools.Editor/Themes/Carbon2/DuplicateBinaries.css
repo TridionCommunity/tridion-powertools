@@ -1,0 +1,56 @@
+#DuplicateBinaries td
+{
+	vertical-align: top;
+}
+
+#DuplicateBinaries td span
+{
+	font-weight: bold;
+}
+
+#DuplicateBinaries #ExecuteButton
+{
+	margin-bottom: 10px;
+}
+
+/* The results table */
+
+#DuplicateBinaries #resultsArea
+{
+    height: 250px;
+	overflow: auto;
+    margin-bottom: 10px;
+}
+
+#DuplicateBinaries #resultsTable
+{
+    padding: 0 5px 5px 5px;
+}
+
+#DuplicateBinaries #resultsTable th
+{
+    text-align: left;
+    border-color: #E0E0E0;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding: 0 5px 5px 5px;
+}
+#DuplicateBinaries #resultsTable td
+{
+    border-color: #E0E0E0;
+    border-style: solid;
+    border-width: 0 0 1px;
+}
+
+#DuplicateBinaries .tabImgIcon
+{
+    background-image:url({ThemePath}/Icons/image_icon_16.gif);
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+#DuplicateBinaries .idColumn
+{
+	width: 100px;
+}
