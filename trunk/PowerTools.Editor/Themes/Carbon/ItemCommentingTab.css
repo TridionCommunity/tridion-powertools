@@ -1,0 +1,38 @@
+#ItemCommentingTab td
+{
+	vertical-align: top;
+}
+
+#ItemCommentingTab #table
+{
+	width: 685px;
+	height: 350px;
+	overflow: auto;
+}
+
+#ItemCommentingTab #tabletab
+{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+#ItemCommentingTab #table th,
+#ItemCommentingTab #tabletab th,
+#ItemCommentingTab #tabletab tr 
+{
+	height: 10px;
+	padding: 3px;
+}
+
+#ItemCommentingTab #table th, 
+#ItemCommentingTab #tabletab th, 
+#ItemCommentingTab .row1
+{
+	background-color: #e5e5e5;
+}
+
+#ItemCommentingTab .row0
+{
+	background-color: #f2f2f2;
+}
