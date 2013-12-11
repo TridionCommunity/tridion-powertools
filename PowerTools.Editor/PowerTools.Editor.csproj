@@ -108,7 +108,6 @@
     <Content Include="Themes\Carbon\ItemCommentingTab.css" />
     <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.js" />
     <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingTab.ascx" />
-    <Content Include="PowerTools\Client\ItemCommenting\ItemCommenting.js" />
     <Content Include="PowerTools\Client\ItemCommenting\ItemCommentingCommand.js" />
     <Content Include="PowerTools\Client\ItemXml\ItemXmlTab.ascx" />
     <Content Include="Themes\Carbon\ItemXmlTab.ascx.css" />
@@ -194,8 +193,6 @@
     <Content Include="Themes\Carbon\Icons\workflownotificationsettings.16x16.png" />
     <Content Include="Themes\Carbon\Icons\workflownotificationsettings.32x32.png" />
     <Content Include="PowerTools\Client\Shared\Theme\jquery-ui.css" />
-    <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.css" />
-    <Content Include="PowerTools\Client\Shared\Views\TreeViewPopupPageBase\TreeViewPopupPageBase.js" />
     <Content Include="Themes\Carbon\Icons\imageupload_16.png" />
     <Content Include="Themes\Carbon\Icons\imageupload_32.png" />
     <Content Include="Themes\Carbon\Icons\imageupload_64.png" />
@@ -289,9 +286,6 @@
     <Compile Include="PowerTools\Client\PagePublisher\PagePublisher.aspx.designer.cs">
       <DependentUpon>PagePublisher.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PowerTools\Client\Shared\Views\FieldViewMaster.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="PowerTools\Client\Shared\Views\PopupMaster.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -341,7 +335,6 @@
     <Content Include="PowerTools\Client\DragDropUploader\web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="PowerTools\Client\Shared\Views\FieldView.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PowerTools\Client\DragDropUploader\TemporaryFiles\" />
