@@ -1,0 +1,172 @@
+.PT_DuplicateBinaries .image {background-image:url({ThemePath}/Icons/duplicate-binaries_16.png);}
+.ribbontoolbar .button.PT_DuplicateBinaries .image {background-image: url({ThemePath}/Icons/duplicate-binaries_32.png);}
+.ribbontoolbar.minimized .button.PT_DuplicateBinaries .image {background-image: url({ThemePath}/Icons/duplicate-binaries_16.png);}
+
+
+.PT_PagePublisher .image {background-image:url({ThemePath}/Icons/pagepublisher_16.png);}
+.ribbontoolbar .button.PT_PagePublisher .image {background-image: url({ThemePath}/Icons/pagepublisher_32.png);}
+.ribbontoolbar.minimized .button.PT_PagePublisher .image {background-image: url({ThemePath}/Icons/pagepublisher_16.png);}
+
+.PT_ImageUploader .image {background-image:url({ThemePath}/Icons/imageupload_16.png);}
+.ribbontoolbar .button.PT_ImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_32.png);}
+.ribbontoolbar.minimized .button.PT_ImageUploader .image {background-image: url({ThemePath}/Icons/imageupload_16.png);}
+
+.PT_MarkUnpublished .image {background-image:url({ThemePath}/Icons/markunpublished_16.png);}
+.ribbontoolbar .button.PT_MarkUnpublished .image {background-image: url({ThemePath}/Icons/markunpublished_32.png);}
+.ribbontoolbar.minimized .button.PT_MarkUnpublished .image {background-image: url({ThemePath}/Icons/markunpublished_16.png);}
+
+.PT_Example .image {background-image:url({ThemePath}/icons/example_16.png);}
+.ribbontoolbar .button.PT_Example .image {background-image: url({ThemePath}/Icons/example_32.png);}
+.ribbontoolbar.minimized .button.PT_Example .image {background-image: url({ThemePath}/Icons/example_16.png);}
+
+.PT_ItemCommenting .image {background-image:url({ThemePath}/icons/itemcommenting.16x16.png);}
+.ribbontoolbar .button.PT_ItemCommenting .image {background-image: url({ThemePath}/Icons/itemcommenting.32x32.png);}
+.ribbontoolbar.minimized .button.PT_ItemCommenting .image {background-image: url({ThemePath}/Icons/itemcommenting.16x16.png);}
+
+.PT_WorkflowNotificationSettings .image {background-image:url({ThemePath}/icons/workflownotificationsettings.16x16.png);}
+.ribbontoolbar .button.PT_WorkflowNotificationSettings .image {background-image: url({ThemePath}/Icons/workflownotificationsettings.32x32.png);}
+.ribbontoolbar.minimized .button.PT_WorkflowNotificationSettings .image {background-image: url({ThemePath}/Icons/workflownotificationsettings.16x16.png);}
+
+.PT_Overview .image {background-image:url({ThemePath}/icons/overview_16.png);}
+.ribbontoolbar .button.PT_Overview .image {background-image: url({ThemePath}/Icons/overview_32.png);}
+.ribbontoolbar.minimized .button.PT_Overview .image {background-image: url({ThemePath}/Icons/overview_16.png);}
+
+.PT_Default .image {background-image:url({ThemePath}//Icons/terminal_16.png);}
+.ribbontoolbar .button.PT_Default .image {background-image: url({ThemePath}/Icons/terminal_32.png);}
+.ribbontoolbar.minimized .button.PT_Default .image {background-image: url({ThemePath}/Icons/terminal_16.png);}
+
+.PT_FieldRemover .image {background-image:url({ThemePath}/Icons/fieldremover_16.png);}
+.ribbontoolbar .button.PT_FieldRemover .image {background-image: url({ThemePath}/Icons/fieldremover_32.png);}
+.ribbontoolbar.minimized .button.PT_FieldRemover .image {background-image: url({ThemePath}/Icons/fieldremover_16.png);}
+
+.PT_ComponentSynchronizer .image {background-image:url({ThemePath}/Icons/componentsynchronizer_16.png);}
+.ribbontoolbar .button.PT_ComponentSynchronizer .image {background-image: url({ThemePath}/Icons/componentsynchronizer_32.png);}
+.ribbontoolbar.minimized .button.PT_ComponentSynchronizer .image {background-image: url({ThemePath}/Icons/componentsynchronizer_16.png);}
+
+.PT_CountItems .image {background-image:url({ThemePath}/Icons/countitems_16.png);}
+.ribbontoolbar .button.PT_CountItems .image {background-image: url({ThemePath}/Icons/countitems_32.png);}
+.ribbontoolbar.minimized .button.PT_CountItems .image {background-image: url({ThemePath}/Icons/countitems_16.png);}
+
+.PT_AppDataInspector .image {background-image:url({ThemePath}/Icons/appdatainspector_16.png);}
+.ribbontoolbar .button.PT_AppDataInspector .image {background-image: url({ThemePath}/Icons/appdatainspector_32.png);}
+.ribbontoolbar.minimized .button.PT_AppDataInspector .image {background-image: url({ThemePath}/Icons/appdatainspector_16.png);}
+
+.PT_ViewInStaging .image {background-image:url({ThemePath}/Icons/viewinfrontend_16.png);}
+.ribbontoolbar .button.PT_ViewInStaging .image {background-image: url({ThemePath}/Icons/viewinfrontend_32.png);}
+.ribbontoolbar.minimized .button.PT_ViewInStaging  .image {background-image: url({ThemePath}/Icons/viewinfrontend_16.png);}
+
+.PT_ViewInLive .image {background-image:url({ThemePath}/Icons/viewinfrontend_16.png);}
+.ribbontoolbar .button.PT_ViewInLive  .image {background-image: url({ThemePath}/Icons/viewinfrontend_32.png);}
+.ribbontoolbar.minimized .button.PT_ViewInLive .image {background-image: url({ThemePath}/Icons/viewinfrontend_16.png);}
+
+.PT_DocumentItem .image {background-image:url({ThemePath}/Icons/documentitem_16.png);}
+.ribbontoolbar .button.PT_DocumentItem  .image {background-image: url({ThemePath}/Icons/documentitem_32.png);}
+.ribbontoolbar.minimized .button.PT_DocumentItem .image {background-image: url({ThemePath}/Icons/documentitem_16.png);}
+
+
+.PT_Help .image {background-image:url({ThemePath}/Icons/help_16.png);}
+.ribbontoolbar .button.PT_Help  .image {background-image: url({ThemePath}/Icons/help_32.png);}
+.ribbontoolbar.minimized .button.PT_Help .image {background-image: url({ThemePath}/Icons/help_16.png);}
+
+.PT_AddUser .image {background-image:url({ThemePath}/Icons/new-user.16x16.png);}
+
+
+.powertool div#PowerToolIcon
+{
+	width: 64px;
+	height: 64px;
+	float: right;
+	background-repeat:no-repeat;
+	background-image: url({ThemePath}/Icons/power-tools-logo.png);
+}
+
+/* Z-index of #mask must lower than #boxes .window */
+.powertool #mask
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9000;
+	background-color: #000;
+	display: none;
+}
+
+.powertool .customButton
+{
+	cursor: pointer;
+	float: right;
+	font-size: 11px;
+	margin-right: 10px;
+}
+
+.powertool .tool-explanation
+{
+	margin-bottom: 20px;
+}
+
+.powertool .fl
+{
+	float: left;
+	width: 33%;
+}
+
+.powertool ul
+{
+	list-style-type: none;
+	margin-top: 0;
+	padding-left: 5px;
+}
+
+.powertool .br
+{
+	clear: both;
+}
+
+.powertool h1
+{
+	margin: 10px;
+}
+
+.powertool #ModalDialog .window
+{
+	display: none;
+	position: absolute;
+	width: 300px;
+	height: 100px;
+	z-index: 9999;
+	padding: 20px;
+	border: 2px solid black; 
+	background-color: white; 
+	text-align: center;
+}
+
+.powertool #ModalDialog .window .progressBorder
+{
+	border: 1px solid black; 
+	background-color: white; 
+	width: 100%;
+}
+
+.powertool #ModalDialog .window .progressBar
+{
+	height: 15px; 
+	width: 1px; 
+	background-color: navy;
+}
+
+.powertool #ModalDialog .window .progressStatus
+{
+	width: 100%; 
+	text-align: center;
+}
+
+.powertool #container
+{
+	padding: 10px;
+}
+
+.powertool #progress
+{
+	display: none;
+	padding-top: 10px;
+}

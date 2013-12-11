@@ -1,0 +1,28 @@
+/* labels & buttons */
+#PagePublisher .ttLabel{ margin: 0; padding: 0 0 10px; }
+#PagePublisher #PublishLaterDate{display: block; clear:both;}
+#PagePublisher #PublishLaterDate input[type="text"], #GenerateContentDate input[type="text"], #PlaceContentDate input[type="text"]{width: 165px !important; border: 1px solid #B8C1CC; margin: 5px 0 0 25px;}
+#PagePublisher input[type=text], select#Priority{font-family: Verdana;font-size: 11px;  color: #41464C;}
+#PagePublisher #OptionsTabControl {height: 100%; padding: 0;}
+#PagePublisher #OptionsTabControl_pages {border: 1px solid #A1A9B2;}
+#PagePublisher #TargetTypeList {border: 1px solid #A1A9B2;}
+#PagePublisher #CloseDialog { text-align: center; }
+
+/* layout & boxes */
+.powertool #container { padding: 0 !important; }
+#PagePublisher #PagePublisherContent { padding: 10px; }
+#PagePublisher #boxes #dialog{ width: 375px; height: 203px; }
+#PagePublisher .tridion .dropdown{ background-color: #FFF; background-position: 2px 0; border: 1px solid #CCC; margin-right: 2px; min-height: 16px; min-width: 100px; }
+#PagePublisher .tridion .splitter.vertical{ height: 100%; position: relative; }
+#PagePublisher .tridion .splitter.vertical > .panel2 { height: 100%; margin: 0; overflow: auto; padding: 0; width: auto; }
+#PagePublisher .tridion .list {overflow: hidden;position: relative;}
+#PagePublisher .tridion .text_highlight {color: #2972CC;}
+#PagePublisher .handle { background: none repeat scroll 0 0 transparent !important; cursor: default !important; width: 10px !important; }
+#PagePublisher .panel1 { float: left; height: 100%; margin: 0 10px 0 0; overflow: auto; padding: 0; width: auto; width: 290px !important; }
+#PagePublisher .box-spacer-5 { margin: 5px; }
+#PagePublisher .top-spacer-5 { margin-top: 5px; }
+#PagePublisher .box-spacer-10 { margin: 10px; }
+#PagePublisher .alignRight, .alignRight .button {float: right;}
+#PagePublisher .left-tabbed {margin-left: 25px;}
+#PagePublisher .clearfix:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+#PagePublisher .footer {background-color: #EBEDF0; border-top: 1px solid #A1A9B2; height: 41px; width: 100%; padding: 0;}
