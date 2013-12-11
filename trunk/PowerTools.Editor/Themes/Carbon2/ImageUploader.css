@@ -1,0 +1,14 @@
+#ImageUploader label
+{
+	line-height: 20px;
+}
+
+#ImageUploader .sourceFolderSelection
+{
+	margin-bottom: 10px;
+}
+
+#ImageUploader .schemaSelection
+{
+	padding-bottom: 30px;
+}

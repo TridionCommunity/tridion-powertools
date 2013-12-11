@@ -1,0 +1,9 @@
+#CountItems td
+{
+	vertical-align: top;
+}
+
+#CountItems td span
+{
+	font-weight: bold;
+}

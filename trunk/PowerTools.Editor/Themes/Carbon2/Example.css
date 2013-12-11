@@ -1,0 +1,32 @@
+#Example table, th, tr, td
+{
+    border: 1px solid #878787;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#Example div .dropdown
+{
+    margin-right: 10px;
+    margin-top: 8px;
+    margin-bottom:8px;
+}
+#Example .customButton
+{
+    cursor: pointer;
+    font-size: 11px;
+    margin-right: 10px;
+    margin-top: 8px;
+    margin-bottom:8px;
+}
+
+#Example .clearline
+{
+    clear:both;
+    margin-top:5px;
+}
+
+#Example .exampleLabel
+{
+	font-style: italic;
+}

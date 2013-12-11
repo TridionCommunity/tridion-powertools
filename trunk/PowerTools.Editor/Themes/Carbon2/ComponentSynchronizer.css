@@ -1,0 +1,38 @@
+/* Buttons */
+#ComponentSynchronizer #BtnBrowse, 
+#ComponentSynchronizer #BtnOpenURL.btnBrowse
+{
+	min-width: 22px;
+	margin-right: 5px;
+}
+
+#ComponentSynchronizer #BtnBrowse span, .btnBrowse
+{
+	background: url("/WebUI/Editors/CME/Themes/Carbon/Images/Icons/browse-folders.16x16_v6.0.0.39607.0_.png") no-repeat;
+}
+
+#ComponentSynchronizer #BtnRemove
+{
+	min-width: 22px;
+}
+#ComponentSynchronizer #BtnRemove span,
+#ComponentSynchronizer #BtnRemoveDisclaimer span
+{
+	background: url("/WebUI/Editors/CME/Themes/Carbon/Images/Icons/delete.16x16_v6.0.0.39607.0_.png") no-repeat 2px center;
+}
+#ComponentSynchronizer #BtnRemove.disabled span
+{
+	background-image: url("/WebUI/Editors/CME/Themes/Carbon/Images/Icons/delete.16x16.gray_v6.0.0.39607.0_.png");
+}
+
+#ComponentSynchronizer .buttonArea
+{
+	padding-top: 10px
+}
+
+#ComponentSynchronizer .buttonArea .button
+{
+	margin-right: 8px;
+}
+
+/* End of Buttons */
