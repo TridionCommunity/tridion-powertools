@@ -31,7 +31,7 @@ function UpdateProjectFile
 
 	if (!(Test-Path $projectFile))
 	{
-		FailBuild "Could not find the setup project file (looking for '$projectFile').";
+		FailBuild "Could not find the setup project file (looking for `"$projectFile`").";
 	}
 
 	(gc $projectFile) `
