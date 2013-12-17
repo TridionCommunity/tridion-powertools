@@ -1,8 +1,0 @@
-﻿<NotificationFramework>
-  <Notifier type="WorkflowEmailNotifier" notification_frequency="3D" notification_last_send="2012-10-07T23:13Z">
-    <EmailAddress>punter@outfit.org</EmailAddress>
-  </Notifier>
-  <Notifier type="WorkflowTwitterNotifier" notification_frequency="3D" notification_last_send="2012-10-07T23:13Z">
-    <TwitterName>TridionLovingHackyGeek</TwitterName>
-  </Notifier>
-</NotificationFramework>
