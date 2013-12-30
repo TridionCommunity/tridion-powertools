@@ -70,11 +70,43 @@ PowerTools.AppDataInspectorWorker.prototype._handleDataResponse = function (resp
     var p = this.properties;
     var content = "";
     var i = 0;
-    response.each(function (elem)
+
+	function getDataCell(data, dataType)
+	{
+		if (dataType.indexOf("image/") == 0)
+		{
+			if (btoa)
+			{
+				try
+				{
+					return "<td><img src='data:" + dataType + ";base64," + btoa(data) + "'/></td>";
+				} 
+				catch(e) { }
+			}
+			return "<td>(Unable to display image)</td>";
+		}
+
+		if (dataType.indexOf("XmlDocument") > -1 || dataType.indexOf("XmlElement") > -1)
+		{
+			return "<td><div class='pre'>" + $ptUtils.htmlEncode(data) + "</div></td>";
+		}
+
+		if (dataType.indexOf("DateTime") > -1)
+		{
+			var parsedDate = Date.parse(data);
+			return "<td title='" + data + "'>" + parsedDate.toLocaleString() + "</td>";
+		}
+
+		return "<td>" + $ptUtils.wbr($ptUtils.htmlEncode(data), 12) + "</td>";
+	}
+
+	response.each(function (elem)
     {
         content += "<tr class=\"row" + (i % 2) + "\"><td>" + $ptUtils.wbr($ptUtils.htmlEncode(elem.ApplicationId), 12) +
-                "</td><td>" + $ptUtils.wbr($ptUtils.htmlEncode(elem.Value), 12) +
-                "</td><td>" + $ptUtils.wbr($ptUtils.htmlEncode(elem.Type), 12) +
+                "</td>" + 
+				getDataCell(elem.Value, elem.Type) +
+                "<td>" + 
+				$ptUtils.wbr($ptUtils.htmlEncode(elem.Type), 12) +
                 "</td</tr>";
         i++;
     });

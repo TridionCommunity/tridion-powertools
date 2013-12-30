@@ -171,3 +171,11 @@
 	display: none;
 	padding-top: 10px;
 }
+
+.powertool .pre
+{
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    white-space: pre;
+}
