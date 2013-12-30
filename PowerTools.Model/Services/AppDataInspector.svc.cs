@@ -1,10 +1,13 @@
 ﻿﻿using System;
 using System.Collections.Generic;
-using System.ServiceModel;
+﻿using System.Linq;
+﻿using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
-using PowerTools.Common.CoreService;
+﻿using System.Xml;
+﻿using System.Xml.Linq;
+﻿using PowerTools.Common.CoreService;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
 
@@ -93,7 +96,7 @@ namespace PowerTools.Model.Services
 				process.SetCompletePercentage(20);
 				process.SetStatus(Resources.AppDataInspectorRetrievingData);
 
-				ApplicationData[] appDataList = coreService.ReadAllApplicationData(parameters.ItemUri);
+				ApplicationData[] appDataList = coreService.ReadAllApplicationData(parameters.ItemUri).OrderBy(data => data.ApplicationId).ToArray();
 				double progressIncrement = appDataList.Length == 0 ? 0 : 80 / appDataList.Length; //nasty progress calculation
 				int i = 1;
 
@@ -124,17 +127,40 @@ namespace PowerTools.Model.Services
 		private Object ByteArrayToObject(ApplicationData appData)
 		{
 			byte[] arrBytes = appData.Data;
-			//TODO: A possible major todo here - treat the byte array properly when deserializing.
-			//For simply showing the data, the current implementation will do. However for actual
-			//deserialization a lot more needs to happen. Maybe for the purpose of the tool, this
-			//would be enough for now.
-			if (!String.IsNullOrEmpty(appData.TypeId) && appData.TypeId.Contains("c:XmlDocument"))
+			string dataType = appData.TypeId;
+
+			if (!string.IsNullOrWhiteSpace(dataType))
 			{
-				// it has been observer (though not confirmed) that c:XmlDocument is Unicode encodeed
-				return Encoding.Unicode.GetString(arrBytes);
+				string xmlData = null;
+
+				if (dataType.Contains("c:XmlDocument"))
+				{
+					xmlData = Encoding.Unicode.GetString(arrBytes);
+				} 
+				else if (dataType.Contains("XmlDocument") || dataType.Contains("XmlElement"))
+				{
+					xmlData = Encoding.UTF8.GetString(arrBytes);
+				}
+
+				if (!string.IsNullOrWhiteSpace(xmlData))
+				{
+					try
+					{
+						XDocument document = XDocument.Parse("<root>" + xmlData + "</root>");
+						var node = document.Descendants("root").FirstOrDefault();
+						return String.Concat(node.Nodes().Select(x => x.ToString() + Environment.NewLine).ToArray());
+					}
+					catch (XmlException exception)
+					{
+						return xmlData;
+					}
+				}
+				if (dataType.StartsWith("image/"))
+				{
+					return Encoding.GetEncoding("ISO-8859-1").GetString(arrBytes);
+				}
 			}
-			
-			// ... and the rest of types are just UTF8 encoded
+
 			return Encoding.UTF8.GetString(arrBytes);
 		}
 	}

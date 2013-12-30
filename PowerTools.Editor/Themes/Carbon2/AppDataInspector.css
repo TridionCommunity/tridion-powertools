@@ -5,8 +5,8 @@
 
 #AppDataInspector #table
 {
-	width: 685px;
-	height: 310px;
+	width: 100%;
+	height: 400px;
 	overflow: auto;
 }
 
@@ -21,10 +21,6 @@
 {
 	height: 20px;
 	padding: 3px;
-}
-
-#AppDataInspector #table th, #AppDataInspector #tabletab th, #AppDataInspector .row1
-{
 	background-color: #e5e5e5;
 }
 
@@ -33,13 +29,23 @@
 	vertical-align: top;
 }
 
+#AppDataInspector td img
+{
+	height: 64px;
+	width: 64px;
+}
+
 #AppDataInspector td span
 {
 	font-weight: bold;
 }
 
-
 #AppDataInspector .row0
 {
 	background-color: #f2f2f2;
+}
+
+#AppDataInspector .row1
+{
+	background-color: #e5e5e5;
 }
