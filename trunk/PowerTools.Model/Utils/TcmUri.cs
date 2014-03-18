@@ -129,14 +129,15 @@ namespace PowerTools.Model.Utils
                 version = 0;
                 itemType = 16;
 
-                if (m.Groups.Count > 3)
+                // The groups are always there, even if they did not match anything. They'll just have an empty string value in that case.
+                if (!String.IsNullOrWhiteSpace(m.Groups[3].Value))
                 {
                     itemType = Convert.ToInt32(m.Groups[3].Value);
+                }
 
-                    if (m.Groups.Count > 4)
-                    {
-                        version = Convert.ToInt32(m.Groups[4].Value);
-                    }
+                if (!String.IsNullOrWhiteSpace(m.Groups[4].Value))
+                {
+                    version = Convert.ToInt32(m.Groups[4].Value);
                 }
 
                 if (publicationId == 0 && itemId == 0 && itemType == 0 && version == 0) return true;
