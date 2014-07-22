@@ -13,28 +13,25 @@ PowerTools.Commands.AddUser.prototype.isValidSelection = function AddUserCommand
 
 PowerTools.Commands.AddUser.prototype._execute = function AddUserCommand$_execute(selection) 
 {
-    var userName = prompt("Please enter a username e.g. 'DOMAIN\\USER'", "");
-    var onSuccess = this.getDelegate(this._handleSuccess);
-    $messages.registerProgress("Adding user...", userName, false);
-    PowerTools.Model.Services.AddUser.CreateUser(userName, onSuccess, this.getErrorHandler());
+	var userName = prompt("Please enter a username e.g. 'DOMAIN\\USER'", "");
+	var onSuccess = this.getDelegate(this._handleSuccess);
+	var onFailure = this.getDelegate(this._handleFailure);
+	$messages.registerProgress("Adding user...", userName, false);
+	PowerTools.Model.Services.AddUser.CreateUser(userName, onSuccess, onFailure);
 };
 
 PowerTools.Commands.AddUser.prototype._handleSuccess = function AddUserCommand$_handleSuccess(result) 
 {
-    if (result.ErrorMessage == undefined) 
+    if (result.ErrorMessage) 
 	{
-        $messages.registerGoal("AddUser Powertool: created " + result.UserName);
-	    $display.getView().refreshList();
-	    //$cme.getCommand("Refresh")._execute();
-
+        return this._handleFailure(result);
 	} 
-	else 
-	{
-        $messages.registerError("AddUser Powertool: "+ result.ErrorMessage);
-    }
+
+    $messages.registerGoal("User has been added.", result.UserName);
+	$display.getView().refreshList();
 };
 
 PowerTools.Commands.AddUser.prototype._handleFailure = function AddUserCommand$_handleFailure(result) 
 {
-    $messages.registerError("AddUser Powertool: " + result.ErrorMessage);
+    $messages.registerError("Failed to add user", result.ErrorMessage);
 };
