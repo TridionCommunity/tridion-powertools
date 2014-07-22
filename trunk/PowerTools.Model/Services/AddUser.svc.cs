@@ -31,7 +31,7 @@ namespace PowerTools.Model.Services
                 UserData userData = (UserData)coreService.GetDefaultData(ItemType.User, null);
 #endif
                 userData.Title = userName;
-                userData.Description = "New Power Tool User";
+                userData.Description = userName;
 
                 userData = (UserData)coreService.Create(userData, new ReadOptions());
 
