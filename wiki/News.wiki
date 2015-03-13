@@ -2,6 +2,13 @@
 
 = Updates =
 
+(20-July 2014) Ping one of us if you need access to the Skype chat.
+
+(14-May 2013) We've had great help from a Community edition of FlowDock but it's been quiet and our license is up. We're letting it lapse and we'll continue on the [https://groups.google.com/forum/#!forum/tridion-powertools forum] or chat.
+
+(06-Dec 2013) SDL Tridion 2013 adds Content Schema Synchronization methods to CoreService and TOM.NET. This is not a component synchronizer on its own, but we'll have an easier way to move forward with PowerTools Component Synchronizer (community willing).
+
+(01-Aug 2013) The team added a [https://code.google.com/p/tridion-2011-power-tools/source/browse/#svn%2Fbranches%2Ftridion-2013-support branch specifically for SDL Tridion 2013 support]. Thanks!
 (23-May 2013) Thanks much to Otto and the Flowdock team for extending our license. Go, be productive with some of the best tools available.
 
 (22-May 2013) FYI: In case you have any issues with the FlowDock account, we're looking to renew our FlowDock license. We'll post updates.
