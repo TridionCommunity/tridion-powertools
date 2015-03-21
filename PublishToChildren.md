@@ -1,0 +1,3 @@
+# Publish to select child publications #
+
+Using the standard GUI, there is an option on the advanced tab of the publishing dialog to "Publish to Child Publications". This tool will add an extra item to the Publishing node on the context menu which create a new dialog which supports selecting targets, and allows the editor to pick which child publications the item should be published to, and to which targets.
