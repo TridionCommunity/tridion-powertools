@@ -6,6 +6,7 @@ using System.Threading;
 using PowerTools.Model.CoreService;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
+using PowerTools.Model.Services.DTO;
 
 
 namespace PowerTools.Model.Services

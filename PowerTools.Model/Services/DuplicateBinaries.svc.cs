@@ -9,6 +9,7 @@ using PowerTools.Model.CoreService;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
 using System.Xml.Linq;
+using PowerTools.Model.Services.DTO;
 
 namespace PowerTools.Model.Services
 {

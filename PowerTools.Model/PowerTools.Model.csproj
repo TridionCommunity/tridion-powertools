@@ -127,15 +127,15 @@
     <Compile Include="Services\AppDataInspector.svc.cs">
       <DependentUpon>AppDataInspector.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\AppDataInspectorData.cs" />
+    <Compile Include="Services\DTO\AppDataInspectorData.cs" />
     <Compile Include="Services\AppDataServices.svc.cs">
       <DependentUpon>AppDataServices.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\ExampleData.cs" />
+    <Compile Include="Services\DTO\ExampleData.cs" />
     <Compile Include="Services\CountItems.svc.cs">
       <DependentUpon>CountItems.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\CountItemsData.cs" />
+    <Compile Include="Services\DTO\CountItemsData.cs" />
     <Compile Include="Services\PagePublisher.svc.cs">
       <DependentUpon>PagePublisher.svc</DependentUpon>
     </Compile>
@@ -154,9 +154,9 @@
     <Compile Include="Services\DuplicateBinaries.svc.cs">
       <DependentUpon>DuplicateBinaries.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\DuplicateBinariesData.cs" />
-    <Compile Include="Services\ServiceResponseBase.cs" />
-    <Compile Include="Services\StatusServiceResponse.cs" />
+    <Compile Include="Services\DTO\DuplicateBinariesData.cs" />
+    <Compile Include="Services\DTO\ServiceResponseBase.cs" />
+    <Compile Include="Services\DTO\StatusServiceResponse.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\Namespaces.cs" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace PowerTools.Model.Services
+namespace PowerTools.Model.Services.DTO
 {
 	[DataContract]
 	public class ServiceResponseBase
