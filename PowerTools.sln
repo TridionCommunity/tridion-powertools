@@ -1,14 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools.Editor", "PowerTools.Editor\PowerTools.Editor.csproj", "{D5174043-975A-4AE9-855C-4A8DB6313DB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools.Model", "PowerTools.Model\PowerTools.Model.csproj", "{4E10D003-9313-449E-9E21-61265236F43A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerTools.Common", "PowerTools.Common\PowerTools.Common.csproj", "{B0EF0918-58E9-4439-BF26-76895E3BE66B}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PowerTools.Installer", "PowerTools.Installer\PowerTools.Installer.vdproj", "{14A490D8-1D89-41D2-92EA-E3679E4D244E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomInstallerView", "CustomInstallerView\CustomInstallerView.csproj", "{F7DB7B86-ECC1-4644-911C-D7F3125B170D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,48 +49,6 @@ Global
 		{4E10D003-9313-449E-9E21-61265236F43A}.Tridion2013|Mixed Platforms.ActiveCfg = Tridion2013|Any CPU
 		{4E10D003-9313-449E-9E21-61265236F43A}.Tridion2013|Mixed Platforms.Build.0 = Tridion2013|Any CPU
 		{4E10D003-9313-449E-9E21-61265236F43A}.Tridion2013|x86.ActiveCfg = Tridion2013|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Release|x86.ActiveCfg = Release|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Tridion2013|Any CPU.ActiveCfg = Tridion2013|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Tridion2013|Any CPU.Build.0 = Tridion2013|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Tridion2013|Mixed Platforms.ActiveCfg = Tridion2013|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Tridion2013|Mixed Platforms.Build.0 = Tridion2013|Any CPU
-		{B0EF0918-58E9-4439-BF26-76895E3BE66B}.Tridion2013|x86.ActiveCfg = Tridion2013|Any CPU
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Debug|Any CPU.ActiveCfg = Debug
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Debug|x86.ActiveCfg = Debug
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Debug|x86.Build.0 = Debug
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Release|Any CPU.ActiveCfg = Release
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Release|Mixed Platforms.ActiveCfg = Release
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Release|Mixed Platforms.Build.0 = Release
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Release|x86.ActiveCfg = Release
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Release|x86.Build.0 = Release
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Tridion2013|Any CPU.ActiveCfg = Tridion2013
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Tridion2013|Mixed Platforms.ActiveCfg = Tridion2013
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Tridion2013|Mixed Platforms.Build.0 = Tridion2013
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Tridion2013|x86.ActiveCfg = Tridion2013
-		{14A490D8-1D89-41D2-92EA-E3679E4D244E}.Tridion2013|x86.Build.0 = Tridion2013
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Debug|x86.ActiveCfg = Debug|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Debug|x86.Build.0 = Debug|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Release|Any CPU.ActiveCfg = Release|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Release|Mixed Platforms.Build.0 = Release|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Release|x86.ActiveCfg = Release|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Release|x86.Build.0 = Release|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Tridion2013|Any CPU.ActiveCfg = Tridion2013|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Tridion2013|Mixed Platforms.ActiveCfg = Tridion2013|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Tridion2013|Mixed Platforms.Build.0 = Tridion2013|x86
-		{F7DB7B86-ECC1-4644-911C-D7F3125B170D}.Tridion2013|x86.ActiveCfg = Tridion2013|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

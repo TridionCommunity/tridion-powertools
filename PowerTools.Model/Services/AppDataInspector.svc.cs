@@ -7,7 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 ﻿using System.Xml;
 ﻿using System.Xml.Linq;
-﻿using PowerTools.Common.CoreService;
+﻿using PowerTools.Model.CoreService;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
 
@@ -150,7 +150,7 @@ namespace PowerTools.Model.Services
 						var node = document.Descendants("root").FirstOrDefault();
 						return String.Concat(node.Nodes().Select(x => x.ToString() + Environment.NewLine).ToArray());
 					}
-					catch (XmlException exception)
+					catch (XmlException)
 					{
 						return xmlData;
 					}

@@ -4,7 +4,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 using PowerTools.Model.Progress;
-using PowerTools.Common.CoreService;
+using PowerTools.Model.CoreService;
 using Tridion.ContentManager.CoreService.Client;
 
 namespace PowerTools.Model.Services

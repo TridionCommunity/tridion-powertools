@@ -58,7 +58,7 @@ namespace PowerTools.Model.Services
 				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "Directory '{0}' does not exist.", parameters.Directory));
 			}
 
-			var client = PowerTools.Common.CoreService.Client.GetCoreService();
+			var client = CoreService.Client.GetCoreService();
 
 			try
 			{

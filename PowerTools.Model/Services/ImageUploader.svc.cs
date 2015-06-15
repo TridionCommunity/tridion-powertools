@@ -8,7 +8,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-using PowerTools.Common.Utils;
+using PowerTools.Model.Utils;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
 
@@ -88,7 +88,7 @@ namespace PowerTools.Model.Services
                 }
                 string[] files = Directory.GetFiles(directory);
 				int i = 0;
-                _client = PowerTools.Common.CoreService.Client.GetCoreService();
+                _client = CoreService.Client.GetCoreService();
 
                 //Get all component titles in the target folder           
                 _componentTitles = getAllComponentTitles(parameters.FolderUri);
@@ -160,7 +160,7 @@ namespace PowerTools.Model.Services
             //Strip of leading . from extension
             string ext = extension.StartsWith(".") ? extension.Substring(1) : extension;
 
-			var result = from item in MultiMediaTypes.Descendants(TridionNamespaceManager.Tcm + "Item")
+			var result = from item in MultiMediaTypes.Descendants(Namespaces.Tcm + "Item")
 						 let fileExtensions = item.Attribute("FileExtensions")
 						 let typeId = item.Attribute("ID")
 						 where fileExtensions != null && fileExtensions.Value.Contains(ext)
@@ -179,7 +179,7 @@ namespace PowerTools.Model.Services
             filter.ForItem = new LinkToRepositoryLocalObjectData { IdRef = folderUri };
             var bluePrintData = _client.GetSystemWideListXml(filter);
 
-            var allRelevantFolders = bluePrintData.Descendants(TridionNamespaceManager.Tcm + "Item").Where(item => item.Attribute("IsShared").Value == "True");
+            var allRelevantFolders = bluePrintData.Descendants(Namespaces.Tcm + "Item").Where(item => item.Attribute("IsShared").Value == "True");
 
             allRelevantFolders.ToList().ForEach(folder => getComponentTitles(folder.Attribute("ID").Value).ToList().ForEach(component => titles.Add(component)));
 
@@ -194,8 +194,8 @@ namespace PowerTools.Model.Services
             filterData.BaseColumns = ListBaseColumns.IdAndTitle;
             var result = _client.GetListXml(folderUri, filterData);
 
-            if (result != null && result.Descendants(TridionNamespaceManager.Tcm + "Item").Count() > 0)
-                return result.Descendants(TridionNamespaceManager.Tcm + "Item")
+            if (result != null && result.Descendants(Namespaces.Tcm + "Item").Count() > 0)
+                return result.Descendants(Namespaces.Tcm + "Item")
                              .Select(item => item.Attribute("Title").Value).ToHashSet();
 
             return new HashSet<string>();

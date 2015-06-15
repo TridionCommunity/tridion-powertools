@@ -51,7 +51,7 @@ namespace PowerTools.Model.Services
 				throw new BaseServiceException(string.Format(CultureInfo.InvariantCulture, "parameters.OrgItemURI is null or empty"));
 			}
 
-			var client = PowerTools.Common.CoreService.Client.GetCoreService();
+			var client = CoreService.Client.GetCoreService();
 
 			try
 			{

@@ -120,8 +120,29 @@
   <data name="AppDataInspectorRetrievingData" xml:space="preserve">
     <value>Retrieving data...</value>
   </data>
+  <data name="ErrorEditorsVirtualDirNotFound" xml:space="preserve">
+    <value>Could not find the Editors virtual directory.</value>
+  </data>
   <data name="ErrorInvalidTcmUri" xml:space="preserve">
     <value>Invalid TCM URI: '{0}'.</value>
+  </data>
+  <data name="ErrorModelsVirtualDirNotFound" xml:space="preserve">
+    <value>Could not find the Models virtual directory.</value>
+  </data>
+  <data name="ErrorTargetDirNotSet" xml:space="preserve">
+    <value>The target directory was not passed to the custom action.</value>
+  </data>
+  <data name="ErrorWebsiteEmpty" xml:space="preserve">
+    <value>The Content Manager Explorer website is empty.</value>
+  </data>
+  <data name="ErrorWebsiteIdNotSet" xml:space="preserve">
+    <value>The ID of the SDL Tridion 2011 website was not passed to the custom action.</value>
+  </data>
+  <data name="ErrorWebsiteNotFound" xml:space="preserve">
+    <value>The SDL Tridion 2011 website could not be found. Searched for a site with ID '{0}'.</value>
+  </data>
+  <data name="ErrorWebUiNotFound" xml:space="preserve">
+    <value>Could not find the WebUI virtual directory.</value>
   </data>
   <data name="ProgressStatusComplete" xml:space="preserve">
     <value>Completed.</value>

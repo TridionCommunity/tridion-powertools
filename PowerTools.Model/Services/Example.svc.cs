@@ -3,7 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Threading;
-using PowerTools.Common.CoreService;
+using PowerTools.Model.CoreService;
 using PowerTools.Model.Progress;
 using Tridion.ContentManager.CoreService.Client;
 
