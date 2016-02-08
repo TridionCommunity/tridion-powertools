@@ -100,13 +100,14 @@ PowerTools.Popups.PagePublisher.prototype._onExecuteButtonClicked = function Pag
     p.PublishStructureGroupInfo = $("#resolveStructureGroupInfoChk").checked;
     p.IncludeWorkflow = $("#includeWorkFlowChk").checked;
     p.Priority = parseInt($j("#Priority").val());
+    p.schedulePublish = $("#PublishLaterDate_datetime").value;
     
 	var onSuccess = this.getDelegate(this._onExecuteStarted);
 
     // pass in structure uri, publishing target uri
     PowerTools.Model.Services.PagePublisher.Execute(p.locationId, p.SelectedTarget, p.Recursive, p.Republish, p.Priority,
         p.PublishChildren, p.IncludeComponentLinks, p.PublishStructureGroupInfo,
-        p.IncludeWorkflow, onSuccess, this.getErrorHandler());
+        p.IncludeWorkflow, p.schedulePublish, onSuccess, this.getErrorHandler());
 };
 
 PowerTools.Popups.PagePublisher.prototype.afterSuccess = function PagePublisher$afterSuccess(processId) 
