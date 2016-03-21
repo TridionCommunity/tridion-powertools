@@ -45,6 +45,7 @@ namespace PowerTools.Model.Services
             public bool IncludeComponentLinks { get; set; }
             public bool IncludeStructureGroups { get; set; }
             public bool IncludeWorkflow { get; set; }
+            public string SchedulePublish { get; set; }
         }
 
         private PagePublisherData _pagePublisherData = null;
@@ -62,7 +63,7 @@ namespace PowerTools.Model.Services
         /// <param name="publishChildren"></param>
         /// <returns></returns>
         [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
-        public ServiceProcess Execute(string locationId, string[] targetUri, bool recursive, bool republish, int priority, bool publishChildren, bool includeComponentLinks, bool includeStructureGroups, bool includeWorkflow)
+        public ServiceProcess Execute(string locationId, string[] targetUri, bool recursive, bool republish, int priority, bool publishChildren, bool includeComponentLinks, bool includeStructureGroups, bool includeWorkflow, string schedulePublish)
         {
 
             if (string.IsNullOrEmpty(locationId))
@@ -80,7 +81,8 @@ namespace PowerTools.Model.Services
                 PublishChildren = publishChildren,
                 IncludeComponentLinks = includeComponentLinks,
                 IncludeStructureGroups = includeStructureGroups,
-                IncludeWorkflow = includeWorkflow
+                IncludeWorkflow = includeWorkflow,
+                SchedulePublish = schedulePublish
             };
             return ExecuteAsync(arguments);
         }
@@ -173,7 +175,7 @@ namespace PowerTools.Model.Services
             resolveInstruction.Purpose = parameters.Republish ? ResolvePurpose.RePublish : ResolvePurpose.Publish;
 
             RenderInstructionData renderInstruction = new RenderInstructionData();
-            renderInstruction.RenderMode = RenderMode.PreviewDynamic;
+            renderInstruction.RenderMode = RenderMode.Publish;
  
 
             PublishInstructionData instruction = new PublishInstructionData();
@@ -181,6 +183,10 @@ namespace PowerTools.Model.Services
             instruction.MaximumNumberOfRenderFailures = 1;
             instruction.ResolveInstruction = resolveInstruction;
             instruction.RenderInstruction = renderInstruction;
+            if (!string.IsNullOrEmpty(parameters.SchedulePublish))
+            {
+                instruction.StartAt = DateTime.Parse(parameters.SchedulePublish);
+            }
             return instruction;
         }
 
